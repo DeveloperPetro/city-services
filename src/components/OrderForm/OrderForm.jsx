@@ -91,7 +91,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                 <use href='/sprite.svg#close' />
                             </svg>
                         </button>
-                        <h2 className={styles.title}>Daily Rent</h2>
+                        <h2 className={styles.title}>Daily Rent Kyiv</h2>
                         <h3 className={seoStyles.titleHidden}>
                             Оренда квартири суми. Суми квартири. Аренда квартиры
                             Сумы.

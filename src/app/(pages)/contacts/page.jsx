@@ -1,9 +1,9 @@
 import ContactsComponent from "@/components/ContactsComponent/ContactsComponent.jsx";
 
 export const metadata = {
-  title: "Квартири подобово Daily Rent ⭐ оренда квартири Суми",
+  title: "Квартири подобово Daily Rent Kyiv ⭐ оренда квартири Київ",
   description:
-    "Оренда квартир подобово або погодинно Суми ⭐ Зняти квартиру на добу, день або ніч ✔️ Квартири подобово на Daily Rent",
+    "Оренда квартир подобово або погодинно Київ ⭐ Зняти квартиру на добу, день або ніч ✔️ Квартири подобово на Daily Rent Kyiv",
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_MAIN_URL}contacts`,
   },

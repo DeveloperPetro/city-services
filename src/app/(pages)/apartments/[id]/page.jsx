@@ -16,8 +16,8 @@ export async function generateMetadata({ params, searchParams }, parent) {
   // console.log("🚀 ~ previousImages:", previousImages);
 
   return {
-    title: `Квартири подобово Daily Rent - оренда квартири Суми.`,
-    description: `Зняти квартиру в місті Суми за адресою ${product?.address}`,
+    title: `Квартири подобово Daily Rent Kyiv - оренда квартири Київ.`,
+    description: `Зняти квартиру в місті Київ за адресою ${product?.address}`,
     openGraph: {
       images: [product?.titleImg, ...previousImages],
       type: "website",
