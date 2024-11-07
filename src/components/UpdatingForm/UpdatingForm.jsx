@@ -17,6 +17,7 @@ const UpdatingForm = ({ id, apart, mutate }) => {
     imgs,
     address,
     addressEn,
+    addressRu,
     flatNumber,
     googleMapLocation,
     price,
@@ -26,6 +27,7 @@ const UpdatingForm = ({ id, apart, mutate }) => {
     bedsQuantity,
     description,
     descriptionEn,
+    descriptionRu,
   } = apart;
 
   const currentValues = {
@@ -35,6 +37,7 @@ const UpdatingForm = ({ id, apart, mutate }) => {
     imgs,
     address,
     addressEn,
+    addressRu,
     flatNumber,
     googleMapLocation,
     price,
@@ -44,6 +47,7 @@ const UpdatingForm = ({ id, apart, mutate }) => {
     bedsQuantity,
     description,
     descriptionEn,
+    descriptionRu,
   };
 
   const initialValues = {
@@ -53,6 +57,7 @@ const UpdatingForm = ({ id, apart, mutate }) => {
     newImgs: imgs,
     newAddress: address,
     newAddressEn: addressEn,
+    newAddressRu: addressRu,
     newFlatNumber: flatNumber,
     newGoogleMapLocation: googleMapLocation,
     newPrice: price,
@@ -62,6 +67,7 @@ const UpdatingForm = ({ id, apart, mutate }) => {
     newBedsQuantity: bedsQuantity,
     newDescription: description,
     newDescriptionEn: descriptionEn,
+    newDescriptionRu: descriptionRu,
   };
 
   const handleSubmit = async (values, actions) => {
@@ -72,6 +78,7 @@ const UpdatingForm = ({ id, apart, mutate }) => {
       newImgs,
       newAddress,
       newAddressEn,
+      newAddressRu,
       newFlatNumber,
       newGoogleMapLocation,
       newPrice,
@@ -81,6 +88,7 @@ const UpdatingForm = ({ id, apart, mutate }) => {
       newBedsQuantity,
       newDescription,
       newDescriptionEn,
+      newDescriptionRu,
     } = values;
 
     const updatedValues = {
@@ -90,6 +98,7 @@ const UpdatingForm = ({ id, apart, mutate }) => {
       imgs: newImgs,
       address: newAddress,
       addressEn: newAddressEn,
+      addressRu: newAddressRu,
       flatNumber: newFlatNumber,
       googleMapLocation: newGoogleMapLocation,
       price: newPrice,
@@ -99,6 +108,7 @@ const UpdatingForm = ({ id, apart, mutate }) => {
       bedsQuantity: newBedsQuantity,
       description: newDescription,
       descriptionEn: newDescriptionEn,
+      descriptionRu: newDescriptionRu,
     };
 
     if (isDeepEqual(currentValues, updatedValues)) {
@@ -111,7 +121,7 @@ const UpdatingForm = ({ id, apart, mutate }) => {
         method: "PUT",
         body: JSON.stringify(updatedValues),
       });
-      // автоматично обновлює сторінку при зміні кількості карток
+      // автоматично оновлює сторінку при зміні кількості карток
       mutate();
       // обнуляє форму
       actions.resetForm();
@@ -197,7 +207,7 @@ const UpdatingForm = ({ id, apart, mutate }) => {
                 Додати додаткові фото (тільки .WEBP)
               </CldUploadButton>
 
-              <label htmlFor="newAddress">Адреса:</label>
+              <label htmlFor="newAddress">Адреса українською:</label>
               <ErrorMessage
                 name="newAddress"
                 className={styles.error}
@@ -223,6 +233,20 @@ const UpdatingForm = ({ id, apart, mutate }) => {
                 name="newAddressEn"
                 id="newAddressEn"
                 value={values.newAddressEn}
+                className={styles.input}
+              />
+
+              <label htmlFor="newAddressRu">Адреса російською:</label>
+              <ErrorMessage
+                name="newAddressRu"
+                className={styles.error}
+                component="p"
+              />
+              <Field
+                type="text"
+                name="newAddressRu"
+                id="newAddressRu"
+                value={values.newAddressRu}
                 className={styles.input}
               />
 
@@ -465,7 +489,7 @@ const UpdatingForm = ({ id, apart, mutate }) => {
                 <label htmlFor="sixBeds">6</label>
               </fieldset>
 
-              <label htmlFor="newDescription">Опис:</label>
+              <label htmlFor="newDescription">Опис українською:</label>
               <ErrorMessage
                 name="newDescription"
                 className={styles.error}
@@ -494,6 +518,22 @@ const UpdatingForm = ({ id, apart, mutate }) => {
                 name="newDescriptionEn"
                 id="newDescriptionEn"
                 value={values.newDescriptionEn}
+                className={styles.textarea}
+                rows={5}
+              />
+
+              <label htmlFor="newDescriptionRu">Опис російською:</label>
+              <ErrorMessage
+                name="newDescriptionRu"
+                className={styles.error}
+                component="p"
+              />
+              <Field
+                as="textarea"
+                type="text"
+                name="newDescriptionRu"
+                id="newDescriptionRu"
+                value={values.newDescriptionRu}
                 className={styles.textarea}
                 rows={5}
               />

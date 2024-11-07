@@ -14,6 +14,9 @@ export const updatingDashboardSchema = Yup.object({
         .required("Адреса це обовʼязкове поле"),
     newAddressEn: Yup.string()
         .required("Адреса англійською це обовʼязкове поле"),
+    newAddressRu: Yup.string()
+    // .required("Адреса російською це обовʼязкове поле") - розкоментувати після додавання цього поля в БД
+    ,
     newFlatNumber: Yup.number()
         .moreThan(-1, "Тільки додатні числа")
         .typeError("Тільки числа")
@@ -28,10 +31,12 @@ export const updatingDashboardSchema = Yup.object({
     newBookingUrl: Yup.string()
         .matches(regexUrl, "https://www.booking.com"),
     newAmenities: Yup.array()
-        .min(1, "Мінімум одне вибране поле")
-    ,
+        .min(1, "Мінімум одне вибране поле"),
     newDescription: Yup.string()
         .required("Опис це обовʼязкове поле"),
     newDescriptionEn: Yup.string()
         .required("Опис англійською це обовʼязкове поле"),
+    newDescriptionRu: Yup.string()
+    // .required("Опис англійською це обовʼязкове поле") - розкоментувати після додавання цього поля в БД
+    ,
 })

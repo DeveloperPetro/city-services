@@ -23,6 +23,7 @@ const DashboardForm = () => {
     imgs: [],
     address: "",
     addressEn: "",
+    addressRu: "",
     flatNumber: "",
     googleMapLocation: "",
     price: "",
@@ -32,6 +33,7 @@ const DashboardForm = () => {
     bedsQuantity: "",
     description: "",
     descriptionEn: "",
+    descriptionRu: "",
   };
 
   const handleSubmit = async (values, actions) => {
@@ -139,6 +141,7 @@ const DashboardForm = () => {
             >
               Завантажити ГОЛОВНЕ фото (тільки .WEBP)
             </CldUploadButton>
+
             <ErrorMessage name="imgs" className={styles.error} component="p" />
             <CldUploadButton
               name="imgs"
@@ -151,7 +154,7 @@ const DashboardForm = () => {
               Завантажити додаткові фото (тільки .WEBP)
             </CldUploadButton>
 
-            <label htmlFor="address">Адреса:</label>
+            <label htmlFor="address">Адреса українською:</label>
             <ErrorMessage
               name="address"
               className={styles.error}
@@ -177,6 +180,20 @@ const DashboardForm = () => {
               name="addressEn"
               id="addressEn"
               placeholder="Shevchenko street, h.8"
+              className={styles.input}
+            />
+
+            <label htmlFor="addressRu">Адреса російською:</label>
+            <ErrorMessage
+              name="addressRu"
+              className={styles.error}
+              component="p"
+            />
+            <Field
+              type="text"
+              name="addressRu"
+              id="addressRu"
+              placeholder="ул.Шевченко, д.8"
               className={styles.input}
             />
 
@@ -223,6 +240,7 @@ const DashboardForm = () => {
               placeholder="950"
               className={styles.input}
             />
+
             <ErrorMessage
               name="roomsQuantity"
               className={styles.error}
@@ -403,7 +421,7 @@ const DashboardForm = () => {
               <label htmlFor="sixBeds">6</label>
             </fieldset>
 
-            <label htmlFor="description">Опис:</label>
+            <label htmlFor="description">Опис українською:</label>
             <ErrorMessage
               name="description"
               className={styles.error}
@@ -432,6 +450,22 @@ const DashboardForm = () => {
               name="descriptionEn"
               id="descriptionEn"
               placeholder="First information block. | Second information block. | Third information block. | Fourth information block."
+              className={styles.textarea}
+              rows={5}
+            />
+
+            <label htmlFor="descriptionRu">Опис російською:</label>
+            <ErrorMessage
+              name="descriptionRu"
+              className={styles.error}
+              component="p"
+            />
+            <Field
+              as="textarea"
+              type="text"
+              name="descriptionRu"
+              id="descriptionRu"
+              placeholder="Первый информационный блок. | Второй информационный блок. | Третий информационный блок. | Четвертый информационный блок."
               className={styles.textarea}
               rows={5}
             />

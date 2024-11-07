@@ -19,7 +19,7 @@ const Hero = () => {
       <h1 className={seoStyles.titleHidden}>
         Оренда квартири суми. Квартири подобово. Суми квартири.
       </h1>
-      <h2 className={styles.heroLogo}>DailyRent</h2>
+      <h2 className={styles.heroLogo}>Daily Rent Kyiv</h2>
       <div className={styles.heroTitleWrapper}>
         <h3 className={styles.heroTitle}>
           {!isLoading && t("MainPage.heroTitle")}
