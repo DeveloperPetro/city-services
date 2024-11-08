@@ -3,7 +3,7 @@ import { Inter, Crimson_Pro } from "next/font/google";
 import Header from "@/components/Header/Header";
 import { SiteProvider } from "@/context/SiteContext";
 import dynamic from "next/dynamic";
-import CallBtnRound from "@/components/CallBtnRound/CallBtnRound";
+// import CallBtnRound from "@/components/CallBtnRound/CallBtnRound";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -142,7 +142,7 @@ export default function RootLayout({ children }) {
               <DynamicTranslatorProvider>
                 <Header />
                 <main>{children}</main>
-                <CallBtnRound />
+                {/* <CallBtnRound /> закомментировано на время разработки*/}
                 <DynamicFooter />
               </DynamicTranslatorProvider>
             </DynamicAuthProvider>
