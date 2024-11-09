@@ -32,7 +32,7 @@ const apartmentSchema = new Schema({
     },
     addressRu: {
         type: String,
-        // required: true, розкоментувати, коли буде додане це поле в БД
+        required: true,
     },
     flatNumber: {
         type: String,
@@ -70,7 +70,7 @@ const apartmentSchema = new Schema({
     },
     descriptionRu: {
         type: String,
-        // required: true, розкоментувати, коли буде додане це поле в БД
+        required: true,
     },
 },
     { timestamps: true },

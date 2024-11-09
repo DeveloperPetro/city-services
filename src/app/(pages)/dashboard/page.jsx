@@ -1,15 +1,15 @@
 "use client";
-
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { CldImage } from "next-cloudinary";
 import { toast } from "react-toastify";
 import DashboardForm from "@/components/DashboardForm/DashboardForm";
-import { GetData } from "@/fetch/clientFetch";
-import styles from "./page.module.scss";
-import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
 import Loading from "@/app/loading";
+import { GetData } from "@/fetch/clientFetch";
+import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
+import styles from "./page.module.scss";
+
 
 const Dashboard = () => {
   const session = useSession();
@@ -72,14 +72,13 @@ const Dashboard = () => {
           <Loading />
         ) : (
           <div className={styles.contentWrapper}>
-
             <div className={styles.apartments}>
               {sortedByUpdateData.map((apart) => (
                 <div key={apart._id} className={styles.apartment}>
                   <h2>Обʼєкт №: {apart.objNumber}</h2>
                   {apart.top ? <p>ТОП</p> : null}
-                  <p className={styles.priority}>Пріоритет: {apart.priority}</p>
-                  <p>Основне фото:</p>
+                  <p className={styles.property}>Пріоритет: {apart.priority}</p>
+                  <p className={styles.property}>Основне фото:</p>
                   <CldImage
                     width="300"
                     height="150"
@@ -88,7 +87,7 @@ const Dashboard = () => {
                     alt="apartment photo"
                     priority={true}
                   />
-                  <p>Додаткові фото:</p>
+                  <p className={styles.property}>Додаткові фото:</p>
                   <ul className={styles.imgsWrapper}>
                     {apart.imgs.map((item, index) => (
                       <li className={styles.imgsCont} key={index}>
@@ -102,35 +101,40 @@ const Dashboard = () => {
                       </li>
                     ))}
                   </ul>
-                  <p className={styles.address}>Адреса: {apart.address}</p>
-                  <p className={styles.address}>
-                    Адреса англійською: {apart.addressEn}
-                  </p>
-                  <p>Квартира: {apart.flatNumber}</p>
-                  <Link
+                  <p className={styles.address}><span className={styles.property}>Адреса українською:</span> {apart.address}</p>
+                  <p className={styles.address}><span className={styles.property}>Адреса англійською:</span> {apart.addressEn}</p>
+                  <p className={styles.address}><span className={styles.property}>Адреса російською:</span> {apart.addressRu}</p>
+                  <p><span className={styles.property}>Номер квартири:</span> {apart.flatNumber}</p>
+                  <p className={styles.property}>Місцезнаходження: <a
                     href={apart.googleMapLocation}
                     className={styles.location}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    Місцезнаходження: {apart.googleMapLocation}
-                  </Link>
-                  <p>Ціна: {apart.price}</p>
-                  <p>Кількість кімнат: {apart.roomsQuantity}</p>
-                  <Link href={apart.bookingUrl} className={styles.platformLink}>
-                    BookingUrl: {apart.bookingUrl}
-                  </Link>
+                    {apart.googleMapLocation}
+                  </a>
+                  </p>
+                  <p><span className={styles.property}>Ціна:</span> {apart.price}</p>
+                  <p><span className={styles.property}>Кількість кімнат:</span> {apart.roomsQuantity}</p>
+                  <p className={styles.property}>BookingUrl: {apart.bookingUrl ? <a
+                    href={apart.bookingUrl}
+                    className={styles.platformLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {apart.bookingUrl}
+                  </a> : <span className={styles.absentBooking}>{"немає"}</span>}
+                  </p>
+                  <p className={styles.property}>Додатковий комфорт:</p>
                   <ul>
-                    Додатковий комфорт:{" "}
                     {apart.amenities.map((item, index) => (
                       <li key={index}>{item}</li>
                     ))}
                   </ul>
-                  <p>Кількість спальних місць: {apart.bedsQuantity}</p>
-                  <p className={styles.description}>
-                    Опис: {apart.description}
-                  </p>
-                  <p className={styles.description}>
-                    Опис англійською: {apart.descriptionEn}
-                  </p>
+                  <p><span className={styles.property}>Кількість спальних місць:</span> {apart.bedsQuantity}</p>
+                  <p className={styles.description}><span className={styles.property}>Опис українською:</span> {apart.description}</p>
+                  <p className={styles.description}><span className={styles.property}>Опис англійською:</span> {apart.descriptionEn}</p>
+                  <p className={styles.description}><span className={styles.property}>Опис російською:</span> {apart.descriptionRu}</p>
                   <div className={styles.btnsWrapper}>
                     <Link
                       className={styles.editLink}
@@ -160,10 +164,12 @@ const Dashboard = () => {
             </div>
             <DashboardForm />
           </div>
-        )}
-      </div>
+        )
+        }
+      </div >
     );
   }
 };
+
 
 export default Dashboard;

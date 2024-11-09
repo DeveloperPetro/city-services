@@ -32,6 +32,10 @@
   font-weight: bold;
 }
 
+.textarea {
+  resize: vertical;
+}
+
 fieldset.top {
   padding: 5px 10px;
   display: -webkit-box;
@@ -96,8 +100,4 @@ fieldset.amenities {
 
 .error {
   color: red;
-}
-
-.textarea {
-  resize: none;
 }

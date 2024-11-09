@@ -1,15 +1,15 @@
 "use client";
 import React from "react";
-import styles from "./page.module.scss";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import UpdatingForm from "@/components/UpdatingForm/UpdatingForm";
-import Link from "next/link";
 import { CldImage } from "next-cloudinary";
+import UpdatingForm from "@/components/UpdatingForm/UpdatingForm";
 import { handleDeleteImgFromMongoDB } from "@/utils/handleDeleteImgFromMongoDB";
 import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
 import Loading from "@/app/loading";
 import { GetDataById } from "@/fetch/clientFetch";
+import styles from "./page.module.scss";
+
 
 const EditCard = ({ params }) => {
   const { id } = params;
@@ -52,8 +52,8 @@ const EditCard = ({ params }) => {
             <div key={data._id} className={styles.apartment}>
               <h2>Обʼєкт №: {data.objNumber}</h2>
               {data.top ? <p>ТОП</p> : null}
-              <p className={styles.priority}>Пріоритет: {data.priority}</p>
-              <p>Основне фото:</p>
+              <p className={styles.property}>Пріоритет: {data.priority}</p>
+              <p className={styles.property}>Основне фото:</p>
               <CldImage
                 width="300"
                 height="150"
@@ -61,7 +61,7 @@ const EditCard = ({ params }) => {
                 src={data.titleImg}
                 alt={data.address}
               />
-              <p>Додаткові фото:</p>
+              <p className={styles.property}>Додаткові фото:</p>
               <ul className={styles.imgsWrapper}>
                 {data.imgs.map((item, index) => (
                   <li className={styles.imgsItem} key={index}>
@@ -92,31 +92,37 @@ const EditCard = ({ params }) => {
                   </li>
                 ))}
               </ul>
-              <p className={styles.address}>Адреса: {data.address}</p>
-              <p className={styles.address}>
-                Адреса англійською: {data.addressEn}
+              <p className={styles.address}><span className={styles.property}>Адреса українською:</span> {data.address}</p>
+              <p className={styles.address}><span className={styles.property}>Адреса англійською:</span> {data.addressEn}</p>
+              <p className={styles.address}><span className={styles.property}>Адреса російською:</span> {data.addressRu}</p>
+              <p><span className={styles.property}>Номер квартири:</span> {data.flatNumber}</p>
+              <p className={styles.property}>Місцезнаходження: <a
+                href={data.googleMapLocation}
+                className={styles.location}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {data.googleMapLocation}
+              </a>
               </p>
-
-              <p>Квартира: {data.flatNumber}</p>
-              <Link href={data.googleMapLocation} className={styles.location}>
-                Місцезнаходження: {data.googleMapLocation}
-              </Link>
-              <p>Ціна: {data.price}</p>
-              <p>Кількість кімнат: {data.roomsQuantity}</p>
-              <Link href={data.bookingUrl} className={styles.platformLink}>
-                BookingUrl: {data.bookingUrl}
-              </Link>
+              <p><span className={styles.property}>Ціна:</span> {data.price}</p>
+              <p><span className={styles.property}>Кількість кімнат:</span> {data.roomsQuantity}</p>
+              <p className={styles.property}>BookingUrl: {data.bookingUrl ? <a
+                href={data.bookingUrl}
+                className={styles.platformLink}
+              >{data.bookingUrl}
+              </a> : <span className={styles.absentBooking}>{"немає"}</span>}
+              </p>
+              <p className={styles.property}>Додатковий комфорт:</p>
               <ul>
-                Додатковий комфорт:{" "}
                 {data.amenities.map((item, index) => (
                   <li key={index}>{item}</li>
                 ))}
               </ul>
-              <p>Кількість спальних місць: {data.bedsQuantity}</p>
-              <p className={styles.description}>Опис: {data.description}</p>
-              <p className={styles.description}>
-                Опис англійською: {data.descriptionEn}
-              </p>
+              <p><span className={styles.property}>Кількість спальних місць:</span> {data.bedsQuantity}</p>
+              <p className={styles.description}><span className={styles.property}>Опис українською:</span> {data.description}</p>
+              <p className={styles.description}><span className={styles.property}>Опис англійською:</span> {data.descriptionEn}</p>
+              <p className={styles.description}><span className={styles.property}>Опис російською:</span> {data.descriptionRu}</p>
             </div>
             <UpdatingForm id={id} apart={data} mutate={mutate} />
           </div>
@@ -125,5 +131,6 @@ const EditCard = ({ params }) => {
     );
   }
 };
+
 
 export default EditCard;

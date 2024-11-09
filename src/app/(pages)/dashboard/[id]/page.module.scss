@@ -68,7 +68,7 @@
   }
 }
 
-.priority {
+.property {
   font-weight: 600;
 }
 
@@ -116,17 +116,16 @@
   white-space: nowrap;
 }
 
-.location {
-  display: block;
-  width: 40vw;
-  overflow: hidden;
-  white-space: nowrap;
+.location,
+.absentBooking {
+  font-weight: 400;
 }
 
 .platformLink {
   display: block;
   width: 40vw;
   overflow: hidden;
+  font-weight: 400;
   white-space: nowrap;
 }
 
