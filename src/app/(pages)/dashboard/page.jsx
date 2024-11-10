@@ -147,13 +147,15 @@ const Dashboard = () => {
                     <svg
                       className={styles.deleteIcon}
                       onClick={() => {
-                        handleDeleteImgFromCloudinary(apart.titleImg);
+                        if (confirm("Ви впевнені, що хочете видалити цю картку?")) {
+                          handleDeleteImgFromCloudinary(apart.titleImg);
 
-                        apart.imgs.map((item) =>
-                          handleDeleteImgFromCloudinary(item)
-                        );
+                          apart.imgs.map((item) =>
+                            handleDeleteImgFromCloudinary(item)
+                          );
 
-                        handleDeleteApartmentFromDB(apart._id, apart.objNumber);
+                          handleDeleteApartmentFromDB(apart._id, apart.objNumber);
+                        }
                       }}
                     >
                       <use href="/sprite.svg#icon-delete" />

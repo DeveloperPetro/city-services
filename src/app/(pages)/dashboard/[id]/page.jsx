@@ -3,6 +3,7 @@ import React from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { CldImage } from "next-cloudinary";
+import { toast } from "react-toastify";
 import UpdatingForm from "@/components/UpdatingForm/UpdatingForm";
 import { handleDeleteImgFromMongoDB } from "@/utils/handleDeleteImgFromMongoDB";
 import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
@@ -77,14 +78,18 @@ const EditCard = ({ params }) => {
                     <svg
                       className={styles.deleteIcon}
                       onClick={async () => {
-                        handleDeleteImgFromMongoDB(
-                          data,
-                          data._id,
-                          item,
-                          mutate
-                        );
+                        if (confirm("Хочете видалити це фото?")) {
+                          handleDeleteImgFromMongoDB(
+                            data,
+                            data._id,
+                            item,
+                            mutate
+                          );
 
-                        handleDeleteImgFromCloudinary(item);
+                          handleDeleteImgFromCloudinary(item);
+
+                          toast.success(`Фото видалено`, { theme: "dark" });
+                        }
                       }}
                     >
                       <use href="/sprite.svg#icon-delete" />
