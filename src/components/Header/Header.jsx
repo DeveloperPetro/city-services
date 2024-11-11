@@ -116,17 +116,6 @@ const Header = () => {
                 </Link>
 
                 <Link
-                  href={"/documents"}
-                  className={
-                    pathname === "/documents"
-                      ? "activeLink"
-                      : " textLinkAnimation"
-                  }
-                >
-                  {t("Header.linkDocuments")}
-                </Link>
-
-                <Link
                   href={"/rules"}
                   className={
                     pathname === "/rules" ? "activeLink" : " textLinkAnimation"
@@ -141,19 +130,7 @@ const Header = () => {
 
         {!isMobile && (
           <div className={styles.rightLinks}>
-            {!isLoading && (
-              <Link
-                href={"/contacts"}
-                className={
-                  pathname === "/contacts" ? "activeLink" : " textLinkAnimation"
-                }
-              >
-                {t("Header.linkContacts")}
-              </Link>
-            )}
-
             <SocialLinks />
-
             <TranslatorBtnBlock isClient={isClient} />
           </div>
         )}

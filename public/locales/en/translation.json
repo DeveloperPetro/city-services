@@ -2,16 +2,13 @@
   "Header": {
     "headerSale": "Hourly 1-3 h 400 UAH, each subsequent hour + 100 UAH",
     "linkApartments": "Apartments",
-    "linkDocuments": "Documents",
-    "linkRules": "Rules",
-    "linkContacts": "Contacts"
+    "linkRules": "Rules"
   },
   "MainPage": {
     "SeoTitleH1": "Rent a flat Sumy. Sumy flat. Rent a flat Sumy. Sumy.",
     "heroTitle": "Daily and hourly rent",
     "heroSubTitle": "for comfortable living and recreation",
-    "galleryTittle": "Apartments",
-    "contactsTitle": "Contact Us"
+    "galleryTittle": "Apartments"
   },
   "ApartmentsPage": {
     "SeoTitleH1": "Rent a flat Sumy. Sumy flat. Rent a flat Sumy. Sumy.",
@@ -35,16 +32,6 @@
     "SeoTitleItemSliderH4": "Detailed images of the apartment",
     "TextWelcome": "Welcome to DailyRent."
   },
-  "ContactsPage": {
-    "SeoTitleH1": "Rent a flat Sumy. Sumy flat. Rent a flat Sumy. Sumy.",
-    "SeoTitleH2": "Navigation",
-    "SeoTitleH4": "Contact information",
-    "Title": "Cozy apartments in Sumy are waiting for your call.",
-    "Title1": "Contacts",
-    "Text": "Feel free to call us or write to us on any of the social media. We will be happy to help and communicate with you!",
-    "CountryAndSity": "Ukraine, Sumy",
-    "Adress": "Voskresenska Street, 8"
-  },
   "RulesPage": {
     "SeoTitleH1": "Rent a flat Sumy. Sumy flat. Rent a flat Sumy. Sumy.",
     "SeoTitleH2": "Navigation",
@@ -53,19 +40,9 @@
     "TitleSection2": "This is strictly prohibited:",
     "TitleSection3": "The administration has the right to immediately evict the tenant without refunding the rent in case of:"
   },
-  "DocumentsPage": {
-    "SeoTitleH1": "Rent a flat Sumy. Sumy flat. Rent a flat Sumy. Sumy.",
-    "SeoTitleH2": "Navigation",
-    "SeoTitleH3": "Documents files",
-    "Document1": "Extract from the Unified State Register of Legal Entities",
-    "Document2": "Extract from the Unified State Register of Legal Entities",
-    "Document3": "Extract from the register of taxpayers"
-  },
   "Navigation": {
     "MainPage": "Main",
     "Apartments": "Apartments",
-    "Contacts": "Contacts",
-    "Documents": "Documents",
     "Rules": "Rules"
   },
   "Buttons": {
