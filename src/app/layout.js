@@ -1,20 +1,22 @@
 import "./globals.css";
-import { Inter, Crimson_Pro } from "next/font/google";
+import { Lato, Cormorant_Infant } from "next/font/google";
 import Header from "@/components/Header/Header";
 import { SiteProvider } from "@/context/SiteContext";
 import dynamic from "next/dynamic";
 // import CallBtnRound from "@/components/CallBtnRound/CallBtnRound";
 
-const inter = Inter({
+const lato = Lato({
+  weight: ['100', '300', '400', '700', '900'],
   subsets: ["latin"],
   display: "swap",
-  variable: "--font--inter",
+  variable: "--font--lato",
 });
 
-const crimsonPro = Crimson_Pro({
+const cormorantInfant = Cormorant_Infant({
+  weight: ['300', '400', '500', '600', '700'],
   subsets: ["latin"],
   display: "swap",
-  variable: "--font--crimsonPro",
+  variable: "--font--cormorantInfant",
 });
 
 const DynamicFooter = dynamic(() => import("@/components/Footer/Footer"));
@@ -131,7 +133,7 @@ export default function RootLayout({ children }) {
   };
   return (
     <html lang="uk-UA">
-      <body className={`${inter.variable} ${crimsonPro.variable}`}>
+      <body className={`${lato.variable} ${cormorantInfant.variable}`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
