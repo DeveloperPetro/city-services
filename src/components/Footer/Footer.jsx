@@ -102,7 +102,7 @@ const Footer = ({ onClick }) => {
                         onClick={handleSetScrolledWindow}
                       >
                         {i18n.language === currentLanguages.EN
-                          ? item.titleEN
+                          ? item.titleEn
                           : item.title}
                       </Link>
                     </li>
@@ -120,7 +120,7 @@ const Footer = ({ onClick }) => {
                         onClick={handleSetScrolledWindow}
                       >
                         {i18n.language === currentLanguages.EN
-                          ? item.titleEN
+                          ? item.titleEn
                           : item.title}
                       </Link>
                     </li>

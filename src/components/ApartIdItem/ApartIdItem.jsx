@@ -37,13 +37,13 @@ const ApartIdItem = ({ params }) => {
     const obj = {
       id,
       text,
-      textEN: '',
+      textEn: '',
     };
     descsToPushArray.push(obj);
   });
 
   descsToPushArray.map((item, index) => {
-    item.textEN = descEnArrayFromData[index];
+    item.textEn = descEnArrayFromData[index];
   });
 
   // общий массив для рендера, созданный путем распыления массивов данных из локальной data и БД
@@ -102,12 +102,12 @@ const ApartIdItem = ({ params }) => {
                 <li key={index}>
                   <h5 className={styles.textInfoTitle}>
                     {i18n.language === currentLanguages.EN
-                      ? el.titleEN
+                      ? el.titleEn
                       : el.title}
                   </h5>
                   <p className={styles.textInfoRulse}>
                     {i18n.language === currentLanguages.EN
-                      ? el.textEN
+                      ? el.textEn
                       : el.text}
 
                     {el.title === 'Правила:' &&

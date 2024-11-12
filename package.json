@@ -1,7 +1,8 @@
 {
-  "name": "daily-rent",
+  "name": "daily-rent-kyiv",
   "version": "0.1.0",
   "private": true,
+  "figma": "https://www.figma.com/design/OCHiULhOR3rSGfbOXGtJA1/Daily-Rent-Kyiv?node-id=7-72",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
