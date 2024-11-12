@@ -9,7 +9,7 @@ const Amenities = ({ dataId }) => {
 
   const bed = {
     id: 100,
-    titleEN: dataId.bedsQuantity,
+    titleEn: dataId.bedsQuantity,
     title: dataId.bedsQuantity,
     img: '/webp/Bed7.webp',
   };
@@ -38,7 +38,7 @@ const Amenities = ({ dataId }) => {
                 src={amenity.img}
                 alt={
                   i18n.language === currentLanguages.EN
-                    ? amenity.titleEN
+                    ? amenity.titleEn
                     : amenity.title
                 }
                 fill={true}
@@ -47,7 +47,7 @@ const Amenities = ({ dataId }) => {
               />
             </figure>
             {i18n.language === currentLanguages.EN ? (
-              <figcaption>{amenity.titleEN}</figcaption>
+              <figcaption>{amenity.titleEn}</figcaption>
             ) : (
               <figcaption>{amenity.title}</figcaption>
             )}

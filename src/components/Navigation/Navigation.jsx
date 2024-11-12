@@ -14,7 +14,7 @@ const Navigation = ({ className, onClick, id }) => {
           <li key={item.id} onClick={onClick}>
             <Link href={item.path}>
               {i18n.language === currentLanguages.EN
-                ? item.titleEN
+                ? item.titleEn
                 : item.title}
             </Link>
           </li>

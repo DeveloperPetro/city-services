@@ -6,7 +6,7 @@ import { currentLanguages } from "@/data";
 
 const FilterItem = ({
   id,
-  titleEN,
+  titleEn,
   title,
   activeIndex,
   setActiveIndex,
@@ -54,13 +54,13 @@ const FilterItem = ({
       {!isLoad && (
         <li className={styles.filterItem}>
           <p className={styles.filterCheckboxTitle}>
-            {i18n.language === currentLanguages.EN ? titleEN : title}
+            {i18n.language === currentLanguages.EN ? titleEn : title}
           </p>
           <input
             id={id}
             type="checkbox"
             className={filterCheckboxStyles}
-            aria-label={i18n.language === currentLanguages.EN ? titleEN : title}
+            aria-label={i18n.language === currentLanguages.EN ? titleEn : title}
             checked={isChecked}
             onChange={() => {
               setActiveIndex(id),

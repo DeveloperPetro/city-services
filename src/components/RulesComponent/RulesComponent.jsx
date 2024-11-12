@@ -45,11 +45,11 @@ const RulesComponent = () => {
                 {t("RulesPage.TitleSection1")}
               </h3>
               <ol className={styles.decimalList}>
-                {RulesInApartment.map(({ id, rule, ruleEN }) => {
+                {RulesInApartment.map(({ id, rule, ruleEn }) => {
                   return (
                     <li key={id}>
                       <p>
-                        {i18n.language === currentLanguages.EN ? ruleEN : rule}
+                        {i18n.language === currentLanguages.EN ? ruleEn : rule}
                       </p>
                     </li>
                   );
@@ -61,11 +61,11 @@ const RulesComponent = () => {
                 {t("RulesPage.TitleSection2")}
               </h3>
               <ol className={styles.decimalList}>
-                {Prohibited.map(({ id, rule, ruleEN }) => {
+                {Prohibited.map(({ id, rule, ruleEn }) => {
                   return (
                     <li key={id}>
                       <p>
-                        {i18n.language === currentLanguages.EN ? ruleEN : rule}
+                        {i18n.language === currentLanguages.EN ? ruleEn : rule}
                       </p>
                     </li>
                   );
@@ -77,11 +77,11 @@ const RulesComponent = () => {
                 {t("RulesPage.TitleSection3")}
               </h3>
               <ol className={styles.decimalList}>
-                {Eviction.map(({ id, rule, ruleEN }) => {
+                {Eviction.map(({ id, rule, ruleEn }) => {
                   return (
                     <li key={id}>
                       <p>
-                        {i18n.language === currentLanguages.EN ? ruleEN : rule}
+                        {i18n.language === currentLanguages.EN ? ruleEn : rule}
                       </p>
                     </li>
                   );

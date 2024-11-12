@@ -13,10 +13,4 @@ export const socialLinks = [
     img: "/social-links/Instagram.webp",
     href: "https://www.instagram.com/daily.rent.sumy",
   },
-  {
-    id: v4(),
-    title: "Telegram",
-    img: "/social-links/Telegram.webp",
-    href: "https://t.me/+380991930030",
-  },
 ];
