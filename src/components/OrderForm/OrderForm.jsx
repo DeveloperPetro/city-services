@@ -105,6 +105,12 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                         <svg className={styles.icon}>
                                             <use href='/sprite.svg#icon-user' />
                                         </svg>
+                                        <label
+                                            htmlFor='userName'
+                                            className={styles.label}
+                                        >
+                                            Ім’я
+                                        </label>
                                         <Field
                                             type='text'
                                             name='userName'
@@ -114,7 +120,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                             maxLength='30'
                                             className={
                                                 errors.userName &&
-                                                    touched.userName
+                                                touched.userName
                                                     ? `${styles.input} ${styles.inputError}`
                                                     : styles.input
                                             }
@@ -174,7 +180,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                                         selectsStart
                                                         className={
                                                             errors.checkIn &&
-                                                                touched.checkIn
+                                                            touched.checkIn
                                                                 ? `${styles.input} ${styles.inputError}`
                                                                 : styles.input
                                                         }
@@ -254,7 +260,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                                         minDate={values.checkIn}
                                                         className={
                                                             errors.checkOut &&
-                                                                touched.checkOut
+                                                            touched.checkOut
                                                                 ? `${styles.input} ${styles.inputError}`
                                                                 : styles.input
                                                         }
@@ -298,7 +304,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                 <div className={styles.innerWrap}>
                                     <div className={styles.wrapError}>
                                         <svg className={styles.icon}>
-                                            <use href='/sprite.svg#icon-hash' />
+                                            <use href='/sprite.svg#location' />
                                         </svg>
                                         <Field
                                             type='text'
@@ -311,7 +317,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                             )}
                                             className={
                                                 errors.objNumber &&
-                                                    touched.objNumber
+                                                touched.objNumber
                                                     ? `${styles.input} ${styles.inputError}`
                                                     : styles.input
                                             }
