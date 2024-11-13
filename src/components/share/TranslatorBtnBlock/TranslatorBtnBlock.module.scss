@@ -1,4 +1,4 @@
-@import "../../../styles/_variables.scss";
+@import '../../../styles/_variables.scss';
 
 .dropdownDark,
 .dropdown {
@@ -92,7 +92,7 @@
   margin-right: 13px;
   font-size: clamp(0.75rem, 0.179rem + 1.19vw, 1.25rem);
   line-height: 18.2px;
-  color: $darckFontColor;
+  color: $SecondaryColor;
 }
 
 .langToggle {
