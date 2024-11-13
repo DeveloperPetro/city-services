@@ -1,6 +1,32 @@
-$mobile: "360px";
-$tablet: "768px";
-$desktop: "1366px";
+$mobile: '360px';
+$tablet: '768px';
+$desktop: '1366px';
+
+//Primary Color
+
+$Primary900: #131112;
+$Primary800: #333132;
+$Primary700: #514f50;
+$Primary600: #646263;
+$Primary500: #8b898a;
+$Primary400: #acaaab;
+$Primary300: #d1cfd0;
+$Primary200: #e3e1e2;
+$Primary100: #efedee;
+$Primary50: #f9f6f8;
+
+//Secondary Color
+
+$SecondaryColor: #f6f6f4;
+
+//Alerts Color
+
+$Error: #a20b0b;
+$Warning: #ffc400;
+$Success: #00793c;
+$System: #2320c6;
+
+////old color////
 
 $lightFontColor: white;
 $darckFontColor: #242424;
@@ -8,3 +34,5 @@ $footerLogoColor: #545454;
 $footerLocationColor: #181818;
 $footerTextColor: #3c3c3c;
 $acentColor: #373737;
+
+////old color////
