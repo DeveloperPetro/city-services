@@ -1,4 +1,4 @@
-@import "../../styles/_variables.scss";
+@import '../../styles/_variables.scss';
 
 .container {
   position: fixed;
@@ -25,20 +25,20 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  letter-spacing: 1.04px;
+  letter-spacing: 1.7px;
   text-align: center;
 
-  background-color: #e9e9e9;
+  background-color: $SecondaryColor;
 
   height: 48px;
 
   @media screen and (min-width: 432px) {
-    height: 36px;
+    height: 50px;
   }
 }
 
 .navBar {
-  background-color: #f3f3f3;
+  background-color: $Primary900;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -46,7 +46,7 @@
   -ms-flex-align: center;
   align-items: center;
   padding: 16px 20px;
-  height: 56px;
+  height: 40px;
 
   & .logo {
     position: absolute;
@@ -65,12 +65,12 @@
 
   @media screen and (min-width: $tablet) {
     padding: 0px 36px;
-    height: 64px;
+    height: 48px;
   }
 
   @media screen and (min-width: $desktop) {
     padding: 0px 86px;
-    height: 100px;
+    height: 80px;
   }
 }
 
@@ -104,13 +104,13 @@
 .leftLinks {
   margin-left: 0;
   margin-right: auto;
-  color: $darckFontColor;
+  color: $SecondaryColor;
 }
 
 .rightLinks {
   margin-right: 0;
   margin-left: auto;
-  color: $darckFontColor;
+  color: $SecondaryColor;
 }
 
 .logoutBtn {

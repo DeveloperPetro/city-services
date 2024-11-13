@@ -13,12 +13,11 @@
   align-items: center;
   gap: 8px;
   gap: 24px;
-  padding: 8px 20px;
+  padding: 16px 32px;
   color: $footerTextColor;
   border-top: 1px solid #000;
-  background-color: #f3f3f3;
+  background-color: #131112;
   overflow-x: hidden;
-
   justify-content: space-between;
   width: 100%;
 
@@ -43,13 +42,12 @@
 
   @media screen and (min-width: $tablet) {
     gap: 12px;
-    padding: 12px 36px;
+    padding: 16px 40px;
   }
 
   @media screen and (min-width: $desktop) {
-    gap: 20px;
-    padding: 24px 86px;
-    min-height: 250px;
+    gap: 100px;
+    padding: 32px 71px;
   }
 }
 
@@ -78,7 +76,7 @@
   }
 
   & a {
-    color: $footerLocationColor;
+    color: $footerTextColor;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -104,7 +102,6 @@
   justify-content: space-between;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center;
 }
 
 .contacts,
@@ -118,11 +115,11 @@
   flex-direction: column;
   gap: 8px;
 
-  color: $footerLocationColor;
+  color: $footerTextColor;
   font-size: clamp(16px, 2vw, 20px);
   font-style: normal;
   font-weight: 400;
-  line-height: normal;
+  line-height: 34px;
 
   & a {
     width: -webkit-fit-content;
@@ -149,7 +146,7 @@
   }
 
   @media screen and (min-width: $desktop) {
-    gap: 32px;
+    gap: 12px;
   }
 }
 

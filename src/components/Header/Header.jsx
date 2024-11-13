@@ -1,16 +1,16 @@
-"use client";
-import React, { useEffect, useState, useCallback, useContext } from "react";
-import { useTranslation } from "react-i18next";
-import styles from "./Header.module.scss";
-import Logo from "../Logo/Logo";
-import Navigation from "../Navigation/Navigation";
-import Link from "next/link";
-import BurgerBtn from "../BurgerBtn/BurgerBtn";
-import { usePathname } from "next/navigation";
-import { signOut, useSession } from "next-auth/react";
-import TranslatorBtnBlock from "../share/TranslatorBtnBlock/TranslatorBtnBlock";
-import SocialLinks from "../SocialLinks/SocialLinks";
-import { SiteContext } from "@/context/SiteContext";
+'use client';
+import React, { useEffect, useState, useCallback, useContext } from 'react';
+import { useTranslation } from 'react-i18next';
+import styles from './Header.module.scss';
+import Logo from '../Logo/Logo';
+import Navigation from '../Navigation/Navigation';
+import Link from 'next/link';
+import BurgerBtn from '../BurgerBtn/BurgerBtn';
+import { usePathname } from 'next/navigation';
+import { signOut, useSession } from 'next-auth/react';
+import TranslatorBtnBlock from '../share/TranslatorBtnBlock/TranslatorBtnBlock';
+import SocialLinks from '../SocialLinks/SocialLinks';
+import { SiteContext } from '@/context/SiteContext';
 
 const Header = () => {
   const session = useSession();
@@ -23,13 +23,13 @@ const Header = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { scrolledWindow, setScrolledWindow } = useContext(SiteContext);
 
-  const isClient = typeof window !== "undefined";
-  const isDocument = typeof document !== "undefined";
+  const isClient = typeof window !== 'undefined';
+  const isDocument = typeof document !== 'undefined';
 
   const handleResize = useCallback(() => {
     if (
       window.innerWidth < 768 ||
-      (session.status === "authenticated" && window.innerWidth < 1200)
+      (session.status === 'authenticated' && window.innerWidth < 1200)
     ) {
       setIsMobile(true);
     } else {
@@ -37,7 +37,7 @@ const Header = () => {
     }
   }, [session.status]);
 
-  const header = isDocument && document.getElementById("header");
+  const header = isDocument && document.getElementById('header');
 
   const headerScrollclassName = useCallback(() => {
     if (window.scrollY <= 12) {
@@ -62,9 +62,9 @@ const Header = () => {
 
   const closeBurgerMenuOnClick = useCallback((e) => {
     if (
-      e.target.id === "mobileNavigation" ||
-      e.target.nodeName === "use" ||
-      e.target.nodeName === "svg"
+      e.target.id === 'mobileNavigation' ||
+      e.target.nodeName === 'use' ||
+      e.target.nodeName === 'svg'
     ) {
       return;
     } else {
@@ -76,27 +76,27 @@ const Header = () => {
     setIsLoading(false);
     // Add an event listener for window resize
 
-    window.addEventListener("resize", handleResize);
-    window.addEventListener("scroll", headerScrollclassName, { passive: true });
-    window.addEventListener("click", closeBurgerMenuOnClick);
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('scroll', headerScrollclassName, { passive: true });
+    window.addEventListener('click', closeBurgerMenuOnClick);
 
     // Initial check on component mount
     handleResize();
 
     // Clean up the event listener on component unmount
     return () => {
-      window.removeEventListener("resize", handleResize);
-      window.removeEventListener("scroll", headerScrollclassName, {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', headerScrollclassName, {
         passive: true,
       });
-      window.removeEventListener("click", closeBurgerMenuOnClick);
+      window.removeEventListener('click', closeBurgerMenuOnClick);
     };
   }, [handleResize, headerScrollclassName, closeBurgerMenuOnClick]);
 
   return (
     <header id="header" className={styles.container}>
       <div className={styles.promotion}>
-        {!isLoading && <p>{t("Header.headerSale")}</p>}
+        {!isLoading && <p>{t('Header.headerSale')}</p>}
       </div>
 
       <div className={styles.navBar}>
@@ -105,23 +105,32 @@ const Header = () => {
             {!isLoading && (
               <>
                 <Link
-                  href={"/apartments"}
+                  href={'/apartments'}
                   className={
-                    pathname === "/apartments"
-                      ? "activeLink"
-                      : " textLinkAnimation"
+                    pathname === '/apartments'
+                      ? 'activeLink'
+                      : ' textLinkAnimation'
                   }
                 >
-                  {t("Header.linkApartments")}
+                  {t('Header.linkApartments')}
                 </Link>
 
                 <Link
-                  href={"/rules"}
+                  href={'/rules'}
                   className={
-                    pathname === "/rules" ? "activeLink" : " textLinkAnimation"
+                    pathname === '/rules' ? 'activeLink' : ' textLinkAnimation'
                   }
                 >
-                  {t("Header.linkRules")}
+                  {t('Header.linkRules')}
+                </Link>
+
+                <Link
+                  href={'#footer'}
+                  className={
+                    pathname === '#footer' ? 'activeLink' : ' textLinkAnimation'
+                  }
+                >
+                  {t('Header.linkContact')}
                 </Link>
               </>
             )}
@@ -150,9 +159,9 @@ const Header = () => {
           />
         )}
 
-        {session.status === "authenticated" && !isLoading && (
+        {session.status === 'authenticated' && !isLoading && (
           <button className={styles.logoutBtn} onClick={signOut}>
-            {t("Buttons.LogOutBtn")}
+            {t('Buttons.LogOutBtn')}
           </button>
         )}
       </div>
