@@ -7,7 +7,7 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 112px 20px 24px 20px;
+  // padding: 112px 20px 24px 20px;
   min-height: 100vh;
 
   @media screen and (min-width: $tablet) {
@@ -33,9 +33,11 @@
   -ms-flex-pack: justify;
   justify-content: space-between;
   margin-bottom: 25px;
+
   @media screen and (min-width: $tablet) {
     margin-bottom: 35px;
   }
+
   @media screen and (min-width: 1366px) {
     margin-bottom: 16px;
   }
@@ -68,12 +70,15 @@
   column-gap: 30px;
   row-gap: 40px;
   padding: 40px 0;
+
   @media screen and (min-width: 360px) {
     grid-template-columns: repeat(1, 320px);
   }
+
   @media screen and (min-width: $tablet) {
     grid-template-columns: repeat(2, 1fr);
   }
+
   @media screen and (min-width: $desktop) {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -90,9 +95,11 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+
   @media screen and (min-width: $tablet) {
     font-size: 28px;
   }
+
   @media screen and (min-width: 1024px) {
     font-size: 32px;
   }

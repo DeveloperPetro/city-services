@@ -1,4 +1,4 @@
-import "./globals.css";
+import "./globals.scss";
 import { Lato, Cormorant_Infant } from "next/font/google";
 import Header from "@/components/Header/Header";
 import { SiteProvider } from "@/context/SiteContext";

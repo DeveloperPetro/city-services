@@ -1,6 +1,6 @@
 const PrivacyPolicy = () => {
     return (
-        <section>PrivacyPolicy</section>
+        <section className="pageTopSection">PrivacyPolicy</section>
     )
 }
 

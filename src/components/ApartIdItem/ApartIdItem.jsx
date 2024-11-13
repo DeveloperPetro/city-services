@@ -53,7 +53,7 @@ const ApartIdItem = ({ params }) => {
   const { isModalOpen, openModal, closeModal } = useContext(SiteContext);
 
   return (
-    <section className={styles.container}>
+    <section className={`pageTopSection ${styles.container}`}>
       <h1 className={seoStyles.titleHidden}>
         Оренда квартири суми. Суми квартири. Зняти квартиру суми. Сумы.
       </h1>

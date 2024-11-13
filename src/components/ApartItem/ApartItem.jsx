@@ -45,7 +45,7 @@ const ApartItem = ({
           <div className={styles.bedContainer}>
             <p className={styles.bedsQuantity}>{bedsQuantity}</p>
             <figure className={styles.bedImg}>
-              <Image src="/webp/Bed7.webp" fill alt="кількість спальних міст" />
+              <Image src="/webp/Bed.webp" fill alt="кількість спальних міст" />
             </figure>
           </div>
           <Link href={`/apartments/${id}`} className={styles.btnRooms}>

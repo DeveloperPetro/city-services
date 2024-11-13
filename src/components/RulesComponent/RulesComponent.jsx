@@ -21,7 +21,7 @@ const RulesComponent = () => {
     setIsLoading(false);
   }, []);
   return (
-    <section className={styles.container}>
+    <section className={`pageTopSection ${styles.container}`}>
       <h1 className={seoStyles.titleHidden}>
         Оренда квартири Київ. Квартири подобово. Київ квартири.
       </h1>

@@ -68,16 +68,33 @@ section {
   width: 100%;
 }
 
-section {
-  padding: 80px 32px 16px 32px;
+.pageTopSection {
+  padding: 80px 32px 16px;
 
-  @media screen and(min-width: 768px) {
-    padding: 108px 40px 20px 40px;
+  @media screen and (min-width: 768px) {
+    padding: 98px 40px 20px;
   }
 
   @media screen and (min-width: 1366px) {
-    padding: 154px 71px 24px 71px;
+    padding: 154px 72px 24px;
   }
+
+  @media screen and (min-width: 1440px) {
+    max-width: 1920px;
+  }
+}
+
+.section {
+  padding: 16px 32px;
+
+  @media screen and (min-width: 768px) {
+    padding: 20px 40px;
+  }
+
+  @media screen and (min-width: 1366px) {
+    padding: 24px 72px;
+  }
+
   @media screen and (min-width: 1440px) {
     max-width: 1920px;
   }
@@ -107,11 +124,13 @@ ol {
   -moz-column-gap: 5px;
   column-gap: 5px;
 }
+
 @media screen and (min-width: 768px) {
   .textLink {
     font-size: 12px;
   }
 }
+
 @media screen and (min-width: 1366px) {
   .textLink {
     font-size: 14px;
@@ -137,10 +156,12 @@ ol {
   animation: textLink 0.8s ease forwards;
   background-color: #6d6d6d;
 }
+
 @keyframes textLink {
   0% {
     width: 0px;
   }
+
   100% {
     width: 100%;
   }
