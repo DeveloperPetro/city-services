@@ -52,7 +52,7 @@ const Footer = ({ onClick }) => {
       <ModalR isOpen={isModalOpen} closeModal={closeModal}>
         <OrderForm isOpen={isModalOpen} closeModal={closeModal} />
       </ModalR>
-      <footer className={styles.container}>
+      {/* <footer className={styles.container}>
         {isMobile && (
           <div className={styles.mobileContentWrapper}>
             <div className={styles.mobileItem}>
@@ -75,75 +75,60 @@ const Footer = ({ onClick }) => {
           </div>
         )}
 
+        
+      </footer> */}
+      <footer className={styles.container}>
+        {isMobile && (
+          <div className={styles.mobileContentWrapper}></div>
+        )}
+
         {!isMobile && (
           <div className={styles.contentWrapper}>
+
+            <div className="">
+              <Logo className={`${styles.footerLogo}`} />
+            </div>
+
             <div className={styles.contacts}>
-              <Link
-                href="mailto:dailyrent4@gmail.com"
-                className="textLinkAnimation"
-              >
-                dailyrent4@gmail.com
+              <Link href="tel:+380954515057" className="textLinkAnimation">
+                +380 (95) 451 50 57
               </Link>
-              <Link href="tel:+380991930030" className="textLinkAnimation">
-                +380991930030
+              <Link href="" className="textLinkAnimation">
+                DailyRent_Kyiv
               </Link>
-              <Link href="tel:+380675151939" className="textLinkAnimation">
-                +380675151939
+              <Link href="" className="textLinkAnimation">
+                DailyRent_Kyiv
               </Link>
             </div>
-            <ul className={styles.navigation}>
-              {!isLoading &&
-                navigationData.slice(0, 2).map((item) => {
-                  return (
-                    <li key={item.id} onClick={onClick}>
-                      <Link
-                        href={item.path}
-                        className="textLinkAnimation"
-                        onClick={handleSetScrolledWindow}
-                      >
-                        {i18n.language === currentLanguages.EN
-                          ? item.titleEn
-                          : item.title}
-                      </Link>
-                    </li>
-                  );
-                })}
-            </ul>
-            <ul className={styles.navigation}>
-              {!isLoading &&
-                navigationData.slice(2, 4).map((item) => {
-                  return (
-                    <li key={item.id} onClick={onClick}>
-                      <Link
-                        href={item.path}
-                        className="textLinkAnimation"
-                        onClick={handleSetScrolledWindow}
-                      >
-                        {i18n.language === currentLanguages.EN
-                          ? item.titleEn
-                          : item.title}
-                      </Link>
-                    </li>
-                  );
-                })}
-            </ul>
 
+            <ul className={styles.navigation}>
+              {!isLoading &&
+                navigationData.filter((_, index) => index !== 2).map((item) => {
+                  return (
+                    <li key={item.id} onClick={onClick}>
+                      <Link
+                        href={item.path}
+                        className="textLinkAnimation"
+                        onClick={handleSetScrolledWindow}
+                      >
+                        {i18n.language === currentLanguages.EN
+                          ? item.titleEn
+                          : item.title}
+                      </Link>
+                    </li>
+                  );
+                })}
+            </ul>
+          
             {!isLoading && (
               <div className={styles.btnsWrapper}>
-                <CallBtn />
-
                 <OrderBtn openModal={openModal} />
+                <CallBtn />
               </div>
             )}
           </div>
         )}
-        <p className={styles.rights}>
-          made by{" "}
-          <Link href="https://webevery.dev/" target="_blank">
-            webevery.dev{" "}
-          </Link>
-          ⓒ all rights reserved
-        </p>
+        
       </footer>
     </>
   );
