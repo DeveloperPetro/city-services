@@ -23,7 +23,7 @@ const RulesComponent = () => {
   return (
     <section className={styles.container}>
       <h1 className={seoStyles.titleHidden}>
-        Оренда квартири суми. Квартири подобово. Суми квартири.
+        Оренда квартири Київ. Квартири подобово. Київ квартири.
       </h1>
       <nav className={styles.toBackContainer}>
         {!isLoading && (

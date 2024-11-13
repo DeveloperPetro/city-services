@@ -19,7 +19,7 @@ const RulesPage = () => {
         position: 1,
         item: {
           "@id": process.env.NEXT_PUBLIC_MAIN_URL,
-          name: "Daily Rent - оренда квартири Суми. Квартири подобово.",
+          name: "Daily Rent - оренда квартири Київ. Квартири подобово.",
         },
       },
       {
