@@ -1,15 +1,85 @@
-@import "../../styles/_variables.scss";
+@import '../../styles/_variables.scss';
 
 .socialLinks {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 8px;
+  gap: 10px;
 
   @media screen and (min-width: $tablet) {
-    & img {
-      width: clamp(1rem, -0.143rem + 2.381vw, 2rem);
-      height: clamp(1rem, -0.143rem + 2.381vw, 2rem);
+    gap: 12px;
+  }
+  @media screen and (min-width: $desktop) {
+    gap: 24px;
+  }
+}
+
+.socialItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+  @media screen and (min-width: $tablet) {
+    column-gap: 12px;
+  }
+}
+
+.socialIcon {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+    box-shadow: 2px 2px 4px 0 rgba(246, 246, 244, 0.25);
+    background-color: $Primary50;
+
+    @media screen and (min-width: $desktop) {
+      width: 32px;
+      height: 32px;
+      border-radius: 12px;
     }
+  }
+
+  // &:hover::before {
+  //   box-shadow: none;
+  // }
+  & img {
+    object-fit: contain;
+  }
+}
+
+.phone {
+  display: none;
+  @media screen and (min-width: $tablet) {
+    display: block;
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+    color: $Primary50;
+  }
+  @media screen and (min-width: $desktop) {
+    font-size: 20px;
+    line-height: 1.7;
+    margin-right: 12px;
   }
 }

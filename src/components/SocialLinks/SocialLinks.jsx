@@ -1,23 +1,27 @@
-import React from "react";
-import styles from "./SocialLinks.module.scss";
-import { socialLinks } from "@/data/socialLinks";
-import Image from "next/image";
+import React from 'react';
+import styles from './SocialLinks.module.scss';
+import { socialLinks } from '@/data/socialLinks';
+import Image from 'next/image';
 
 const SocialLinks = ({ className }) => {
   return (
-    <ul className={styles.socialLinks + " " + `${className}`}>
+    <ul className={styles.socialLinks + ' ' + `${className}`}>
       {socialLinks.map((item) => {
         return (
-          <li key={item.id}>
-            <a href={item.href} target="_blank">
+          <li key={item.id} className={styles.socialItem}>
+            <a href={item.href} target="_blank" className={styles.socialIcon}>
               <Image
                 src={item.img}
-                width={24}
-                height={24}
+                fill={true}
                 alt={item.title}
                 title={item.title}
               />
             </a>
+            {item.title === 'Telephone' && (
+              <a href={item.href} target="_blank" className={styles.phone}>
+                {item.subtitle}
+              </a>
+            )}
           </li>
         );
       })}

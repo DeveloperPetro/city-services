@@ -28,7 +28,7 @@ const Header = () => {
 
   const handleResize = useCallback(() => {
     if (
-      window.innerWidth < 768 ||
+      window.innerWidth < 1366 ||
       (session.status === 'authenticated' && window.innerWidth < 1200)
     ) {
       setIsMobile(true);
@@ -61,7 +61,9 @@ const Header = () => {
   };
 
   const closeBurgerMenuOnClick = useCallback((e) => {
+    const isBurgerButton = e.target.closest(`#burgerBtn`);
     if (
+      isBurgerButton ||
       e.target.id === 'mobileNavigation' ||
       e.target.nodeName === 'use' ||
       e.target.nodeName === 'svg'
@@ -144,7 +146,7 @@ const Header = () => {
           </div>
         )}
 
-        {isMobile && <TranslatorBtnBlock isClient={isClient} />}
+        {isMobile && <SocialLinks />}
 
         <Logo className={styles.logo} isClient={isClient} />
 
@@ -175,6 +177,7 @@ const Header = () => {
               : styles.mobileNavigation
           }
           onClick={closeBurgerMenu}
+          isClient={isClient}
         />
       )}
     </header>
