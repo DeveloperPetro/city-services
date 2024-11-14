@@ -1,12 +1,9 @@
 @import '../../styles/_variables.scss';
 
 .burgerBtn {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  position: relative;
+  width: 24px;
+  height: 13px;
   border: none;
   background: none;
   margin-left: auto;
@@ -22,35 +19,46 @@
   -ms-flex-align: center;
   align-items: center;
   cursor: pointer;
+}
 
-  &:hover,
-  &:focus {
-    -webkit-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
+.lineClose {
+  .line {
+    &::before {
+      width: 55%;
+    }
+    &::after {
+      width: 75%;
+    }
   }
 }
 
-.iconBurger {
-  width: 22px;
-  height: 12px;
-
-  fill: $SecondaryColor;
-
-  @media screen and (min-width: $mobile) {
-    width: 40px;
-    height: 24px;
+.line {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 2px;
+  background-color: $SecondaryColor;
+  border-radius: 8px;
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 75%;
+    height: 2px;
+    background-color: $SecondaryColor;
+    border-radius: 8px;
   }
-}
-
-.iconClose {
-  width: 20px;
-  height: 20px;
-
-  stroke: $darckFontColor;
-
-  @media screen and (min-width: $mobile) {
-    width: 32px;
-    height: 32px;
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 55%;
+    height: 2px;
+    background-color: $SecondaryColor;
+    border-radius: 8px;
   }
 }

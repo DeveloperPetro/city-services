@@ -25,14 +25,18 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  letter-spacing: 1.7px;
+  letter-spacing: 0.3px;
   text-align: center;
 
   background-color: $SecondaryColor;
 
-  height: 48px;
+  height: 32px;
 
-  @media screen and (min-width: 432px) {
+  @media screen and (min-width: $tablet) {
+    letter-spacing: 1.7px;
+    height: 30px;
+  }
+  @media screen and (min-width: $desktop) {
     height: 50px;
   }
 }
@@ -45,7 +49,7 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 16px 20px;
+  padding: 0px 20px;
   height: 40px;
 
   & .logo {
@@ -54,13 +58,6 @@
     -ms-transform: translate(-50%, 0%);
     transform: translate(-50%, 0%);
     left: 50%;
-
-    & span {
-      color: $lightFontColor;
-      background-color: $darckFontColor;
-      padding: 4px;
-      margin-right: 4px;
-    }
   }
 
   @media screen and (min-width: $tablet) {
@@ -76,7 +73,6 @@
 
 .leftLinks,
 .rightLinks {
-  display: none;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -141,18 +137,16 @@
   padding: 0px;
   top: 64px;
   width: 100%;
-  height: 1px;
+  height: 0px;
   overflow: hidden;
-  gap: 0px;
 
-  color: $footerTextColor;
+  color: $SecondaryColor;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 
   & li {
-    margin-top: 20px;
     transform: translateY(-100%);
   }
 
@@ -166,17 +160,28 @@
     justify-content: center;
     gap: 16px;
   }
+  @media screen and (min-width: $tablet) {
+    width: 35%;
+    margin-left: auto;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 20px;
+  }
 }
 
 .mobileNavigationVisible {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  padding-bottom: 20px;
-  background-color: $lightFontColor;
+  padding: 18px 0 60px 0;
+  background-color: $Primary900;
 
   & li {
-    margin-top: 20px;
     transform: translateY(0);
+  }
+  @media screen and (min-width: $tablet) {
+    padding: 18px 36px 109px 36px;
   }
 }
