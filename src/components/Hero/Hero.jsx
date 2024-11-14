@@ -15,7 +15,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className={styles.container}>
+    <section className={`pageTopSection ${styles.container}`}>
       <h1 className={seoStyles.titleHidden}>
         Оренда квартири суми. Квартири подобово. Суми квартири.
       </h1>
