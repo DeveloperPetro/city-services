@@ -13,14 +13,20 @@
     -ms-flex-align: center;
     align-items: center;
     width: 360px;
-    height: 600px;
+    height: 556px;
     text-align: center;
     padding: 24px;
     background-color: #fff;
 
+    @media screen and (min-width: $tablet) {
+        padding: 40px;
+        width: 688px;
+        height: 612px;
+    }
+
     @media screen and (min-width: $desktop) {
-        width: 1081px;
-        height: 635px;
+        width: 1016px;
+        height: 480px;
     }
 }
 
@@ -32,8 +38,8 @@
     cursor: pointer;
 
     @media screen and (min-width: $desktop) {
-        top: 100px;
-        right: 100px;
+        top: 60px;
+        right: 60px;
     }
 }
 
@@ -46,8 +52,8 @@
 
     @media screen and (min-width: $desktop) {
         left: 10px;
-        width: 32px;
-        height: 32px;
+        width: 24px;
+        height: 24px;
     }
 }
 
@@ -74,7 +80,7 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    width: 296px;
+    margin-top: 16px;
 
     @media screen and (min-width: $desktop) {
         width: 921px;
@@ -94,6 +100,10 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    @media screen and (min-width: $tablet) {
+        width: 407px;
+    }
 
     @media screen and (min-width: $desktop) {
         width: 920px;
@@ -121,8 +131,12 @@
     border-bottom: 1px solid rgba(199, 199, 199, 1);
     padding-left: 32px;
 
+    @media screen and (min-width: $tablet) {
+        width: 407px;
+    }
+
     @media screen and (min-width: $desktop) {
-        margin: 77px 10px 0;
+        margin: 50px 10px 0;
         width: 440px;
     }
 }
@@ -132,33 +146,52 @@
 }
 
 .input::-webkit-input-placeholder {
-    color: #c7c7c7;
+    color: $Primary600;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
 }
 
 .input::-moz-placeholder {
-    color: #c7c7c7;
+    color: $Primary600;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
 }
 
 .input:-ms-input-placeholder {
-    color: #c7c7c7;
+    color: $Primary600;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
 }
 
 .input::-ms-input-placeholder {
-    color: #c7c7c7;
+    color: $Primary600;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
 }
 
 .input::placeholder {
-    color: #c7c7c7;
+    color: $Primary600;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
 }
 
 .inputError {
-    border-bottom: 1px solid rgba(255, 134, 134, 1);
+    border-bottom: 1px solid $Error;
+}
+
+.inputSuccess {
+    border-bottom: 1px solid $Success;
 }
 
 .label {
     position: absolute;
-    top: -10px;
-    color: rgba(19, 17, 18, 1);
+    top: -15px;
+    color: $Primary900;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.7;
@@ -175,9 +208,9 @@
 
 .error {
     position: absolute;
-    bottom: 70px;
-    left: 170px;
-    color: rgba(255, 134, 134, 1);
+    bottom: 15px;
+    left: 140px;
+    color: $Error;
     font-size: 14px;
 
     @media screen and (min-width: $desktop) {
@@ -188,9 +221,9 @@
 
 .icon {
     position: absolute;
-    top: 10px;
-    width: 16px;
-    height: 16px;
+    top: 7px;
+    width: 20px;
+    height: 20px;
 
     @media screen and (min-width: $desktop) {
         left: 10px;
@@ -221,6 +254,22 @@
 .iconSvg:hover {
     scale: 1.2;
     fill: #ff8686;
+}
+
+.iconStatus {
+    position: absolute;
+    top: 5px;
+    right: 14px;
+    width: 24px;
+    height: 24px;
+}
+
+.iconImportant {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    width: 7px;
+    height: 8px;
 }
 
 .explainText {
@@ -266,8 +315,12 @@
     line-height: 1.6;
     margin-top: 48px;
 
+    @media screen and (min-width: $tablet) {
+        width: 455px;
+    }
+
     @media screen and (min-width: $desktop) {
-        margin: 100px auto;
+        width: 391px;
     }
 }
 
@@ -280,8 +333,9 @@
 // styles for success content
 
 .successContainer {
-    margin-top: 80px;
+    margin-top: 156px;
     height: 100%;
+    width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -293,40 +347,31 @@
     -ms-flex-align: center;
     align-items: center;
     -ms-flex-pack: distribute;
-    justify-content: space-around;
+    // justify-content: space-around;
 
     @media screen and (min-width: $desktop) {
-        margin-top: 140px;
+        margin-top: 113px;
         padding-bottom: 40px;
     }
 }
 
-.successWrap {
-    @media screen and (min-width: $desktop) {
-        margin-bottom: 80px;
-    }
-}
-
-.successTextTop {
-    font-family: sans-serif;
-    font-size: 24px;
-    line-height: 1.3;
-    font-weight: 400;
-    margin-bottom: 40px;
-
-    @media screen and (min-width: $desktop) {
-        font-size: 32px;
-        margin-bottom: 10px;
-    }
-}
+// .successWrap {
+//     @media screen and (min-width: $desktop) {
+//         margin-bottom: 80px;
+//     }
+// }
 
 .successText {
-    font-family: sans-serif;
-    font-size: 24px;
-    line-height: 1.3;
-    font-weight: 400;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.6;
+
+    @media screen and (min-width: $tablet) {
+        font-size: 18px;
+        line-height: 1.4;
+    }
 
     @media screen and (min-width: $desktop) {
-        font-size: 32px;
+        font-size: 22px;
     }
 }
