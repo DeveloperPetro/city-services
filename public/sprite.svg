@@ -153,5 +153,9 @@
 <path fill="#a20b0b" style="fill: var(--color1, #a20b0b)" d="M0.842 29.493c0-0.465 0.377-0.842 0.842-0.842s0.842 0.377 0.842 0.842c0 0.465-0.377 0.842-0.842 0.842s-0.842-0.377-0.842-0.842z"></path>
 </symbol>
 
+<symbol id="snowflake" viewBox="0 0 32 32">
+<path fill="none" stroke="#646263" style="stroke: var(--color1, #646263)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.5556" d="M15.407 16.889l11.852-6.667M15.407 16.889v13.333M15.407 16.889l-11.852-6.667M15.407 16.889l11.852 6.667M15.407 16.889v-13.333M15.407 16.889l-11.852 6.667"></path>
+</symbol>
+
 </defs>
 </svg>
