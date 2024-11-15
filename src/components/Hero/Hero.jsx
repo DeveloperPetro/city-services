@@ -68,6 +68,7 @@ const Hero = () => {
               src="/heroImgs/Hero-first.webp"
               alt="hero image"
               fill={true}
+              sizes="(max-width: 768px) 334px, (max-width: 1200px) 704px"
             />
           </figure>
           <div className={styles.heroContent}>
@@ -80,6 +81,7 @@ const Hero = () => {
                 src="/heroImgs/Hero-second.webp"
                 alt="hero image"
                 fill={true}
+                sizes="(max-width: 768px) 334px, (max-width: 1200px) 496px"
               />
             </figure>
           </div>
