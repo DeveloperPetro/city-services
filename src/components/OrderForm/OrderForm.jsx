@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import {
     Formik,
@@ -16,7 +15,9 @@ import { addDays, subDays } from "@/utils/dateUtils";
 import { sendToTelegram } from "@/utils/sendToTelegram";
 import { useFetcherObjectNumbers } from "@/hooks/useFetcher";
 import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
+
 import SuccessContent from "./SuccessContent";
+import LogoForm from "./LogoForm";
 
 import styles from "./OrderForm.module.scss";
 import seoStyles from "@/app/seoStyles.module.css";
@@ -46,6 +47,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
     const { t } = useTranslation();
     const schema = useMemo(() => orderSchema(), []);
     const listOfAppartmentNumbers = useFetcherObjectNumbers();
+
     useLockBodyScroll(isOpen);
 
     return (
@@ -83,14 +85,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                 <use href='/sprite.svg#close' />
                             </svg>
                         </button>
-                        <div className={styles.imageWrap}>
-                            <Image
-                                src='/logoWhiteSmall.png'
-                                alt='Логотип'
-                                width={85}
-                                height={32}
-                            />
-                        </div>
+                        <LogoForm />
                         <h3 className={seoStyles.titleHidden}>
                             Оренда квартири суми. Суми квартири. Аренда квартиры
                             Сумы.
@@ -438,7 +433,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                         />
                                     </div>
                                     <p className={styles.explainText}>
-                                        * - {t("Form.fieldsDesc")}
+                                        * {t("Form.fieldsDesc")}
                                     </p>
                                 </div>
 
