@@ -29,18 +29,22 @@
   }
 }
 
-.langSwitcherClose {
-  background-color: $Primary800;
-  transform: translateY(45%);
-  opacity: 1;
+.langSwitcherOpen {
+  @media screen and (min-width: $desktop) {
+    background-color: $Primary800;
+    transform: translateY(45%);
+    opacity: 1;
+  }
 }
 
-.langSwitcherOpen {
-  background-color: transparent;
-  transform: translateY(-20%);
-  overflow: hidden;
-  opacity: 0;
-  height: 0;
+.langSwitcherClose {
+  @media screen and (min-width: $desktop) {
+    background-color: transparent;
+    transform: translateY(-20%);
+    overflow: hidden;
+    opacity: 0;
+    height: 0;
+  }
 }
 
 .langSwitcher {
