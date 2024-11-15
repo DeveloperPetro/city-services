@@ -21,7 +21,14 @@ const Navigation = ({ className, onClick, id, isClient }) => {
           if (item.titleEn !== 'Contacts')
             return (
               <li key={item.id} onClick={onClick}>
-                <Link href={item.path} className={styles.text}>
+                <Link
+                  href={item.path}
+                  {...(item.title === 'Політика конфіденційності' && {
+                    target: '_blank',
+                    rel: 'noopener noreferrer',
+                  })}
+                  className={styles.text}
+                >
                   {i18n.language === currentLanguages.EN
                     ? item.titleEn
                     : item.title}

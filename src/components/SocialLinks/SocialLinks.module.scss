@@ -59,9 +59,9 @@
     }
   }
 
-  // &:hover::before {
-  //   box-shadow: none;
-  // }
+  &:hover::before {
+    box-shadow: none;
+  }
   & img {
     object-fit: contain;
   }
