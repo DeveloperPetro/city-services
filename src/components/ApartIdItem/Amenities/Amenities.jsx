@@ -11,7 +11,7 @@ const Amenities = ({ dataId }) => {
     id: 100,
     titleEn: dataId.bedsQuantity,
     title: dataId.bedsQuantity,
-    img: '/webp/Bed7.webp',
+    img: '/webp/Bed.webp',
   };
 
   const matchingAmenities = amenities.filter((amenity) =>

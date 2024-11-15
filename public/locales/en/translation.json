@@ -46,6 +46,9 @@
     "Apartments": "Apartments",
     "Rules": "Rules"
   },
+  "BreadCrumbs": {
+    "BackLink": "Back"
+  },
   "Buttons": {
     "CalltBtn": "Contact Us",
     "OrderBtn": "Request to book",

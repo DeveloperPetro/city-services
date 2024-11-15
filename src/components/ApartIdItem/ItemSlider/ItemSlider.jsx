@@ -25,8 +25,8 @@ import "swiper/css/pagination";
 import "./ItemSliderTop.css";
 import "./ItemSliderBottom.css";
 
+
 const ItemSlider = ({ dataId }) => {
-  // const [item, setItem] = useState(null);
   const [item, setItem] = useState([]);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
@@ -37,15 +37,11 @@ const ItemSlider = ({ dataId }) => {
     [dataId, images]
   );
 
-  // const imgPtiority = dataId?.titleImg ? true : false;
-  // const imgLoading = dataId?.titleImg ? "eager" : "lazy";
-
   useEffect(() => {
     setItem(
-      // allImages.map((item) => {
-      allImages.map((el, i, arr) => {
+      allImages.map((el, i) => {
         const imgLoading = i === 0 ? "eager" : "lazy";
-        const imgPtiority = i === 0 ? true : false;
+        const imgPriority = i === 0 ? true : false;
         const imgSizes =
           i === 0
             ? "(max-width: 767px) 100vw, (max-width: 1440px) 50vw, 33vw"
@@ -58,21 +54,21 @@ const ItemSlider = ({ dataId }) => {
               fill={true}
               loading={imgLoading}
               sizes={imgSizes}
-              priority={imgPtiority}
+              priority={imgPriority}
             />
           </SwiperSlide>
         );
       })
     );
-    // }, [allImages, imgLoading, imgPtiority]);
   }, [allImages]);
+
 
   return (
     <article className={styles.swiperContainer}>
       <h4 className={seoStyles.titleHidden}>
         Detailed images of the apartment
       </h4>
-      {/* {item && ( */}
+
       <Swiper
         loop={true}
         spaceBetween={10}
@@ -90,9 +86,7 @@ const ItemSlider = ({ dataId }) => {
       >
         {item}
       </Swiper>
-      {/* )} */}
 
-      {/* {item && ( */}
       <Swiper
         onSwiper={setThumbsSwiper}
         spaceBetween={16}
@@ -109,9 +103,9 @@ const ItemSlider = ({ dataId }) => {
       >
         {item}
       </Swiper>
-      {/* )} */}
     </article>
   );
 };
+
 
 export default ItemSlider;

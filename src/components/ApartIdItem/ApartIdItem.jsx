@@ -2,12 +2,14 @@
 
 import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
-import OrderBtn from '../OrderBtn/OrderBtn';
+import { useRouter } from 'next/navigation';
+import { v4 } from 'uuid';
 import IsLoading from '../share/IsLoading/IsLoading';
+import BreadCrumbs from '../BreadCrumbs/BreadCrumbs';
+import OrderBtn from '../OrderBtn/OrderBtn';
 import Amenities from './Amenities/Amenities';
 import ApartDataList from './ApartDataList/ApartDataList';
 import { currentLanguages, textInfoAppartId } from '@/data';
-import styles from './ApartIdItem.module.scss';
 import ItemSlider from './ItemSlider/ItemSlider';
 import ModalR from '@/components/Modal/Modal';
 import OrderForm from '@/components/OrderForm/OrderForm';
@@ -15,10 +17,12 @@ import { SiteContext } from '@/context/SiteContext';
 import Link from 'next/link';
 import seoStyles from '@/app/seoStyles.module.css';
 // import useSWR from 'swr';
-import { v4 } from 'uuid';
 import { GetDataById } from '@/fetch/clientFetch';
+import styles from './ApartIdItem.module.scss';
+
 
 const ApartIdItem = ({ params }) => {
+  const router = useRouter();
   const { data, error, isLoading } = GetDataById(params.id)
 
   const dataId = data && !isLoading ? data : error;
@@ -57,24 +61,16 @@ const ApartIdItem = ({ params }) => {
       <h1 className={seoStyles.titleHidden}>
         Оренда квартири суми. Суми квартири. Зняти квартиру суми. Сумы.
       </h1>
-      <nav className={styles.backContainer}>
-        {!isLoading && (
-          <article className="textLink">
-            <h2 className={seoStyles.titleHidden}>Navigation</h2>
-            <Link href="/" prefetch={false} className="textLinkAnimation">
-              {t('Navigation.MainPage')}
-            </Link>
-            /
-            <Link href="/apartments" className="textLinkAnimation">
-              {t('Navigation.Apartments')}
-            </Link>
-            /<span className="active"># {dataId?.objNumber}</span>
-          </article>
-        )}
-      </nav>
+
+      {!isLoading && <BreadCrumbs
+        onClick={() => router.back()}
+        title={t('BreadCrumbs.BackLink')}
+      />}
+
       <ModalR isOpen={isModalOpen} closeModal={closeModal}>
         <OrderForm isOpen={isModalOpen} closeModal={closeModal} />
       </ModalR>
+
       {isLoading ? (
         <IsLoading />
       ) : (

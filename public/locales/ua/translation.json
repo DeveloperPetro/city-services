@@ -46,6 +46,9 @@
         "Apartments": "Апартаменти",
         "Rules": "Правила"
     },
+    "BreadCrumbs": {
+        "BackLink": "Назад"
+    },
     "Buttons": {
         "CalltBtn": "Зв’язатись",
         "OrderBtn": "Забронювати",
