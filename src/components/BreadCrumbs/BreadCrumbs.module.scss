@@ -1,0 +1,32 @@
+@import "../../styles/_variables.scss";
+
+.wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    column-gap: 4px;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    line-height: 1.6;
+    cursor: pointer;
+    margin-right: auto;
+
+    @media screen and (min-width: $tablet) {
+        column-gap: 12px;
+    }
+
+    @media screen and (min-width: $desktop) {
+        font-size: 20px;
+        line-height: 1.7;
+    }
+}
+
+.backIcon {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: $Primary900;
+}
