@@ -11,6 +11,7 @@ import ModalR from "@/components/Modal/Modal";
 import OrderForm from "@/components/OrderForm/OrderForm";
 import styles from "./Footer.module.scss";
 import { navigationData, currentLanguages } from "@/data";
+import SocialLinksFooter from "../SocialLinks/SocialLinksFooter";
 
 const Footer = ({ onClick }) => {
   const { isModalOpen, openModal, closeModal, setScrolledWindow } =
@@ -25,7 +26,7 @@ const Footer = ({ onClick }) => {
   };
 
   const handleResize = () => {
-    if (window.innerWidth < 768) {
+    if (window.innerWidth < 1366) {
       setIsMobile(true);
     } else {
       setIsMobile(false);
@@ -74,32 +75,33 @@ const Footer = ({ onClick }) => {
             </div>
           </div>
         )}
-
-        
       </footer> */}
       <footer className={styles.container}>
         {isMobile && (
-          <div className={styles.mobileContentWrapper}></div>
+          <div className={styles.mobileContentWrapper}>
+
+            <div className="footer-logo-wrapper">
+              <Logo className={`${styles.footerLogo}`} />
+            </div>
+
+            {!isLoading && (
+              <div className={styles.btnsWrapper}>
+                <OrderBtn openModal={openModal} />
+                <CallBtn />
+              </div>
+            )}
+
+          </div>
         )}
 
         {!isMobile && (
           <div className={styles.contentWrapper}>
 
-            <div className="">
+            <div className="footer-logo-wrapper">
               <Logo className={`${styles.footerLogo}`} />
             </div>
 
-            <div className={styles.contacts}>
-              <Link href="tel:+380954515057" className="textLinkAnimation">
-                +380 (95) 451 50 57
-              </Link>
-              <Link href="" className="textLinkAnimation">
-                DailyRent_Kyiv
-              </Link>
-              <Link href="" className="textLinkAnimation">
-                DailyRent_Kyiv
-              </Link>
-            </div>
+            <SocialLinksFooter />
 
             <ul className={styles.navigation}>
               {!isLoading &&
