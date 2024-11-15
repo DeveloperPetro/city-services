@@ -8,6 +8,7 @@
 .ItemSliderBottom .swiper-slide {
   height: 95px;
   overflow: hidden;
+  margin-right: 12px;
 }
 
 .ItemSliderBottom .swiper-slide img {
@@ -15,26 +16,39 @@
   object-position: center;
 }
 
+
+
+@media screen and (min-width: 768px) {
+  .ItemSliderBottom .swiper-slide {
+    margin-right: 20px;
+  }
+}
+
+
+
 @media screen and (min-width: 1366px) {
   .ItemSliderBottom {
     height: 170px;
   }
+
   .ItemSliderBottom .swiper-slide {
     height: 218px;
+    margin-right: 24px;
   }
 }
 
-@media screen and (min-width: 1500px) {
+/* @media screen and (min-width: 1500px) {
   .ItemSliderBottom {
     height: 180px;
   }
+
   .ItemSliderBottom .swiper-slide {
     height: 218px;
   }
-}
+} */
 
-@media screen and (min-width: 1920px) {
+/* @media screen and (min-width: 1920px) {
   .ItemSliderBottom {
     height: 218px;
   }
-}
+} */
