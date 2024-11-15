@@ -57,16 +57,8 @@
     }
 }
 
-.title {
-    font-family: var(--font--lato);
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 32px;
-    margin-top: 15px;
-
-    @media screen and (min-width: $desktop) {
-        margin: 55px 0 0 0;
-    }
+.imageWrap {
+    position: relative;
 }
 
 .form {
@@ -83,7 +75,7 @@
     margin-top: 16px;
 
     @media screen and (min-width: $desktop) {
-        width: 921px;
+        width: 838px;
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -106,17 +98,13 @@
     }
 
     @media screen and (min-width: $desktop) {
-        width: 920px;
+        width: 838px;
         flex-direction: row;
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
         justify-content: space-between;
         position: relative;
     }
-}
-
-.label {
-    position: relative;
 }
 
 .input {
@@ -136,8 +124,8 @@
     }
 
     @media screen and (min-width: $desktop) {
-        margin: 50px 10px 0;
-        width: 440px;
+        margin: 35px 0 0;
+        width: 407px;
     }
 }
 
@@ -195,6 +183,10 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 1.7;
+    @media screen and (min-width: $desktop) {
+        top: 15px;
+        left: 5px;
+    }
 }
 
 .wrapError {
@@ -202,7 +194,7 @@
     width: 100%;
 
     @media screen and (min-width: $desktop) {
-        width: 440px;
+        width: 407px;
     }
 }
 
@@ -214,8 +206,8 @@
     font-size: 14px;
 
     @media screen and (min-width: $desktop) {
-        bottom: 40px;
-        left: 200px;
+        bottom: -20px;
+        left: 240px;
     }
 }
 
@@ -226,8 +218,8 @@
     height: 20px;
 
     @media screen and (min-width: $desktop) {
-        left: 10px;
-        top: 85px;
+        left: 5px;
+        top: 40px;
     }
 }
 
@@ -242,12 +234,12 @@
 .iconPickerRight {
     bottom: 45px;
     left: 270px;
-    width: 16px;
-    height: 16px;
+    width: 24px;
+    height: 24px;
 
     @media screen and (min-width: $desktop) {
-        bottom: 10px;
-        left: 425px;
+        top: 30px;
+        left: 380px;
     }
 }
 
@@ -262,6 +254,9 @@
     right: 14px;
     width: 24px;
     height: 24px;
+    @media screen and (min-width: $desktop) {
+        top: 40px;
+    }
 }
 
 .iconImportant {
@@ -270,14 +265,19 @@
     right: 14px;
     width: 7px;
     height: 8px;
+    @media screen and (min-width: $desktop) {
+        width: 12px;
+        height: 12px;
+        top: 40px;
+    }
 }
 
 .explainText {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
-    line-height: 1.3;
-    letter-spacing: 0.5px;
-    color: rgba(199, 199, 199, 1);
+    line-height: 1.7;
+    color: $Primary600;
+    margin-bottom: 32px;
 
     @media screen and (min-width: $desktop) {
         position: absolute;
@@ -313,7 +313,6 @@
     font-style: normal;
     font-weight: 400;
     line-height: 1.6;
-    margin-top: 48px;
 
     @media screen and (min-width: $tablet) {
         width: 455px;
@@ -321,6 +320,7 @@
 
     @media screen and (min-width: $desktop) {
         width: 391px;
+        margin: 60px auto 0 auto;
     }
 }
 
@@ -355,11 +355,17 @@
     }
 }
 
-// .successWrap {
-//     @media screen and (min-width: $desktop) {
-//         margin-bottom: 80px;
-//     }
-// }
+.successWrap {
+    margin-bottom: 20px;
+
+    @media screen and (min-width: $tablet) {
+        margin-bottom: 24px;
+    }
+
+    @media screen and (min-width: $desktop) {
+        margin-bottom: 11px;
+    }
+}
 
 .successText {
     font-size: 16px;
