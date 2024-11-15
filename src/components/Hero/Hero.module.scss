@@ -10,7 +10,7 @@
     padding: 98px 40px 20px;
   }
   @media screen and (min-width: $desktop) {
-    padding: 154px 72px 24px;
+    padding: 154px 72px 40px;
   }
 }
 
@@ -121,6 +121,36 @@
 }
 
 .apartamentContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 90vw;
+  padding-top: 72px;
+  // padding-bottom: 40px;
+
+  background-color: $Primary900;
+  box-shadow: rgb(18, 18, 18) 0px 30px 30px 35px;
+
+  z-index: 5;
+  position: relative;
+  animation: slideUp 1s ease forwards;
+
+  @keyframes slideUp {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0%);
+    }
+  }
+}
+
+.apartamentList {
   display: -ms-grid;
   display: grid;
   grid-template-columns: repeat(1, 280px);
@@ -131,15 +161,8 @@
   -moz-column-gap: 30px;
   column-gap: 30px;
   row-gap: 40px;
-  padding-top: 72px;
-  padding-bottom: 40px;
 
-  // background-color: tomato;
-  background-color: $Primary900;
-
-  z-index: 5;
-  position: relative;
-  animation: slideUp 1s ease forwards;
+  max-width: 1366px;
 
   @media screen and (min-width: 360px) {
     grid-template-columns: repeat(1, 320px);
@@ -152,12 +175,9 @@
   @media screen and (min-width: $desktop) {
     grid-template-columns: repeat(4, 1fr);
   }
-  @keyframes slideUp {
-    0% {
-      transform: translateY(100%);
-    }
-    100% {
-      transform: translateY(0%);
-    }
-  }
+}
+
+.loading {
+  width: 100%;
+  margin: 0 auto;
 }

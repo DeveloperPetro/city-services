@@ -1,5 +1,5 @@
 'use client';
-import React, { useLayoutEffect } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react';
 import styles from './Hero.module.scss';
@@ -13,28 +13,50 @@ import { currentLanguages } from '@/data';
 
 const Hero = () => {
   const { data, error, isLoading } = GetData();
+  const [loadedCount, setLoadedCount] = useState(12);
+  const [showLoading, setShowLoading] = useState(false);
   const { t, i18n } = useTranslation();
+
+  const loaderRef = useRef();
+
   // const [isLoading, setIsLoading] = useState(true);
 
   // useEffect(() => {
   //   setIsLoading(false);
   // }, []);
 
-  useLayoutEffect(() => {
-    const apartamentContainer = document.querySelector('.apartamentContainer');
+  const loadMore = () => {
+    if (loadedCount < data?.length) {
+      setShowLoading(true);
+      setTimeout(() => {
+        setLoadedCount((prev) => prev + 12);
+        setShowLoading(false);
+      }, 500);
+    }
+  };
 
-    const handleScroll = () => {
-      if (window.scrollY > 300) {
-        apartamentContainer.classList.add('slideIn');
-      }
-    };
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          loadMore();
+        }
+      },
+      { threshold: 1 }
+    );
 
-    window.addEventListener('scroll', handleScroll);
+    if (loaderRef.current) {
+      observer.observe(loaderRef.current);
+    }
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      if (loaderRef.current) {
+        // eslint-disable-next-line
+        observer.unobserve(loaderRef.current);
+      }
     };
-  }, []);
+    // eslint-disable-next-line
+  }, [loadedCount, data]);
 
   return (
     <section className={`${styles.container}`}>
@@ -66,26 +88,33 @@ const Hero = () => {
       {isLoading ? (
         <IsLoading />
       ) : (
-        <ul className={styles.apartamentContainer}>
-          {data?.length > 0 &&
-            data?.map((item) => (
-              <ApartItem
-                key={item._id}
-                titleImg={item.titleImg}
-                code={item.code}
-                address={
-                  i18n.language === currentLanguages.EN
-                    ? item.addressEn
-                    : item.address
-                }
-                price={item.price}
-                objNumber={item.objNumber}
-                roomsQuantity={item.roomsQuantity}
-                id={item._id}
-                bedsQuantity={item.bedsQuantity}
-              />
-            ))}
-        </ul>
+        <div className={styles.apartamentContainer}>
+          <ul className={styles.apartamentList} ref={loaderRef}>
+            {data?.length > 0 &&
+              data
+                ?.slice(0, loadedCount)
+                .map((item) => (
+                  <ApartItem
+                    key={item._id}
+                    titleImg={item.titleImg}
+                    code={item.code}
+                    address={
+                      i18n.language === currentLanguages.EN
+                        ? item.addressEn
+                        : item.address
+                    }
+                    price={item.price}
+                    objNumber={item.objNumber}
+                    roomsQuantity={item.roomsQuantity}
+                    id={item._id}
+                    bedsQuantity={item.bedsQuantity}
+                  />
+                ))}
+          </ul>
+          <div ref={loaderRef} className={styles.loading}>
+            {showLoading && <IsLoading />}
+          </div>
+        </div>
       )}
     </section>
   );
