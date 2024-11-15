@@ -1,26 +1,22 @@
-"use client";
+'use client';
 
-import React from "react";
-import styles from "./BurgerBtn.module.scss";
+import React from 'react';
+import styles from './BurgerBtn.module.scss';
 
 const BurgerBtn = ({ onClick, burgerMenu, id }) => {
   return (
     <button
       id={id}
-      className={styles.burgerBtn}
+      className={
+        !burgerMenu
+          ? styles.burgerBtn
+          : styles.burgerBtn + ' ' + styles.lineClose
+      }
       onClick={onClick}
       aria-label="Button burger menu"
       title="Burger Menu"
     >
-      {burgerMenu ? (
-        <svg className={styles.iconClose}>
-          <use href="/sprite.svg#icon-close" />
-        </svg>
-      ) : (
-        <svg className={styles.iconBurger}>
-          <use href="/sprite.svg#icon-burger-mobile" />
-        </svg>
-      )}
+      <span className={styles.line}></span>
     </button>
   );
 };

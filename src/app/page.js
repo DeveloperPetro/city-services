@@ -1,20 +1,20 @@
-import Hero from "@/components/Hero/Hero";
-import dynamic from "next/dynamic";
+import Hero from '@/components/Hero/Hero';
+// import dynamic from "next/dynamic";
 
-const DynamicHomeSlider = dynamic(() =>
-  import("@/components/HomeSlider/HomeSlider")
-);
+// const DynamicHomeSlider = dynamic(() =>
+//   import("@/components/HomeSlider/HomeSlider")
+// );
 
 export default function Home() {
   const jsonLd = {
-    "@context": "http://schema.org",
-    "@type": "BreadcrumbList",
+    '@context': 'http://schema.org',
+    '@type': 'BreadcrumbList',
     itemListElement: {
-      "@type": "ListItem",
+      '@type': 'ListItem',
       position: 1,
       item: {
-        "@id": process.env.NEXT_PUBLIC_MAIN_URL,
-        name: "Daily Rent Kyiv - оренда квартири Київ. Квартири подобово.",
+        '@id': process.env.NEXT_PUBLIC_MAIN_URL,
+        name: 'Daily Rent Kyiv - оренда квартири Київ. Квартири подобово.',
       },
     },
   };
@@ -25,7 +25,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Hero />
-      <DynamicHomeSlider />
+      {/* <DynamicHomeSlider /> */}
     </>
   );
 }

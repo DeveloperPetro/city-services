@@ -11,8 +11,8 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  gap: 8px;
-  gap: 24px;
+  // gap: 8px;
+  // gap: 24px;
   padding: 16px 32px;
   color: $footerTextColor;
   border-top: 1px solid #000;
@@ -21,32 +21,25 @@
   justify-content: space-between;
   width: 100%;
 
-  & .footerLogo {
-    color: $footerLogoColor;
-    font-size: clamp(1rem, 0.714rem + 1.429vw, 2rem);
-    margin-left: 0;
-    margin-right: auto;
-  }
+  // @media (max-width: 360px) {
+  //   min-height: 186px;
+  // }
 
-  @media (max-width: 360px) {
-    min-height: 186px;
-  }
+  // @media (min-width: 361px) and (max-width: 767px) {
+  //   min-height: 128px;
+  // }
 
-  @media (min-width: 361px) and (max-width: 767px) {
-    min-height: 128px;
-  }
-
-  @media (max-width: 767px) {
-    padding-top: 20px;
-  }
+  // @media (max-width: 767px) {
+  //   padding-top: 20px;
+  // }
 
   @media screen and (min-width: $tablet) {
-    gap: 12px;
+    // gap: 12px;
     padding: 16px 40px;
   }
 
   @media screen and (min-width: $desktop) {
-    gap: 100px;
+    // gap: 100px;
     padding: 32px 71px;
   }
 }
@@ -54,14 +47,12 @@
 .mobileContentWrapper {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   width: 100%;
   gap: 12px;
 
-  @media (max-width: 360px) {
-    flex-direction: column;
-    align-items: center;
-  }
+  // @media (max-width: 360px) {
+  //   flex-direction: column;
+  // }
 }
 
 .mobileItem {
@@ -70,10 +61,6 @@
   align-items: flex-start;
   gap: 12px;
 
-  & .footerLogo {
-    font-size: 24px;
-    line-height: 0.9;
-  }
 
   & a {
     color: $footerTextColor;
@@ -81,12 +68,6 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-  }
-
-  @media (max-width: 360px) {
-    & .footerLogo {
-      margin-left: auto;
-    }
   }
 }
 
@@ -104,7 +85,6 @@
   -ms-flex-align: center;
 }
 
-.contacts,
 .navigation {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -150,15 +130,10 @@
   }
 }
 
-.contacts {
-  font-family: var(--font--lato);
-}
-
 .btnsWrapper {
-  display: none;
+  display: flex;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
-  justify-content: space-between;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
@@ -176,7 +151,7 @@
   }
 
   @media screen and (min-width: $desktop) {
-    gap: 32px;
+    gap: 20px;
   }
 }
 

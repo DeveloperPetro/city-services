@@ -1,19 +1,20 @@
-import React from "react";
-import styles from "./OrderForm.module.scss";
+import Image from "next/image";
 import { useTranslation } from "react-i18next";
 
+import styles from "./OrderForm.module.scss";
+
 const SuccessContent = ({ closeModal }) => {
-    
-    const {t}=useTranslation();
+    const { t } = useTranslation();
 
     return (
         <div className={styles.successContainer}>
             <div className={styles.successWrap}>
-                <p className={styles.successTextTop}>
+                <p className={styles.successText}>
                     {t("Form.formSubmitedMsg1")}
                 </p>
+
                 <p className={styles.successText}>
-                {t("Form.formSubmitedMsg2")}
+                    {t("Form.formSubmitedMsg2")}
                 </p>
             </div>
             <button

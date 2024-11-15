@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import {
     Formik,
@@ -14,7 +14,10 @@ import { orderSchema } from "@/yupSchemas/orderSchema";
 import { addDays, subDays } from "@/utils/dateUtils";
 import { sendToTelegram } from "@/utils/sendToTelegram";
 import { useFetcherObjectNumbers } from "@/hooks/useFetcher";
+import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
+
 import SuccessContent from "./SuccessContent";
+import LogoForm from "./LogoForm";
 
 import styles from "./OrderForm.module.scss";
 import seoStyles from "@/app/seoStyles.module.css";
@@ -42,19 +45,10 @@ const handleSubmit = (values, actions, closeModal) => {
 
 const OrderForm = ({ isOpen, closeModal }) => {
     const { t } = useTranslation();
-
     const schema = useMemo(() => orderSchema(), []);
-
-    useEffect(() => {
-        if (isOpen) {
-            document.body.style.overflow = "hidden";
-        }
-        return () => {
-            document.body.style.overflow = "unset";
-        };
-    }, [isOpen]);
-
     const listOfAppartmentNumbers = useFetcherObjectNumbers();
+
+    useLockBodyScroll(isOpen);
 
     return (
         <Formik
@@ -91,7 +85,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                 <use href='/sprite.svg#close' />
                             </svg>
                         </button>
-                        <h2 className={styles.title}>Daily Rent Kyiv</h2>
+                        <LogoForm />
                         <h3 className={seoStyles.titleHidden}>
                             Оренда квартири суми. Суми квартири. Аренда квартиры
                             Сумы.
@@ -105,6 +99,21 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                         <svg className={styles.icon}>
                                             <use href='/sprite.svg#icon-user' />
                                         </svg>
+                                        {errors.userName && (
+                                            <svg className={styles.iconStatus}>
+                                                <use href='/sprite.svg#exclamation-mark' />
+                                            </svg>
+                                        )}
+                                        {!errors.userName &&
+                                            values.userName && (
+                                                <svg
+                                                    className={
+                                                        styles.iconStatus
+                                                    }
+                                                >
+                                                    <use href='/sprite.svg#success' />
+                                                </svg>
+                                            )}
                                         <label
                                             htmlFor='userName'
                                             className={styles.label}
@@ -118,12 +127,14 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                             placeholder={t("Form.name")}
                                             autoComplete='off'
                                             maxLength='30'
-                                            className={
-                                                errors.userName &&
-                                                touched.userName
-                                                    ? `${styles.input} ${styles.inputError}`
-                                                    : styles.input
-                                            }
+                                            className={`${styles.input} ${
+                                                errors.userName
+                                                    ? styles.inputError
+                                                    : touched.userName &&
+                                                      values.userName
+                                                    ? styles.inputSuccess
+                                                    : ""
+                                            }`}
                                         />
                                         <ErrorMessage
                                             name='userName'
@@ -135,6 +146,29 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                         <svg className={styles.icon}>
                                             <use href='/sprite.svg#icon-phone' />
                                         </svg>
+                                        {errors.phone && touched.phone && (
+                                            <svg className={styles.iconStatus}>
+                                                <use href='/sprite.svg#exclamation-mark' />
+                                            </svg>
+                                        )}
+                                        {!errors.phone && !touched.phone && (
+                                            <svg
+                                                className={styles.iconImportant}
+                                            >
+                                                <use href='/sprite.svg#snowflake' />
+                                            </svg>
+                                        )}
+                                        {!errors.phone && values.phone && (
+                                            <svg className={styles.iconStatus}>
+                                                <use href='/sprite.svg#success' />
+                                            </svg>
+                                        )}
+                                        <label
+                                            htmlFor='phone'
+                                            className={styles.label}
+                                        >
+                                            Номер телефону
+                                        </label>
                                         <Field
                                             type='text'
                                             name='phone'
@@ -142,11 +176,13 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                             placeholder={t("Form.phone")}
                                             autoComplete='off'
                                             maxLength='14'
-                                            className={
+                                            className={`${styles.input} ${
                                                 errors.phone && touched.phone
-                                                    ? `${styles.input} ${styles.inputError}`
-                                                    : styles.input
-                                            }
+                                                    ? styles.inputError
+                                                    : touched.phone
+                                                    ? styles.inputSuccess
+                                                    : ""
+                                            }`}
                                         />
                                         <ErrorMessage
                                             name='phone'
@@ -162,11 +198,26 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                         >
                                             <use href='/sprite.svg#icon-calendar' />
                                         </svg>
-                                        <svg
-                                            className={`${styles.icon} ${styles.iconPickerRight}`}
+
+                                        {!values.checkIn && (
+                                            <svg
+                                                className={`${styles.icon} ${styles.iconPickerRight}`}
+                                            >
+                                                <use href='/sprite.svg#icon-chevron-down' />
+                                            </svg>
+                                        )}
+
+                                        {values.checkIn && touched.checkIn && (
+                                            <svg className={styles.iconStatus}>
+                                                <use href='/sprite.svg#success' />
+                                            </svg>
+                                        )}
+                                        <label
+                                            htmlFor='checkIn'
+                                            className={styles.label}
                                         >
-                                            <use href='/sprite.svg#icon-chevron-down' />
-                                        </svg>
+                                            Дата заїзду
+                                        </label>
                                         <Field name='checkIn' id='checkIn'>
                                             {({ form, field }) => {
                                                 const { setFieldValue } = form;
@@ -178,12 +229,17 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                                         autoComplete='off'
                                                         dateFormat='dd/MM/yyyy'
                                                         selectsStart
-                                                        className={
+                                                        className={`${
+                                                            styles.input
+                                                        } ${
                                                             errors.checkIn &&
                                                             touched.checkIn
-                                                                ? `${styles.input} ${styles.inputError}`
-                                                                : styles.input
-                                                        }
+                                                                ? styles.inputError
+                                                                : touched.checkIn &&
+                                                                  values.checkIn
+                                                                ? styles.inputSuccess
+                                                                : ""
+                                                        }`}
                                                         placeholderText={t(
                                                             "Form.dateOfEntry"
                                                         )}
@@ -239,11 +295,30 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                         >
                                             <use href='/sprite.svg#icon-calendar' />
                                         </svg>
-                                        <svg
-                                            className={`${styles.icon} ${styles.iconPickerRight}`}
+                                        {!values.checkOut && (
+                                            <svg
+                                                className={`${styles.icon} ${styles.iconPickerRight}`}
+                                            >
+                                                <use href='/sprite.svg#icon-chevron-down' />
+                                            </svg>
+                                        )}
+
+                                        {values.checkOut &&
+                                            touched.checkOut && (
+                                                <svg
+                                                    className={
+                                                        styles.iconStatus
+                                                    }
+                                                >
+                                                    <use href='/sprite.svg#success' />
+                                                </svg>
+                                            )}
+                                        <label
+                                            htmlFor='checkOut'
+                                            className={styles.label}
                                         >
-                                            <use href='/sprite.svg#icon-chevron-down' />
-                                        </svg>
+                                            Дата виїзду
+                                        </label>
                                         <Field name='checkOut' id='checkOut'>
                                             {({ form, field }) => {
                                                 const { setFieldValue } = form;
@@ -258,12 +333,17 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                                         }
                                                         selectsEnd
                                                         minDate={values.checkIn}
-                                                        className={
+                                                        className={`${
+                                                            styles.input
+                                                        } ${
                                                             errors.checkOut &&
                                                             touched.checkOut
-                                                                ? `${styles.input} ${styles.inputError}`
-                                                                : styles.input
-                                                        }
+                                                                ? styles.inputError
+                                                                : touched.checkOut &&
+                                                                  values.checkOut
+                                                                ? styles.inputSuccess
+                                                                : ""
+                                                        }`}
                                                         placeholderText={t(
                                                             "Form.departureDate"
                                                         )}
@@ -306,6 +386,28 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                         <svg className={styles.icon}>
                                             <use href='/sprite.svg#location' />
                                         </svg>
+                                        {errors.objNumber && (
+                                            <svg className={styles.iconStatus}>
+                                                <use href='/sprite.svg#exclamation-mark' />
+                                            </svg>
+                                        )}
+                                        {!errors.objNumber &&
+                                            values.objNumber && (
+                                                <svg
+                                                    className={
+                                                        styles.iconStatus
+                                                    }
+                                                >
+                                                    <use href='/sprite.svg#success' />
+                                                </svg>
+                                            )}
+
+                                        <label
+                                            htmlFor='objNumber'
+                                            className={styles.label}
+                                        >
+                                            Номер об’єкту
+                                        </label>
                                         <Field
                                             type='text'
                                             name='objNumber'
@@ -315,12 +417,14 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                             placeholder={t(
                                                 "Form.numberOfObject"
                                             )}
-                                            className={
-                                                errors.objNumber &&
-                                                touched.objNumber
-                                                    ? `${styles.input} ${styles.inputError}`
-                                                    : styles.input
-                                            }
+                                            className={`${styles.input} ${
+                                                errors.objNumber
+                                                    ? styles.inputError
+                                                    : touched.objNumber &&
+                                                      values.objNumber
+                                                    ? styles.inputSuccess
+                                                    : ""
+                                            }`}
                                         />
                                         <ErrorMessage
                                             name='objNumber'
@@ -329,7 +433,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                         />
                                     </div>
                                     <p className={styles.explainText}>
-                                        * - {t("Form.fieldsDesc")}
+                                        * {t("Form.fieldsDesc")}
                                     </p>
                                 </div>
 

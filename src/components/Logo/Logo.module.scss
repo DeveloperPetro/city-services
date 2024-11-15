@@ -1,20 +1,20 @@
-@import "../../styles/_variables.scss";
+@import '../../styles/_variables.scss';
 
 .container {
-  font-family: var(--font--lato);
-  color: $darckFontColor;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: 1.28px;
-  text-align: center;
+  display: block;
+  position: relative;
+  width: 85px;
+  height: 32px;
+  & img {
+    object-fit: contain;
+  }
 
   @media screen and (min-width: $tablet) {
-    font-size: 24px;
+    width: 88px;
   }
 
   @media screen and (min-width: $desktop) {
-    font-size: 36px;
+    width: 212px;
+    height: 56px;
   }
 }
