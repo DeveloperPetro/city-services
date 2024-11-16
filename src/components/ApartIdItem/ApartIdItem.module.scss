@@ -6,6 +6,14 @@
   display: -ms-flexbox;
   display: flex;
   row-gap: 16px;
+
+  @media screen and (min-width: $tablet) {
+    row-gap: 20px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    row-gap: 24px;
+  }
 }
 
 .apartContent {
@@ -20,8 +28,7 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  margin-bottom: 40px;
-  gap: clamp(32px, 10vw, 40px);
+  row-gap: 16px;
   // max-width: 540px;
 
   @media screen and (orientation: landscape) and (max-width: 767px) {
@@ -37,6 +44,7 @@
     -webkit-box-direction: normal;
     -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
+    row-gap: 0px;
     column-gap: 20px;
     // max-width: 1920px;
   }
@@ -44,6 +52,10 @@
   // @media screen and (orientation: 'landscape') {
   //   flex-direction: row;
   // }
+
+  @media screen and (min-width: $desktop) {
+    column-gap: 24px;
+  }
 }
 
 .content {
@@ -54,21 +66,21 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  // -webkit-box-align: center;
+  // -ms-flex-align: center;
+  // align-items: center;
+  // -webkit-box-pack: center;
+  // -ms-flex-pack: center;
+  // justify-content: center;
 
   width: 100%;
-  justify-content: space-between;
-  gap: 16px;
+  // justify-content: space-between;
+  // gap: 16px;
 
   @media screen and (orientation: 'landscape') {
     flex: 1;
     height: 375px;
-    gap: initial;
+    // gap: initial;
   }
 
   @media screen and (min-width: $tablet) {
@@ -99,6 +111,107 @@
 
   @media screen and (min-width: 1920px) {
     height: 855px;
+  }
+}
+
+.quantityRoomsInfo {
+  line-height: 1.6;
+  margin-bottom: 8px;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  @media screen and (min-width: $desktop) {
+    font-size: 26px;
+    margin-bottom: 12px;
+  }
+}
+
+.address {
+  margin-bottom: 12px;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 20px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 20px;
+  }
+}
+
+.locationLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.6;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
+  @media screen and (min-width: $desktop) {
+    gap: 12px;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1.3;
+  }
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  stroke: $Primary900;
+  fill: $Primary900;
+}
+
+.numberAndPriceWrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.4;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 12px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    font-size: 26px;
+    margin-bottom: 16px;
+  }
+}
+
+.objNumberWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.svgHash {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+
+  @media screen and (min-width: $tablet) {
+    width: 20px;
+    height: 20px;
+  }
+
+  @media screen and (min-width: 1366px) {
+    margin-right: 12px;
+    width: 24px;
+    height: 24px;
   }
 }
 
