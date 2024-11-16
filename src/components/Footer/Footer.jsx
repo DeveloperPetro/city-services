@@ -53,30 +53,8 @@ const Footer = ({ onClick }) => {
       <ModalR isOpen={isModalOpen} closeModal={closeModal}>
         <OrderForm isOpen={isModalOpen} closeModal={closeModal} />
       </ModalR>
-      {/* <footer className={styles.container}>
-        {isMobile && (
-          <div className={styles.mobileContentWrapper}>
-            <div className={styles.mobileItem}>
-              <Logo className={`${styles.footerLogo}  textLinkAnimation`} />
-              <Link
-                href="mailto:dailyrent4@gmail.com"
-                className="textLinkAnimation"
-              >
-                dailyrent4@gmail.com
-              </Link>
-            </div>
-            <div className={styles.mobileItem}>
-              <Link href="tel:+380991930030" className="textLinkAnimation">
-                +380991930030
-              </Link>
-              <Link href="tel:+380675151939" className="textLinkAnimation">
-                +380675151939
-              </Link>
-            </div>
-          </div>
-        )}
-      </footer> */}
-      <footer className={styles.container}>
+      
+      <footer id="footer" className={styles.container}>
         {isMobile && (
           <div className={styles.mobileContentWrapper}>
 
