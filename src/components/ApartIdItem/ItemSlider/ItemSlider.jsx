@@ -89,7 +89,7 @@ const ItemSlider = ({ dataId }) => {
 
       <Swiper
         onSwiper={setThumbsSwiper}
-        spaceBetween={16}
+        spaceBetween={12}
         slidesPerView={3}
         mousewheel={true}
         loop={true}
@@ -97,6 +97,17 @@ const ItemSlider = ({ dataId }) => {
         watchSlidesProgress={true}
         keyboard={{
           enabled: true,
+        }}
+        breakpoints={{
+          360: {
+            spaceBetween: 12,
+          },
+          768: {
+            spaceBetween: 20,
+          },
+          1366: {
+            spaceBetween: 24,
+          },
         }}
         modules={[FreeMode, Navigation, Thumbs, Keyboard, Mousewheel]}
         className="ItemSliderBottom"

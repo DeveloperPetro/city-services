@@ -1,14 +1,15 @@
 .ItemSliderBottom {
   width: 100%;
-  height: 95px;
+  /* height: 92px; */
+  height: 25.6vw;
   margin-left: 0;
   margin-right: 0;
 }
 
 .ItemSliderBottom .swiper-slide {
-  height: 95px;
+  height: 92px;
+  height: 100%;
   overflow: hidden;
-  margin-right: 12px;
 }
 
 .ItemSliderBottom .swiper-slide img {
@@ -19,8 +20,8 @@
 
 
 @media screen and (min-width: 768px) {
-  .ItemSliderBottom .swiper-slide {
-    margin-right: 20px;
+  .ItemSliderBottom {
+    height: 12.8vw;
   }
 }
 
@@ -28,13 +29,13 @@
 
 @media screen and (min-width: 1366px) {
   .ItemSliderBottom {
-    height: 170px;
+    height: 13.5vw;
+    max-height: 259px;
   }
 
-  .ItemSliderBottom .swiper-slide {
+  /* .ItemSliderBottom .swiper-slide {
     height: 218px;
-    margin-right: 24px;
-  }
+  } */
 }
 
 /* @media screen and (min-width: 1500px) {
