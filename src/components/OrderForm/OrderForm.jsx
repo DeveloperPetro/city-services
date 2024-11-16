@@ -146,23 +146,42 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                         <svg className={styles.icon}>
                                             <use href='/sprite.svg#icon-phone' />
                                         </svg>
-                                        {errors.phone && touched.phone && (
-                                            <svg className={styles.iconStatus}>
-                                                <use href='/sprite.svg#exclamation-mark' />
-                                            </svg>
-                                        )}
-                                        {!errors.phone && !touched.phone && (
-                                            <svg
-                                                className={styles.iconImportant}
-                                            >
-                                                <use href='/sprite.svg#snowflake' />
-                                            </svg>
-                                        )}
-                                        {!errors.phone && values.phone && (
-                                            <svg className={styles.iconStatus}>
-                                                <use href='/sprite.svg#success' />
-                                            </svg>
-                                        )}
+                                        {(() => {
+                                            if (errors.phone && touched.phone) {
+                                                return (
+                                                    <svg
+                                                        className={
+                                                            styles.iconStatus
+                                                        }
+                                                    >
+                                                        <use href='/sprite.svg#exclamation-mark' />
+                                                    </svg>
+                                                );
+                                            } else if (
+                                                !errors.phone &&
+                                                values.phone
+                                            ) {
+                                                return (
+                                                    <svg
+                                                        className={
+                                                            styles.iconStatus
+                                                        }
+                                                    >
+                                                        <use href='/sprite.svg#success' />
+                                                    </svg>
+                                                );
+                                            } else {
+                                                return (
+                                                    <svg
+                                                        className={
+                                                            styles.iconImportant
+                                                        }
+                                                    >
+                                                        <use href='/sprite.svg#snowflake' />
+                                                    </svg>
+                                                );
+                                            }
+                                        })()}
                                         <label
                                             htmlFor='phone'
                                             className={styles.label}
