@@ -8,13 +8,11 @@ import IsLoading from '../share/IsLoading/IsLoading';
 import BreadCrumbs from '../BreadCrumbs/BreadCrumbs';
 import OrderBtn from '../OrderBtn/OrderBtn';
 import Amenities from './Amenities/Amenities';
-import ApartDataList from './ApartDataList/ApartDataList';
 import { currentLanguages, textInfoAppartId } from '@/data';
 import ItemSlider from './ItemSlider/ItemSlider';
 import ModalR from '@/components/Modal/Modal';
 import OrderForm from '@/components/OrderForm/OrderForm';
 import { SiteContext } from '@/context/SiteContext';
-import Link from 'next/link';
 import seoStyles from '@/app/seoStyles.module.css';
 // import useSWR from 'swr';
 import { GetDataById } from '@/fetch/clientFetch';
@@ -83,13 +81,43 @@ const ApartIdItem = ({ params }) => {
             <h4 className={seoStyles.titleHidden}>
               Detailed information about the amenities
             </h4>
-            <ApartDataList dataId={dataId} />
-            <hr style={{ width: '100%' }} />
+            <p className={styles.quantityRoomsInfo}>
+              {dataId.roomsQuantity}
+              {t("ApartmentsPage.TextOfDescAdress")}:
+            </p>
+            <address className={styles.address}>
+              <a
+                href={dataId?.googleMapLocation}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.locationLink}
+              >
+                <svg className={styles.icon}>
+                  <use href="/sprite.svg#location"></use>
+                </svg>
+                {!isLoading && (i18n.language === "ua"
+                  ? dataId.address
+                  : dataId.addressEn)}
+              </a>
+            </address>
+
             <Amenities dataId={dataId} />
+
+            <div className={styles.numberAndPriceWrapper}>
+              <figure className={styles.objNumberWrapper}>
+                <svg className={styles.svgHash}>
+                  <use href="/sprite.svg#icon-hash" />
+                </svg>
+                <figcaption>{dataId.objNumber}.</figcaption>
+              </figure>
+              <p>{dataId.price} ₴</p>
+            </div>
+
             <OrderBtn className={styles.orderBtn} openModal={openModal} />
           </article>
         </article>
       )}
+
       <article className={styles.textGrid}>
         <ul className={styles.textInfoContainer}>
           {!isLoading &&
