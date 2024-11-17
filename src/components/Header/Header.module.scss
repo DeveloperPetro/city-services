@@ -42,6 +42,8 @@
 }
 
 .navBar {
+  height: 40px;
+  margin: 0 auto;
   background-color: $Primary900;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -50,7 +52,6 @@
   -ms-flex-align: center;
   align-items: center;
   padding: 0px 20px;
-  height: 40px;
 
   & .logo {
     position: absolute;
@@ -61,13 +62,17 @@
   }
 
   @media screen and (min-width: $tablet) {
-    padding: 0px 36px;
+    padding: 0px 40px;
     height: 48px;
   }
 
   @media screen and (min-width: $desktop) {
-    padding: 0px 86px;
+    padding: 0px 72px;
     height: 80px;
+  }
+  @media screen and (min-width: 1500px) {
+    padding: 0px;
+    max-width: 1366px;
   }
 }
 

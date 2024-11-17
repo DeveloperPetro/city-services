@@ -15,7 +15,8 @@ const Logo = ({ className }) => {
         src={logo}
         alt="Логотип"
         fill={true}
-        style={{ cursor: 'pointer' }} // Удобно для пользователя
+        style={{ cursor: 'pointer' }}
+        sizes="(max-width: 768px) 88px, (max-width: 1200px) 212px"
       />
     </Link>
   );
