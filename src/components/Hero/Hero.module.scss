@@ -140,7 +140,7 @@
   -ms-flex-align: center;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 100vw;
   padding-top: 72px;
 
   background-color: $Primary900;
@@ -169,8 +169,7 @@
   justify-content: space-evenly;
   row-gap: 16px;
 
-  width: 100%;
-  max-width: 1366px;
+  // width: 100%;
   & li {
     width: 100%;
   }
@@ -183,7 +182,7 @@
   }
 
   @media screen and (min-width: $desktop) {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 288px);
     -webkit-column-gap: 24px;
     -moz-column-gap: 24px;
     column-gap: 24px;
