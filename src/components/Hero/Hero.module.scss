@@ -93,7 +93,7 @@
   height: 337px;
 
   @media screen and (min-width: $tablet) {
-    width: 48%;
+    width: 49%;
     height: 524px;
   }
   @media screen and (min-width: $desktop) {
@@ -107,7 +107,7 @@
 
 .heroContent {
   @media screen and (min-width: $tablet) {
-    width: 48%;
+    width: 49%;
   }
   @media screen and (min-width: $desktop) {
     width: 40%;
@@ -169,11 +169,14 @@
   justify-content: space-evenly;
   row-gap: 16px;
 
-  // width: 100%;
+  width: 100%;
+  padding: 0px 32px;
   & li {
     width: 100%;
   }
   @media screen and (min-width: $tablet) {
+    width: 100%;
+    padding: 0px 40px;
     grid-template-columns: repeat(2, 1fr);
     -webkit-column-gap: 20px;
     -moz-column-gap: 20px;
@@ -182,6 +185,9 @@
   }
 
   @media screen and (min-width: $desktop) {
+    max-width: 1366px;
+    padding: 0 72px;
+
     grid-template-columns: repeat(4, 288px);
     -webkit-column-gap: 24px;
     -moz-column-gap: 24px;
