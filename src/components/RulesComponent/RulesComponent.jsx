@@ -1,18 +1,15 @@
 "use client";
-import React from "react";
-import styles from "./RulesComponent.module.scss";
-import {
-  RulesInApartment,
-  Prohibited,
-  Eviction,
-  currentLanguages,
-} from "@/data";
+import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { useState, useEffect } from "react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
+import BreadCrumbs from "../BreadCrumbs/BreadCrumbs";
+import { RulesInApartment, Prohibited, Eviction, currentLanguages } from "@/data";
 import seoStyles from "@/app/seoStyles.module.css";
+import styles from "./RulesComponent.module.scss";
+
 
 const RulesComponent = () => {
+  const router = useRouter();
   const { t } = useTranslation();
   const { i18n } = useTranslation();
   const [isLoading, setIsLoading] = useState(true);
@@ -25,17 +22,10 @@ const RulesComponent = () => {
       <h1 className={seoStyles.titleHidden}>
         Оренда квартири Київ. Квартири подобово. Київ квартири.
       </h1>
-      <nav className={styles.toBackContainer}>
-        {!isLoading && (
-          <article className="textLink">
-            <h2 className={seoStyles.titleHidden}>Navigation</h2>
-            <Link href="/" prefetch={false} className="textLinkAnimation">
-              {t("Navigation.MainPage")}
-            </Link>
-            / <span className="active">{t("Navigation.Rules")}</span>
-          </article>
-        )}
-      </nav>
+      {!isLoading && <BreadCrumbs
+        onClick={() => router.back()}
+        title={t('BreadCrumbs.BackLink')}
+      />}
       {!isLoading && (
         <>
           <h2 className={styles.rulesListItem}>{t("RulesPage.MainTitle")}</h2>

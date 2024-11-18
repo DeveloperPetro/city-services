@@ -43,21 +43,6 @@
   }
 }
 
-.backContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-column-gap: 13px;
-  -moz-column-gap: 13px;
-  column-gap: 13px;
-}
-
 .containerOneRooms {
   display: -ms-grid;
   display: grid;
