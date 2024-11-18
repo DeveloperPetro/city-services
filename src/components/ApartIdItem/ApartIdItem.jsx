@@ -4,18 +4,17 @@ import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/navigation';
 import { v4 } from 'uuid';
-import IsLoading from '../share/IsLoading/IsLoading';
+import { SiteContext } from '@/context/SiteContext';
+import ModalR from '@/components/Modal/Modal';
+import OrderForm from '@/components/OrderForm/OrderForm';
 import BreadCrumbs from '../BreadCrumbs/BreadCrumbs';
 import OrderBtn from '../OrderBtn/OrderBtn';
 import Amenities from './Amenities/Amenities';
-import { currentLanguages, textInfoAppartId } from '@/data';
 import ItemSlider from './ItemSlider/ItemSlider';
-import ModalR from '@/components/Modal/Modal';
-import OrderForm from '@/components/OrderForm/OrderForm';
-import { SiteContext } from '@/context/SiteContext';
-import seoStyles from '@/app/seoStyles.module.css';
-// import useSWR from 'swr';
+import IsLoading from '../share/IsLoading/IsLoading';
 import { GetDataById } from '@/fetch/clientFetch';
+import { currentLanguages, textInfoAppartId } from '@/data';
+import seoStyles from '@/app/seoStyles.module.css';
 import styles from './ApartIdItem.module.scss';
 
 

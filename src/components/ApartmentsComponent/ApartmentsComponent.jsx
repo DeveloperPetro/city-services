@@ -1,20 +1,23 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import styles from './Apartments.module.scss';
 import { useTranslation } from 'react-i18next';
-import { GetData } from '@/fetch/clientFetch';
+import { useRouter } from 'next/navigation';
 import ApartItem from '@/components/ApartItem/ApartItem';
 import IsLoading from '@/components/share/IsLoading/IsLoading';
 import ButtonFilter from '@/components/share/ButtonFilter/ButtonFilter';
-import Link from 'next/link';
 import FilterRooms from '@/components/FilterRooms/FilterRooms';
 import Filter from '@/components/Filter/Filter';
-import seoStyles from '@/app/seoStyles.module.css';
+import BreadCrumbs from '../BreadCrumbs/BreadCrumbs';
+import { GetData } from '@/fetch/clientFetch';
 import { currentLanguages } from '@/data';
+import seoStyles from '@/app/seoStyles.module.css';
+import styles from './Apartments.module.scss';
+
 
 const ApartmentsComponent = () => {
-  const { data, error, isLoading } = GetData();
+  const router = useRouter();
+  const { data, isLoading } = GetData();
   const [loadedCount, setLoadedCount] = useState(12);
   const [showLoading, setShowLoading] = useState(false);
   const [amenitiesArr, setAmenitiesArr] = useState([]);
@@ -133,17 +136,10 @@ const ApartmentsComponent = () => {
         Оренда квартири суми. Суми квартири. Квартири подобово.
       </h1>
       <div className={styles.filterContainer}>
-        <nav className={styles.backContainer}>
-          {!isLoading && (
-            <article className="textLink">
-              <h2 className={seoStyles.titleHidden}>Navigation</h2>
-              <Link href="/" prefetch={false} className="textLinkAnimation">
-                {t('Navigation.MainPage')}
-              </Link>
-              / <span className="active">{t('Navigation.Apartments')}</span>
-            </article>
-          )}
-        </nav>
+        {!isLoading && <BreadCrumbs
+          onClick={() => router.back()}
+          title={t('BreadCrumbs.BackLink')}
+        />}
         <ButtonFilter />
       </div>
       <Filter
