@@ -41,10 +41,14 @@
   }
 }
 
+.navBarContainer {
+  background-color: $Primary900;
+}
+
 .navBar {
   height: 40px;
   margin: 0 auto;
-  background-color: $Primary900;
+  // background-color: $Primary900;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
