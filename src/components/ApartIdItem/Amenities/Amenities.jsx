@@ -1,31 +1,32 @@
-import { amenities, currentLanguages } from '@/data';
-import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
+import Image from 'next/image';
+import { amenities, bedsData, currentLanguages } from '@/data';
 import styles from './Amenities.module.scss';
 
-const Amenities = ({ dataId }) => {
-  const { i18n } = useTranslation();
-  const { t } = useTranslation();
 
-  const bed = {
-    id: 100,
-    titleEn: dataId.bedsQuantity,
-    title: dataId.bedsQuantity,
-    img: '/webp/Bed.webp',
-  };
+const Amenities = ({ dataId }) => {
+  const { t, i18n } = useTranslation();
+
+  const bed = bedsData.find(item => item.quantity === dataId.bedsQuantity)
+
+  console.log("dataId", dataId)
+  console.log("item.quantity === dataId.bedsQuantity", item.quantity === dataId.bedsQuantity)
+  console.log("bed", bed)
 
   const matchingAmenities = amenities.filter((amenity) =>
     dataId.amenities.includes(amenity.title)
   );
 
-  const matchingAmenitiesWithBed = [...matchingAmenities, bed];
+  // const matchingAmenitiesWithBed = [...matchingAmenities, bed];
+
+
   return (
     <article className={styles.propositionContainer}>
       <h5 className={styles.propositionTitle}>
         {t('ApartmentsPage.TextOfDescOptions')} ?
       </h5>
       <ul className={styles.propositionList}>
-        {matchingAmenitiesWithBed.map((amenity) => (
+        {matchingAmenities.map((amenity) => (
           <li key={amenity.id} className={styles.propositionItem}>
             <figure
               className={
@@ -54,6 +55,28 @@ const Amenities = ({ dataId }) => {
           </li>
         ))}
       </ul>
+      <div className={styles.propositionItem}>
+        <figure
+          className={styles.bedsQuantity + ' ' + styles.imgSvgContainer}
+        >
+          <Image
+            src={bed.img}
+            alt={
+              i18n.language === currentLanguages.EN
+                ? `${bed.quantity} sleeping places`
+                : `${bed.quantity} спальних місць`
+            }
+            fill={true}
+            className={styles.imgSvg}
+            sizes="(min-width: 768px) 24px,"
+          />
+        </figure>
+        {i18n.language === currentLanguages.EN ? (
+          <figcaption>`Sleeping places - ${bed.quantity}`</figcaption>
+        ) : (
+          <figcaption>`Спальних місць - ${bed.quantity}`</figcaption>
+        )}
+      </div>
     </article>
   );
 };
