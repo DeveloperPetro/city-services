@@ -13,7 +13,7 @@ const languagesList = [
 export const LangSwitcher = ({ changeLanguage, currentLanguage }) => {
   const [isMobile, setIsMobile] = useState(false);
   const [lang, setLang] = useState(() =>
-    currentLanguage === 'ua' ? 'UKR' : 'ENG'
+    {if(currentLanguage === 'en'){return 'ENG'} else if(currentLanguage === 'ru'){return 'RUS'}else{return 'UKR'}}
   );
 
   const { openLangSwitcher, setOpenLangSwitcher } = useContext(SiteContext);
@@ -37,10 +37,12 @@ export const LangSwitcher = ({ changeLanguage, currentLanguage }) => {
     }, 250);
   };
 
-  const onHandleChange = () => {
-    setLang((prev) => (prev === 'UKR' ? 'ENG' : 'UKR'));
-    const languageUser = lang === 'UKR' ? 'en' : 'ua';
-    changeLanguage(languageUser);
+  const onHandleChange = (title) => {
+    setLang(title);
+    const languageUser =() =>
+      {if(title === 'ENG'){return 'en'} else if(title === 'RUS'){return 'ru'}else{return 'ua'}}
+    
+    changeLanguage(languageUser());
   };
 
   useEffect(() => {
