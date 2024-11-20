@@ -122,5 +122,10 @@
   -ms-flex-align: center;
   align-items: center;
   justify-content: center;
+  column-gap: 4px;
   font-weight: 700;
+
+  @media screen and (min-width: $desktop) {
+    column-gap: 16px;
+  }
 }

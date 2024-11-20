@@ -195,7 +195,6 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 8px;
-  font-weight: 700;
   font-size: 20px;
   line-height: 1.4;
 
@@ -214,10 +213,13 @@
   align-items: center;
 }
 
+.price {
+  font-weight: 700;
+}
+
 .svgHash {
   width: 16px;
   height: 16px;
-  margin-right: 4px;
 
   @media screen and (min-width: $tablet) {
     width: 20px;

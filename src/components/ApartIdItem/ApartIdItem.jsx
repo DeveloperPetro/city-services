@@ -82,7 +82,7 @@ const ApartIdItem = ({ params }) => {
             </h4>
             <p className={styles.quantityRoomsInfo}>
               {dataId.roomsQuantity}
-              {t("ApartmentsPage.TextOfDescAdress")}:
+              {t("ApartmentsPage.TextOfDescAdress")}
             </p>
             <address className={styles.address}>
               <a
@@ -109,7 +109,7 @@ const ApartIdItem = ({ params }) => {
                 </svg>
                 <figcaption>{dataId.objNumber}.</figcaption>
               </figure>
-              <p>{dataId.price} ₴</p>
+              <p className={styles.price}>{dataId.price} ₴</p>
             </div>
 
             <OrderBtn className={styles.orderBtn} openModal={openModal} />
