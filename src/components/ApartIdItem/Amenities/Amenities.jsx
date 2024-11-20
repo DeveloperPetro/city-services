@@ -1,39 +1,31 @@
-import { amenities, currentLanguages } from '@/data';
-import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
+import Image from 'next/image';
+import { amenities, bedsData, currentLanguages } from '@/data';
 import styles from './Amenities.module.scss';
 
-const Amenities = ({ dataId }) => {
-  const { i18n } = useTranslation();
-  const { t } = useTranslation();
 
-  const bed = {
-    id: 100,
-    titleEn: dataId.bedsQuantity,
-    title: dataId.bedsQuantity,
-    img: '/webp/Bed.webp',
-  };
+const Amenities = ({ dataId, customClass }) => {
+  const { t, i18n } = useTranslation();
+
+  let bed;
+  if (dataId) {
+    bed = bedsData.find(item => item.quantity === dataId?.bedsQuantity);
+  }
 
   const matchingAmenities = amenities.filter((amenity) =>
     dataId.amenities.includes(amenity.title)
   );
 
-  const matchingAmenitiesWithBed = [...matchingAmenities, bed];
+
   return (
-    <article className={styles.propositionContainer}>
+    <article className={`${styles.propositionContainer} ${customClass}`}>
       <h5 className={styles.propositionTitle}>
         {t('ApartmentsPage.TextOfDescOptions')} ?
       </h5>
       <ul className={styles.propositionList}>
-        {matchingAmenitiesWithBed.map((amenity) => (
+        {matchingAmenities.map((amenity) => (
           <li key={amenity.id} className={styles.propositionItem}>
-            <figure
-              className={
-                amenity.title === dataId.bedsQuantity
-                  ? styles.bedsQuantity + ' ' + styles.imgSvgContainer
-                  : styles.imgSvgContainer
-              }
-            >
+            <figure className={styles.imgSvgContainer}>
               <Image
                 src={amenity.img}
                 alt={
@@ -43,7 +35,7 @@ const Amenities = ({ dataId }) => {
                 }
                 fill={true}
                 className={styles.imgSvg}
-                sizes="(min-width: 768px) 24px,"
+                sizes="24px"
               />
             </figure>
             {i18n.language === currentLanguages.EN ? (
@@ -54,8 +46,32 @@ const Amenities = ({ dataId }) => {
           </li>
         ))}
       </ul>
+
+      <div className={styles.bedsProposition}>
+        <figure
+          className={styles.imgSvgContainer}
+        >
+          <Image
+            src={bed?.img}
+            alt={
+              i18n.language === currentLanguages.EN
+                ? bed?.titleEn
+                : bed?.title
+            }
+            fill={true}
+            className={styles.imgSvg}
+            sizes="24px"
+          />
+        </figure>
+        {i18n.language === currentLanguages.EN ? (
+          <figcaption>{bed?.titleEn}</figcaption>
+        ) : (
+          <figcaption>{bed?.title}</figcaption>
+        )}
+      </div>
     </article>
   );
 };
+
 
 export default Amenities;

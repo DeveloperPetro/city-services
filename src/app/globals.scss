@@ -1,3 +1,5 @@
+@import "../styles/variables";
+
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -14,6 +16,7 @@ body {
   width: 100%;
   scroll-behavior: smooth;
   background-color: #f6f6f4;
+  color: $Primary900;
   font-family: var(--font--lato);
   --sb-track-color: #f3f3f3;
   --sb-thumb-color: #131112;

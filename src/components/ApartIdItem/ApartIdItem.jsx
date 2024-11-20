@@ -100,7 +100,7 @@ const ApartIdItem = ({ params }) => {
               </a>
             </address>
 
-            <Amenities dataId={dataId} />
+            <Amenities dataId={dataId} customClass={styles.amenitiesWrapper} />
 
             <div className={styles.numberAndPriceWrapper}>
               <figure className={styles.objNumberWrapper}>
