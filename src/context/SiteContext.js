@@ -1,10 +1,10 @@
-"use client";
-import React, { useState, createContext } from "react";
+'use client';
+import React, { useState, createContext } from 'react';
 
 export const SiteContext = createContext();
 
 export const SiteProvider = ({ children }) => {
-  const [language, setLanguage] = useState("en");
+  const [language, setLanguage] = useState('en');
 
   const [scrollY, setScrollY] = useState(0);
 
@@ -13,6 +13,8 @@ export const SiteProvider = ({ children }) => {
   const [isModalOpen, setModalOpen] = useState(false);
 
   const [scrolledWindow, setScrolledWindow] = useState(0);
+
+  const [openLangSwitcher, setOpenLangSwitcher] = useState(false);
 
   const openModal = () => {
     setModalOpen(true);
@@ -36,6 +38,8 @@ export const SiteProvider = ({ children }) => {
         closeModal,
         scrolledWindow,
         setScrolledWindow,
+        openLangSwitcher,
+        setOpenLangSwitcher,
       }}
     >
       {children}

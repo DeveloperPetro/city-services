@@ -9,28 +9,13 @@
   align-items: flex-start;
 }
 
-.toBackContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-column-gap: 13px;
-  -moz-column-gap: 13px;
-  column-gap: 13px;
-  margin-bottom: 22.5px;
-}
-
 .rulesListItem {
   color: #242424;
   font-size: 24px;
   font-weight: 400;
   line-height: 33.6px;
   margin-bottom: 12px;
+
   @media (min-width: $tablet) {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -50,6 +35,7 @@
   font-weight: bold;
   line-height: 25.2px;
   margin-bottom: 4px;
+
   @media (min-width: $tablet) {
     margin-bottom: 8px;
 
@@ -62,6 +48,7 @@
 .decimalList {
   list-style: decimal;
   margin-bottom: 8px;
+
   @media (min-width: $tablet) {
     margin-bottom: 12px;
 
@@ -70,7 +57,8 @@
     }
   }
 }
-.decimalList > li {
+
+.decimalList>li {
   margin-left: 25px;
   color: #242424;
   font-size: clamp(1rem, 0.9105rem + 0.3976vw, 1.25rem);

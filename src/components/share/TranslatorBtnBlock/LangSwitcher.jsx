@@ -1,5 +1,6 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { SiteContext } from '@/context/SiteContext';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { v4 } from 'uuid';
 import styles from './TranslatorBtnBlock.module.scss';
 
@@ -11,10 +12,13 @@ const languagesList = [
 
 export const LangSwitcher = ({ changeLanguage, currentLanguage }) => {
   const [isMobile, setIsMobile] = useState(false);
-  const [open, setOpen] = useState(false);
   const [lang, setLang] = useState(() =>
-    currentLanguage === 'ua' ? 'UKR' : 'ENG'
+    {if(currentLanguage === 'en'){return 'ENG'} else if(currentLanguage === 'ru'){return 'RUS'}else{return 'UKR'}}
   );
+
+  const { openLangSwitcher, setOpenLangSwitcher } = useContext(SiteContext);
+
+  const containerRef = useRef(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -29,23 +33,44 @@ export const LangSwitcher = ({ changeLanguage, currentLanguage }) => {
 
   const closeLangSwitcher = () => {
     setTimeout(() => {
-      setOpen(!open);
+      setOpenLangSwitcher(!openLangSwitcher);
     }, 250);
   };
 
-  const onHandleChange = () => {
-    setLang((prev) => (prev === 'UKR' ? 'ENG' : 'UKR'));
-    const languageUser = lang === 'UKR' ? 'en' : 'ua';
-    changeLanguage(languageUser);
+  const onHandleChange = (title) => {
+    setLang(title);
+    const languageUser =() =>
+      {if(title === 'ENG'){return 'en'} else if(title === 'RUS'){return 'ru'}else{return 'ua'}}
+    
+    changeLanguage(languageUser());
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target)
+      ) {
+        setOpenLangSwitcher(false);
+      }
+    };
+
+    if (openLangSwitcher) {
+      document.addEventListener('click', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [openLangSwitcher]);
   return (
-    <div className={styles.langSwitcherContainer}>
+    <div className={styles.langSwitcherContainer} ref={containerRef}>
       <button className={styles.langTitle} onClick={closeLangSwitcher}>
         {lang}
       </button>
       <ul
         className={
-          open
+          openLangSwitcher
             ? styles.langSwitcher + ' ' + styles.langSwitcherOpen
             : styles.langSwitcherClose + ' ' + styles.langSwitcher
         }

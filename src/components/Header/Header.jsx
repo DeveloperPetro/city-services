@@ -21,7 +21,12 @@ const Header = () => {
   const [burgerMenu, setBurgerMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const { scrolledWindow, setScrolledWindow } = useContext(SiteContext);
+  const {
+    scrolledWindow,
+    setScrolledWindow,
+    openLangSwitcher,
+    setOpenLangSwitcher,
+  } = useContext(SiteContext);
 
   const isClient = typeof window !== 'undefined';
   const isDocument = typeof document !== 'undefined';
@@ -40,6 +45,9 @@ const Header = () => {
   const header = isDocument && document.getElementById('header');
 
   const headerScrollclassName = useCallback(() => {
+    if (openLangSwitcher) {
+      setOpenLangSwitcher(false);
+    }
     if (window.scrollY <= 12) {
       header.classList.remove(`${styles.containerHidden}`);
       header.classList.add(`${styles.containerVisible}`);
@@ -101,71 +109,77 @@ const Header = () => {
         {!isLoading && <p>{t('Header.headerSale')}</p>}
       </div>
 
-      <div className={styles.navBar}>
-        {!isMobile && (
-          <div className={styles.leftLinks}>
-            {!isLoading && (
-              <>
-                <Link
-                  href={'/apartments'}
-                  className={
-                    pathname === '/apartments'
-                      ? 'activeLink'
-                      : ' textLinkAnimation'
-                  }
-                >
-                  {t('Header.linkApartments')}
-                </Link>
+      <div className={styles.navBarContainer}>
+        <div className={styles.navBar}>
+          {!isMobile && (
+            <div className={styles.leftLinks}>
+              {!isLoading && (
+                <>
+                  <Link
+                    href={'/apartments'}
+                    className={
+                      pathname === '/apartments'
+                        ? 'activeLink'
+                        : ' textLinkAnimation'
+                    }
+                  >
+                    {t('Header.linkApartments')}
+                  </Link>
 
-                <Link
-                  href={'/rules'}
-                  className={
-                    pathname === '/rules' ? 'activeLink' : ' textLinkAnimation'
-                  }
-                >
-                  {t('Header.linkRules')}
-                </Link>
+                  <Link
+                    href={'/rules'}
+                    className={
+                      pathname === '/rules'
+                        ? 'activeLink'
+                        : ' textLinkAnimation'
+                    }
+                  >
+                    {t('Header.linkRules')}
+                  </Link>
 
-                <Link
-                  href={'#footer'}
-                  className={
-                    pathname === '#footer' ? 'activeLink' : ' textLinkAnimation'
-                  }
-                >
-                  {t('Header.linkContact')}
-                </Link>
-              </>
-            )}
-          </div>
-        )}
+                  <Link
+                    href={'#footer'}
+                    className={
+                      pathname === '#footer'
+                        ? 'activeLink'
+                        : ' textLinkAnimation'
+                    }
+                  >
+                    {t('Header.linkContact')}
+                  </Link>
+                </>
+              )}
+            </div>
+          )}
 
-        {!isMobile && (
-          <div className={styles.rightLinks}>
-            <SocialLinks />
-            <TranslatorBtnBlock isClient={isClient} />
-          </div>
-        )}
+          {!isMobile && (
+            <div className={styles.rightLinks}>
+              <SocialLinks />
+              <TranslatorBtnBlock isClient={isClient} />
+            </div>
+          )}
 
-        {isMobile && <SocialLinks />}
+          {isMobile && <SocialLinks />}
 
-        <Logo className={styles.logo} isClient={isClient} />
+          <Logo className={styles.logo} isClient={isClient} />
 
-        {isMobile && (
-          <BurgerBtn
-            id="burgerBtn"
-            onClick={() => {
-              setBurgerMenu(!burgerMenu);
-            }}
-            burgerMenu={burgerMenu}
-            isClient={isClient}
-          />
-        )}
+          {isMobile && (
+            <BurgerBtn
+              id="burgerBtn"
+              onClick={() => {
+                setBurgerMenu(!burgerMenu);
+              }}
+              burgerMenu={burgerMenu}
+              isClient={isClient}
+            />
+          )}
 
-        {session.status === 'authenticated' && !isLoading && (
-          <button className={styles.logoutBtn} onClick={signOut}>
-            {t('Buttons.LogOutBtn')}
-          </button>
-        )}
+          {session.status === 'authenticated' && !isLoading && (
+            <button className={styles.logoutBtn} onClick={signOut}>
+              {t('Buttons.LogOutBtn')}
+            </button>
+          )}
+        </div>
       </div>
 
       {(isMobile || !isLoading) && (
