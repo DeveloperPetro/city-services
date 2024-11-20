@@ -56,7 +56,7 @@ const ApartIdItem = ({ params }) => {
   return (
     <section className={`pageTopSection ${styles.container}`}>
       <h1 className={seoStyles.titleHidden}>
-        Оренда квартири суми. Суми квартири. Зняти квартиру суми. Сумы.
+        Оренда квартири Київ. Київ квартири. Зняти квартиру Київ. Киев.
       </h1>
 
       {!isLoading && <BreadCrumbs

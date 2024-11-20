@@ -87,8 +87,8 @@ const OrderForm = ({ isOpen, closeModal }) => {
                         </button>
                         <LogoForm />
                         <h3 className={seoStyles.titleHidden}>
-                            Оренда квартири суми. Суми квартири. Аренда квартиры
-                            Сумы.
+                            Оренда квартири Київ. Київ квартири. Аренда квартиры
+                            Киев.
                         </h3>
                         {isSubmitting ? (
                             <SuccessContent closeModal={closeModal} />

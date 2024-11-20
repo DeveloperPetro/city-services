@@ -134,7 +134,7 @@ const ApartmentsComponent = () => {
   return (
     <section className={`pageTopSection ${styles.container}`}>
       <h1 className={seoStyles.titleHidden}>
-        Оренда квартири суми. Суми квартири. Квартири подобово.
+        Оренда квартири Київ. Київ квартири. Квартири подобово.
       </h1>
       <div className={styles.filterContainer}>
 
