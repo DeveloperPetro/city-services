@@ -90,6 +90,8 @@ const Footer = ({ onClick }) => {
                         href={item.path}
                         className="textLinkAnimation"
                         onClick={handleSetScrolledWindow}
+                        rel={item.rel}
+                        target={item.target}
                       >
                         {i18n.language === currentLanguages.EN
                           ? item.titleEn
