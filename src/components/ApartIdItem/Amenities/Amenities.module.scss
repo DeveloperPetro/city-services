@@ -85,7 +85,7 @@
   // }
 
   @media screen and (min-width: $desktop) {
-    column-gap: 16px;
+    column-gap: 24px;
     font-size: 20px;
     line-height: 1.7;
   }
@@ -124,8 +124,16 @@
   justify-content: center;
   column-gap: 4px;
   font-weight: 700;
+  line-height: 1.6;
+
+
+  @media screen and (min-width: $tablet) {
+    column-gap: 12px;
+  }
 
   @media screen and (min-width: $desktop) {
-    column-gap: 16px;
+    column-gap: 24px;
+    font-size: 20px;
+    line-height: 1.7;
   }
 }
