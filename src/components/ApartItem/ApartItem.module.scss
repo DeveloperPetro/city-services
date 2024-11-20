@@ -1,4 +1,4 @@
-@import '../../styles/_variables.scss';
+@import "../../styles/_variables.scss";
 
 .oneRooms {
   position: relative;
@@ -9,18 +9,29 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  row-gap: 24px;
+  row-gap: 8px;
+  background-color: $Primary100;
+  padding: 8px;
+
+  max-width: 296px;
+
+  @media screen and (min-width: $tablet) {
+    max-width: 334px;
+  }
+  @media screen and (min-width: $desktop) {
+    max-width: 288px;
+  }
 }
 
 .imgContainer {
   position: relative;
   width: 100%;
-  height: 365px;
+  height: 232px;
   @media screen and (min-width: $tablet) {
-    height: 360px;
+    height: 280px;
   }
   @media screen and (min-width: $desktop) {
-    height: 333px;
+    height: 280px;
   }
 }
 
@@ -30,10 +41,11 @@
 }
 
 .codeImg {
+  // font-family: Lato;
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 169px;
+  width: 100%;
   height: 24px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -43,26 +55,28 @@
   align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
-  justify-content: center;
-  color: $lightFontColor;
-  font-size: 13px;
-  font-weight: 700;
-  background-color: $acentColor;
+  justify-content: left;
+  color: $Primary50;
+  font-size: 14px;
+  font-weight: 400;
+  background-color: $Primary900;
+  padding-left: 8px;
 }
 
 .apartContent {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+  // -webkit-box-orient: vertical;
+  // -webkit-box-direction: normal;
+  // -ms-flex-direction: column;
+  // flex-direction: column;
   row-gap: 13px;
 }
 
 .addressRooms {
-  color: #6d6d6d;
+  // font-family: Lato;
+  color: $Primary900;
   font-size: 16px;
   font-weight: 400;
   text-overflow: ellipsis;
@@ -88,7 +102,7 @@
   color: $acentColor;
   font-family: Crimson Text;
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 .codeRooms {
@@ -114,7 +128,7 @@
 
 .bedsQuantity {
   color: #373737;
-  font-family: 'Crimson Text';
+  font-family: "Crimson Text";
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -123,27 +137,28 @@
 }
 
 .btnRooms {
+  font-family: Lato;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 10px 24px;
+  padding: 8px 48px;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background-color: transparent;
+  background-color: $Primary800;
   cursor: pointer;
   outline: none;
   border-radius: 24px;
   border: 1px solid $acentColor;
-  color: $acentColor;
-  font-size: 14px;
+  color: $Primary50;
+  font-size: 16px;
   font-weight: 400;
   &:hover,
   &:focus {
-    background-color: #373737;
-    color: #ffffff;
+    background-color: $Primary50;
+    color: $Primary900;
   }
 }

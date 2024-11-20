@@ -15,6 +15,7 @@ import seoStyles from '@/app/seoStyles.module.css';
 import styles from './Apartments.module.scss';
 
 
+
 const ApartmentsComponent = () => {
   const router = useRouter();
   const { data, isLoading } = GetData();
@@ -63,44 +64,44 @@ const ApartmentsComponent = () => {
 
   const notFoundText = () => {
     if (
-      numberRoomsArr.includes('1') &&
-      !numberRoomsArr.includes('2') &&
-      !numberRoomsArr.includes('3')
+      numberRoomsArr.includes("1") &&
+      !numberRoomsArr.includes("2") &&
+      !numberRoomsArr.includes("3")
     )
-      return t('ApartmentsPage.OneRoom');
+      return t("ApartmentsPage.OneRoom");
 
     if (
-      !numberRoomsArr.includes('1') &&
-      numberRoomsArr.includes('2') &&
-      !numberRoomsArr.includes('3')
+      !numberRoomsArr.includes("1") &&
+      numberRoomsArr.includes("2") &&
+      !numberRoomsArr.includes("3")
     )
-      return t('ApartmentsPage.TwoRoom');
+      return t("ApartmentsPage.TwoRoom");
 
     if (
-      !numberRoomsArr.includes('1') &&
-      !numberRoomsArr.includes('2') &&
-      numberRoomsArr.includes('3')
+      !numberRoomsArr.includes("1") &&
+      !numberRoomsArr.includes("2") &&
+      numberRoomsArr.includes("3")
     )
-      return t('ApartmentsPage.ThreeRoom');
+      return t("ApartmentsPage.ThreeRoom");
     if (
-      numberRoomsArr.includes('1') &&
-      numberRoomsArr.includes('2') &&
-      !numberRoomsArr.includes('3')
+      numberRoomsArr.includes("1") &&
+      numberRoomsArr.includes("2") &&
+      !numberRoomsArr.includes("3")
     )
-      return t('ApartmentsPage.OneAndTwoRoom');
+      return t("ApartmentsPage.OneAndTwoRoom");
     if (
-      numberRoomsArr.includes('1') &&
-      !numberRoomsArr.includes('2') &&
-      numberRoomsArr.includes('3')
+      numberRoomsArr.includes("1") &&
+      !numberRoomsArr.includes("2") &&
+      numberRoomsArr.includes("3")
     )
-      return t('ApartmentsPage.OneAndThreeRoom');
+      return t("ApartmentsPage.OneAndThreeRoom");
 
     if (
-      !numberRoomsArr.includes('1') &&
-      numberRoomsArr.includes('2') &&
-      numberRoomsArr.includes('3')
+      !numberRoomsArr.includes("1") &&
+      numberRoomsArr.includes("2") &&
+      numberRoomsArr.includes("3")
     )
-      return t('ApartmentsPage.TwoAndThreeRoom');
+      return t("ApartmentsPage.TwoAndThreeRoom");
   };
   const handleScroll = () => {
     const container = containerRef.current;
@@ -123,9 +124,9 @@ const ApartmentsComponent = () => {
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
     // eslint-disable-next-line
   }, [filteredAmenitiesData, loadedCount]);
@@ -136,10 +137,12 @@ const ApartmentsComponent = () => {
         Оренда квартири суми. Суми квартири. Квартири подобово.
       </h1>
       <div className={styles.filterContainer}>
+
         {!isLoading && <BreadCrumbs
           onClick={() => router.back()}
           title={t('BreadCrumbs.BackLink')}
         />}
+
         <ButtonFilter />
       </div>
       <Filter
@@ -181,7 +184,7 @@ const ApartmentsComponent = () => {
       {!isLoading && filteredAmenitiesData?.length <= 0 && (
         <div className={styles.notFoundTextStyles}>
           <p>
-            {notFoundText()} {t('ApartmentsPage.NotFound')}
+            {notFoundText()} {t("ApartmentsPage.NotFound")}
           </p>
         </div>
       )}

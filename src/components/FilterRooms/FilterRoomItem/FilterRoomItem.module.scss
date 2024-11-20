@@ -1,4 +1,4 @@
-@import '../../../styles/variables';
+@import "../../../styles/variables";
 
 .filterRoom {
   width: 92px;
@@ -21,9 +21,9 @@
 }
 
 .filterRoomText {
-  color: $footerLogoColor;
+  color: $lightFontColor;
   font-family: var(--font--lato);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
 }
 
@@ -44,7 +44,7 @@
 
   &::after {
     position: absolute;
-    content: '';
+    content: "";
     top: -3px;
     left: -3px;
     width: 16px;
@@ -72,13 +72,13 @@
   -webkit-transition: 0.4s;
   -o-transition: 0.4s;
   transition: 0.4s;
-  background: #373737;
+  background: $Primary600;
 
   &::after {
     position: absolute;
     top: -3px;
     left: 50%;
-    content: '';
+    content: "";
     width: 16px;
     height: 16px;
     background: #fff;

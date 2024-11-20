@@ -45,7 +45,7 @@
   -webkit-transition: 0.4s;
   -o-transition: 0.4s;
   transition: 0.4s;
-  background: #373737;
+  background: $Primary600;
 
   &::after {
     position: absolute;
@@ -79,7 +79,7 @@
 .filterCheckboxTitle {
   margin-right: 10px;
 
-  color: #545454;
+  color: $lightFontColor;
   font-family: var(--font--lato);
   font-size: 16px;
   font-style: normal;
