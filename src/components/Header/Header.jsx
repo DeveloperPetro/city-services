@@ -60,6 +60,7 @@ const Header = () => {
     }
 
     setScrolledWindow(window.scrollY);
+    // eslint-disable-next-line
   }, [scrolledWindow, setScrolledWindow, header.classList]);
 
   const closeBurgerMenu = () => {

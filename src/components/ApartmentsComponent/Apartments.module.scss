@@ -1,4 +1,4 @@
-@import "@/styles/_variables.scss";
+@import '@/styles/_variables.scss';
 
 .container {
   display: -webkit-box;
@@ -48,7 +48,8 @@
 .containerOneRooms {
   display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(1, 280px);
+  grid-template-columns: repeat(1, 1fr);
+  // grid-template-columns: repeat(1, 280px);
   -webkit-box-pack: space-evenly;
   -ms-flex-pack: space-evenly;
   justify-content: space-evenly;
@@ -57,9 +58,12 @@
   column-gap: 30px;
   row-gap: 40px;
   padding: 40px 0;
+  width: 100%;
+  max-width: 1366px;
 
   @media screen and (min-width: 360px) {
-    grid-template-columns: repeat(1, 320px);
+    grid-template-columns: repeat(1, 1fr);
+    // grid-template-columns: repeat(1, 320px);
   }
 
   @media screen and (min-width: $tablet) {

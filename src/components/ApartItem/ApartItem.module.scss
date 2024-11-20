@@ -1,4 +1,4 @@
-@import "../../styles/_variables.scss";
+@import '../../styles/_variables.scss';
 
 .oneRooms {
   position: relative;
@@ -12,14 +12,15 @@
   row-gap: 8px;
   background-color: $Primary100;
   padding: 8px;
+  width: 100%;
 
-  max-width: 296px;
+  // max-width: 296px;
 
   @media screen and (min-width: $tablet) {
-    max-width: 334px;
+    // max-width: 334px;
   }
   @media screen and (min-width: $desktop) {
-    max-width: 288px;
+    // max-width: 288px;
   }
 }
 
@@ -80,9 +81,10 @@
   font-size: 16px;
   font-weight: 400;
   text-overflow: ellipsis;
-  width: 300px;
+  // width: 300px;
   white-space: nowrap;
   overflow: hidden;
+  margin-right: auto;
 }
 
 .bottomContainer {
@@ -128,7 +130,7 @@
 
 .bedsQuantity {
   color: #373737;
-  font-family: "Crimson Text";
+  font-family: 'Crimson Text';
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
