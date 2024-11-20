@@ -106,9 +106,9 @@ const Header = () => {
 
   return (
     <header id="header" className={styles.container}>
-      <div className={styles.promotion}>
+      {/* <div className={styles.promotion}>
         {!isLoading && <p>{t('Header.headerSale')}</p>}
-      </div>
+      </div> */}
 
       <div className={styles.navBarContainer}>
         <div className={styles.navBar}>
@@ -136,17 +136,6 @@ const Header = () => {
                     }
                   >
                     {t('Header.linkRules')}
-                  </Link>
-
-                  <Link
-                    href={'#footer'}
-                    className={
-                      pathname === '#footer'
-                        ? 'activeLink'
-                        : ' textLinkAnimation'
-                    }
-                  >
-                    {t('Header.linkContact')}
                   </Link>
                 </>
               )}

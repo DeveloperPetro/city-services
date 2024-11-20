@@ -15,16 +15,10 @@ export const navigationData = [
   },
   {
     id: v4(),
-    title: 'Контакти',
-    titleEn: 'Contacts',
-    path: '#footer',
-  },
-  {
-    id: v4(),
     title: 'Політика конфіденційності',
     titleEn: 'Privacy Policy',
     path: '/privacy-policy.pdf',
-    rel: "noopener noreferrer",
-    target: "_blank",
+    rel: 'noopener noreferrer',
+    target: '_blank',
   },
 ];
