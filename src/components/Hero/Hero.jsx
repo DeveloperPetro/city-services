@@ -25,38 +25,36 @@ const Hero = () => {
   //   setIsLoading(false);
   // }, []);
 
-  const loadMore = () => {
-    if (loadedCount < data?.length) {
-      setShowLoading(true);
-      setTimeout(() => {
-        setLoadedCount((prev) => prev + 12);
-        setShowLoading(false);
-      }, 500);
+  const handleScroll = () => {
+    if (!showLoading && data?.length) {
+      const container = loaderRef.current;
+      if (container) {
+        const { bottom } = container.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        if (bottom < windowHeight + 100 && loadedCount < data?.length) {
+          setShowLoading(true);
+
+          setTimeout(() => {
+            setLoadedCount((prev) => {
+              const remaining = data.length - prev;
+              return prev + Math.min(12, remaining);
+            });
+            setShowLoading(false);
+          }, 500);
+        }
+      }
     }
   };
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          loadMore();
-        }
-      },
-      { threshold: 1 }
-    );
-
-    if (loaderRef.current) {
-      observer.observe(loaderRef.current);
-    }
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      if (loaderRef.current) {
-        // eslint-disable-next-line
-        observer.unobserve(loaderRef.current);
-      }
+      window.removeEventListener('scroll', handleScroll);
     };
     // eslint-disable-next-line
-  }, [loadedCount, data]);
+  }, [data, loadedCount, showLoading]);
 
   return (
     <section className={`${styles.container}`}>
@@ -87,37 +85,34 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      {isLoading ? (
-        <IsLoading />
-      ) : (
-        <div className={styles.apartamentContainer}>
+      <div className={styles.apartamentContainer}>
+        {isLoading ? (
+          <IsLoading />
+        ) : (
           <ul className={styles.apartamentList} ref={loaderRef}>
-            {data?.length > 0 &&
-              data
-                ?.slice(0, loadedCount)
-                .map((item) => (
-                  <ApartItem
-                    key={item._id}
-                    titleImg={item.titleImg}
-                    code={item.code}
-                    address={
-                      i18n.language === currentLanguages.EN
-                        ? item.addressEn
-                        : item.address
-                    }
-                    price={item.price}
-                    objNumber={item.objNumber}
-                    roomsQuantity={item.roomsQuantity}
-                    id={item._id}
-                    bedsQuantity={item.bedsQuantity}
-                  />
-                ))}
+            {data?.slice(0, loadedCount).map((item) => (
+              <ApartItem
+                key={item._id}
+                titleImg={item.titleImg}
+                code={item.code}
+                address={
+                  i18n.language === currentLanguages.EN
+                    ? item.addressEn
+                    : item.address
+                }
+                price={item.price}
+                objNumber={item.objNumber}
+                roomsQuantity={item.roomsQuantity}
+                id={item._id}
+                bedsQuantity={item.bedsQuantity}
+              />
+            ))}
           </ul>
-          <div ref={loaderRef} className={styles.loading}>
-            {showLoading && <IsLoading />}
-          </div>
+        )}
+        <div ref={loaderRef} className={styles.loading}>
+          {showLoading && <IsLoading />}
         </div>
-      )}
+      </div>
     </section>
   );
 };
