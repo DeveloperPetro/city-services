@@ -1,4 +1,4 @@
-@import '../../../styles/variables';
+@import "../../../styles/variables";
 
 .filterContainer {
   height: 24px;
@@ -36,11 +36,11 @@
 .filterSvg {
   width: 24px;
   height: 24px;
-  stroke: $acentColor;
+  stroke: $Primary100;
 }
 
 .filter {
-  color: $acentColor;
+  color: $Primary100;
   font-family: var(--font--lato);
   font-size: 16px;
   font-weight: 400;

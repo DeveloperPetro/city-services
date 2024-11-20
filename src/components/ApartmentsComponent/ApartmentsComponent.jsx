@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import React, { useEffect, useRef, useState } from 'react';
-import styles from './Apartments.module.scss';
-import { useTranslation } from 'react-i18next';
-import { GetData } from '@/fetch/clientFetch';
-import ApartItem from '@/components/ApartItem/ApartItem';
-import IsLoading from '@/components/share/IsLoading/IsLoading';
-import ButtonFilter from '@/components/share/ButtonFilter/ButtonFilter';
-import Link from 'next/link';
-import FilterRooms from '@/components/FilterRooms/FilterRooms';
-import Filter from '@/components/Filter/Filter';
-import seoStyles from '@/app/seoStyles.module.css';
-import { currentLanguages } from '@/data';
+import React, { useEffect, useRef, useState } from "react";
+import styles from "./Apartments.module.scss";
+import { useTranslation } from "react-i18next";
+import { GetData } from "@/fetch/clientFetch";
+import ApartItem from "@/components/ApartItem/ApartItem";
+import IsLoading from "@/components/share/IsLoading/IsLoading";
+import ButtonFilter from "@/components/share/ButtonFilter/ButtonFilter";
+import Link from "next/link";
+import FilterRooms from "@/components/FilterRooms/FilterRooms";
+import Filter from "@/components/Filter/Filter";
+import seoStyles from "@/app/seoStyles.module.css";
+import { currentLanguages } from "@/data";
 
 const ApartmentsComponent = () => {
   const { data, error, isLoading } = GetData();
@@ -60,44 +60,44 @@ const ApartmentsComponent = () => {
 
   const notFoundText = () => {
     if (
-      numberRoomsArr.includes('1') &&
-      !numberRoomsArr.includes('2') &&
-      !numberRoomsArr.includes('3')
+      numberRoomsArr.includes("1") &&
+      !numberRoomsArr.includes("2") &&
+      !numberRoomsArr.includes("3")
     )
-      return t('ApartmentsPage.OneRoom');
+      return t("ApartmentsPage.OneRoom");
 
     if (
-      !numberRoomsArr.includes('1') &&
-      numberRoomsArr.includes('2') &&
-      !numberRoomsArr.includes('3')
+      !numberRoomsArr.includes("1") &&
+      numberRoomsArr.includes("2") &&
+      !numberRoomsArr.includes("3")
     )
-      return t('ApartmentsPage.TwoRoom');
+      return t("ApartmentsPage.TwoRoom");
 
     if (
-      !numberRoomsArr.includes('1') &&
-      !numberRoomsArr.includes('2') &&
-      numberRoomsArr.includes('3')
+      !numberRoomsArr.includes("1") &&
+      !numberRoomsArr.includes("2") &&
+      numberRoomsArr.includes("3")
     )
-      return t('ApartmentsPage.ThreeRoom');
+      return t("ApartmentsPage.ThreeRoom");
     if (
-      numberRoomsArr.includes('1') &&
-      numberRoomsArr.includes('2') &&
-      !numberRoomsArr.includes('3')
+      numberRoomsArr.includes("1") &&
+      numberRoomsArr.includes("2") &&
+      !numberRoomsArr.includes("3")
     )
-      return t('ApartmentsPage.OneAndTwoRoom');
+      return t("ApartmentsPage.OneAndTwoRoom");
     if (
-      numberRoomsArr.includes('1') &&
-      !numberRoomsArr.includes('2') &&
-      numberRoomsArr.includes('3')
+      numberRoomsArr.includes("1") &&
+      !numberRoomsArr.includes("2") &&
+      numberRoomsArr.includes("3")
     )
-      return t('ApartmentsPage.OneAndThreeRoom');
+      return t("ApartmentsPage.OneAndThreeRoom");
 
     if (
-      !numberRoomsArr.includes('1') &&
-      numberRoomsArr.includes('2') &&
-      numberRoomsArr.includes('3')
+      !numberRoomsArr.includes("1") &&
+      numberRoomsArr.includes("2") &&
+      numberRoomsArr.includes("3")
     )
-      return t('ApartmentsPage.TwoAndThreeRoom');
+      return t("ApartmentsPage.TwoAndThreeRoom");
   };
   const handleScroll = () => {
     const container = containerRef.current;
@@ -120,9 +120,9 @@ const ApartmentsComponent = () => {
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
     // eslint-disable-next-line
   }, [filteredAmenitiesData, loadedCount]);
@@ -138,9 +138,9 @@ const ApartmentsComponent = () => {
             <article className="textLink">
               <h2 className={seoStyles.titleHidden}>Navigation</h2>
               <Link href="/" prefetch={false} className="textLinkAnimation">
-                {t('Navigation.MainPage')}
+                {t("Navigation.MainPage")}
               </Link>
-              / <span className="active">{t('Navigation.Apartments')}</span>
+              {/* / <span className="active">{t('Navigation.Apartments')}</span> */}
             </article>
           )}
         </nav>
@@ -185,7 +185,7 @@ const ApartmentsComponent = () => {
       {!isLoading && filteredAmenitiesData?.length <= 0 && (
         <div className={styles.notFoundTextStyles}>
           <p>
-            {notFoundText()} {t('ApartmentsPage.NotFound')}
+            {notFoundText()} {t("ApartmentsPage.NotFound")}
           </p>
         </div>
       )}
