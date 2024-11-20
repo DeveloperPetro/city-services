@@ -4,37 +4,28 @@ import { amenities, bedsData, currentLanguages } from '@/data';
 import styles from './Amenities.module.scss';
 
 
-const Amenities = ({ dataId }) => {
+const Amenities = ({ dataId, customClass }) => {
   const { t, i18n } = useTranslation();
 
-  const bed = bedsData.find(item => item.quantity === dataId.bedsQuantity)
-
-  console.log("dataId", dataId)
-  console.log("item.quantity === dataId.bedsQuantity", item.quantity === dataId.bedsQuantity)
-  console.log("bed", bed)
+  let bed;
+  if (dataId) {
+    bed = bedsData.find(item => item.quantity === dataId?.bedsQuantity);
+  }
 
   const matchingAmenities = amenities.filter((amenity) =>
     dataId.amenities.includes(amenity.title)
   );
 
-  // const matchingAmenitiesWithBed = [...matchingAmenities, bed];
-
 
   return (
-    <article className={styles.propositionContainer}>
+    <article className={`${styles.propositionContainer} ${customClass}`}>
       <h5 className={styles.propositionTitle}>
         {t('ApartmentsPage.TextOfDescOptions')} ?
       </h5>
       <ul className={styles.propositionList}>
         {matchingAmenities.map((amenity) => (
           <li key={amenity.id} className={styles.propositionItem}>
-            <figure
-              className={
-                amenity.title === dataId.bedsQuantity
-                  ? styles.bedsQuantity + ' ' + styles.imgSvgContainer
-                  : styles.imgSvgContainer
-              }
-            >
+            <figure className={styles.imgSvgContainer}>
               <Image
                 src={amenity.img}
                 alt={
@@ -44,7 +35,7 @@ const Amenities = ({ dataId }) => {
                 }
                 fill={true}
                 className={styles.imgSvg}
-                sizes="(min-width: 768px) 24px,"
+                sizes="24px"
               />
             </figure>
             {i18n.language === currentLanguages.EN ? (
@@ -55,30 +46,32 @@ const Amenities = ({ dataId }) => {
           </li>
         ))}
       </ul>
-      <div className={styles.propositionItem}>
+
+      <div className={styles.bedsProposition}>
         <figure
-          className={styles.bedsQuantity + ' ' + styles.imgSvgContainer}
+          className={styles.imgSvgContainer}
         >
           <Image
-            src={bed.img}
+            src={bed?.img}
             alt={
               i18n.language === currentLanguages.EN
-                ? `${bed.quantity} sleeping places`
-                : `${bed.quantity} спальних місць`
+                ? bed?.titleEn
+                : bed?.title
             }
             fill={true}
             className={styles.imgSvg}
-            sizes="(min-width: 768px) 24px,"
+            sizes="24px"
           />
         </figure>
         {i18n.language === currentLanguages.EN ? (
-          <figcaption>`Sleeping places - ${bed.quantity}`</figcaption>
+          <figcaption>{bed?.titleEn}</figcaption>
         ) : (
-          <figcaption>`Спальних місць - ${bed.quantity}`</figcaption>
+          <figcaption>{bed?.title}</figcaption>
         )}
       </div>
     </article>
   );
 };
+
 
 export default Amenities;

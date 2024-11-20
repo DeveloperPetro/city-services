@@ -169,6 +169,22 @@
   fill: $Primary900;
 }
 
+.amenitiesWrapper {
+  margin-bottom: 16px;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 20px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 40px;
+  }
+
+  // @media screen and (min-width: 1920px) {
+  //   margin-bottom: 88px;
+  // }
+}
+
 .numberAndPriceWrapper {
   width: 100%;
   display: -webkit-box;
