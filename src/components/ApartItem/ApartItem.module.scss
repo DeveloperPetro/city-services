@@ -1,4 +1,4 @@
-@import '../../styles/_variables.scss';
+@import "../../styles/_variables.scss";
 
 .oneRooms {
   position: relative;
@@ -13,7 +13,7 @@
   background-color: $Primary100;
   padding: 8px;
   width: 100%;
-
+  border-radius: 4px;
   // max-width: 296px;
 
   @media screen and (min-width: $tablet) {
@@ -130,7 +130,7 @@
 
 .bedsQuantity {
   color: #373737;
-  font-family: 'Crimson Text';
+  font-family: "Crimson Text";
   font-size: 20px;
   font-style: normal;
   font-weight: 400;

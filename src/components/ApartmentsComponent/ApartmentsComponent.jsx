@@ -1,20 +1,18 @@
-'use client';
+"use client";
 
-import React, { useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useRouter } from 'next/navigation';
-import ApartItem from '@/components/ApartItem/ApartItem';
-import IsLoading from '@/components/share/IsLoading/IsLoading';
-import ButtonFilter from '@/components/share/ButtonFilter/ButtonFilter';
-import FilterRooms from '@/components/FilterRooms/FilterRooms';
-import Filter from '@/components/Filter/Filter';
-import BreadCrumbs from '../BreadCrumbs/BreadCrumbs';
-import { GetData } from '@/fetch/clientFetch';
-import { currentLanguages } from '@/data';
-import seoStyles from '@/app/seoStyles.module.css';
-import styles from './Apartments.module.scss';
-
-
+import React, { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { useRouter } from "next/navigation";
+import ApartItem from "@/components/ApartItem/ApartItem";
+import IsLoading from "@/components/share/IsLoading/IsLoading";
+import ButtonFilter from "@/components/share/ButtonFilter/ButtonFilter";
+import FilterRooms from "@/components/FilterRooms/FilterRooms";
+import Filter from "@/components/Filter/Filter";
+import BreadCrumbs from "../BreadCrumbs/BreadCrumbs";
+import { GetData } from "@/fetch/clientFetch";
+import { currentLanguages } from "@/data";
+import seoStyles from "@/app/seoStyles.module.css";
+import styles from "./Apartments.module.scss";
 
 const ApartmentsComponent = () => {
   const router = useRouter();
@@ -136,13 +134,15 @@ const ApartmentsComponent = () => {
       <h1 className={seoStyles.titleHidden}>
         Оренда квартири Київ. Київ квартири. Квартири подобово.
       </h1>
+
       <div className={styles.filterContainer}>
-
-        {!isLoading && <BreadCrumbs
-          onClick={() => router.back()}
-          title={t('BreadCrumbs.BackLink')}
-        />}
-
+        {!isLoading && (
+          <BreadCrumbs
+            onClick={() => router.back()}
+            title={t("BreadCrumbs.BackLink")}
+            externalClass={styles.bread}
+          />
+        )}
         <ButtonFilter />
       </div>
       <Filter
