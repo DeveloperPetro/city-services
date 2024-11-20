@@ -18,23 +18,22 @@ const Navigation = ({ className, onClick, id, isClient }) => {
       <TranslatorBtnBlock isClient={isClient} />
       <ul className={styles.navList} id={id}>
         {navigationData.slice(0, 4).map((item) => {
-          if (item.titleEn !== 'Contacts')
-            return (
-              <li key={item.id} onClick={onClick}>
-                <Link
-                  href={item.path}
-                  {...(item.title === 'Політика конфіденційності' && {
-                    target: '_blank',
-                    rel: 'noopener noreferrer',
-                  })}
-                  className={styles.text}
-                >
-                  {i18n.language === currentLanguages.EN
-                    ? item.titleEn
-                    : item.title}
-                </Link>
-              </li>
-            );
+          return (
+            <li key={item.id} onClick={onClick}>
+              <Link
+                href={item.path}
+                {...(item.title === 'Політика конфіденційності' && {
+                  target: '_blank',
+                  rel: 'noopener noreferrer',
+                })}
+                className={styles.text}
+              >
+                {i18n.language === currentLanguages.EN
+                  ? item.titleEn
+                  : item.title}
+              </Link>
+            </li>
+          );
         })}
       </ul>
     </div>

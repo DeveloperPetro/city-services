@@ -14,32 +14,32 @@
   transform: translateY(-100%);
 }
 
-.promotion {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+// .promotion {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   width: 100%;
 
-  color: $darckFontColor;
-  font-size: clamp(12px, 1.8vw, 16px);
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  letter-spacing: 0.3px;
-  text-align: center;
+//   color: $darckFontColor;
+//   font-size: clamp(12px, 1.8vw, 16px);
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: normal;
+//   letter-spacing: 0.3px;
+//   text-align: center;
 
-  background-color: $SecondaryColor;
+//   background-color: $SecondaryColor;
 
-  height: 32px;
+//   height: 32px;
 
-  @media screen and (min-width: $tablet) {
-    letter-spacing: 1.7px;
-    height: 30px;
-  }
-  @media screen and (min-width: $desktop) {
-    height: 50px;
-  }
-}
+//   @media screen and (min-width: $tablet) {
+//     letter-spacing: 1.7px;
+//     height: 30px;
+//   }
+//   @media screen and (min-width: $desktop) {
+//     height: 50px;
+//   }
+// }
 
 .navBarContainer {
   background-color: $Primary900;
