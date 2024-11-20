@@ -23,6 +23,8 @@ export const navigationData = [
     id: v4(),
     title: 'Політика конфіденційності',
     titleEn: 'Privacy Policy',
-    path: '/privacy-policy',
+    path: '/privacy-policy.pdf',
+    rel: "noopener noreferrer",
+    target: "_blank",
   },
 ];
