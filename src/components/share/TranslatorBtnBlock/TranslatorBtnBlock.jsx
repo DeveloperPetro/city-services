@@ -5,6 +5,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { LangSwitcher } from "./LangSwitcher";
 import styles from "./TranslatorBtnBlock.module.scss";
+import Cookies from "js-cookie";
 
 
 const TranslatorBtnBlock = ({ isClient }) => {
@@ -17,6 +18,7 @@ const TranslatorBtnBlock = ({ isClient }) => {
     setIsLoad(false)
     const lang = localStorage.getItem("whatLanguage")
     setLanguage(() => lang ? lang : "ua");
+    Cookies.set('language', lang);
   }, []);
 
 
@@ -27,6 +29,7 @@ const TranslatorBtnBlock = ({ isClient }) => {
     setLanguage(language);
 
     i18n.changeLanguage(language);
+    Cookies.set('language', languageUser);
   };
 
   const { scrollY } = useContext(SiteContext);

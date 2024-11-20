@@ -1,0 +1,92 @@
+{
+    "Header": {
+        "headerSale": "Почасово 1-3 часа 400 грн, каждый следующий час + 100 грн",
+        "linkApartments": "Апартаменты",
+        "linkRules": "Правила",
+        "linkContact": "Контакты"
+    },
+    "MainPage": {
+        "SeoTitleH1": "Аренда квартиры. Киев квартиры. Снять квартиру. Киев.",
+        "heroTitle": "Посуточная и почасовая аренда",
+        "heroSubTitle": "для комфортного проживания и отдыха",
+        "galleryTittle": "Апартаменты"
+    },
+    "ApartmentsPage": {
+        "SeoTitleH1": "Аренда квартиры. Киев квартиры. Снять квартиру. Киев.",
+        "SeoTitleH2": "Навигация",
+        "Title": "Что будет в апартаментах?",
+        "OneRoom": "Однокомнатные",
+        "TwoRoom": "Двухкомнатные",
+        "ThreeRoom": "трехкомнатные",
+        "OneAndTwoRoom": "Однокомнатные та двухкомнатные",
+        "OneAndThreeRoom": "Однокомнатные та трехкомнатные",
+        "TwoAndThreeRoom": "Двухкомнатные та трехкомнатные",
+        "NotFound": "Квартиры не найдены",
+        "TextOfDescAdress": "-комнатные апартаменты по адресу",
+        "TextOfDescOptions": "Что будет в апартаментах"
+    },
+    "ApartIdItem": {
+        "SeoTitleH1": "Аренда квартиры. Киев квартиры. Снять квартиру. Киев.",
+        "SeoTitleH2": "Навигация",
+        "SeoTitleH3": "Подробная информация об апартаментах",
+        "SeoTitleH4": "Подробная информация об удобствах",
+        "SeoTitleItemSliderH4": "Подробные изображения квартиры",
+        "TextWelcome": "Добро пожаловать на DailyRent."
+    },
+    "RulesPage": {
+        "SeoTitleH1": "Аренда квартиры. Киев квартиры. Снять квартиру. Киев.",
+        "SeoTitleH2": "Навигация",
+        "MainTitle": "Правила проживания",
+        "TitleSection1": "Правила поведения в квартире:",
+        "TitleSection2": "Категорически запрещается:",
+        "TitleSection3": "Администрация имеет право немедленно выселить арендатора без возврата денег за проживание в случае:"
+    },
+    "Navigation": {
+        "MainPage": "Главная",
+        "Apartments": "Апартаменты",
+        "Rules": "Правила"
+    },
+    "BreadCrumbs": {
+        "BackLink": "Назад"
+    },
+    "Buttons": {
+        "CalltBtn": "Связаться",
+        "OrderBtn": "Забронировать",
+        "CloseBtn": "Ok",
+        "CardDetailsBtn": "Подробнее",
+        "FilterBtn": "Искать",
+        "FilterClear": "Очистить",
+        "FilterQuantRooms": "-ком.",
+        "FilterSleepingPlaces": "Спальные места",
+        "ObjectsBtn": "Все объекты",
+        "OpenFilterBtn": "Фильтр",
+        "CloseFilterBtn": "Скрыть",
+        "LogOutBtn": "Выйти",
+        "Submit": "Подтвердить"
+    },
+    "Form": {
+        "SeoTitleH3": "Аренда квартиры. Киев квартиры. Снять квартиру. Киев.",
+        "name": "Ваше имя",
+        "phone": "___-___-__-__",
+        "dateOfEntry": "Указать дату",
+        "departureDate": "Указать дату",
+        "numberOfObject": "Укажите номер объекта",
+        "fieldsDesc": "обязательно для заполнения",
+        "formSubmitedMsg1": "Ваша заявка успешно отправлена!",
+        "formSubmitedMsg2": "Наш менеджер свяжется с Вами в ближайшее время.",
+        "fieldRequiredMsg": "Заполните это поле",
+        "errorShortName": "Имя должно быть длиннее",
+        "errorLongName": "Имя должно быть короче",
+        "errorNumberOfObject": "Такого номера нет",
+        "errorNumberOfObject2": "Только положительные числа",
+        "errorNumberOfObject3": "Только цифры",
+        "errorTooManySpases": "Слишком много пробелов"
+    },
+    "formErrors": {
+        "name": "Неверно введенное имя",
+        "phone": "Номер телефона",
+        "dateOfEntry": "Выберите дату",
+        "departureDate": "Выберите дату",
+        "numberObject": "Укажите номер объекта"
+    }
+}
