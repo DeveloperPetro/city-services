@@ -29,17 +29,11 @@ export async function generateMetadata({ params }) {
     title,
     description,
     keywords,
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_MAIN_URL}rules`,
+    },
   };
 }
-
-// export const metadata = {
-//   title: "Квартири подобово Daily Rent Kyiv ⭐ оренда квартири Київ",
-//   description:
-//     "Оренда квартир подобово або погодинно Київ ⭐ Зняти квартиру на добу, день або ніч ✔️ Квартири подобово на Daily Rent Kyiv",
-//   alternates: {
-//     canonical: `${process.env.NEXT_PUBLIC_MAIN_URL}rules`,
-//   },
-// };
 
 const RulesPage = () => {
   const jsonLd = {
@@ -51,7 +45,7 @@ const RulesPage = () => {
         position: 1,
         item: {
           "@id": process.env.NEXT_PUBLIC_MAIN_URL,
-          name: "Daily Rent - оренда квартири Київ. Квартири подобово.",
+          name: "Daily Rent Kyiv - оренда квартири Київ. Квартири подобово.",
         },
       },
       {
@@ -59,7 +53,7 @@ const RulesPage = () => {
         position: 2,
         item: {
           "@id": `${process.env.NEXT_PUBLIC_MAIN_URL}rules`,
-          name: "Daily Rent Правила",
+          name: "Daily Rent Kyiv Правила",
         },
       },
     ],
