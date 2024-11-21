@@ -42,7 +42,19 @@
 // }
 
 .navBarContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: $Primary900;
+  padding: 0px 32px;
+
+  @media screen and (min-width: $tablet) {
+    padding: 0px 40px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding: 0px 72px;
+  }
 }
 
 .navBar {
@@ -54,7 +66,6 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 0px 32px;
 
   & .logo {
     position: absolute;
@@ -65,17 +76,11 @@
   }
 
   @media screen and (min-width: $tablet) {
-    padding: 0px 40px;
     height: 48px;
   }
 
   @media screen and (min-width: $desktop) {
-    padding: 0px 72px;
     height: 80px;
-  }
-  @media screen and (min-width: 1500px) {
-    padding: 0px;
-    max-width: 1366px;
   }
 }
 
@@ -115,6 +120,12 @@
   margin-right: 0;
   margin-left: auto;
   color: $SecondaryColor;
+}
+
+.translatorContainer {
+  @media screen and (min-width: $desktop) {
+    width: 58px;
+  }
 }
 
 .logoutBtn {
