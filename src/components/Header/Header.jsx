@@ -11,6 +11,7 @@ import { signOut, useSession } from 'next-auth/react';
 import TranslatorBtnBlock from '../share/TranslatorBtnBlock/TranslatorBtnBlock';
 import SocialLinks from '../SocialLinks/SocialLinks';
 import { SiteContext } from '@/context/SiteContext';
+import { navigationData } from '@/data';
 
 const Header = () => {
   const session = useSession();
@@ -111,41 +112,33 @@ const Header = () => {
       </div> */}
 
       <div className={styles.navBarContainer}>
-        <div className={styles.navBar}>
+        <div className={`${styles.navBar} container`}>
           {!isMobile && (
             <div className={styles.leftLinks}>
-              {!isLoading && (
-                <>
+              {!isLoading &&
+                navigationData.slice(0, 2).map((item) => (
                   <Link
-                    href={'/apartments'}
+                    key={item.id}
+                    href={item.path}
                     className={
-                      pathname === '/apartments'
+                      pathname === item.path
                         ? 'activeLink'
                         : ' textLinkAnimation'
                     }
                   >
-                    {t('Header.linkApartments')}
+                    {item.title}
+                    {/* {t('Header.linkApartments')} */}
                   </Link>
-
-                  <Link
-                    href={'/rules'}
-                    className={
-                      pathname === '/rules'
-                        ? 'activeLink'
-                        : ' textLinkAnimation'
-                    }
-                  >
-                    {t('Header.linkRules')}
-                  </Link>
-                </>
-              )}
+                ))}
             </div>
           )}
 
           {!isMobile && (
             <div className={styles.rightLinks}>
               <SocialLinks />
-              <TranslatorBtnBlock isClient={isClient} />
+              <div className={styles.translatorContainer}>
+                <TranslatorBtnBlock isClient={isClient} />
+              </div>
             </div>
           )}
 
