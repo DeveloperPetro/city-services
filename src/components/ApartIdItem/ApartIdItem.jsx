@@ -95,9 +95,11 @@ const ApartIdItem = ({ params }) => {
                   <svg className={styles.icon}>
                     <use href="/sprite.svg#location"></use>
                   </svg>
-                  {!isLoading && (i18n.language === "ua"
-                    ? dataId.address
-                    : dataId.addressEn)}
+                  {!isLoading && (((i18n.language === currentLanguages.EN) && item.titleEn) || ((i18n.language === currentLanguages.RU) && item.titleRu) || item.title)
+                  // (i18n.language === "ua"
+                  //   ? dataId.address
+                  //   : dataId.addressEn)
+                    }
                 </a>
               </address>
 
@@ -125,22 +127,25 @@ const ApartIdItem = ({ params }) => {
                 return (
                   <li key={index}>
                     <h5 className={styles.textInfoTitle}>
-                      {i18n.language === currentLanguages.EN
+                    {((i18n.language === currentLanguages.EN) && el.titleEn) || ((i18n.language === currentLanguages.RU) && el.titleRu) || el.title }
+                      {/* {i18n.language === currentLanguages.EN
                         ? el.titleEn
-                        : el.title}
+                        : el.title} */}
                     </h5>
                     <p className={index === 4 ? `${styles.textInfoRules} ${styles.accentRule}` : styles.textInfoRules}>
-                      {i18n.language === currentLanguages.EN
+                    {((i18n.language === currentLanguages.EN) && el.textEn) || ((i18n.language === currentLanguages.RU) && el.textRu) || el.text }
+                      {/* {i18n.language === currentLanguages.EN
                         ? el.textEn
-                        : el.text}
+                        : el.text} */}
 
                       {el.title === 'Правила:' &&
                         el.rulesList.map((el, index) => {
                           return (
                             <span key={index}>
-                              {i18n.language === currentLanguages.EN
+                              {((i18n.language === currentLanguages.EN) && el.rulesEn) || ((i18n.language === currentLanguages.RU) && el.rulesRu) || el.rules }
+                              {/* {i18n.language === currentLanguages.EN
                                 ? el.rulesEn
-                                : el.rules}
+                                : el.rules} */}
                             </span>
                           );
                         })}
