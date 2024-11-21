@@ -95,7 +95,7 @@ const ApartIdItem = ({ params }) => {
                   <svg className={styles.icon}>
                     <use href="/sprite.svg#location"></use>
                   </svg>
-                  {!isLoading && (((i18n.language === currentLanguages.EN) && item.titleEn) || ((i18n.language === currentLanguages.RU) && item.titleRu) || item.title)
+                  {!isLoading && (((i18n.language === currentLanguages.EN) && dataId.titleEn) || ((i18n.language === currentLanguages.RU) && dataId.titleRu) || dataId.title)
                   // (i18n.language === "ua"
                   //   ? dataId.address
                   //   : dataId.addressEn)
