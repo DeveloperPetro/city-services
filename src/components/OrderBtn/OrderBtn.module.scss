@@ -37,19 +37,19 @@
         -o-transition-duration: 500ms;
         transition-duration: 500ms;
         cursor: pointer;
-
-        @media screen and (min-width: $tablet) {
-            width: 216px;
-            padding: 8px 58px;
-            border-radius: 24px;
-            border-width: 1px;
-        }
-
-        @media screen and (min-width: $desktop) {
-            width: 220px;
-            padding: 12px 48px;
-            font-size: 20px;
-            line-height: 34px;
-        }
     }
+    
+     @media screen and (min-width: $tablet) {
+         width: 216px;
+         padding: 8px 58px;
+         border-radius: 24px;
+         border-width: 1px;
+     }
+
+     @media screen and (min-width: $desktop) {
+         width: 220px;
+         padding: 12px 48px;
+         font-size: 20px;
+         line-height: 34px;
+     }
 }
