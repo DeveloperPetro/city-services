@@ -73,6 +73,7 @@ const Filter = ({
                   id={item.id}
                   title={item.title}
                   titleEn={item.titleEn}
+                  titleRu={item.titleRu}
                   activeIndex={activeIndex}
                   setActiveIndex={setActiveIndex}
                   amenitiesArr={amenitiesArr}
