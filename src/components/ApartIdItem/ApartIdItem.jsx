@@ -54,103 +54,106 @@ const ApartIdItem = ({ params }) => {
   const { isModalOpen, openModal, closeModal } = useContext(SiteContext);
 
   return (
-    <section className={`pageTopSection ${styles.container}`}>
-      <h1 className={seoStyles.titleHidden}>
-        Оренда квартири Київ. Київ квартири. Зняти квартиру Київ. Киев.
-      </h1>
+    <section className='pageTopSection'>
+      <div className={`container ${styles.container}`}>
+        <h1 className={seoStyles.titleHidden}>
+          Оренда квартири Київ. Київ квартири. Зняти квартиру Київ. Киев.
+        </h1>
 
-      {!isLoading && <BreadCrumbs
-        onClick={() => router.back()}
-        title={t('BreadCrumbs.BackLink')}
-      />}
+        {!isLoading && <BreadCrumbs
+          onClick={() => router.back()}
+          title={t('BreadCrumbs.BackLink')}
+        />}
 
-      <ModalR isOpen={isModalOpen} closeModal={closeModal}>
-        <OrderForm isOpen={isModalOpen} closeModal={closeModal} />
-      </ModalR>
+        <ModalR isOpen={isModalOpen} closeModal={closeModal}>
+          <OrderForm isOpen={isModalOpen} closeModal={closeModal} />
+        </ModalR>
 
-      {isLoading ? (
-        <IsLoading />
-      ) : (
-        <article className={styles.apartContent}>
-          <h3 className={seoStyles.titleHidden}>
-            Detailed information about the apartments
-          </h3>
-          <ItemSlider dataId={dataId} customClass={styles.sliderWrapper} />
-          <article className={styles.content}>
-            <h4 className={seoStyles.titleHidden}>
-              Detailed information about the amenities
-            </h4>
-            <p className={styles.quantityRoomsInfo}>
-              {dataId.roomsQuantity}
-              {t("ApartmentsPage.TextOfDescAdress")}
-            </p>
-            <address className={styles.address}>
-              <a
-                href={dataId?.googleMapLocation}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.locationLink}
-              >
-                <svg className={styles.icon}>
-                  <use href="/sprite.svg#location"></use>
-                </svg>
-                {!isLoading && (i18n.language === "ua"
-                  ? dataId.address
-                  : dataId.addressEn)}
-              </a>
-            </address>
+        {isLoading ? (
+          <IsLoading />
+        ) : (
+          <article className={styles.apartContent}>
+            <h3 className={seoStyles.titleHidden}>
+              Detailed information about the apartments
+            </h3>
+            <ItemSlider dataId={dataId} customClass={styles.sliderWrapper} />
+            <article className={styles.content}>
+              <h4 className={seoStyles.titleHidden}>
+                Detailed information about the amenities
+              </h4>
+              <p className={styles.quantityRoomsInfo}>
+                {dataId.roomsQuantity}
+                {t("ApartmentsPage.TextOfDescAdress")}
+              </p>
+              <address className={styles.address}>
+                <a
+                  href={dataId?.googleMapLocation}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.locationLink}
+                >
+                  <svg className={styles.icon}>
+                    <use href="/sprite.svg#location"></use>
+                  </svg>
+                  {!isLoading && (i18n.language === "ua"
+                    ? dataId.address
+                    : dataId.addressEn)}
+                </a>
+              </address>
 
-            <Amenities dataId={dataId} customClass={styles.amenitiesWrapper} />
+              <Amenities dataId={dataId} customClass={styles.amenitiesWrapper} />
 
-            <div className={styles.numberAndPriceWrapper}>
-              <figure className={styles.objNumberWrapper}>
-                <svg className={styles.svgHash}>
-                  <use href="/sprite.svg#icon-hash" />
-                </svg>
-                <figcaption>{dataId.objNumber}.</figcaption>
-              </figure>
-              <p className={styles.price}>{dataId.price} ₴</p>
-            </div>
+              <div className={styles.numberAndPriceWrapper}>
+                <figure className={styles.objNumberWrapper}>
+                  <svg className={styles.svgHash}>
+                    <use href="/sprite.svg#icon-hash" />
+                  </svg>
+                  <figcaption>{dataId.objNumber}.</figcaption>
+                </figure>
+                <p className={styles.price}>{dataId.price} ₴</p>
+              </div>
 
-            <OrderBtn className={styles.orderBtn} openModal={openModal} />
+              <OrderBtn className={styles.orderBtn} openModal={openModal} />
+            </article>
           </article>
+        )}
+
+        <article className={styles.textGrid}>
+          <ul className={styles.textInfoContainer}>
+            {!isLoading &&
+              allInformation.map((el, index) => {
+                return (
+                  <li key={index}>
+                    <h5 className={styles.textInfoTitle}>
+                      {i18n.language === currentLanguages.EN
+                        ? el.titleEn
+                        : el.title}
+                    </h5>
+                    <p className={index === 4 ? `${styles.textInfoRules} ${styles.accentRule}` : styles.textInfoRules}>
+                      {i18n.language === currentLanguages.EN
+                        ? el.textEn
+                        : el.text}
+
+                      {el.title === 'Правила:' &&
+                        el.rulesList.map((el, index) => {
+                          return (
+                            <span key={index}>
+                              {i18n.language === currentLanguages.EN
+                                ? el.rulesEn
+                                : el.rules}
+                            </span>
+                          );
+                        })}
+                    </p>
+                  </li>
+                );
+              })}
+          </ul>
         </article>
-      )}
-
-      <article className={styles.textGrid}>
-        <ul className={styles.textInfoContainer}>
-          {!isLoading &&
-            allInformation.map((el, index) => {
-              return (
-                <li key={index}>
-                  <h5 className={styles.textInfoTitle}>
-                    {i18n.language === currentLanguages.EN
-                      ? el.titleEn
-                      : el.title}
-                  </h5>
-                  <p className={styles.textInfoRulse}>
-                    {i18n.language === currentLanguages.EN
-                      ? el.textEn
-                      : el.text}
-
-                    {el.title === 'Правила:' &&
-                      el.rulesList.map((el, index) => {
-                        return (
-                          <span key={index}>
-                            {i18n.language === currentLanguages.EN
-                              ? el.rulesEn
-                              : el.rules}
-                          </span>
-                        );
-                      })}
-                  </p>
-                </li>
-              );
-            })}
-        </ul>
-      </article>
+      </div>
     </section>
   );
 };
+
 
 export default ApartIdItem;
