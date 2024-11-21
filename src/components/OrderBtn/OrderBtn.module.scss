@@ -4,8 +4,8 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding: 8px 20px;
   width: 138px;
-  height: 42px;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
@@ -24,7 +24,7 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: normal;
+  line-height: 25.6px;
   -webkit-transition-duration: 500ms;
   -o-transition-duration: 500ms;
   transition-duration: 500ms;
@@ -34,7 +34,6 @@
     background: $Primary50;
     border-color: $Primary900;
     color: $Primary900;
-    // scale: 0.96;
     -webkit-transition-duration: 500ms;
     -o-transition-duration: 500ms;
     transition-duration: 500ms;
@@ -42,15 +41,16 @@
 
   @media screen and (min-width: $tablet) {
     width: 216px;
-    height: 42px;
+    padding: 8px 58px;
     border-radius: 24px;
     border-width: 1px;
-    font-size: 16px;
+
   }
 
   @media screen and (min-width: $desktop) {
     width: 220px;
-    height: 58px;
+    padding: 12px 48px;
     font-size: 20px;
+    line-height: 34px;
   }
 }
