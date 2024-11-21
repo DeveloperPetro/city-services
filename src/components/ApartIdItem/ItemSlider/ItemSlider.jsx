@@ -26,7 +26,7 @@ import "./ItemSliderTop.css";
 import "./ItemSliderBottom.css";
 
 
-const ItemSlider = ({ dataId }) => {
+const ItemSlider = ({ dataId, customClass }) => {
   const [item, setItem] = useState([]);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
@@ -64,7 +64,7 @@ const ItemSlider = ({ dataId }) => {
 
 
   return (
-    <article className={styles.swiperContainer}>
+    <article className={`${styles.swiperContainer} ${customClass}`}>
       <h4 className={seoStyles.titleHidden}>
         Detailed images of the apartment
       </h4>
