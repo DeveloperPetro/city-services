@@ -75,7 +75,7 @@ const ApartIdItem = ({ params }) => {
           <h3 className={seoStyles.titleHidden}>
             Detailed information about the apartments
           </h3>
-          <ItemSlider dataId={dataId} />
+          <ItemSlider dataId={dataId} customClass={styles.sliderWrapper} />
           <article className={styles.content}>
             <h4 className={seoStyles.titleHidden}>
               Detailed information about the amenities
@@ -138,7 +138,7 @@ const ApartIdItem = ({ params }) => {
                         return (
                           <span key={index}>
                             {i18n.language === currentLanguages.EN
-                              ? el.rulesEN
+                              ? el.rulesEn
                               : el.rules}
                           </span>
                         );

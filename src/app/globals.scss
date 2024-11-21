@@ -71,6 +71,12 @@ section {
   width: 100%;
 }
 
+.container {
+  width: 100%;
+  max-width: 1222px;
+  margin: 0 auto;
+}
+
 .pageTopSection {
   padding: 56px 32px 16px;
   // padding: 88px 32px 16px;
@@ -83,6 +89,7 @@ section {
   @media screen and (min-width: 1366px) {
     padding: 104px 72px 24px;
     // padding: 154px 72px 24px;
+    max-width: 1366px;
   }
 
   // @media screen and (min-width: 1440px) {
@@ -99,11 +106,12 @@ section {
 
   @media screen and (min-width: 1366px) {
     padding: 24px 72px;
+    max-width: 1366px;
   }
 
-  @media screen and (min-width: 1440px) {
-    max-width: 1920px;
-  }
+  // @media screen and (min-width: 1440px) {
+  //   max-width: 1920px;
+  // }
 }
 
 a {
