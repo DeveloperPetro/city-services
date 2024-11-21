@@ -13,9 +13,10 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: 'ua',
+    
     debug: false, 
     detection: {
-      order: ['cookie','localStorage','sessionStorage', 'navigator', 'htmlTag','path' ]
+      order: ['localStorage' ]
   },
     interpolation: {
       escapeValue: false,

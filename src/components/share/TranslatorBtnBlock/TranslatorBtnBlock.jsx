@@ -10,25 +10,25 @@ import Cookies from "js-cookie";
 
 const TranslatorBtnBlock = ({ isClient }) => {
   const pathname = usePathname();
-  const [language, setLanguage] = useState((prev) => (!prev || prev === undefined) ? "ua" : prev);
+  const [language, setLanguage] = useState('ua');
   const { i18n } = useTranslation();
   const [isLoad, setIsLoad] = useState(true)
 
   useEffect(() => {
-    setIsLoad(false)
+    
     const lang = localStorage.getItem("i18nextLng")
-    setLanguage(() => lang ? lang : "ua");
+    setLanguage((lang) => lang ? lang : "ua");
+    setIsLoad(false)
     Cookies.set('language', lang);
   }, []);
 
 
   const changeLanguage = (languageUser) => {
-    const whatLanguage = languageUser
-    localStorage.setItem("i18nextLng", whatLanguage);
-    const language = localStorage.getItem("i18nextLng");
-    setLanguage(language);
-
-    i18n.changeLanguage(language);
+    localStorage.setItem("i18nextLng", languageUser);
+    
+    setLanguage(languageUser);
+    
+    i18n.changeLanguage(languageUser);
     Cookies.set('language', languageUser);
   };
 
