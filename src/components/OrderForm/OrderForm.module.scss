@@ -73,6 +73,7 @@
     -ms-flex-align: center;
     align-items: center;
     margin-top: 16px;
+    row-gap: 36px;
 
     @media screen and (min-width: $desktop) {
         width: 838px;
@@ -92,6 +93,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    row-gap: 36px;
 
     @media screen and (min-width: $tablet) {
         width: 407px;
@@ -112,7 +114,6 @@
     width: 296px;
     height: 35px;
     background-color: transparent;
-    margin-bottom: 36px;
     outline: none;
     border: none;
     cursor: pointer;
@@ -124,7 +125,7 @@
     }
 
     @media screen and (min-width: $desktop) {
-        margin: 35px 0 0;
+        // margin: 35px 0 0;
         width: 407px;
     }
 }
@@ -184,7 +185,7 @@
     font-weight: 400;
     line-height: 1.7;
     @media screen and (min-width: $desktop) {
-        top: 15px;
+        top: -20px;
         left: 5px;
     }
 }
@@ -200,14 +201,13 @@
 
 .error {
     position: absolute;
-    bottom: 15px;
-    left: 140px;
+    bottom: -18px;
+    right: 30px;
     color: $Error;
     font-size: 14px;
 
     @media screen and (min-width: $desktop) {
         bottom: -20px;
-        left: 240px;
     }
 }
 
@@ -220,7 +220,7 @@
 
     @media screen and (min-width: $desktop) {
         left: 5px;
-        top: 40px;
+        top: 5px;
     }
 }
 
@@ -243,7 +243,7 @@
     }
 
     @media screen and (min-width: $desktop) {
-        top: 30px;
+        top: 0;
         left: 380px;
     }
 }
@@ -260,7 +260,7 @@
     width: 24px;
     height: 24px;
     @media screen and (min-width: $desktop) {
-        top: 40px;
+        top: 5px;
     }
 }
 
@@ -273,7 +273,7 @@
     @media screen and (min-width: $desktop) {
         width: 12px;
         height: 12px;
-        top: 40px;
+        top: 5px;
     }
 }
 
@@ -282,7 +282,6 @@
     font-weight: 400;
     line-height: 1.7;
     color: $Primary600;
-    margin-bottom: 32px;
 
     @media screen and (min-width: $desktop) {
         position: absolute;
@@ -352,7 +351,6 @@
     -ms-flex-align: center;
     align-items: center;
     -ms-flex-pack: distribute;
-    // justify-content: space-around;
 
     @media screen and (min-width: $desktop) {
         margin-top: 113px;
