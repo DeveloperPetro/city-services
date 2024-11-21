@@ -118,7 +118,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                             htmlFor='userName'
                                             className={styles.label}
                                         >
-                                            Ім’я
+                                            {t('Form.name')}
                                         </label>
                                         <Field
                                             type='text'
@@ -186,7 +186,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                             htmlFor='phone'
                                             className={styles.label}
                                         >
-                                            Номер телефону
+                                            {t('Form.phone')}
                                         </label>
                                         <Field
                                             type='text'
@@ -235,7 +235,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                             htmlFor='checkIn'
                                             className={styles.label}
                                         >
-                                            Дата заїзду
+                                            {t('Form.fieldDateOfEntry')}
                                         </label>
                                         <Field name='checkIn' id='checkIn'>
                                             {({ form, field }) => {
@@ -260,7 +260,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                                                 : ""
                                                         }`}
                                                         placeholderText={t(
-                                                            "Form.dateOfEntry"
+                                                            "Form.plcHolderDateOfEntry"
                                                         )}
                                                         {...field}
                                                         selected={value}
@@ -336,7 +336,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                             htmlFor='checkOut'
                                             className={styles.label}
                                         >
-                                            Дата виїзду
+                                            {t('Form.fieldDepartureDate')}
                                         </label>
                                         <Field name='checkOut' id='checkOut'>
                                             {({ form, field }) => {
@@ -364,7 +364,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                                                 : ""
                                                         }`}
                                                         placeholderText={t(
-                                                            "Form.departureDate"
+                                                            "Form.plcHolderDepartureDate"
                                                         )}
                                                         {...field}
                                                         selected={value}
@@ -425,7 +425,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                             htmlFor='objNumber'
                                             className={styles.label}
                                         >
-                                            Номер об’єкту
+                                            {t('Form.fieldNumberObject')}
                                         </label>
                                         <Field
                                             type='text'
@@ -434,7 +434,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                             autoComplete='off'
                                             maxLength='3'
                                             placeholder={t(
-                                                "Form.numberOfObject"
+                                                "Form.plcHolderNumberOfObject"
                                             )}
                                             className={`${styles.input} ${
                                                 errors.objNumber
