@@ -35,11 +35,11 @@ const RulesComponent = () => {
                 {t("RulesPage.TitleSection1")}
               </h3>
               <ol className={styles.decimalList}>
-                {RulesInApartment.map(({ id, rule, ruleEn }) => {
+                {RulesInApartment.map((item) => {
                   return (
-                    <li key={id}>
+                    <li key={item.id}>
                       <p>
-                        {i18n.language === currentLanguages.EN ? ruleEn : rule}
+                      {((i18n.language === currentLanguages.EN) && item.ruleEn) || ((i18n.language === currentLanguages.RU) && item.ruleRu) || item.rule }
                       </p>
                     </li>
                   );
@@ -51,11 +51,11 @@ const RulesComponent = () => {
                 {t("RulesPage.TitleSection2")}
               </h3>
               <ol className={styles.decimalList}>
-                {Prohibited.map(({ id, rule, ruleEn }) => {
+                {Prohibited.map((item) => {
                   return (
-                    <li key={id}>
+                    <li key={item.id}>
                       <p>
-                        {i18n.language === currentLanguages.EN ? ruleEn : rule}
+                      {((i18n.language === currentLanguages.EN) && item.ruleEn) || ((i18n.language === currentLanguages.RU) && item.ruleRu) || item.rule }
                       </p>
                     </li>
                   );
@@ -67,11 +67,11 @@ const RulesComponent = () => {
                 {t("RulesPage.TitleSection3")}
               </h3>
               <ol className={styles.decimalList}>
-                {Eviction.map(({ id, rule, ruleEn }) => {
+                {Eviction.map((item) => {
                   return (
-                    <li key={id}>
+                    <li key={item.id}>
                       <p>
-                        {i18n.language === currentLanguages.EN ? ruleEn : rule}
+                      {((i18n.language === currentLanguages.EN) && item.ruleEn) || ((i18n.language === currentLanguages.RU) && item.ruleRu) || item.rule }
                       </p>
                     </li>
                   );

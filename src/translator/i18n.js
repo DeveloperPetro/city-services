@@ -14,6 +14,9 @@ i18n
   .init({
     fallbackLng: 'ua',
     debug: false, 
+    detection: {
+      order: ['cookie','localStorage','sessionStorage', 'navigator', 'htmlTag','path' ]
+  },
     interpolation: {
       escapeValue: false,
     },
