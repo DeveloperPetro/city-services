@@ -16,7 +16,7 @@
     height: 556px;
     text-align: center;
     padding: 24px;
-    background-color: #fff;
+    background-color: $Primary50;
 
     @media screen and (min-width: $tablet) {
         padding: 40px;
@@ -335,7 +335,7 @@
     cursor: pointer;
 }
 
-// styles for success content
+// --------------  styles for success content  -----------------
 
 .successContainer {
     margin-top: 156px;
