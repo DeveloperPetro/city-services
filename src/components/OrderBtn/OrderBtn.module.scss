@@ -1,56 +1,55 @@
 @import "../../styles/_variables.scss";
 
 .button {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 138px;
-  height: 42px;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 138px;
+    padding: 8px 12px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
 
-  border-radius: 100px;
-  border: 0.5px solid $Primary800;
-  background: $Primary800;
-  box-shadow: 4px 4px 8px 0px #F6F6F440;
+    border-radius: 100px;
+    border: 0.5px solid $Primary800;
+    background: $Primary800;
+    box-shadow: 4px 4px 8px 0px #f6f6f440;
 
-
-  color: $Primary50;
-  font-family: var(--font--lato);
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  -webkit-transition-duration: 500ms;
-  -o-transition-duration: 500ms;
-  transition-duration: 500ms;
-  cursor: pointer;
-
-  &:hover {
-    background: $Primary50;
-    border-color: $Primary900;
-    color: $Primary900;
-    // scale: 0.96;
+    color: $Primary50;
+    font-family: var(--font--lato);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
     -webkit-transition-duration: 500ms;
     -o-transition-duration: 500ms;
     transition-duration: 500ms;
-  }
+    cursor: pointer;
 
-  @media screen and (min-width: $tablet) {
-    width: 216px;
-    height: 42px;
-    border-radius: 24px;
-    border-width: 1px;
-    font-size: 16px;
-  }
+    &:hover {
+        background: $Primary50;
+        border-color: $Primary900;
+        color: $Primary900;
+        // scale: 0.96;
+        -webkit-transition-duration: 500ms;
+        -o-transition-duration: 500ms;
+        transition-duration: 500ms;
+    }
 
-  @media screen and (min-width: $desktop) {
-    width: 220px;
-    height: 58px;
-    font-size: 20px;
-  }
+    @media screen and (min-width: $tablet) {
+        width: 216px;
+        // height: 42px;
+        border-radius: 24px;
+        border-width: 1px;
+        // font-size: 16px;
+    }
+
+    @media screen and (min-width: $desktop) {
+        width: 220px;
+        padding: 12px 16px;
+        font-size: 20px;
+    }
 }
