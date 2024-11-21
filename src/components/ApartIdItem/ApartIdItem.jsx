@@ -128,6 +128,7 @@ const ApartIdItem = ({ params }) => {
                   <li key={index}>
                     <h5 className={styles.textInfoTitle}>
                     {((i18n.language === currentLanguages.EN) && el.titleEn) || ((i18n.language === currentLanguages.RU) && el.titleRu) || el.title }
+                      
                       {/* {i18n.language === currentLanguages.EN
                         ? el.titleEn
                         : el.title} */}
