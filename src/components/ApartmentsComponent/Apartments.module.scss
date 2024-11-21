@@ -1,4 +1,4 @@
-@import '@/styles/_variables.scss';
+@import "@/styles/_variables.scss";
 
 .container {
   display: -webkit-box;
@@ -10,13 +10,13 @@
   // padding: 112px 20px 24px 20px;
   min-height: 100vh;
 
-  @media screen and (min-width: $tablet) {
-    padding: 118px 36px 40px 36px;
-  }
+  // @media screen and (min-width: $tablet) {
+  //   padding: 118px 36px 40px 36px;
+  // }
 
-  @media screen and (min-width: 1366px) {
-    padding: 200px 86px 32px 86px;
-  }
+  // @media screen and (min-width: 1366px) {
+  //   padding: 200px 86px 32px 86px;
+  // }
 
   background-color: $Primary900;
 }
@@ -99,4 +99,16 @@
 .loading {
   width: 100%;
   margin: 0 auto;
+}
+
+.bread {
+  & svg {
+    stroke: white;
+    fill: none;
+    width: 24px;
+    height: 24px;
+  }
+  & p {
+    color: white;
+  }
 }

@@ -5,13 +5,6 @@
   -ms-flex-align: center;
   align-items: center;
   background-color: $Primary900;
-  padding: 80px 32px 16px;
-  @media screen and (min-width: $tablet) {
-    padding: 98px 40px 20px;
-  }
-  @media screen and (min-width: $desktop) {
-    padding: 154px 72px 40px;
-  }
 }
 
 .hero {
@@ -25,8 +18,8 @@
 
 .title {
   position: relative;
-  font-family: var(--font--cormorantInfant);
   font-weight: 700;
+  font-family: var(--font--cormorantInfant);
   font-size: 26px;
   line-height: 1.25;
   color: $SecondaryColor;
@@ -44,7 +37,7 @@
     margin-bottom: 20px;
   }
   @media screen and (min-width: $desktop) {
-    font-size: 107px;
+    font-size: 108px;
     line-height: 1;
     margin-bottom: 4px;
     z-index: 3;
@@ -65,7 +58,7 @@
   }
 }
 
-.subtitle {
+.subTitle {
   width: 80%;
   font-weight: 400;
   font-size: 20px;

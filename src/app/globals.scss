@@ -78,14 +78,17 @@ section {
 }
 
 .pageTopSection {
-  padding: 88px 32px 16px;
+  padding: 56px 32px 16px;
+  // padding: 88px 32px 16px;
 
   @media screen and (min-width: 768px) {
-    padding: 98px 40px 20px;
+    padding: 68px 40px 20px;
+    // padding: 98px 40px 20px;
   }
 
   @media screen and (min-width: 1366px) {
-    padding: 154px 72px 24px;
+    padding: 104px 72px 24px;
+    // padding: 154px 72px 24px;
     max-width: 1366px;
   }
 
@@ -156,7 +159,7 @@ ol {
 
 .textLinkAnimation:hover.textLinkAnimation::after,
 .textLinkAnimation:focus.textLinkAnimation::after {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   bottom: -3px;
@@ -191,7 +194,7 @@ ol {
 }
 
 .active::after {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   bottom: 0px;

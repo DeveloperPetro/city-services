@@ -57,9 +57,9 @@ const Hero = () => {
   }, [data, loadedCount, showLoading]);
 
   return (
-    <section className={`${styles.container}`}>
+    <section className={`${styles.container} pageTopSection`}>
       <div className={styles.hero}>
-        <h1 className={styles.title}>Оренда квартир подобово</h1>
+        <h1 className={styles.title}>Оренда Квартир у Києві</h1>
         <div className={styles.heroContainer}>
           <figure className={styles.imgFirst}>
             <Image
@@ -70,8 +70,8 @@ const Hero = () => {
             />
           </figure>
           <div className={styles.heroContent}>
-            <h2 className={styles.subtitle}>
-              подобова та погодинна оренда квартир у Києві
+            <h2 className={styles.subTitle}>
+              подобова оренда квартир у передмісті Києва
             </h2>
             <CallBtnRound />
             <figure className={styles.imgSecond}>

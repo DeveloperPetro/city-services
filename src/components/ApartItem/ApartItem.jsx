@@ -41,7 +41,12 @@ const ApartItem = ({
           <div className={styles.bedContainer}>
             <p className={styles.bedsQuantity}>{bedsQuantity}</p>
             <figure className={styles.bedImg}>
-              <Image src="/webp/Bed.webp" fill alt="кількість спальних міст" />
+              <Image
+                src="/webp/Bed.webp"
+                fill
+                sizes="24px"
+                alt="кількість спальних міст"
+              />
             </figure>
           </div>
           {/* <p className={styles.addressRooms}>{address}</p> */}
