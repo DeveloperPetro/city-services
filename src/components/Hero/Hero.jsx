@@ -58,14 +58,17 @@ const Hero = () => {
 
   return (
     <section className={`${styles.container} pageTopSection`}>
-      <div className={styles.hero}>
-        <h1 className={styles.title}> {!isLoading && t('MainPage.heroTitle')}</h1>
+      <div className={`${styles.hero} container`}>
+        <h1 className={styles.title}>
+          {!isLoading && t('MainPage.heroTitle')}
+        </h1>
         <div className={styles.heroContainer}>
           <figure className={styles.imgFirst}>
             <Image
               src="/heroImgs/Hero-first.webp"
               alt="hero image"
               fill={true}
+              priority={true}
               sizes="(max-width: 768px) 334px, (max-width: 1200px) 704px"
             />
           </figure>
@@ -73,7 +76,9 @@ const Hero = () => {
             <h2 className={styles.subTitle}>
               {!isLoading && t('MainPage.heroSubTitle')}
             </h2>
-            {!isLoading && <CallBtnRound text={t("Buttons.CalltBtn")}/>}
+            <div className={styles.callContiner}>
+              {!isLoading && <CallBtnRound text={t('Buttons.CalltBtn')} />}
+            </div>
             <figure className={styles.imgSecond}>
               <Image
                 src="/heroImgs/Hero-second.webp"
@@ -85,7 +90,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className={styles.apartamentContainer}>
+      <div className={`${styles.apartamentContainer} container`}>
         {isLoading ? (
           <IsLoading />
         ) : (
@@ -95,7 +100,11 @@ const Hero = () => {
                 key={item._id}
                 titleImg={item.titleImg}
                 code={item.code}
-                address={((i18n.language === currentLanguages.EN) && item.addressEn) || ((i18n.language === currentLanguages.RU) && item.addressRu) || item.address }
+                address={
+                  (i18n.language === currentLanguages.EN && item.addressEn) ||
+                  (i18n.language === currentLanguages.RU && item.addressRu) ||
+                  item.address
+                }
                 price={item.price}
                 objNumber={item.objNumber}
                 roomsQuantity={item.roomsQuantity}

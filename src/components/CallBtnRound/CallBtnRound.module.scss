@@ -13,22 +13,16 @@
   box-shadow: 2px 2px 8px 0 rgba(246, 246, 244, 0.25);
   background: $SecondaryColor;
 
-  margin-bottom: 16px;
-
   -webkit-animation: pulse 2s infinite ease-in-out;
   animation: pulse 2s infinite ease-in-out;
 
   @media screen and (min-width: $tablet) {
     width: 172px;
     height: 172px;
-    margin-bottom: 20px;
   }
   @media screen and (min-width: $desktop) {
     width: 152px;
     height: 152px;
-    // width: 191px;
-    // height: 191px;
-    margin-bottom: 24px;
   }
 
   & a {
