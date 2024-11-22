@@ -83,7 +83,7 @@ const Footer = ({ onClick }) => {
 
             <ul className={styles.navigation}>
               {!isLoading &&
-                navigationData.filter((_, index) => index !== 2).map((item) => {
+                navigationData.map((item) => {
                   return (
                     <li key={item.id} onClick={onClick}>
                       <Link
