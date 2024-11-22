@@ -6,7 +6,7 @@ import styles from './CallBtnRound.module.scss';
 const CallBtnRound = ({text}) => {
   return (
     <div className={styles.callBtn}>
-      <a href="tel:+380991930030">{text}</a>
+      <a href="tel:+0954515057">{text}</a>
     </div>
   );
 };
