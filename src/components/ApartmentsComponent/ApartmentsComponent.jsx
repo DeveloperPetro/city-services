@@ -134,61 +134,68 @@ const ApartmentsComponent = () => {
       <h1 className={seoStyles.titleHidden}>
         Оренда квартири Київ. Київ квартири. Квартири подобово.
       </h1>
-
-      <div className={styles.filterContainer}>
-        {!isLoading && (
-          <BreadCrumbs
-            onClick={() => router.back()}
-            title={t("BreadCrumbs.BackLink")}
-            externalClass={styles.bread}
-          />
-        )}
-        <ButtonFilter />
-      </div>
-      <Filter
-        amenitiesArr={amenitiesArr}
-        setAmenitiesArr={setAmenitiesArr}
-        numberBedsArr={numberBedsArr}
-        setNumberBedsArr={setNumberBedsArr}
-      />
-      <FilterRooms
-        numberRoomsArr={numberRoomsArr}
-        setNumberRoomsArr={setNumberRoomsArr}
-      />
-      {isLoading ? (
-        <IsLoading />
-      ) : (
-        <ul ref={containerRef} className={styles.containerOneRooms}>
-          {filteredAmenitiesData?.length > 0 &&
-            filteredAmenitiesData
-              .slice(0, loadedCount)
-              .map((item) => (
-                <ApartItem
-                  key={item._id}
-                  titleImg={item.titleImg}
-                  code={item.code}
-                  address={((i18n.language === currentLanguages.EN) && item.addressEn) || ((i18n.language === currentLanguages.RU) && item.addressRu) || item.address }
-                  price={item.price}
-                  objNumber={item.objNumber}
-                  roomsQuantity={item.roomsQuantity}
-                  id={item._id}
-                  bedsQuantity={item.bedsQuantity}
-                />
-              ))}
-        </ul>
-      )}
-      {!isLoading && filteredAmenitiesData?.length <= 0 && (
-        <div className={styles.notFoundTextStyles}>
-          <p>
-            {notFoundText()} {t("ApartmentsPage.NotFound")}
-          </p>
+      <div className="container">
+        <div className={styles.filterContainer}>
+          {!isLoading && (
+            <BreadCrumbs
+              onClick={() => router.back()}
+              title={t("BreadCrumbs.BackLink")}
+              externalClass={styles.bread}
+            />
+          )}
+          <ButtonFilter />
         </div>
-      )}
-      {showLoading && (
-        <div className={styles.loading}>
+        <Filter
+          amenitiesArr={amenitiesArr}
+          setAmenitiesArr={setAmenitiesArr}
+          numberBedsArr={numberBedsArr}
+          setNumberBedsArr={setNumberBedsArr}
+        />
+        <FilterRooms
+          numberRoomsArr={numberRoomsArr}
+          setNumberRoomsArr={setNumberRoomsArr}
+        />
+        {isLoading ? (
           <IsLoading />
-        </div>
-      )}
+        ) : (
+          <ul ref={containerRef} className={styles.containerOneRooms}>
+            {filteredAmenitiesData?.length > 0 &&
+              filteredAmenitiesData
+                .slice(0, loadedCount)
+                .map((item) => (
+                  <ApartItem
+                    key={item._id}
+                    titleImg={item.titleImg}
+                    code={item.code}
+                    address={
+                      (i18n.language === currentLanguages.EN &&
+                        item.addressEn) ||
+                      (i18n.language === currentLanguages.RU &&
+                        item.addressRu) ||
+                      item.address
+                    }
+                    price={item.price}
+                    objNumber={item.objNumber}
+                    roomsQuantity={item.roomsQuantity}
+                    id={item._id}
+                    bedsQuantity={item.bedsQuantity}
+                  />
+                ))}
+          </ul>
+        )}
+        {!isLoading && filteredAmenitiesData?.length <= 0 && (
+          <div className={styles.notFoundTextStyles}>
+            <p>
+              {notFoundText()} {t("ApartmentsPage.NotFound")}
+            </p>
+          </div>
+        )}
+        {showLoading && (
+          <div className={styles.loading}>
+            <IsLoading />
+          </div>
+        )}
+      </div>
     </section>
   );
 };
