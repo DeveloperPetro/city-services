@@ -2,12 +2,12 @@
 
 .container {
   // background-color: $Primary100;
-  width: 270px;
+  width: 306px;
   height: 16px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-
+  margin: 0 auto;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -19,14 +19,14 @@
   column-gap: 10px;
 
   @media screen and (min-width: $tablet) {
-    width: 446px;
+    width: 482px;
     -webkit-column-gap: 86px;
     -moz-column-gap: 86px;
     column-gap: 86px;
   }
 
   @media screen and (min-width: $desktop) {
-    width: 370px;
+    // width: 370px;
     -webkit-column-gap: 48px;
     -moz-column-gap: 48px;
     column-gap: 48px;

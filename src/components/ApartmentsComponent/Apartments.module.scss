@@ -36,7 +36,7 @@
   justify-content: space-between;
   margin-bottom: 25px;
 
-  max-width: 1366px;
+  // max-width: 1366px;
 
   @media screen and (min-width: $tablet) {
     margin-bottom: 35px;
@@ -61,7 +61,7 @@
   row-gap: 40px;
   padding: 40px 0;
   width: 100%;
-  max-width: 1366px;
+  // max-width: 1366px;
 
   @media screen and (min-width: 360px) {
     grid-template-columns: repeat(1, 1fr);
