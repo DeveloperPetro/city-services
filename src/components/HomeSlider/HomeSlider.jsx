@@ -92,22 +92,14 @@ const HomeSlider = () => {
                 <Link
                   href={`apartments/${el._id}`}
                   className="link"
-                  data-title={
-                    i18n.language === currentLanguages.EN
-                      ? el.addressEn
-                      : el.address
-                  }
+                  data-title={((i18n.language === currentLanguages.EN) && el.addressEn) || ((i18n.language === currentLanguages.RU) && el.addressRu) || el.address }
                 >
                   <div className="div">
                     <CldImage
                       src={el.titleImg}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      alt={
-                        i18n.language === currentLanguages.EN
-                          ? el.addressEn
-                          : el.address
-                      }
+                      alt={((i18n.language === currentLanguages.EN) && el.addressEn) || ((i18n.language === currentLanguages.RU) && el.addressRu) || el.address }
                       loading="lazy"
                     />
                   </div>

@@ -7,7 +7,7 @@
     },
     "MainPage": {
         "SeoTitleH1": "Аренда квартиры. Киев квартиры. Снять квартиру. Киев.",
-        "heroTitle": "Аренда квартир в Киеве.",
+        "heroTitle": "Аренда квартир в Киеве",
         "heroSubTitle": "посуточная аренда квартир в пригороде Киева",
         "galleryTittle": "Апартаменты"
     },
@@ -66,11 +66,14 @@
     },
     "Form": {
         "SeoTitleH3": "Аренда квартиры. Киев квартиры. Снять квартиру. Киев.",
-        "name": "Ваше имя",
-        "phone": "___-___-__-__",
-        "dateOfEntry": "Указать дату",
-        "departureDate": "Указать дату",
-        "numberOfObject": "Укажите номер объекта",
+        "name": "Ваше Имя",
+        "phone": "Номер телефона",
+        "fieldDateOfEntry":"Дата заезда",
+        "fieldDepartureDate": "Дата выезда",
+        "fieldNumberObject":"Номер обьекта",
+        "plcHolderDateOfEntry": "Указать дату",
+        "plcHolderDepartureDate": "Указать дату",
+        "plcHolderNumberOfObject": "Укажите номер объекта",
         "fieldsDesc": "обязательно для заполнения",
         "formSubmitedMsg1": "Ваша заявка успешно отправлена!",
         "formSubmitedMsg2": "Наш менеджер свяжется с Вами в ближайшее время.",

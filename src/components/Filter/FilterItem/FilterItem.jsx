@@ -8,6 +8,7 @@ const FilterItem = ({
   id,
   titleEn,
   title,
+  titleRu,
   activeIndex,
   setActiveIndex,
   setAmenitiesArr,
@@ -54,13 +55,13 @@ const FilterItem = ({
       {!isLoad && (
         <li className={styles.filterItem}>
           <p className={styles.filterCheckboxTitle}>
-            {i18n.language === currentLanguages.EN ? titleEn : title}
+          {((i18n.language === currentLanguages.EN) && titleEn) || ((i18n.language === currentLanguages.RU) && titleRu) || title }
           </p>
           <input
             id={id}
             type="checkbox"
             className={filterCheckboxStyles}
-            aria-label={i18n.language === currentLanguages.EN ? titleEn : title}
+            aria-label={((i18n.language === currentLanguages.EN) && titleEn) || ((i18n.language === currentLanguages.RU) && titleRu) || title }
             checked={isChecked}
             onChange={() => {
               setActiveIndex(id),

@@ -28,11 +28,12 @@ const Amenities = ({ dataId, customClass }) => {
             <figure className={styles.imgSvgContainer}>
               <Image
                 src={amenity.img}
-                alt={
-                  i18n.language === currentLanguages.EN
-                    ? amenity.titleEn
-                    : amenity.title
-                }
+                alt={((i18n.language === currentLanguages.EN) && amenity.titleEn) || ((i18n.language === currentLanguages.RU) && amenity.titleRu) || amenity.title }
+                // {
+                //   i18n.language === currentLanguages.EN
+                //     ? amenity.titleEn
+                //     : amenity.title
+                // }
                 fill={true}
                 className={styles.imgSvg}
                 sizes="24px"
@@ -53,11 +54,12 @@ const Amenities = ({ dataId, customClass }) => {
         >
           <Image
             src={bed?.img}
-            alt={
-              i18n.language === currentLanguages.EN
-                ? bed?.titleEn
-                : bed?.title
-            }
+            alt={((i18n.language === currentLanguages.EN) && bed?.titleEn) || ((i18n.language === currentLanguages.RU) && bed?.titleRu) || bed?.title }
+            // {
+            //   i18n.language === currentLanguages.EN
+            //     ? bed?.titleEn
+            //     : bed?.title
+            // }
             fill={true}
             className={styles.imgSvg}
             sizes="24px"
