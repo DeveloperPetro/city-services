@@ -2,7 +2,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { socialLinks } from "@/data";
 import styles from "./CallBtn.module.scss";
+
 
 const CallBtn = ({ className }) => {
   const { t } = useTranslation();
@@ -13,7 +15,7 @@ const CallBtn = ({ className }) => {
   }, []);
   return (
     <>
-      <a href="tel:+0954515057" className={styles.button + " " + `${className}`}>
+      <a href={socialLinks.href} className={styles.button + " " + `${className}`}>
         {!isLoading && t("Buttons.CalltBtn")}
       </a>
     </>
