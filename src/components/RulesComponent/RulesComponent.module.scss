@@ -4,12 +4,13 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start;
+  flex-direction: column;
+  // -webkit-box-align: start;
+  // -ms-flex-align: start;
+  // align-items: flex-start;
 }
 
-.rulesListItem {
+.rulesListTitle {
   color: #242424;
   font-size: 24px;
   font-weight: 400;
