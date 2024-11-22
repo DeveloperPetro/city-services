@@ -3,7 +3,6 @@ import React, { useLayoutEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react';
 import styles from './Hero.module.scss';
-// import seoStyles from '@/app/seoStyles.module.css';
 import Image from 'next/image';
 import CallBtnRound from '../CallBtnRound/CallBtnRound';
 import { GetData } from '@/fetch/clientFetch';
@@ -18,12 +17,6 @@ const Hero = () => {
   const { t, i18n } = useTranslation();
 
   const loaderRef = useRef();
-
-  // const [isLoading, setIsLoading] = useState(true);
-
-  // useEffect(() => {
-  //   setIsLoading(false);
-  // }, []);
 
   const handleScroll = () => {
     if (!showLoading && data?.length) {
