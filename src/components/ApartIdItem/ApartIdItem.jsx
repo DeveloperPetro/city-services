@@ -25,30 +25,37 @@ const ApartIdItem = ({ params }) => {
   const dataId = data && !isLoading ? data : error;
 
   // массив для добавления description квартиры в карточку
-  const descsToPushArray = [];
+  const allLangsOfDescsArray = [];
 
   // строки из БД, которые преобразуется в массивы
   const descArrayFromData = data?.description.split(' | ');
   const descEnArrayFromData = data?.descriptionEn.split(' | ');
+  const descRuArrayFromData = data?.descriptionRu.split(' | ');
 
-  // наполнение массива данными из БД
+  // наполнение массива украинскими данными из БД
   descArrayFromData?.map((item) => {
     const id = v4();
+    // присваивается переменной text значение item-a (описание на украинском языке)
     const text = item;
-    const obj = {
+
+    //создается объект для хранения всех языков одного блока описания (украинский вариант записывается, а для английского и русского создаются переменные)
+    const allLanguagesOfDescription = {
       id,
       text,
       textEn: '',
+      textRu: '',
     };
-    descsToPushArray.push(obj);
+    allLangsOfDescsArray.push(allLanguagesOfDescription);
   });
 
-  descsToPushArray.map((item, index) => {
+  // английский и русский варианты записываются
+  allLangsOfDescsArray.map((item, index) => {
     item.textEn = descEnArrayFromData[index];
+    item.textRu = descRuArrayFromData[index];
   });
 
   // общий массив для рендера, созданный путем распыления массивов данных из локальной data и БД
-  const allInformation = [...descsToPushArray, ...textInfoAppartId];
+  const allInformation = [...allLangsOfDescsArray, ...textInfoAppartId];
 
   const { t, i18n } = useTranslation();
   const { isModalOpen, openModal, closeModal } = useContext(SiteContext);
@@ -63,6 +70,7 @@ const ApartIdItem = ({ params }) => {
         {!isLoading && <BreadCrumbs
           onClick={() => router.back()}
           title={t('BreadCrumbs.BackLink')}
+          externalClass=""
         />}
 
         <ModalR isOpen={isModalOpen} closeModal={closeModal}>
