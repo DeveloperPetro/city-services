@@ -28,22 +28,14 @@ const Amenities = ({ dataId, customClass }) => {
             <figure className={styles.imgSvgContainer}>
               <Image
                 src={amenity.img}
-                alt={((i18n.language === currentLanguages.EN) && amenity.titleEn) || ((i18n.language === currentLanguages.RU) && amenity.titleRu) || amenity.title }
-                // {
-                //   i18n.language === currentLanguages.EN
-                //     ? amenity.titleEn
-                //     : amenity.title
-                // }
+                alt={
+                  ((i18n.language === currentLanguages.EN) && amenity.titleEn) || ((i18n.language === currentLanguages.RU) && amenity.titleRu) || amenity.title }
                 fill={true}
                 className={styles.imgSvg}
                 sizes="24px"
               />
             </figure>
-            {i18n.language === currentLanguages.EN ? (
-              <figcaption>{amenity.titleEn}</figcaption>
-            ) : (
-              <figcaption>{amenity.title}</figcaption>
-            )}
+              <figcaption>{((i18n.language === currentLanguages.EN) && amenity.titleEn) || ((i18n.language === currentLanguages.RU) && amenity.titleRu) || amenity.title}</figcaption>
           </li>
         ))}
       </ul>
@@ -54,22 +46,14 @@ const Amenities = ({ dataId, customClass }) => {
         >
           <Image
             src={bed?.img}
-            alt={((i18n.language === currentLanguages.EN) && bed?.titleEn) || ((i18n.language === currentLanguages.RU) && bed?.titleRu) || bed?.title }
-            // {
-            //   i18n.language === currentLanguages.EN
-            //     ? bed?.titleEn
-            //     : bed?.title
-            // }
+            alt={
+              ((i18n.language === currentLanguages.EN) && bed?.titleEn) || ((i18n.language === currentLanguages.RU) && bed?.titleRu) || bed?.title }
             fill={true}
             className={styles.imgSvg}
             sizes="24px"
           />
         </figure>
-        {i18n.language === currentLanguages.EN ? (
-          <figcaption>{bed?.titleEn}</figcaption>
-        ) : (
-          <figcaption>{bed?.title}</figcaption>
-        )}
+          <figcaption>{((i18n.language === currentLanguages.EN) && bed?.titleEn) || ((i18n.language === currentLanguages.RU) && bed?.titleRu) || bed?.title}</figcaption>
       </div>
     </article>
   );
