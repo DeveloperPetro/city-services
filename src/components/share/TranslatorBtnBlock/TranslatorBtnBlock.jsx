@@ -17,7 +17,7 @@ const TranslatorBtnBlock = ({ isClient }) => {
   useEffect(() => {
     
     const lang = localStorage.getItem("i18nextLng")
-    setLanguage((lang) => lang ? lang : "ua");
+    setLanguage(() => lang ? lang : "ua");
     setIsLoad(false)
     Cookies.set('language', lang);
   }, []);
