@@ -11,13 +11,13 @@ import { signOut, useSession } from 'next-auth/react';
 import TranslatorBtnBlock from '../share/TranslatorBtnBlock/TranslatorBtnBlock';
 import SocialLinks from '../SocialLinks/SocialLinks';
 import { SiteContext } from '@/context/SiteContext';
-import { navigationData } from '@/data';
+import { currentLanguages, navigationData } from '@/data';
 
 const Header = () => {
   const session = useSession();
   const pathname = usePathname();
 
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const [burgerMenu, setBurgerMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -126,8 +126,9 @@ const Header = () => {
                         : ' textLinkAnimation'
                     }
                   >
-                    {item.title}
-                    {/* {t('Header.linkApartments')} */}
+                    {(i18n.language === currentLanguages.EN && item.titleEn) ||
+                      (i18n.language === currentLanguages.RU && item.titleRu) ||
+                      item.title}
                   </Link>
                 ))}
             </div>
