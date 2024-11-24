@@ -5,9 +5,9 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  padding: 59px 40px;
-  width: 138px;
-  height: 138px;
+  // padding: 59px 40px;
+  width: 108px;
+  height: 108px;
   cursor: pointer;
 
   box-shadow: 2px 2px 8px 0 rgba(246, 246, 244, 0.25);
@@ -15,6 +15,11 @@
 
   -webkit-animation: pulse 2s infinite ease-in-out;
   animation: pulse 2s infinite ease-in-out;
+
+  @media screen and (min-width: $mobile) {
+    width: 138px;
+    height: 138px;
+  }
 
   @media screen and (min-width: $tablet) {
     width: 172px;
@@ -28,10 +33,14 @@
   & a {
     font-family: inherit;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 12px;
     line-height: 1.6;
     text-align: center;
     color: $Primary900;
+    @media screen and (min-width: $mobile) {
+      font-size: 16px;
+    }
+
     @media screen and (min-width: $desktop) {
       font-size: 20px;
     }

@@ -19,7 +19,7 @@
   position: relative;
   font-weight: 700;
   font-family: var(--font--cormorantInfant);
-  font-size: 26px;
+  font-size: 22px;
   line-height: 1.25;
   color: $SecondaryColor;
   -webkit-background-clip: text;
@@ -27,7 +27,11 @@
   background-clip: text;
   text-shadow: 4px 4px 8px 0px rgba(246, 246, 244, 0.25);
   margin-bottom: 16px;
-  height: 33px;
+  height: 30px;
+  @media screen and (min-width: $mobile) {
+    font-size: 26px;
+    height: 33px;
+  }
 
   @media screen and (min-width: 580px) {
     font-size: 36px;
@@ -60,14 +64,19 @@
 }
 
 .subTitle {
-  width: 80%;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.4;
   letter-spacing: 0.01em;
   color: $SecondaryColor;
   margin-bottom: 12px;
-  height: 56px;
+  height: 51px;
+
+  @media screen and (min-width: $mobile) {
+    font-size: 20px;
+    width: 80%;
+    height: 56px;
+  }
 
   @media screen and (min-width: 580px) {
     font-size: 24px;
@@ -84,8 +93,11 @@
 }
 
 .callContiner {
-  height: 138px;
+  height: 108px;
   margin-bottom: 16px;
+  @media screen and (min-width: $mobile) {
+    height: 138px;
+  }
   @media screen and (min-width: $tablet) {
     height: 172px;
     margin-bottom: 20px;
