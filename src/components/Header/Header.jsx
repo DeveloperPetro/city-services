@@ -49,6 +49,9 @@ const Header = () => {
     if (openLangSwitcher) {
       setOpenLangSwitcher(false);
     }
+    if (burgerMenu) {
+      closeBurgerMenu();
+    }
     if (window.scrollY <= 12) {
       header.classList.remove(`${styles.containerHidden}`);
       header.classList.add(`${styles.containerVisible}`);
@@ -61,8 +64,13 @@ const Header = () => {
     }
 
     setScrolledWindow(window.scrollY);
-    // eslint-disable-next-line
-  }, [scrolledWindow, setScrolledWindow, header.classList]);
+  }, [
+    scrolledWindow,
+    setScrolledWindow,
+    header.classList,
+    openLangSwitcher,
+    burgerMenu,
+  ]);
 
   const closeBurgerMenu = () => {
     setTimeout(() => {
@@ -89,7 +97,9 @@ const Header = () => {
     // Add an event listener for window resize
 
     window.addEventListener('resize', handleResize);
-    window.addEventListener('scroll', headerScrollclassName, { passive: true });
+    window.addEventListener('scroll', headerScrollclassName, {
+      passive: true,
+    });
     window.addEventListener('click', closeBurgerMenuOnClick);
 
     // Initial check on component mount

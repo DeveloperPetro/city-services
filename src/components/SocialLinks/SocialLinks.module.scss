@@ -36,8 +36,8 @@
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   &::before {
     content: '';
     position: absolute;
@@ -45,13 +45,17 @@
     left: 50%;
     transform: translate(-50%, -50%);
 
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
 
     border-radius: 50%;
     box-shadow: 2px 2px 4px 0 rgba(246, 246, 244, 0.25);
     background-color: $Primary50;
 
+    @media screen and (min-width: $mobile) {
+      width: 24px;
+      height: 24px;
+    }
     @media screen and (min-width: $desktop) {
       width: 32px;
       height: 32px;
@@ -64,6 +68,10 @@
   }
   & img {
     object-fit: contain;
+  }
+  @media screen and (min-width: $mobile) {
+    width: 18px;
+    height: 18px;
   }
 }
 
