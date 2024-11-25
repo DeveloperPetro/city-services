@@ -15,7 +15,7 @@ import { addDays, subDays } from "@/utils/dateUtils";
 import { sendToTelegram } from "@/utils/sendToTelegram";
 import { useFetcherObjectNumbers } from "@/hooks/useFetcher";
 import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
-
+import { getLocaleCalendar } from "@/utils/getLocaleCalendar";
 import SuccessContent from "./SuccessContent";
 import LogoForm from "./LogoForm";
 
@@ -44,9 +44,10 @@ const handleSubmit = (values, actions, closeModal) => {
 };
 
 const OrderForm = ({ isOpen, closeModal }) => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const schema = useMemo(() => orderSchema(), []);
     const listOfAppartmentNumbers = useFetcherObjectNumbers();
+    const locale = getLocaleCalendar(i18n.language);
 
     useLockBodyScroll(isOpen);
 
@@ -118,7 +119,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                             htmlFor='userName'
                                             className={styles.label}
                                         >
-                                            {t('Form.name')}
+                                            {t("Form.name")}
                                         </label>
                                         <Field
                                             type='text'
@@ -147,46 +148,37 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                             <use href='/sprite.svg#icon-phone' />
                                         </svg>
                                         {(() => {
-                                            if (errors.phone && touched.phone) {
-                                                return (
-                                                    <svg
-                                                        className={
-                                                            styles.iconStatus
-                                                        }
-                                                    >
-                                                        <use href='/sprite.svg#exclamation-mark' />
-                                                    </svg>
-                                                );
-                                            } else if (
-                                                !errors.phone &&
-                                                values.phone
-                                            ) {
-                                                return (
-                                                    <svg
-                                                        className={
-                                                            styles.iconStatus
-                                                        }
-                                                    >
-                                                        <use href='/sprite.svg#success' />
-                                                    </svg>
-                                                );
-                                            } else {
-                                                return (
-                                                    <svg
-                                                        className={
-                                                            styles.iconImportant
-                                                        }
-                                                    >
-                                                        <use href='/sprite.svg#snowflake' />
-                                                    </svg>
-                                                );
-                                            }
+                                            const icon =
+                                                (errors.phone &&
+                                                    touched.phone) ||
+                                                (errors.phone && !isValid)
+                                                    ? "/sprite.svg#exclamation-mark"
+                                                    : !errors.phone &&
+                                                      values.phone
+                                                    ? "/sprite.svg#success"
+                                                    : "/sprite.svg#snowflake";
+
+                                            const iconClass =
+                                                (errors.phone &&
+                                                    touched.phone) ||
+                                                (errors.phone && !isValid)
+                                                    ? styles.iconStatus
+                                                    : !errors.phone &&
+                                                      values.phone
+                                                    ? styles.iconStatus
+                                                    : styles.iconImportant;
+
+                                            return (
+                                                <svg className={iconClass}>
+                                                    <use href={icon} />
+                                                </svg>
+                                            );
                                         })()}
                                         <label
                                             htmlFor='phone'
                                             className={styles.label}
                                         >
-                                            {t('Form.phone')}
+                                            {t("Form.phone")}
                                         </label>
                                         <Field
                                             type='text'
@@ -203,11 +195,13 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                                     : ""
                                             }`}
                                         />
-                                        <ErrorMessage
-                                            name='phone'
-                                            className={styles.error}
-                                            component='p'
-                                        />
+
+                                        {(errors.phone && touched.phone) ||
+                                        (errors.phone && !isValid) ? (
+                                            <p className={styles.error}>
+                                                {errors.phone}
+                                            </p>
+                                        ) : null}
                                     </div>
                                 </div>
                                 <div className={styles.innerWrap}>
@@ -235,7 +229,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                             htmlFor='checkIn'
                                             className={styles.label}
                                         >
-                                            {t('Form.fieldDateOfEntry')}
+                                            {t("Form.fieldDateOfEntry")}
                                         </label>
                                         <Field name='checkIn' id='checkIn'>
                                             {({ form, field }) => {
@@ -247,6 +241,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                                         id='checkIn'
                                                         autoComplete='off'
                                                         dateFormat='dd/MM/yyyy'
+                                                        locale={locale}
                                                         selectsStart
                                                         className={`${
                                                             styles.input
@@ -267,12 +262,16 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                                         onFocus={(e) =>
                                                             e.target.blur()
                                                         }
-                                                        onChange={(val) =>
+                                                        onChange={(val) => {
+                                                            setFieldValue(
+                                                                "checkOut",
+                                                                null
+                                                            );
                                                             setFieldValue(
                                                                 "checkIn",
                                                                 val
-                                                            )
-                                                        }
+                                                            );
+                                                        }}
                                                         excludeDateIntervals={[
                                                             {
                                                                 start: subDays(
@@ -336,7 +335,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                             htmlFor='checkOut'
                                             className={styles.label}
                                         >
-                                            {t('Form.fieldDepartureDate')}
+                                            {t("Form.fieldDepartureDate")}
                                         </label>
                                         <Field name='checkOut' id='checkOut'>
                                             {({ form, field }) => {
@@ -347,6 +346,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                                         id='checkOut'
                                                         autoComplete='off'
                                                         dateFormat='dd/MM/yyyy'
+                                                        locale={locale}
                                                         disabled={
                                                             !values.checkIn
                                                         }
@@ -425,7 +425,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                             htmlFor='objNumber'
                                             className={styles.label}
                                         >
-                                            {t('Form.fieldNumberObject')}
+                                            {t("Form.fieldNumberObject")}
                                         </label>
                                         <Field
                                             type='text'
