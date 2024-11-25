@@ -18,71 +18,79 @@ const RulesComponent = () => {
     setIsLoading(false);
   }, []);
   return (
-    <section className={`pageTopSection ${styles.container}`}>
-      <h1 className={seoStyles.titleHidden}>
-        Оренда квартири Київ. Квартири подобово. Київ квартири.
-      </h1>
-      {!isLoading && <BreadCrumbs
-        onClick={() => router.back()}
-        title={t('BreadCrumbs.BackLink')}
-      />}
-      {!isLoading && (
-        <>
-          <h2 className={styles.rulesListItem}>{t("RulesPage.MainTitle")}</h2>
-          <ul className={styles.rulesList}>
-            <li>
-              <h3 className={styles.decimalListTitle}>
-                {t("RulesPage.TitleSection1")}
-              </h3>
-              <ol className={styles.decimalList}>
-                {RulesInApartment.map((item) => {
-                  return (
-                    <li key={item.id}>
-                      <p>
-                      {((i18n.language === currentLanguages.EN) && item.ruleEn) || ((i18n.language === currentLanguages.RU) && item.ruleRu) || item.rule }
-                      </p>
-                    </li>
-                  );
-                })}
-              </ol>
-            </li>
-            <li>
-              <h3 className={styles.decimalListTitle}>
-                {t("RulesPage.TitleSection2")}
-              </h3>
-              <ol className={styles.decimalList}>
-                {Prohibited.map((item) => {
-                  return (
-                    <li key={item.id}>
-                      <p>
-                      {((i18n.language === currentLanguages.EN) && item.ruleEn) || ((i18n.language === currentLanguages.RU) && item.ruleRu) || item.rule }
-                      </p>
-                    </li>
-                  );
-                })}
-              </ol>
-            </li>
-            <li>
-              <h3 className={styles.decimalListTitle}>
-                {t("RulesPage.TitleSection3")}
-              </h3>
-              <ol className={styles.decimalList}>
-                {Eviction.map((item) => {
-                  return (
-                    <li key={item.id}>
-                      <p>
-                      {((i18n.language === currentLanguages.EN) && item.ruleEn) || ((i18n.language === currentLanguages.RU) && item.ruleRu) || item.rule }
-                      </p>
-                    </li>
-                  );
-                })}
-              </ol>
-            </li>
-          </ul>
-        </>
-      )}
+    <section className="pageTopSection">
+      <div className="container">
+        <h1 className={seoStyles.titleHidden}>
+          Оренда квартири Київ. Квартири подобово. Київ квартири.
+        </h1>
+
+        {!isLoading && <BreadCrumbs
+          onClick={() => router.back()}
+          title={t('BreadCrumbs.BackLink')}
+          externalClass={styles.breadCrumbsWrapper}
+        />}
+
+        {!isLoading && (
+          <>
+            <h2 className={styles.rulesTitle}>{t("RulesPage.MainTitle")}</h2>
+            <ul>
+              <li className={styles.block}>
+                <h3 className={styles.blockTitle}>
+                  {t("RulesPage.TitleSection1")}
+                </h3>
+                <ol className={styles.blockList}>
+                  {RulesInApartment.map((item) => {
+                    return (
+                      <li key={item.id}>
+                        <p>
+                          {((i18n.language === currentLanguages.EN) && item.ruleEn) || ((i18n.language === currentLanguages.RU) && item.ruleRu) || item.rule}
+                        </p>
+                      </li>
+                    );
+                  })}
+                </ol>
+              </li>
+
+              <li className={styles.block}>
+                <h3 className={styles.blockTitle}>
+                  {t("RulesPage.TitleSection2")}
+                </h3>
+                <ol className={styles.blockList}>
+                  {Prohibited.map((item) => {
+                    return (
+                      <li key={item.id}>
+                        <p>
+                          {((i18n.language === currentLanguages.EN) && item.ruleEn) || ((i18n.language === currentLanguages.RU) && item.ruleRu) || item.rule}
+                        </p>
+                      </li>
+                    );
+                  })}
+                </ol>
+              </li>
+
+              <li className={styles.block}>
+                <h3 className={styles.blockTitle}>
+                  {t("RulesPage.TitleSection3")}
+                </h3>
+                <ol className={styles.blockList}>
+                  {Eviction.map((item) => {
+                    return (
+                      <li key={item.id}>
+                        <p>
+                          {((i18n.language === currentLanguages.EN) && item.ruleEn) || ((i18n.language === currentLanguages.RU) && item.ruleRu) || item.rule}
+                        </p>
+                      </li>
+                    );
+                  })}
+                </ol>
+              </li>
+            </ul>
+          </>
+        )}
+      </div>
     </section>
   );
 };
+
 
 export default RulesComponent;

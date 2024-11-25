@@ -11,13 +11,13 @@ import { signOut, useSession } from 'next-auth/react';
 import TranslatorBtnBlock from '../share/TranslatorBtnBlock/TranslatorBtnBlock';
 import SocialLinks from '../SocialLinks/SocialLinks';
 import { SiteContext } from '@/context/SiteContext';
-import { navigationData } from '@/data';
+import { currentLanguages, navigationData } from '@/data';
 
 const Header = () => {
   const session = useSession();
   const pathname = usePathname();
 
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const [burgerMenu, setBurgerMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -49,6 +49,9 @@ const Header = () => {
     if (openLangSwitcher) {
       setOpenLangSwitcher(false);
     }
+    if (burgerMenu) {
+      closeBurgerMenu();
+    }
     if (window.scrollY <= 12) {
       header.classList.remove(`${styles.containerHidden}`);
       header.classList.add(`${styles.containerVisible}`);
@@ -61,8 +64,13 @@ const Header = () => {
     }
 
     setScrolledWindow(window.scrollY);
-    // eslint-disable-next-line
-  }, [scrolledWindow, setScrolledWindow, header.classList]);
+  }, [
+    scrolledWindow,
+    setScrolledWindow,
+    header.classList,
+    openLangSwitcher,
+    burgerMenu,
+  ]);
 
   const closeBurgerMenu = () => {
     setTimeout(() => {
@@ -89,7 +97,9 @@ const Header = () => {
     // Add an event listener for window resize
 
     window.addEventListener('resize', handleResize);
-    window.addEventListener('scroll', headerScrollclassName, { passive: true });
+    window.addEventListener('scroll', headerScrollclassName, {
+      passive: true,
+    });
     window.addEventListener('click', closeBurgerMenuOnClick);
 
     // Initial check on component mount
@@ -126,8 +136,9 @@ const Header = () => {
                         : ' textLinkAnimation'
                     }
                   >
-                    {item.title}
-                    {/* {t('Header.linkApartments')} */}
+                    {(i18n.language === currentLanguages.EN && item.titleEn) ||
+                      (i18n.language === currentLanguages.RU && item.titleRu) ||
+                      item.title}
                   </Link>
                 ))}
             </div>

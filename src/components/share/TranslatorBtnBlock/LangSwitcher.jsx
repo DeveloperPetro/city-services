@@ -12,9 +12,15 @@ const languagesList = [
 
 export const LangSwitcher = ({ changeLanguage, currentLanguage }) => {
   const [isMobile, setIsMobile] = useState(false);
-  const [lang, setLang] = useState(() =>
-    {if(currentLanguage === 'en'){return 'ENG'} else if(currentLanguage === 'ru'){return 'RUS'}else{return 'UKR'}}
-  );
+  const [lang, setLang] = useState(() => {
+    if (currentLanguage === 'en') {
+      return 'ENG';
+    } else if (currentLanguage === 'ru') {
+      return 'RUS';
+    } else {
+      return 'UKR';
+    }
+  });
 
   const { openLangSwitcher, setOpenLangSwitcher } = useContext(SiteContext);
 
@@ -39,9 +45,16 @@ export const LangSwitcher = ({ changeLanguage, currentLanguage }) => {
 
   const onHandleChange = (title) => {
     setLang(title);
-    const languageUser =() =>
-      {if(title === 'ENG'){return 'en'} else if(title === 'RUS'){return 'ru'}else{return 'ua'}}
-    
+    const languageUser = () => {
+      if (title === 'ENG') {
+        return 'en';
+      } else if (title === 'RUS') {
+        return 'ru';
+      } else {
+        return 'ua';
+      }
+    };
+
     changeLanguage(languageUser());
   };
 
@@ -62,6 +75,7 @@ export const LangSwitcher = ({ changeLanguage, currentLanguage }) => {
     return () => {
       document.removeEventListener('click', handleClickOutside);
     };
+    // eslint-disable-next-line
   }, [openLangSwitcher]);
   return (
     <div className={styles.langSwitcherContainer} ref={containerRef}>

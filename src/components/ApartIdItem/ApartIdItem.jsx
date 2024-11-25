@@ -25,30 +25,37 @@ const ApartIdItem = ({ params }) => {
   const dataId = data && !isLoading ? data : error;
 
   // массив для добавления description квартиры в карточку
-  const descsToPushArray = [];
+  const allLangsOfDescsArray = [];
 
   // строки из БД, которые преобразуется в массивы
   const descArrayFromData = data?.description.split(' | ');
   const descEnArrayFromData = data?.descriptionEn.split(' | ');
+  const descRuArrayFromData = data?.descriptionRu.split(' | ');
 
-  // наполнение массива данными из БД
+  // наполнение массива украинскими данными из БД
   descArrayFromData?.map((item) => {
     const id = v4();
+    // присваивается переменной text значение item-a (описание на украинском языке)
     const text = item;
-    const obj = {
+
+    //создается объект для хранения всех языков одного блока описания (украинский вариант записывается, а для английского и русского создаются переменные)
+    const allLanguagesOfDescription = {
       id,
       text,
       textEn: '',
+      textRu: '',
     };
-    descsToPushArray.push(obj);
+    allLangsOfDescsArray.push(allLanguagesOfDescription);
   });
 
-  descsToPushArray.map((item, index) => {
+  // английский и русский варианты записываются
+  allLangsOfDescsArray.map((item, index) => {
     item.textEn = descEnArrayFromData[index];
+    item.textRu = descRuArrayFromData[index];
   });
 
   // общий массив для рендера, созданный путем распыления массивов данных из локальной data и БД
-  const allInformation = [...descsToPushArray, ...textInfoAppartId];
+  const allInformation = [...allLangsOfDescsArray, ...textInfoAppartId];
 
   const { t, i18n } = useTranslation();
   const { isModalOpen, openModal, closeModal } = useContext(SiteContext);
@@ -63,6 +70,7 @@ const ApartIdItem = ({ params }) => {
         {!isLoading && <BreadCrumbs
           onClick={() => router.back()}
           title={t('BreadCrumbs.BackLink')}
+          externalClass=""
         />}
 
         <ModalR isOpen={isModalOpen} closeModal={closeModal}>
@@ -95,11 +103,11 @@ const ApartIdItem = ({ params }) => {
                   <svg className={styles.icon}>
                     <use href="/sprite.svg#location"></use>
                   </svg>
-                  {!isLoading && (((i18n.language === currentLanguages.EN) && item.titleEn) || ((i18n.language === currentLanguages.RU) && item.titleRu) || item.title)
-                  // (i18n.language === "ua"
-                  //   ? dataId.address
-                  //   : dataId.addressEn)
-                    }
+                  {!isLoading && ((i18n.language === currentLanguages.EN) && dataId.addressEn) || ((i18n.language === currentLanguages.RU) && dataId.addressRu) || dataId.address
+                    // (i18n.language === "ua"
+                    //   ? dataId.address
+                    //   : dataId.addressEn)
+                  }
                 </a>
               </address>
 
@@ -126,30 +134,39 @@ const ApartIdItem = ({ params }) => {
               allInformation.map((el, index) => {
                 return (
                   <li key={index}>
-                    <h5 className={styles.textInfoTitle}>
-                    {((i18n.language === currentLanguages.EN) && el.titleEn) || ((i18n.language === currentLanguages.RU) && el.titleRu) || el.title }
+                    {el.title && <h5 className={styles.textInfoTitle}>
+                      {((i18n.language === currentLanguages.EN) && el.titleEn) || ((i18n.language === currentLanguages.RU) && el.titleRu) || el.title}
+
                       {/* {i18n.language === currentLanguages.EN
                         ? el.titleEn
                         : el.title} */}
-                    </h5>
-                    <p className={index === 4 ? `${styles.textInfoRules} ${styles.accentRule}` : styles.textInfoRules}>
-                    {((i18n.language === currentLanguages.EN) && el.textEn) || ((i18n.language === currentLanguages.RU) && el.textRu) || el.text }
-                      {/* {i18n.language === currentLanguages.EN
-                        ? el.textEn
-                        : el.text} */}
-
+                    </h5>}
+                    {/* <p className={index === (allInformation.length - 2) ? `${styles.textInfoRules} ${styles.accentRule}` : styles.textInfoRules}>
+                      {((i18n.language === currentLanguages.EN) && el.textEn) || ((i18n.language === currentLanguages.RU) && el.textRu) || el.text}
+                      
                       {el.title === 'Правила:' &&
                         el.rulesList.map((el, index) => {
                           return (
                             <span key={index}>
-                              {((i18n.language === currentLanguages.EN) && el.rulesEn) || ((i18n.language === currentLanguages.RU) && el.rulesRu) || el.rules }
-                              {/* {i18n.language === currentLanguages.EN
-                                ? el.rulesEn
-                                : el.rules} */}
+                              {((i18n.language === currentLanguages.EN) && el.rulesEn) || ((i18n.language === currentLanguages.RU) && el.rulesRu) || el.rules}                              
                             </span>
                           );
                         })}
-                    </p>
+                    </p> */}
+
+
+                    {el.title === 'Правила:' ? <ul className={styles.rulesList}>
+                      {el.rulesList.map((el, index) => {
+                        return (
+                          <li key={index} className={styles.rulesItem}>
+                            {((i18n.language === currentLanguages.EN) && el.rulesEn) || ((i18n.language === currentLanguages.RU) && el.rulesRu) || el.rules}
+                          </li>
+                        );
+                      })}
+                    </ul> : <p className={index === (allInformation.length - 2) ? styles.accentRule : ""}>
+                      {((i18n.language === currentLanguages.EN) && el.textEn) || ((i18n.language === currentLanguages.RU) && el.textRu) || el.text}</p>
+                    }
+
                   </li>
                 );
               })}
