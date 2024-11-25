@@ -15,7 +15,7 @@ import { addDays, subDays } from "@/utils/dateUtils";
 import { sendToTelegram } from "@/utils/sendToTelegram";
 import { useFetcherObjectNumbers } from "@/hooks/useFetcher";
 import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
-
+import { getLocaleCalendar } from "@/utils/getLocaleCalendar";
 import SuccessContent from "./SuccessContent";
 import LogoForm from "./LogoForm";
 
@@ -43,40 +43,13 @@ const handleSubmit = (values, actions, closeModal) => {
     }, 2000);
 };
 
-const days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Нд"];
-const months = [
-    "Січень",
-    "Лютий",
-    "Березень",
-    "Квітень",
-    "Травень",
-    "Червень",
-    "Липень",
-    "Серпень",
-    "Вересень",
-    "Жовтень",
-    "Листопад",
-    "Грудень",
-];
-
-const localeUkr = {
-    localize: {
-        day: (n) => days[n],
-        month: (n) => months[n],
-    },
-    formatLong: {
-        date: () => "mm/dd/yyyy",
-    },
-};
-
 const OrderForm = ({ isOpen, closeModal }) => {
     const { t, i18n } = useTranslation();
     const schema = useMemo(() => orderSchema(), []);
     const listOfAppartmentNumbers = useFetcherObjectNumbers();
+    const locale = getLocaleCalendar(i18n.language);
 
     useLockBodyScroll(isOpen);
-
-    console.log("i18n:", i18n);
 
     return (
         <Formik
@@ -102,10 +75,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
             {(formik) => {
                 const { errors, touched, isValid, values, isSubmitting } =
                     formik;
-                // console.log("errors:", errors);
-                // console.log("touched:", touched);
-                // console.log("values:", values);
-                // console.log("isValid:", isValid);
+
                 return (
                     <div className={styles.container}>
                         <button
@@ -178,44 +148,31 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                             <use href='/sprite.svg#icon-phone' />
                                         </svg>
                                         {(() => {
-                                            if (
+                                            const icon =
                                                 (errors.phone &&
                                                     touched.phone) ||
                                                 (errors.phone && !isValid)
-                                            ) {
-                                                return (
-                                                    <svg
-                                                        className={
-                                                            styles.iconStatus
-                                                        }
-                                                    >
-                                                        <use href='/sprite.svg#exclamation-mark' />
-                                                    </svg>
-                                                );
-                                            } else if (
-                                                !errors.phone &&
-                                                values.phone
-                                            ) {
-                                                return (
-                                                    <svg
-                                                        className={
-                                                            styles.iconStatus
-                                                        }
-                                                    >
-                                                        <use href='/sprite.svg#success' />
-                                                    </svg>
-                                                );
-                                            } else {
-                                                return (
-                                                    <svg
-                                                        className={
-                                                            styles.iconImportant
-                                                        }
-                                                    >
-                                                        <use href='/sprite.svg#snowflake' />
-                                                    </svg>
-                                                );
-                                            }
+                                                    ? "/sprite.svg#exclamation-mark"
+                                                    : !errors.phone &&
+                                                      values.phone
+                                                    ? "/sprite.svg#success"
+                                                    : "/sprite.svg#snowflake";
+
+                                            const iconClass =
+                                                (errors.phone &&
+                                                    touched.phone) ||
+                                                (errors.phone && !isValid)
+                                                    ? styles.iconStatus
+                                                    : !errors.phone &&
+                                                      values.phone
+                                                    ? styles.iconStatus
+                                                    : styles.iconImportant;
+
+                                            return (
+                                                <svg className={iconClass}>
+                                                    <use href={icon} />
+                                                </svg>
+                                            );
                                         })()}
                                         <label
                                             htmlFor='phone'
@@ -284,12 +241,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                                         id='checkIn'
                                                         autoComplete='off'
                                                         dateFormat='dd/MM/yyyy'
-                                                        locale={
-                                                            i18n.language !==
-                                                            "en"
-                                                                ? localeUkr
-                                                                : "en"
-                                                        }
+                                                        locale={locale}
                                                         selectsStart
                                                         className={`${
                                                             styles.input
@@ -394,6 +346,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                                         id='checkOut'
                                                         autoComplete='off'
                                                         dateFormat='dd/MM/yyyy'
+                                                        locale={locale}
                                                         disabled={
                                                             !values.checkIn
                                                         }
