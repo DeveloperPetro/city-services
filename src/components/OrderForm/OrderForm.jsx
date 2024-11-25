@@ -43,12 +43,40 @@ const handleSubmit = (values, actions, closeModal) => {
     }, 2000);
 };
 
+const days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Нд"];
+const months = [
+    "Січень",
+    "Лютий",
+    "Березень",
+    "Квітень",
+    "Травень",
+    "Червень",
+    "Липень",
+    "Серпень",
+    "Вересень",
+    "Жовтень",
+    "Листопад",
+    "Грудень",
+];
+
+const localeUkr = {
+    localize: {
+        day: (n) => days[n],
+        month: (n) => months[n],
+    },
+    formatLong: {
+        date: () => "mm/dd/yyyy",
+    },
+};
+
 const OrderForm = ({ isOpen, closeModal }) => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const schema = useMemo(() => orderSchema(), []);
     const listOfAppartmentNumbers = useFetcherObjectNumbers();
 
     useLockBodyScroll(isOpen);
+
+    console.log("i18n:", i18n);
 
     return (
         <Formik
@@ -74,7 +102,10 @@ const OrderForm = ({ isOpen, closeModal }) => {
             {(formik) => {
                 const { errors, touched, isValid, values, isSubmitting } =
                     formik;
-
+                // console.log("errors:", errors);
+                // console.log("touched:", touched);
+                // console.log("values:", values);
+                // console.log("isValid:", isValid);
                 return (
                     <div className={styles.container}>
                         <button
@@ -118,7 +149,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                             htmlFor='userName'
                                             className={styles.label}
                                         >
-                                            {t('Form.name')}
+                                            {t("Form.name")}
                                         </label>
                                         <Field
                                             type='text'
@@ -147,7 +178,11 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                             <use href='/sprite.svg#icon-phone' />
                                         </svg>
                                         {(() => {
-                                            if (errors.phone && touched.phone) {
+                                            if (
+                                                (errors.phone &&
+                                                    touched.phone) ||
+                                                (errors.phone && !isValid)
+                                            ) {
                                                 return (
                                                     <svg
                                                         className={
@@ -186,7 +221,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                             htmlFor='phone'
                                             className={styles.label}
                                         >
-                                            {t('Form.phone')}
+                                            {t("Form.phone")}
                                         </label>
                                         <Field
                                             type='text'
@@ -203,11 +238,13 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                                     : ""
                                             }`}
                                         />
-                                        <ErrorMessage
-                                            name='phone'
-                                            className={styles.error}
-                                            component='p'
-                                        />
+
+                                        {(errors.phone && touched.phone) ||
+                                        (errors.phone && !isValid) ? (
+                                            <p className={styles.error}>
+                                                {errors.phone}
+                                            </p>
+                                        ) : null}
                                     </div>
                                 </div>
                                 <div className={styles.innerWrap}>
@@ -235,7 +272,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                             htmlFor='checkIn'
                                             className={styles.label}
                                         >
-                                            {t('Form.fieldDateOfEntry')}
+                                            {t("Form.fieldDateOfEntry")}
                                         </label>
                                         <Field name='checkIn' id='checkIn'>
                                             {({ form, field }) => {
@@ -247,6 +284,12 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                                         id='checkIn'
                                                         autoComplete='off'
                                                         dateFormat='dd/MM/yyyy'
+                                                        locale={
+                                                            i18n.language !==
+                                                            "en"
+                                                                ? localeUkr
+                                                                : "en"
+                                                        }
                                                         selectsStart
                                                         className={`${
                                                             styles.input
@@ -267,12 +310,16 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                                         onFocus={(e) =>
                                                             e.target.blur()
                                                         }
-                                                        onChange={(val) =>
+                                                        onChange={(val) => {
+                                                            setFieldValue(
+                                                                "checkOut",
+                                                                null
+                                                            );
                                                             setFieldValue(
                                                                 "checkIn",
                                                                 val
-                                                            )
-                                                        }
+                                                            );
+                                                        }}
                                                         excludeDateIntervals={[
                                                             {
                                                                 start: subDays(
@@ -336,7 +383,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                             htmlFor='checkOut'
                                             className={styles.label}
                                         >
-                                            {t('Form.fieldDepartureDate')}
+                                            {t("Form.fieldDepartureDate")}
                                         </label>
                                         <Field name='checkOut' id='checkOut'>
                                             {({ form, field }) => {
@@ -425,7 +472,7 @@ const OrderForm = ({ isOpen, closeModal }) => {
                                             htmlFor='objNumber'
                                             className={styles.label}
                                         >
-                                            {t('Form.fieldNumberObject')}
+                                            {t("Form.fieldNumberObject")}
                                         </label>
                                         <Field
                                             type='text'

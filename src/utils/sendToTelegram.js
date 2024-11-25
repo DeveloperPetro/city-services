@@ -39,26 +39,28 @@ export const sendToTelegram = async (formData) => {
         ${textEnd}`;
     }
 
-    try {
-        const response = await fetch(telegramApi, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Methods": "POST",
-            },
-            body: JSON.stringify({
-                chat_id: TELEGRAM_CHAT_ID,
-                text,
-            }),
-        });
+    console.log('textTelegram:', text)
 
-        if (response.ok) {
-            console.log("To telegram sent:", formatedData);
-        } else {
-            throw new Error(response.statusText);
-        }
-    } catch (error) {
-        console.log(error);
-    }
+    // try {
+    //     const response = await fetch(telegramApi, {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             "Access-Control-Allow-Origin": "*",
+    //             "Access-Control-Allow-Methods": "POST",
+    //         },
+    //         body: JSON.stringify({
+    //             chat_id: TELEGRAM_CHAT_ID,
+    //             text,
+    //         }),
+    //     });
+
+    //     if (response.ok) {
+    //         console.log("To telegram sent:", formatedData);
+    //     } else {
+    //         throw new Error(response.statusText);
+    //     }
+    // } catch (error) {
+    //     console.log(error);
+    // }
 }
