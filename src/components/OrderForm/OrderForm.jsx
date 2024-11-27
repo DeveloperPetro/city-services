@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useContext, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import {
     Formik,
@@ -9,7 +9,7 @@ import {
     yupToFormErrors,
 } from "formik";
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import { SiteContext } from "@/context/SiteContext";
 import { orderSchema } from "@/yupSchemas/orderSchema";
 import { addDays, subDays } from "@/utils/dateUtils";
 import { sendToTelegram } from "@/utils/sendToTelegram";
@@ -21,14 +21,7 @@ import LogoForm from "./LogoForm";
 
 import styles from "./OrderForm.module.scss";
 import seoStyles from "@/app/seoStyles.module.css";
-
-const initialValues = {
-    userName: "",
-    phone: "",
-    objNumber: "",
-    checkIn: null,
-    checkOut: null,
-};
+import "react-datepicker/dist/react-datepicker.css";
 
 const handleSubmit = (values, actions, closeModal) => {
     sendToTelegram(values);
@@ -43,13 +36,22 @@ const handleSubmit = (values, actions, closeModal) => {
     }, 2000);
 };
 
-const OrderForm = ({ isOpen, closeModal }) => {
+const OrderForm = ({ id = "" }) => {
     const { t, i18n } = useTranslation();
     const schema = useMemo(() => orderSchema(), []);
     const listOfAppartmentNumbers = useFetcherObjectNumbers();
     const locale = getLocaleCalendar(i18n.language);
+    const { isModalOpen, closeModal } = useContext(SiteContext);
 
-    useLockBodyScroll(isOpen);
+    useLockBodyScroll(isModalOpen);
+
+    const initialValues = {
+        userName: "",
+        phone: "",
+        objNumber: id,
+        checkIn: null,
+        checkOut: null,
+    };
 
     return (
         <Formik
