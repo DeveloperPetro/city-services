@@ -1,27 +1,30 @@
-import React from 'react';
-import { useState,useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import styles from './OrderBtn.module.scss';
+import { useState, useEffect, useContext } from "react";
+import { useTranslation } from "react-i18next";
+import { SiteContext } from "@/context/SiteContext";
 
-const OrderBtn = ({ openModal, className }) => {
-  const {t}=useTranslation();
+import styles from "./OrderBtn.module.scss";
 
-  const [isLoading,setIsLoading]=useState(true)
+const OrderBtn = ({ className }) => {
+    const { t } = useTranslation();
+    const { openModal } = useContext(SiteContext);
+    const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(()=>{
-    setIsLoading(false)
-  },[])
-  return (<>
-    {!isLoading && (
-    <button
-      type="button"
-      className={styles.button + ' ' + `${className}`}
-      onClick={openModal}
-    >
-      {t("Buttons.OrderBtn")}
-    </button>)}
-    </>
-  );
+    useEffect(() => {
+        setIsLoading(false);
+    }, []);
+    return (
+        <>
+            {!isLoading && (
+                <button
+                    type='button'
+                    className={styles.button + " " + `${className}`}
+                    onClick={openModal}
+                >
+                    {t("Buttons.OrderBtn")}
+                </button>
+            )}
+        </>
+    );
 };
 
 export default OrderBtn;
