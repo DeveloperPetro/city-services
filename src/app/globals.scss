@@ -45,9 +45,23 @@ footer {
   max-width: inherit;
 }
 
+// body,
+// main,
+// section {
+//   display: -webkit-box;
+//   display: -ms-flexbox;
+//   display: flex;
+//   -webkit-box-orient: vertical;
+//   -webkit-box-direction: normal;
+//   -ms-flex-direction: column;
+//   flex-direction: column;
+//   -webkit-box-align: center;
+//   -ms-flex-align: center;
+//   align-items: center;
+// }
+
 body,
-main,
-section {
+main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -78,8 +92,12 @@ section {
 }
 
 .pageTopSection {
-  padding: 56px 32px 16px;
-  // padding: 88px 32px 16px;
+  padding: 56px 16px 16px;
+
+  @media screen and (min-width: $mobile) {
+    padding: 56px 32px 16px;
+    // padding: 88px 32px 16px;
+  }
 
   @media screen and (min-width: $tablet) {
     padding: 68px 40px 20px;
@@ -98,7 +116,11 @@ section {
 }
 
 .section {
-  padding: 16px 32px;
+  padding: 16px;
+
+  @media screen and (min-width: $mobile) {
+    padding: 16px 32px;
+  }
 
   @media screen and (min-width: $tablet) {
     padding: 20px 40px;
