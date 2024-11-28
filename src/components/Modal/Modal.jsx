@@ -1,10 +1,15 @@
+"use client";
+
+import { useContext } from "react";
+import { SiteContext } from "@/context/SiteContext";
 import Modal from "react-modal";
 import "./Modal.css";
 
-const ModalR = ({ isOpen, closeModal, children }) => {
+const ModalR = ({ children }) => {
+    const { isModalOpen, closeModal } = useContext(SiteContext);
     return (
         <Modal
-            isOpen={isOpen}
+            isOpen={isModalOpen}
             overlayClassName={"backdrop"}
             className={"modalContent"}
             closeTimeoutMS={700}

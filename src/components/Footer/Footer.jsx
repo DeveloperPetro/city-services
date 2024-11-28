@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext } from "react";
+import { useContext } from "react";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
@@ -14,104 +14,107 @@ import { navigationData, currentLanguages } from "@/data";
 import SocialLinksFooter from "../SocialLinks/SocialLinksFooter";
 
 const Footer = ({ onClick }) => {
-  const { isModalOpen, openModal, closeModal, setScrolledWindow } =
-    useContext(SiteContext);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isMobile, setIsMobile] = useState(false);
+    const { setScrolledWindow } = useContext(SiteContext);
+    const [isLoading, setIsLoading] = useState(true);
+    const [isMobile, setIsMobile] = useState(false);
 
-  const { i18n } = useTranslation();
+    const { i18n } = useTranslation();
 
-  const handleSetScrolledWindow = () => {
-    setScrolledWindow(0);
-  };
-
-  const handleResize = () => {
-    if (window.innerWidth < 1366) {
-      setIsMobile(true);
-    } else {
-      setIsMobile(false);
-    }
-  };
-
-  useEffect(() => {
-    // Add an event listener for window resize
-    window.addEventListener("resize", handleResize);
-
-    // Initial check on component mount
-    handleResize();
-
-    setIsLoading(false);
-
-    // Clean up the event listener on component unmount
-    return () => {
-      window.removeEventListener("resize", handleResize);
+    const handleSetScrolledWindow = () => {
+        setScrolledWindow(0);
     };
-  }, []);
 
-  return (
-    <>
-      <ModalR isOpen={isModalOpen} closeModal={closeModal}>
-        <OrderForm isOpen={isModalOpen} closeModal={closeModal} />
-      </ModalR>
-      
-      <footer id="footer" className={styles.container}>
-        {isMobile && (
-          <div className={styles.mobileContentWrapper}>
+    const handleResize = () => {
+        if (window.innerWidth < 1366) {
+            setIsMobile(true);
+        } else {
+            setIsMobile(false);
+        }
+    };
 
-            <div className="footer-logo-wrapper">
-              <Logo className={`${styles.footerLogo}`} />
-            </div>
+    useEffect(() => {
+        // Add an event listener for window resize
+        window.addEventListener("resize", handleResize);
 
-            {!isLoading && (
-              <div className={styles.btnsWrapper}>
-                <OrderBtn openModal={openModal} />
-                <CallBtn />
-              </div>
-            )}
+        // Initial check on component mount
+        handleResize();
 
-          </div>
-        )}
+        setIsLoading(false);
 
-        {!isMobile && (
-          <div className={styles.contentWrapper}>
+        // Clean up the event listener on component unmount
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
 
-            <div className="footer-logo-wrapper">
-              <Logo className={`${styles.footerLogo}`} />
-            </div>
+    return (
+        <>
+            <ModalR>
+                <OrderForm />
+            </ModalR>
 
-            <SocialLinksFooter />
+            <footer id='footer' className={styles.container}>
+                {isMobile && (
+                    <div className={styles.mobileContentWrapper}>
+                        <div className='footer-logo-wrapper'>
+                            <Logo className={`${styles.footerLogo}`} />
+                        </div>
 
-            <ul className={styles.navigation}>
-              {!isLoading &&
-                navigationData.map((item) => {
-                  return (
-                    <li key={item.id} onClick={onClick}>
-                      <Link
-                        href={item.path}
-                        className="textLinkAnimation"
-                        onClick={handleSetScrolledWindow}
-                        rel={item.rel}
-                        target={item.target}
-                      >
-                        {((i18n.language === currentLanguages.EN) && item.titleEn) || ((i18n.language === currentLanguages.RU) && item.titleRu) || item.title }
-                      </Link>
-                    </li>
-                  );
-                })}
-            </ul>
-          
-            {!isLoading && (
-              <div className={styles.btnsWrapper}>
-                <OrderBtn openModal={openModal} />
-                <CallBtn />
-              </div>
-            )}
-          </div>
-        )}
-        
-      </footer>
-    </>
-  );
+                        {!isLoading && (
+                            <div className={styles.btnsWrapper}>
+                                <OrderBtn />
+                                <CallBtn />
+                            </div>
+                        )}
+                    </div>
+                )}
+
+                {!isMobile && (
+                    <div className={styles.contentWrapper}>
+                        <div className='footer-logo-wrapper'>
+                            <Logo className={`${styles.footerLogo}`} />
+                        </div>
+
+                        <SocialLinksFooter />
+
+                        <ul className={styles.navigation}>
+                            {!isLoading &&
+                                navigationData.map((item) => {
+                                    return (
+                                        <li key={item.id} onClick={onClick}>
+                                            <Link
+                                                href={item.path}
+                                                className='textLinkAnimation'
+                                                onClick={
+                                                    handleSetScrolledWindow
+                                                }
+                                                rel={item.rel}
+                                                target={item.target}
+                                            >
+                                                {(i18n.language ===
+                                                    currentLanguages.EN &&
+                                                    item.titleEn) ||
+                                                    (i18n.language ===
+                                                        currentLanguages.RU &&
+                                                        item.titleRu) ||
+                                                    item.title}
+                                            </Link>
+                                        </li>
+                                    );
+                                })}
+                        </ul>
+
+                        {!isLoading && (
+                            <div className={styles.btnsWrapper}>
+                                <OrderBtn />
+                                <CallBtn />
+                            </div>
+                        )}
+                    </div>
+                )}
+            </footer>
+        </>
+    );
 };
 
 export default Footer;
