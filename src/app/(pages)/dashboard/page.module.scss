@@ -7,18 +7,19 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 103px 10px 10px;
+  // padding: 103px 10px 10px;
   width: 100%;
+  max-width: 1920px;
 
   @media screen and (min-width: $tablet) {
     align-items: normal;
     justify-content: normal;
-    padding: 110px 20px 20px;
+    // padding: 110px 20px 20px;
   }
 
-  @media screen and (min-width: $desktop) {
-    padding: 147px 40px 40px;
-  }
+  // @media screen and (min-width: $desktop) {
+  //   padding: 147px 40px 40px;
+  // }
 }
 
 .displaySizeMessage {
@@ -53,8 +54,8 @@
 
   @media screen and (min-width: $tablet) {
     display: flex;
+    justify-content: space-between;
     width: 100%;
-    gap: 50px;
   }
 }
 
@@ -66,10 +67,7 @@
     display: -ms-flexbox;
     display: flex;
     flex-direction: column;
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    width: 50vw;
+    width: calc(50% - 25px);
   }
 }
 

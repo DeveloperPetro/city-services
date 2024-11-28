@@ -42,7 +42,7 @@ const Register = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={`pageTopSection ${styles.container}`}>
       <p className={styles.displaySizeMessage}>
         Для користування цим функціоналом розмір Вашого екрану повинен бути не
         менше 768 пікселів.
