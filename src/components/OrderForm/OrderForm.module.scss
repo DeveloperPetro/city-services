@@ -12,19 +12,21 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    width: 360px;
-    height: 556px;
     text-align: center;
     padding: 24px;
     background-color: $Primary50;
+    max-width: 360px;
+    height: 556px;
 
     @media screen and (min-width: $tablet) {
         padding: 40px;
-        width: 688px;
         height: 612px;
+        max-width: 688px;
+        width: 688px;
     }
 
     @media screen and (min-width: $desktop) {
+        max-width: 1016px;
         width: 1016px;
         height: 480px;
     }
@@ -72,8 +74,14 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    margin-top: 16px;
+    margin-top: 24px;
     row-gap: 36px;
+    width: 100%;
+    max-width: stretch;
+
+    @media screen and (min-width: $tablet) {
+        margin-top: 32px;
+    }
 
     @media screen and (min-width: $desktop) {
         width: 838px;
@@ -84,6 +92,12 @@
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     }
+}
+
+.stretchText {
+    height: 1px;
+    margin: -1px;
+    visibility: hidden;
 }
 
 .innerWrap {
@@ -111,7 +125,7 @@
 
 .input {
     position: relative;
-    width: 296px;
+    width: 100%;
     height: 35px;
     background-color: transparent;
     outline: none;
@@ -190,6 +204,10 @@
     }
 }
 
+.wrapError > div {
+    width: 100%;
+}
+
 .wrapError {
     position: relative;
     width: 100%;
@@ -234,12 +252,12 @@
 
 .iconPickerRight {
     bottom: 45px;
-    left: 270px;
+    right: 10px;
     width: 24px;
     height: 24px;
 
     @media screen and (min-width: $tablet) {
-        left: 370px;
+        right: 14px;
     }
 
     @media screen and (min-width: $desktop) {

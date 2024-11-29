@@ -15,6 +15,7 @@ import { addDays, subDays } from "@/utils/dateUtils";
 import { sendToTelegram } from "@/utils/sendToTelegram";
 import { useFetcherObjectNumbers } from "@/hooks/useFetcher";
 import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
+import { useWindowResize } from "@/hooks/useWindowResize";
 import { getLocaleCalendar } from "@/utils/getLocaleCalendar";
 import SuccessContent from "./SuccessContent";
 import LogoForm from "./LogoForm";
@@ -23,25 +24,13 @@ import styles from "./OrderForm.module.scss";
 import seoStyles from "@/app/seoStyles.module.css";
 import "react-datepicker/dist/react-datepicker.css";
 
-const handleSubmit = (values, actions, closeModal) => {
-    sendToTelegram(values);
-    actions.setSubmitting(true);
-
-    setTimeout(() => {
-        closeModal();
-        setTimeout(() => {
-            actions.resetForm();
-            actions.setSubmitting(false);
-        }, 300);
-    }, 2000);
-};
-
 const OrderForm = ({ id = "" }) => {
     const { t, i18n } = useTranslation();
     const schema = useMemo(() => orderSchema(), []);
     const listOfAppartmentNumbers = useFetcherObjectNumbers();
     const locale = getLocaleCalendar(i18n.language);
     const { isModalOpen, closeModal } = useContext(SiteContext);
+    const { isMobile } = useWindowResize();
 
     useLockBodyScroll(isModalOpen);
 
@@ -51,6 +40,19 @@ const OrderForm = ({ id = "" }) => {
         objNumber: id,
         checkIn: null,
         checkOut: null,
+    };
+
+    const handleSubmit = (values, actions, closeModal) => {
+        sendToTelegram(values);
+        actions.setSubmitting(true);
+
+        setTimeout(() => {
+            closeModal();
+            setTimeout(() => {
+                actions.resetForm();
+                actions.setSubmitting(false);
+            }, 300);
+        }, 2000);
     };
 
     return (
@@ -470,6 +472,12 @@ const OrderForm = ({ id = "" }) => {
                                     {t("Buttons.OrderBtn")}
                                 </button>
                             </Form>
+                        )}
+                        {isMobile && (
+                            <p className={styles.stretchText}>
+                                It is a hidden text to stretch content in a
+                                small size
+                            </p>
                         )}
                     </div>
                 );
