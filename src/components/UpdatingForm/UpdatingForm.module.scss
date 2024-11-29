@@ -7,9 +7,7 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
+    width: calc(50% - 25px);
   }
 }
 
