@@ -11,12 +11,17 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 16px 32px;
+  padding: 16px 16px;
   background-color: #131112;
   overflow-x: hidden;
   justify-content: space-between;
   width: 100%;
   z-index: 10;
+
+  @media screen and (min-width: $mobile) {
+    // gap: 12px;
+    padding: 16px 32px;
+  }
 
   @media screen and (min-width: $tablet) {
     // gap: 12px;
@@ -65,6 +70,15 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   max-width: 1222px;
+}
+
+.footerLogo {
+  margin-left: -8px;
+
+  @media screen and (min-width: $desktop) {
+    // gap: 100px;
+    margin-left: -20px;
+  }
 }
 
 .navigation {
