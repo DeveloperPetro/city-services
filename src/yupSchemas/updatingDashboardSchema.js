@@ -15,8 +15,7 @@ export const updatingDashboardSchema = Yup.object({
     newAddressEn: Yup.string()
         .required("Адреса англійською це обовʼязкове поле"),
     newAddressRu: Yup.string()
-    // .required("Адреса російською це обовʼязкове поле") - розкоментувати після додавання цього поля в БД
-    ,
+        .required("Адреса російською це обовʼязкове поле"),
     newFlatNumber: Yup.number()
         .moreThan(-1, "Тільки додатні числа")
         .typeError("Тільки числа")
@@ -37,6 +36,5 @@ export const updatingDashboardSchema = Yup.object({
     newDescriptionEn: Yup.string()
         .required("Опис англійською це обовʼязкове поле"),
     newDescriptionRu: Yup.string()
-    // .required("Опис англійською це обовʼязкове поле") - розкоментувати після додавання цього поля в БД
-    ,
+        .required("Опис англійською це обовʼязкове поле"),
 })

@@ -82,14 +82,14 @@ fieldset.amenities {
 .button {
   padding: 7px;
   border: none;
-  color: white;
+  // color: white;
   border-radius: 3px;
-  background-color: #86ebb8;
+  background-color: #a9a9a9;
   cursor: not-allowed;
 }
 
 .sendBtn {
-  background-color: #53c28b;
+  background-color: $dashboardBtnBgColor;
   cursor: pointer;
 }
 

@@ -137,10 +137,11 @@
     padding: 5px;
     z-index: 20;
     cursor: pointer;
-    background-color: #d3e344;
+    background-color: $dashboardBtnBgColor;
     color: #4a4a4a;
     border-radius: 3px;
     border-color: transparent;
+    font-weight: 700;
   }
 }
 
@@ -179,6 +180,7 @@
     justify-content: center;
     gap: 16px;
   }
+
   @media screen and (min-width: $tablet) {
     width: 35%;
     margin-left: auto;
@@ -200,6 +202,7 @@
   & li {
     transform: translateY(0);
   }
+
   @media screen and (min-width: $tablet) {
     padding: 18px 36px 109px 36px;
   }
