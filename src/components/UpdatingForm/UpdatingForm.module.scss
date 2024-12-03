@@ -59,7 +59,17 @@ fieldset.top {
 }
 
 .uploadBtn {
+  height: 45px;
+  padding: 10px;
+  background-color: $dashboardBtnBgColor;
+  border-radius: 3px;
+  border-color: transparent;
+  font-weight: 700;
   cursor: pointer;
+}
+
+.uploadBtn:hover {
+  background-color: $dashboardHoverBtnBgColor;
 }
 
 fieldset.roomsQuantity,
@@ -92,17 +102,22 @@ fieldset.amenities {
 }
 
 .button {
-  padding: 7px;
+  height: 45px;
+  padding: 10px;
   border: none;
-  color: white;
   border-radius: 3px;
-  background-color: #86ebb8;
+  background-color: $Primary400;
   cursor: not-allowed;
 }
 
 .sendBtn {
-  background-color: #53c28b;
+  background-color: $dashboardBtnBgColor;
+  font-weight: 700;
   cursor: pointer;
+}
+
+.sendBtn:hover {
+  background-color: $dashboardHoverBtnBgColor;
 }
 
 .error {

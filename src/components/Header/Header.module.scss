@@ -138,11 +138,14 @@
     z-index: 20;
     cursor: pointer;
     background-color: $dashboardBtnBgColor;
-    color: #4a4a4a;
     border-radius: 3px;
     border-color: transparent;
     font-weight: 700;
   }
+}
+
+.logoutBtn:hover {
+  background-color: $dashboardHoverBtnBgColor;
 }
 
 .mobileNavigation,

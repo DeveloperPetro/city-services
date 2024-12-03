@@ -29,7 +29,7 @@ export const dashboardSchema = Yup.object({
         .required("Головне фото це обовʼязкове поле"),
     imgs: Yup.array().min(2, "Мінімум дві додаткові фотографії"),
     address: Yup.string()
-        .required("Адреса це обовʼязкове поле"),
+        .required("Адреса українською це обовʼязкове поле"),
     addressEn: Yup.string()
         .required("Адреса англійською це обовʼязкове поле"),
     addressRu: Yup.string()
@@ -53,9 +53,9 @@ export const dashboardSchema = Yup.object({
     bedsQuantity: Yup.string()
         .required("Кількість спальних місць це обовʼязкове поле"),
     description: Yup.string()
-        .required("Опис це обовʼязкове поле"),
+        .required("Опис українською це обовʼязкове поле"),
     descriptionEn: Yup.string()
         .required("Опис англійською це обовʼязкове поле"),
     descriptionRu: Yup.string()
-    .required("Опис російською це обовʼязкове поле"),
+        .required("Опис російською це обовʼязкове поле"),
 })

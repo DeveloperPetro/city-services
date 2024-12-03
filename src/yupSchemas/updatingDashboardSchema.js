@@ -11,7 +11,7 @@ export const updatingDashboardSchema = Yup.object({
         .required("Пріоритет це обовʼязкове поле"),
     newImgs: Yup.array().min(2, "Мінімум дві додаткові фотографії"),
     newAddress: Yup.string()
-        .required("Адреса це обовʼязкове поле"),
+        .required("Адреса українською це обовʼязкове поле"),
     newAddressEn: Yup.string()
         .required("Адреса англійською це обовʼязкове поле"),
     newAddressRu: Yup.string()
@@ -32,7 +32,7 @@ export const updatingDashboardSchema = Yup.object({
     newAmenities: Yup.array()
         .min(1, "Мінімум одне вибране поле"),
     newDescription: Yup.string()
-        .required("Опис це обовʼязкове поле"),
+        .required("Опис українською це обовʼязкове поле"),
     newDescriptionEn: Yup.string()
         .required("Опис англійською це обовʼязкове поле"),
     newDescriptionRu: Yup.string()
