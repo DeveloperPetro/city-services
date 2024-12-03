@@ -1,15 +1,18 @@
-'use client';
-
+"use client";
+import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { socialLinks } from '@/data';
 import styles from './CallBtnFloating.module.scss';
-import { useEffect, useState } from 'react';
+
 
 const CallBtnFloating = () => {
   const [hidden, setHidden] = useState(false);
 
-  const phoneLink = socialLinks.find(
-    (link) => link.title === 'Telephone'
+  const phoneLink = socialLinks.find(link => link.title === 'Telephone'
   )?.href;
+
+  const pathname = usePathname();
+  const isDashboard = pathname.startsWith("/dashboard");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,15 +28,20 @@ const CallBtnFloating = () => {
     };
   }, []);
 
+
   return (
-    <div className={`${styles.callBtn} ${hidden ? styles.hidden : ''}`}>
-      <a href={phoneLink}>
-        <svg>
-          <use href="/sprite.svg#phone-new" />
-        </svg>
-      </a>
-    </div>
+    <>
+      {!isDashboard && <div className={`${styles.callBtn} ${hidden ? styles.hidden : ''}`}>
+        <a href={phoneLink}>
+          <svg>
+            <use href="/sprite.svg#phone-new" />
+          </svg>
+        </a>
+      </div>
+      }
+    </>
   );
 };
+
 
 export default CallBtnFloating;

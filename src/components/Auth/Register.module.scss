@@ -76,8 +76,8 @@
 
 .registerBtn {
   padding: 20px;
-  background-color: #86ebb8;
-  color: #eee;
+  background-color: $Primary800;
+  color: $Primary500;
   font-size: 20px;
   border-radius: 5px;
   border: none;
@@ -87,7 +87,12 @@
 
 .active {
   cursor: pointer;
-  background-color: #53c28b;
+  background-color: $dashboardBtnBgColor;
+  color: $Primary900;
+}
+
+.active.registerBtn:hover {
+  background-color: $dashboardHoverBtnBgColor;
 }
 
 .error {
