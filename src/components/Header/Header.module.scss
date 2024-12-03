@@ -46,7 +46,11 @@
   align-items: center;
   justify-content: space-between;
   background-color: $Primary900;
-  padding: 0px 32px;
+  padding: 0px 16px;
+
+  @media screen and (min-width: $mobile) {
+    padding: 0px 32px;
+  }
 
   @media screen and (min-width: $tablet) {
     padding: 0px 40px;
