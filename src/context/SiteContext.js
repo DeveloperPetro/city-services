@@ -1,7 +1,9 @@
 'use client';
 import React, { useState, createContext } from 'react';
 
+
 export const SiteContext = createContext();
+
 
 export const SiteProvider = ({ children }) => {
   const [language, setLanguage] = useState('en');
@@ -23,6 +25,7 @@ export const SiteProvider = ({ children }) => {
   const closeModal = () => {
     setModalOpen(false);
   };
+
 
   return (
     <SiteContext.Provider

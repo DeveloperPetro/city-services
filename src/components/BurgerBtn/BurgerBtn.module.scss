@@ -22,10 +22,13 @@
 }
 
 .lineClose {
+
   .line {
+
     &::before {
       width: 55%;
     }
+
     &::after {
       width: 75%;
     }
@@ -43,6 +46,7 @@
   height: 2px;
   background-color: $SecondaryColor;
   border-radius: 8px;
+
   &::before {
     content: '';
     display: block;
@@ -54,6 +58,7 @@
     background-color: $SecondaryColor;
     border-radius: 8px;
   }
+
   &::after {
     content: '';
     display: block;

@@ -1,6 +1,6 @@
 import * as Yup from "yup";
-
 import { regexUrl, regexGoogleLocation } from "@/utils/regularExpressions";
+
 
 export const dashboardSchema = Yup.object({
     objNumber: Yup.number()

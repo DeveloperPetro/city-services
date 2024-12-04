@@ -1,10 +1,11 @@
 import * as Yup from "yup";
-
 import i18n from 'i18next';
-
 import { regexPhone } from "@/utils/regularExpressions";
 
+
 export const orderSchema = () => {
+
+
     return Yup.object({
         userName: Yup.string()
             .min(3, i18n.t("Form.errorShortName"))

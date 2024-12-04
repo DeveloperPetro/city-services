@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 import { useTranslation } from "react-i18next";
 import styles from "./ApartItem.module.scss";
@@ -7,16 +6,18 @@ import Link from "next/link";
 import { CldImage } from "next-cloudinary";
 import Image from "next/image";
 
+
 const ApartItem = ({
   titleImg,
   address,
   price,
-  objNumber,
   roomsQuantity,
   id,
   bedsQuantity,
 }) => {
   const { t } = useTranslation();
+
+
   return (
     <>
       <li className={styles.oneRooms}>
@@ -49,7 +50,6 @@ const ApartItem = ({
               />
             </figure>
           </div>
-          {/* <p className={styles.addressRooms}>{address}</p> */}
         </div>
         <div className={styles.bottomContainer}>
           <p className={styles.priceRooms}>{price} ₴</p>
@@ -62,5 +62,6 @@ const ApartItem = ({
     </>
   );
 };
+
 
 export default ApartItem;

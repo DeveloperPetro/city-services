@@ -30,19 +30,10 @@ export async function generateMetadata({ params }) {
     description,
     keywords,
     alternates: {
-        canonical: `${process.env.NEXT_PUBLIC_MAIN_URL}apartments`,
-      },
+      canonical: `${process.env.NEXT_PUBLIC_MAIN_URL}apartments`,
+    },
   };
 }
-
-// export const metadata = {
-//   title: "Квартири подобово Daily Rent Kyiv ⭐ оренда квартири Київ",
-//   description:
-//     "Оренда квартир подобово або погодинно Київ ⭐ Зняти квартиру на добу, день або ніч ✔️ Безліч варіантів в широкому ціновому діапазоні на Daily Rent Kyiv",
-//   alternates: {
-//     canonical: `${process.env.NEXT_PUBLIC_MAIN_URL}apartments`,
-//   },
-// };
 
 const Apartments = () => {
   const jsonLd = {
@@ -67,6 +58,8 @@ const Apartments = () => {
       },
     ],
   };
+
+
   return (
     <>
       <script
@@ -77,5 +70,6 @@ const Apartments = () => {
     </>
   );
 };
+
 
 export default Apartments;

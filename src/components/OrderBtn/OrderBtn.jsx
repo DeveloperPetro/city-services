@@ -1,8 +1,8 @@
 import { useState, useEffect, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { SiteContext } from "@/context/SiteContext";
-
 import styles from "./OrderBtn.module.scss";
+
 
 const OrderBtn = ({ className }) => {
     const { t } = useTranslation();
@@ -12,6 +12,8 @@ const OrderBtn = ({ className }) => {
     useEffect(() => {
         setIsLoading(false);
     }, []);
+
+
     return (
         <>
             {!isLoading && (
@@ -26,5 +28,6 @@ const OrderBtn = ({ className }) => {
         </>
     );
 };
+
 
 export default OrderBtn;

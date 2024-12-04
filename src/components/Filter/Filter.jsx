@@ -50,6 +50,7 @@ const Filter = ({
     ? styles.container
     : styles.container__hidden;
 
+
   return (
     <div className={isFilterShown}>
       <div className={styles.filterButtonsContainer}>
@@ -110,5 +111,6 @@ const Filter = ({
     </div>
   );
 };
+
 
 export default Filter;

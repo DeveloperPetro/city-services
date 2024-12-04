@@ -1,9 +1,5 @@
 import Hero from '@/components/Hero/Hero';
-// import dynamic from "next/dynamic";
 
-// const DynamicHomeSlider = dynamic(() =>
-//   import("@/components/HomeSlider/HomeSlider")
-// );
 
 export default function Home() {
   const jsonLd = {
@@ -25,7 +21,6 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Hero />
-      {/* <DynamicHomeSlider /> */}
     </>
   );
 }

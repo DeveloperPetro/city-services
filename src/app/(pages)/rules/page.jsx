@@ -58,6 +58,8 @@ const RulesPage = () => {
       },
     ],
   };
+
+
   return (
     <>
       <script
@@ -68,5 +70,6 @@ const RulesPage = () => {
     </>
   );
 };
+
 
 export default RulesPage;

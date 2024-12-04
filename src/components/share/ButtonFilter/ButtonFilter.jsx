@@ -1,7 +1,8 @@
-import styles from "./ButtonFilter.module.scss";
 import { useTranslation } from "react-i18next";
 import { SiteContext } from "@/context/SiteContext";
 import { useContext, useState, useEffect } from "react";
+import styles from "./ButtonFilter.module.scss";
+
 
 const ButtonFilter = () => {
   const { filterShown, setFilterShown } = useContext(SiteContext);
@@ -10,6 +11,8 @@ const ButtonFilter = () => {
   useEffect(() => {
     setIsLoad(false);
   }, []);
+
+
   return (
     <div className={styles.filterContainer}>
       {!isLoad && (
@@ -29,5 +32,6 @@ const ButtonFilter = () => {
     </div>
   );
 };
+
 
 export default ButtonFilter;

@@ -9,6 +9,7 @@
   @media screen and (min-width: $tablet) {
     gap: 12px;
   }
+
   @media screen and (min-width: $desktop) {
     gap: 24px;
   }
@@ -20,6 +21,7 @@
   display: flex;
   align-items: center;
   column-gap: 8px;
+
   @media screen and (min-width: $tablet) {
     column-gap: 12px;
   }
@@ -38,6 +40,7 @@
   justify-content: center;
   width: 16px;
   height: 16px;
+
   &::before {
     content: '';
     position: absolute;
@@ -56,6 +59,7 @@
       width: 24px;
       height: 24px;
     }
+
     @media screen and (min-width: $desktop) {
       width: 32px;
       height: 32px;
@@ -66,9 +70,11 @@
   &:hover::before {
     box-shadow: none;
   }
+
   & img {
     object-fit: contain;
   }
+
   @media screen and (min-width: $mobile) {
     width: 18px;
     height: 18px;
@@ -77,6 +83,7 @@
 
 .phone {
   display: none;
+
   @media screen and (min-width: $tablet) {
     display: block;
     font-family: inherit;
@@ -85,6 +92,7 @@
     line-height: 1.6;
     color: $Primary50;
   }
+
   @media screen and (min-width: $desktop) {
     font-size: 20px;
     line-height: 1.7;

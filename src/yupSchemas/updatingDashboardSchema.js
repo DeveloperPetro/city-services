@@ -1,5 +1,4 @@
 import * as Yup from "yup";
-
 import { regexUrl, regexGoogleLocation } from "@/utils/regularExpressions";
 
 

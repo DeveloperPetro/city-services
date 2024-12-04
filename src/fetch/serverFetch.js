@@ -11,6 +11,7 @@ export const getMetaById = async (id) => {
       throw new Error("Failed to fetch topic");
     }
 
+
     return res.json();
   } catch (error) {
     console.log(error);

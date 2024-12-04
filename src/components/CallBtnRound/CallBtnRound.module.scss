@@ -24,6 +24,7 @@
     width: 172px;
     height: 172px;
   }
+
   @media screen and (min-width: $desktop) {
     width: 152px;
     height: 152px;
@@ -36,6 +37,7 @@
     line-height: 1.6;
     text-align: center;
     color: $Primary900;
+
     @media screen and (min-width: $mobile) {
       font-size: 16px;
     }
@@ -47,10 +49,12 @@
 }
 
 @keyframes pulse {
+
   0%,
   100% {
     box-shadow: 2px 2px 8px 0 rgba(246, 246, 244, 0.25);
   }
+
   50% {
     box-shadow: 1px 1px 10px 3px rgba(246, 246, 244, 0.4);
   }

@@ -1,10 +1,13 @@
 import React from 'react';
-import styles from './Logo.module.scss';
 import logo from '/public/logo.png';
 import Link from 'next/link';
 import Image from 'next/image';
+import styles from './Logo.module.scss';
+
 
 const Logo = ({ className }) => {
+
+
   return (
     <Link
       href="/"
@@ -21,5 +24,6 @@ const Logo = ({ className }) => {
     </Link>
   );
 };
+
 
 export default Logo;

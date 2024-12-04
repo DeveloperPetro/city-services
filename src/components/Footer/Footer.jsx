@@ -9,9 +9,10 @@ import CallBtn from "@/components/CallBtn/CallBtn";
 import Logo from "@/components/Logo/Logo";
 import ModalR from "@/components/Modal/Modal";
 import OrderForm from "@/components/OrderForm/OrderForm";
-import styles from "./Footer.module.scss";
 import { navigationData, currentLanguages } from "@/data";
 import SocialLinksFooter from "../SocialLinks/SocialLinksFooter";
+import styles from "./Footer.module.scss";
+
 
 const Footer = ({ onClick }) => {
     const { setScrolledWindow } = useContext(SiteContext);
@@ -46,6 +47,7 @@ const Footer = ({ onClick }) => {
             window.removeEventListener("resize", handleResize);
         };
     }, []);
+
 
     return (
         <>
@@ -116,5 +118,6 @@ const Footer = ({ onClick }) => {
         </>
     );
 };
+
 
 export default Footer;

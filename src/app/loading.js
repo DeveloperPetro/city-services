@@ -1,8 +1,8 @@
 "use client";
-
 import React from "react";
 import { RotatingLines } from "react-loader-spinner";
 import styles from "./page.module.scss";
+
 
 const Loading = ({ className }) => {
   return (
@@ -17,5 +17,6 @@ const Loading = ({ className }) => {
     </div>
   );
 };
+
 
 export default Loading;

@@ -1,9 +1,12 @@
 import React from 'react';
-import styles from './SocialLinks.module.scss';
-import { socialLinks } from '@/data/socialLinks';
 import Image from 'next/image';
+import { socialLinks } from '@/data/socialLinks';
+import styles from './SocialLinks.module.scss';
+
 
 const SocialLinks = ({ className }) => {
+
+
   return (
     <ul className={styles.socialLinks + ' ' + `${className}`}>
       {socialLinks.map((item) => {
@@ -36,5 +39,6 @@ const SocialLinks = ({ className }) => {
     </ul>
   );
 };
+
 
 export default SocialLinks;

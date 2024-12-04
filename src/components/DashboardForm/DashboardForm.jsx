@@ -11,8 +11,9 @@ import { toast } from "react-toastify";
 import { dashboardSchema } from "@/yupSchemas/dashboardSchema";
 import { useFetcherObjectNumbers } from "@/hooks/useFetcher";
 import { GetData } from "@/fetch/clientFetch";
-import styles from "./DashboardForm.module.scss";
 import { handleDeleteImgFromCloudinary } from "@/utils/handleDeleteImgFromCloudinary";
+import styles from "./DashboardForm.module.scss";
+
 
 const DashboardForm = () => {
   const initialValues = {
@@ -42,7 +43,7 @@ const DashboardForm = () => {
         method: "POST",
         body: JSON.stringify(values),
       });
-      // автоматично обновлює сторінку при зміні кількості карток
+      // автоматично оновлює сторінку при зміні кількості карток
       mutate();
       // обнуляє форму
       actions.resetForm();
@@ -55,6 +56,7 @@ const DashboardForm = () => {
   const listOfApartmentNumbers = useFetcherObjectNumbers();
 
   const { mutate } = GetData();
+
 
   return (
     <Formik
@@ -485,5 +487,6 @@ const DashboardForm = () => {
     </Formik>
   );
 };
+
 
 export default DashboardForm;

@@ -1,5 +1,6 @@
 import styles from "./BreadCrumbs.module.scss";
 
+
 const BreadCrumbs = ({ onClick, title, externalClass }) => {
   return (
     <div className={`${styles.wrapper} ${externalClass}`} onClick={onClick}>
@@ -10,5 +11,6 @@ const BreadCrumbs = ({ onClick, title, externalClass }) => {
     </div>
   );
 };
+
 
 export default BreadCrumbs;

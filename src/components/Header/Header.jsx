@@ -1,7 +1,6 @@
 'use client';
 import React, { useEffect, useState, useCallback, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
-import styles from './Header.module.scss';
 import Logo from '../Logo/Logo';
 import Navigation from '../Navigation/Navigation';
 import Link from 'next/link';
@@ -12,6 +11,8 @@ import TranslatorBtnBlock from '../share/TranslatorBtnBlock/TranslatorBtnBlock';
 import SocialLinks from '../SocialLinks/SocialLinks';
 import { SiteContext } from '@/context/SiteContext';
 import { currentLanguages, navigationData } from '@/data';
+import styles from './Header.module.scss';
+
 
 const Header = () => {
   const session = useSession();
@@ -118,10 +119,6 @@ const Header = () => {
 
   return (
     <header id="header" className={styles.container}>
-      {/* <div className={styles.promotion}>
-        {!isLoading && <p>{t('Header.headerSale')}</p>}
-      </div> */}
-
       <div className={styles.navBarContainer}>
         <div className={`${styles.navBar} container`}>
           {!isMobile && (
@@ -192,5 +189,6 @@ const Header = () => {
     </header>
   );
 };
+
 
 export default Header;

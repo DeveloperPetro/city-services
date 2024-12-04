@@ -1,5 +1,6 @@
 import styles from './ButtonToBack.module.scss';
 
+
 const ButtonToBack = ({ onGoBack }) => {
   return (
     <button
@@ -13,5 +14,6 @@ const ButtonToBack = ({ onGoBack }) => {
     </button>
   );
 };
+
 
 export default ButtonToBack;

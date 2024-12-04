@@ -1,11 +1,11 @@
 "use client";
-import { SiteContext } from "@/context/SiteContext";
+import Cookies from "js-cookie";
 import { usePathname } from "next/navigation";
 import React, { useState, useEffect, useContext } from "react";
 import { useTranslation } from "react-i18next";
+import { SiteContext } from "@/context/SiteContext";
 import { LangSwitcher } from "./LangSwitcher";
 import styles from "./TranslatorBtnBlock.module.scss";
-import Cookies from "js-cookie";
 
 
 const TranslatorBtnBlock = ({ isClient }) => {
@@ -15,7 +15,7 @@ const TranslatorBtnBlock = ({ isClient }) => {
   const [isLoad, setIsLoad] = useState(true)
 
   useEffect(() => {
-    
+
     const lang = localStorage.getItem("i18nextLng")
     setLanguage(() => lang ? lang : "ua");
     setIsLoad(false)
@@ -25,9 +25,9 @@ const TranslatorBtnBlock = ({ isClient }) => {
 
   const changeLanguage = (languageUser) => {
     localStorage.setItem("i18nextLng", languageUser);
-    
+
     setLanguage(languageUser);
-    
+
     i18n.changeLanguage(languageUser);
     Cookies.set('language', languageUser);
   };
@@ -44,6 +44,7 @@ const TranslatorBtnBlock = ({ isClient }) => {
     scrollStyles = styles.dropdown;
   }
 
+
   return (<div className={scrollStyles}>
     {!isLoad && <LangSwitcher
       changeLanguage={changeLanguage}
@@ -51,5 +52,6 @@ const TranslatorBtnBlock = ({ isClient }) => {
   </div>
   );
 };
+
 
 export default TranslatorBtnBlock;

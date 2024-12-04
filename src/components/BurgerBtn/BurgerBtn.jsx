@@ -1,7 +1,7 @@
 'use client';
-
 import React from 'react';
 import styles from './BurgerBtn.module.scss';
+
 
 const BurgerBtn = ({ onClick, burgerMenu, id }) => {
   return (
@@ -20,5 +20,6 @@ const BurgerBtn = ({ onClick, burgerMenu, id }) => {
     </button>
   );
 };
+
 
 export default BurgerBtn;

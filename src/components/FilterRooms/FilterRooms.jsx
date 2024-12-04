@@ -27,8 +27,10 @@ const data = [
   },
 ];
 
+
 const FilterRooms = ({ numberRoomsArr, setNumberRoomsArr }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+
 
   return (
     <ul className={styles.container}>
@@ -48,5 +50,6 @@ const FilterRooms = ({ numberRoomsArr, setNumberRoomsArr }) => {
     </ul>
   );
 };
+
 
 export default FilterRooms;

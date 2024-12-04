@@ -45,21 +45,6 @@ footer {
   max-width: inherit;
 }
 
-// body,
-// main,
-// section {
-//   display: -webkit-box;
-//   display: -ms-flexbox;
-//   display: flex;
-//   -webkit-box-orient: vertical;
-//   -webkit-box-direction: normal;
-//   -ms-flex-direction: column;
-//   flex-direction: column;
-//   -webkit-box-align: center;
-//   -ms-flex-align: center;
-//   align-items: center;
-// }
-
 body,
 main {
   display: -webkit-box;
@@ -96,23 +81,15 @@ section {
 
   @media screen and (min-width: $mobile) {
     padding: 56px 32px 16px;
-    // padding: 88px 32px 16px;
   }
 
   @media screen and (min-width: $tablet) {
     padding: 68px 40px 20px;
-    // padding: 98px 40px 20px;
   }
 
   @media screen and (min-width: $desktop) {
     padding: 104px 72px 24px;
-    // padding: 154px 72px 24px;
-    // max-width: 1366px;
   }
-
-  // @media screen and (min-width: 1440px) {
-  //   max-width: 1920px;
-  // }
 }
 
 .section {
@@ -128,12 +105,7 @@ section {
 
   @media screen and (min-width: $desktop) {
     padding: 24px 72px;
-    // max-width: 1366px;
   }
-
-  // @media screen and (min-width: 1440px) {
-  //   max-width: 1920px;
-  // }
 }
 
 a {
