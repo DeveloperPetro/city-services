@@ -1,12 +1,14 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import styles from './Navigation.module.scss';
 import { navigationData, currentLanguages } from '@/data';
 import Link from 'next/link';
 import TranslatorBtnBlock from '../share/TranslatorBtnBlock/TranslatorBtnBlock';
+import styles from './Navigation.module.scss';
+
 
 const Navigation = ({ className, onClick, id, isClient }) => {
   const { i18n } = useTranslation();
+
 
   return (
     <div className={styles.container + ' ' + `${className}`}>
@@ -28,7 +30,7 @@ const Navigation = ({ className, onClick, id, isClient }) => {
                 })}
                 className={styles.text}
               >
-                {((i18n.language === currentLanguages.EN) && item.titleEn) || ((i18n.language === currentLanguages.RU) && item.titleRu) || item.title }
+                {((i18n.language === currentLanguages.EN) && item.titleEn) || ((i18n.language === currentLanguages.RU) && item.titleRu) || item.title}
               </Link>
             </li>
           );
@@ -37,5 +39,6 @@ const Navigation = ({ className, onClick, id, isClient }) => {
     </div>
   );
 };
+
 
 export default Navigation;

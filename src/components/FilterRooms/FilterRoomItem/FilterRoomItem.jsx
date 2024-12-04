@@ -1,11 +1,9 @@
 "use client";
-
 import { useState, useEffect } from "react";
-
 import { useTranslation } from "react-i18next";
 import { currentLanguages } from "@/data";
-
 import styles from "./FilterRoomItem.module.scss";
+
 
 const FilterRoomItem = ({
   id,
@@ -43,6 +41,7 @@ const FilterRoomItem = ({
     ? styles.filterInputCheckbox__Checked
     : styles.filterInputCheckbox;
 
+
   return (
     <li className={styles.filterRoom}>
       {!isLoading && (
@@ -71,5 +70,6 @@ const FilterRoomItem = ({
     </li>
   );
 };
+
 
 export default FilterRoomItem;

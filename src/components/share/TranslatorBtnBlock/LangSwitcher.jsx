@@ -10,6 +10,7 @@ const languagesList = [
   { id: v4(), title: 'RUS' },
 ];
 
+
 export const LangSwitcher = ({ changeLanguage, currentLanguage }) => {
   const [isMobile, setIsMobile] = useState(false);
   const [lang, setLang] = useState(() => {
@@ -77,6 +78,8 @@ export const LangSwitcher = ({ changeLanguage, currentLanguage }) => {
     };
     // eslint-disable-next-line
   }, [openLangSwitcher]);
+
+
   return (
     <div className={styles.langSwitcherContainer} ref={containerRef}>
       <button className={styles.langTitle} onClick={closeLangSwitcher}>
@@ -106,12 +109,5 @@ export const LangSwitcher = ({ changeLanguage, currentLanguage }) => {
           ))}
       </ul>
     </div>
-    // <div className={styles.langSwitcher}>
-    //     <span className={styles.langIndicator}>{lang}</span>
-    //     <div className={styles.langToggle} onClick={onHandleChange}>
-    //         <div className={lang === "Укр" ? styles.ball : styles.ball + " " + styles.ballEng}
-    //         ></div>
-    //     </div>
-    // </div>
   );
 };

@@ -1,11 +1,13 @@
 "use client";
-
 import { SiteContext } from "@/context/SiteContext";
 import React, { useContext } from "react";
 import styles from "./LangSwitcher.module.scss";
 
+
 const LangSwitcher = () => {
   const { language, setLanguage } = useContext(SiteContext);
+
+
   return (
     <>
       <div
@@ -22,5 +24,6 @@ const LangSwitcher = () => {
     </>
   );
 };
+
 
 export default LangSwitcher;

@@ -1,8 +1,11 @@
 import React from 'react';
-import styles from './SocialLinksFooter.module.scss';
 import { socialLinks } from '@/data/socialLinks';
+import styles from './SocialLinksFooter.module.scss';
+
 
 const SocialLinksFooter = ({ className }) => {
+
+
   return (
     <ul className={styles.socialLinks + ' ' + `${className}`}>
       {socialLinks.map((item) => {
@@ -32,5 +35,6 @@ const SocialLinksFooter = ({ className }) => {
     </ul>
   );
 };
+
 
 export default SocialLinksFooter;

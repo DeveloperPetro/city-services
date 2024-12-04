@@ -7,19 +7,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  // padding: 103px 10px 10px;
   width: 100%;
   max-width: 1920px;
 
   @media screen and (min-width: $tablet) {
     align-items: normal;
     justify-content: normal;
-    // padding: 110px 20px 20px;
   }
-
-  // @media screen and (min-width: $desktop) {
-  //   padding: 147px 40px 40px;
-  // }
 }
 
 .displaySizeMessage {

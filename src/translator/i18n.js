@@ -13,17 +13,17 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: 'ua',
-    
-    debug: false, 
+
+    debug: false,
     detection: {
-      order: ['localStorage' ]
-  },
+      order: ['localStorage']
+    },
     interpolation: {
       escapeValue: false,
     },
     // wait: process && !process.release,
   },
-  
-);
+
+  );
 
 export default i18n;

@@ -1,9 +1,9 @@
 'use client';
-
 import { useCallback, useContext, useEffect } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { PaginationContext } from '@/context/PaginationContext';
 import styles from './Pagination.module.scss';
+
 
 const PaginationPage = ({ npage }) => {
   const { currentPage, setCurrentPage } = useContext(PaginationContext);
@@ -75,6 +75,7 @@ const PaginationPage = ({ npage }) => {
     }
   }
 
+
   return (
     <ul className={styles.pagination}>
       <li className={styles.pageItem}>
@@ -87,9 +88,8 @@ const PaginationPage = ({ npage }) => {
           {visiblePageNumbers?.map((n, i) => (
             <li
               key={i}
-              className={`${styles.pageLinkDot} ${styles.pageItem} ${
-                currentPage === n ? styles.active : ''
-              }`}
+              className={`${styles.pageLinkDot} ${styles.pageItem} ${currentPage === n ? styles.active : ''
+                }`}
             >
               <a
                 href="#"
@@ -110,5 +110,6 @@ const PaginationPage = ({ npage }) => {
     </ul>
   );
 };
+
 
 export default PaginationPage;

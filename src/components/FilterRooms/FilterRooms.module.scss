@@ -1,7 +1,6 @@
 @import "../../styles/variables";
 
 .container {
-  // background-color: $Primary100;
   max-width: 306px;
   height: 16px;
   display: -webkit-box;
@@ -14,21 +13,9 @@
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: space-between;
-  // -webkit-column-gap: 10px;
-  // -moz-column-gap: 10px;
-  // column-gap: 10px;
 
   @media screen and (min-width: $tablet) {
     max-width: 482px;
-    // -webkit-column-gap: 86px;
-    // -moz-column-gap: 86px;
-    // column-gap: 86px;
-  }
 
-  @media screen and (min-width: $desktop) {
-    // width: 370px;
-    // -webkit-column-gap: 48px;
-    // -moz-column-gap: 48px;
-    // column-gap: 48px;
   }
 }

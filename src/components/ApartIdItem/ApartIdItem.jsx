@@ -1,5 +1,4 @@
 "use client";
-
 import { useTranslation } from "react-i18next";
 import { useRouter } from "next/navigation";
 import { v4 } from "uuid";
@@ -14,6 +13,7 @@ import { GetDataById } from "@/fetch/clientFetch";
 import { currentLanguages, textInfoAppartId } from "@/data";
 import seoStyles from "@/app/seoStyles.module.css";
 import styles from "./ApartIdItem.module.scss";
+
 
 const ApartIdItem = ({ params }) => {
     const router = useRouter();
@@ -55,6 +55,7 @@ const ApartIdItem = ({ params }) => {
     const allInformation = [...allLangsOfDescsArray, ...textInfoAppartId];
 
     const { t, i18n } = useTranslation();
+
 
     return (
         <section className='pageTopSection'>
@@ -108,15 +109,12 @@ const ApartIdItem = ({ params }) => {
                                     {
                                         (!isLoading &&
                                             i18n.language ===
-                                                currentLanguages.EN &&
+                                            currentLanguages.EN &&
                                             dataId.addressEn) ||
-                                            (i18n.language ===
-                                                currentLanguages.RU &&
-                                                dataId.addressRu) ||
-                                            dataId.address
-                                        // (i18n.language === "ua"
-                                        //   ? dataId.address
-                                        //   : dataId.addressEn)
+                                        (i18n.language ===
+                                            currentLanguages.RU &&
+                                            dataId.addressRu) ||
+                                        dataId.address
                                     }
                                 </a>
                             </address>
@@ -158,24 +156,8 @@ const ApartIdItem = ({ params }) => {
                                                         currentLanguages.RU &&
                                                         el.titleRu) ||
                                                     el.title}
-
-                                                {/* {i18n.language === currentLanguages.EN
-                        ? el.titleEn
-                        : el.title} */}
                                             </h5>
                                         )}
-                                        {/* <p className={index === (allInformation.length - 2) ? `${styles.textInfoRules} ${styles.accentRule}` : styles.textInfoRules}>
-                      {((i18n.language === currentLanguages.EN) && el.textEn) || ((i18n.language === currentLanguages.RU) && el.textRu) || el.text}
-                      
-                      {el.title === 'Правила:' &&
-                        el.rulesList.map((el, index) => {
-                          return (
-                            <span key={index}>
-                              {((i18n.language === currentLanguages.EN) && el.rulesEn) || ((i18n.language === currentLanguages.RU) && el.rulesRu) || el.rules}                              
-                            </span>
-                          );
-                        })}
-                    </p> */}
 
                                         {el.title === "Правила:" ? (
                                             <ul className={styles.rulesList}>
@@ -204,7 +186,7 @@ const ApartIdItem = ({ params }) => {
                                             <p
                                                 className={
                                                     index ===
-                                                    allInformation.length - 2
+                                                        allInformation.length - 2
                                                         ? styles.accentRule
                                                         : ""
                                                 }
@@ -227,5 +209,6 @@ const ApartIdItem = ({ params }) => {
         </section>
     );
 };
+
 
 export default ApartIdItem;

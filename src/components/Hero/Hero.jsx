@@ -2,13 +2,14 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react';
-import styles from './Hero.module.scss';
 import Image from 'next/image';
 import CallBtnRound from '../CallBtnRound/CallBtnRound';
 import { GetData } from '@/fetch/clientFetch';
 import ApartItem from '../ApartItem/ApartItem';
 import IsLoading from '../share/IsLoading/IsLoading';
 import { currentLanguages } from '@/data';
+import styles from './Hero.module.scss';
+
 
 const Hero = () => {
   const { data, error, isLoading } = GetData();
@@ -48,6 +49,7 @@ const Hero = () => {
     };
     // eslint-disable-next-line
   }, [data, loadedCount, showLoading]);
+
 
   return (
     <section className={`${styles.container} pageTopSection`}>
@@ -114,5 +116,6 @@ const Hero = () => {
     </section>
   );
 };
+
 
 export default Hero;

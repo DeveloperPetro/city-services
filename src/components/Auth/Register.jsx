@@ -1,11 +1,11 @@
 "use client";
-
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { registerSchema } from "@/yupSchemas/registerSchema";
 import styles from "./Register.module.scss";
+
 
 const Register = () => {
   const [err, setErr] = useState(false);
@@ -41,6 +41,7 @@ const Register = () => {
     }
   };
 
+
   return (
     <div className={`pageTopSection ${styles.container}`}>
       <p className={styles.displaySizeMessage}>
@@ -67,7 +68,7 @@ const Register = () => {
                 <Field
                   name="name"
                   type="text"
-                  placeholder="Ivan Petrov"
+                  placeholder="Ім’я"
                   className={styles.input}
                 />
                 <ErrorMessage
@@ -78,7 +79,7 @@ const Register = () => {
                 <Field
                   name="email"
                   type="email"
-                  placeholder="Petrov@gmail.com"
+                  placeholder="Електронна адреса"
                   className={styles.input}
                 />
 
@@ -91,7 +92,7 @@ const Register = () => {
                   type="text"
                   name="password"
                   maxLength="100"
-                  placeholder="IvanP12345"
+                  placeholder="Пароль"
                   className={styles.input}
                 />
 
@@ -116,5 +117,6 @@ const Register = () => {
     </div>
   );
 };
+
 
 export default Register;

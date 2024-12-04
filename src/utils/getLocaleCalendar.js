@@ -51,6 +51,7 @@ function setCalendarLanguage(days, months) {
 
 // a function that selects the calendar in the desired language
 
+
 export function getLocaleCalendar(language) {
     if (language === "ua") {
         return setCalendarLanguage(daysUkr, monthsUkr)

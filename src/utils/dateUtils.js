@@ -3,10 +3,12 @@ export function addDays(date, days) {
     return date;
 }
 
+
 export function subDays(date, days) {
     date.setDate(date.getDate() + 1 - days);
     return date;
 }
+
 
 export function formatDate(d) {
     let month = "" + (d.getMonth() + 1);

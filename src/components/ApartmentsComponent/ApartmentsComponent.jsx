@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useRouter } from "next/navigation";
@@ -13,6 +12,7 @@ import { GetData } from "@/fetch/clientFetch";
 import { currentLanguages } from "@/data";
 import seoStyles from "@/app/seoStyles.module.css";
 import styles from "./Apartments.module.scss";
+
 
 const ApartmentsComponent = () => {
   const router = useRouter();
@@ -38,7 +38,7 @@ const ApartmentsComponent = () => {
     if (numberRoomsArr.length === 0) return true; //якщо фільтр пустий, виводимо всі квартири
 
     const filteredRooms = numberRoomsArr.some(
-      (numberRoom) => numberRoom == room.roomsQuantity //якщо хоча б один з фільтрів співпадає, виводимо цю квартиру
+      (numberRoom) => numberRoom == room.roomsQuantity //якщо хоча б один з фільтрів співпадає, виводимо ці квартиру
     );
     return filteredRooms;
   });
@@ -129,6 +129,7 @@ const ApartmentsComponent = () => {
     // eslint-disable-next-line
   }, [filteredAmenitiesData, loadedCount]);
 
+
   return (
     <section className={`pageTopSection ${styles.container}`}>
       <h1 className={seoStyles.titleHidden}>
@@ -199,5 +200,6 @@ const ApartmentsComponent = () => {
     </section>
   );
 };
+
 
 export default ApartmentsComponent;

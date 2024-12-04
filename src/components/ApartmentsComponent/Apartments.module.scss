@@ -1,23 +1,13 @@
 @import "@/styles/_variables.scss";
 
 .container {
+  min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  // padding: 112px 20px 24px 20px;
-  min-height: 100vh;
-
-  // @media screen and (min-width: $tablet) {
-  //   padding: 118px 36px 40px 36px;
-  // }
-
-  // @media screen and (min-width: 1366px) {
-  //   padding: 200px 86px 32px 86px;
-  // }
-
   background-color: $Primary900;
 }
 
@@ -36,13 +26,11 @@
   justify-content: space-between;
   margin-bottom: 25px;
 
-  // max-width: 1366px;
-
   @media screen and (min-width: $tablet) {
     margin-bottom: 35px;
   }
 
-  @media screen and (min-width: 1366px) {
+  @media screen and (min-width: $desktop) {
     margin-bottom: 16px;
   }
 }
@@ -51,7 +39,6 @@
   display: -ms-grid;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  // grid-template-columns: repeat(1, 280px);
   -webkit-box-pack: space-evenly;
   -ms-flex-pack: space-evenly;
   justify-content: space-evenly;
@@ -61,12 +48,6 @@
   row-gap: 40px;
   padding: 40px 0;
   width: 100%;
-  // max-width: 1366px;
-
-  @media screen and (min-width: 360px) {
-    grid-template-columns: repeat(1, 1fr);
-    // grid-template-columns: repeat(1, 320px);
-  }
 
   @media screen and (min-width: $tablet) {
     grid-template-columns: repeat(2, 1fr);
@@ -110,6 +91,7 @@
     width: 24px;
     height: 24px;
   }
+
   & p {
     color: white;
   }

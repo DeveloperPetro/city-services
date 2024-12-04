@@ -1,11 +1,11 @@
 "use client";
-
 import { useRouter } from "next/navigation";
 import { signIn, useSession } from "next-auth/react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { loginSchema } from "@/yupSchemas/loginSchema";
 import styles from "./Login.module.scss";
 import Loading from "@/app/loading";
+
 
 const Login = () => {
   // дает данные о пользователе - data, залогинен он или нет - status
@@ -70,7 +70,7 @@ const Login = () => {
                 <Field
                   name="email"
                   type="email"
-                  placeholder="Petrov@gmail.com"
+                  placeholder="Електронна адреса"
                   className={styles.input}
                 />
 
@@ -83,7 +83,7 @@ const Login = () => {
                   type="text"
                   name="password"
                   maxLength="100"
-                  placeholder="IvanP12345"
+                  placeholder="Пароль"
                   className={styles.input}
                 />
 
@@ -115,5 +115,6 @@ const Login = () => {
     </div>
   );
 };
+
 
 export default Login;

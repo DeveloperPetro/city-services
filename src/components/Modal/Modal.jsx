@@ -1,9 +1,9 @@
 "use client";
-
 import { useContext } from "react";
 import { SiteContext } from "@/context/SiteContext";
 import Modal from "react-modal";
 import "./Modal.css";
+
 
 const ModalR = ({ children }) => {
     const { isModalOpen, closeModal } = useContext(SiteContext);
@@ -20,5 +20,6 @@ const ModalR = ({ children }) => {
         </Modal>
     );
 };
+
 
 export default ModalR;

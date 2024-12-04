@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import connect from '@/utils/db';
 import Apartment from '@/models/Apartment';
 
+
 export const GET = async (request) => {
   try {
     await connect();
@@ -13,6 +14,7 @@ export const GET = async (request) => {
     return new NextResponse('Database Error.', { status: 500 });
   }
 };
+
 
 export const POST = async (request) => {
   const body = await request.json();

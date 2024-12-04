@@ -1,11 +1,13 @@
 "use client";
-
-import { SiteContext } from "@/context/SiteContext";
 import React, { useContext } from "react";
+import { SiteContext } from "@/context/SiteContext";
 import styles from "./Button.module.scss";
+
 
 const Button = ({ classname, type, title }) => {
   const { state, setState } = useContext(SiteContext);
+
+
   return (
     <button
       type={type}
@@ -18,4 +20,6 @@ const Button = ({ classname, type, title }) => {
     </button>
   );
 };
+
+
 export default Button;

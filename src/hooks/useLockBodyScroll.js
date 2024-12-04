@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 
+
 export function useLockBodyScroll(boolean) {
     useEffect(() => {
         if (boolean) {

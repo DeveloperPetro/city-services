@@ -1,10 +1,12 @@
 import Image from "next/image";
 import { useWindowResize } from "@/hooks/useWindowResize";
-
 import styles from "./OrderForm.module.scss";
+
 
 const LogoForm = () => {
     const { isDesktop } = useWindowResize();
+
+
     return (
         <div className={styles.imageWrap}>
             {!isDesktop ? (
@@ -25,5 +27,6 @@ const LogoForm = () => {
         </div>
     );
 };
+
 
 export default LogoForm;

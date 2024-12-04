@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 
+
 export function useWindowResize() {
     const [isMobile, setMobile] = useState(false);
     const [isTablet, setTablet] = useState(false);

@@ -8,8 +8,7 @@ import styles from './CallBtnFloating.module.scss';
 const CallBtnFloating = () => {
   const [hidden, setHidden] = useState(false);
 
-  const phoneLink = socialLinks.find(link => link.title === 'Telephone'
-  )?.href;
+  const phoneLink = socialLinks.find(link => link.title === 'Telephone')?.href;
 
   const pathname = usePathname();
   const isDashboard = pathname.startsWith("/dashboard");

@@ -2,6 +2,7 @@
 
 .filterContainer {
   height: 24px;
+
   @media screen and (min-width: $tablet) {
     position: absolute;
     top: 50%;
@@ -25,10 +26,12 @@
   -webkit-column-gap: 16px;
   -moz-column-gap: 16px;
   column-gap: 16px;
-  &:hover > .filterSvg {
+
+  &:hover>.filterSvg {
     stroke: #cd5d12;
   }
-  &:hover > .filter {
+
+  &:hover>.filter {
     color: #cd5d12;
   }
 }

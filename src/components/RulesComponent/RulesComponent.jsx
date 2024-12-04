@@ -17,6 +17,8 @@ const RulesComponent = () => {
   useEffect(() => {
     setIsLoading(false);
   }, []);
+
+
   return (
     <section className="pageTopSection">
       <div className="container">
