@@ -3,6 +3,7 @@ import ApartIdItem from "@/components/ApartIdItem/ApartIdItem";
 import { getMetaById } from "@/fetch/serverFetch";
 import { cookies } from 'next/headers';
 
+
 export async function generateMetadata({ params, searchParams }, parent) {
   const id = params.id;
   const product = await getMetaById(id);
@@ -30,6 +31,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
 
   const { title, description, keywords } = data[language] || data.ua;
 
+
   return {
     title,
     description,
@@ -47,6 +49,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
     },
   };
 }
+
 
 const ApartId = async ({ params }) => {
   const apartment = await getMetaById(params?.id);
@@ -82,6 +85,7 @@ const ApartId = async ({ params }) => {
     ],
   };
 
+
   return (
     <>
       <script
@@ -92,5 +96,6 @@ const ApartId = async ({ params }) => {
     </>
   );
 };
+
 
 export default ApartId;

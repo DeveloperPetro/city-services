@@ -21,12 +21,9 @@ const cormorantInfant = Cormorant_Infant({
 
 const DynamicFooter = dynamic(() => import('@/components/Footer/Footer'));
 const DynamicToastProvider = dynamic(() => import('@/context/ToastProvider'));
-const DynamicTranslatorProvider = dynamic(() =>
-  import('@/translator/i18Provider')
-);
-const DynamicAuthProvider = dynamic(() =>
-  import('@/components/AuthProvider/AuthProvider')
-);
+const DynamicTranslatorProvider = dynamic(() => import('@/translator/i18Provider'));
+const DynamicAuthProvider = dynamic(() => import('@/components/AuthProvider/AuthProvider'));
+
 
 export const metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_MAIN_URL),
@@ -98,6 +95,7 @@ export const metadata = {
     google: process.env.NEXT_PUBLIC_GSC,
   },
 };
+
 
 export default function RootLayout({ children }) {
   const jsonLd = {

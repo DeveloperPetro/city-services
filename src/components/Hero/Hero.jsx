@@ -1,5 +1,5 @@
 'use client';
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
@@ -12,7 +12,7 @@ import styles from './Hero.module.scss';
 
 
 const Hero = () => {
-  const { data, error, isLoading } = GetData();
+  const { data, isLoading } = GetData();
   const [loadedCount, setLoadedCount] = useState(12);
   const [showLoading, setShowLoading] = useState(false);
   const { t, i18n } = useTranslation();

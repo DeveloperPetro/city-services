@@ -31,13 +31,13 @@ const Filter = ({
     if (filterBeds === 6) return;
     setFilterBeds((prevFilterBeds) => prevFilterBeds + 1);
 
-    setNumberBedsArr((numberBedsArr) => [...numberBedsArr, filterBeds]);
+    setNumberBedsArr(() => [...numberBedsArr, filterBeds]);
   };
 
   const handleDecrementFilter = () => {
     if (filterBeds === 2) return;
     setFilterBeds((prevFilterBeds) => prevFilterBeds - 1);
-    setNumberBedsArr((numberBedsArr) =>
+    setNumberBedsArr(() =>
       numberBedsArr.filter((numberBeds) => numberBeds != filterBeds - 1)
     );
   };

@@ -32,9 +32,9 @@
 .textarea {
   padding: 10px;
   background-color: transparent;
-  border: 2px solid #bbb;
+  border: 2px solid $Primary400;
   border-radius: 3px;
-  color: #000;
+  color: $Primary900;
   font-size: 20px;
   font-weight: bold;
 }
@@ -121,5 +121,5 @@ fieldset.amenities {
 }
 
 .error {
-  color: red;
+  color: $Error;
 }

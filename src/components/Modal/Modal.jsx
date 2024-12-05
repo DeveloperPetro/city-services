@@ -7,6 +7,8 @@ import "./Modal.css";
 
 const ModalR = ({ children }) => {
     const { isModalOpen, closeModal } = useContext(SiteContext);
+
+
     return (
         <Modal
             isOpen={isModalOpen}

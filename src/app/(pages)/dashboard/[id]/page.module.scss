@@ -19,7 +19,7 @@
   width: 90%;
   font-size: clamp(16px, 4vw, 30px);
   font-weight: 700;
-  color: red;
+  color: $Error;
   text-align: center;
 
   @media screen and (min-width: $tablet) {
@@ -50,9 +50,9 @@
     flex-direction: column;
     gap: 5px;
     padding: 10px;
-    background-color: #8c878fd6;
+    background-color: $Primary400;
     border-radius: 5px;
-    border: 1px solid navy;
+    border: 1px solid $Primary900;
     width: calc(50% - 25px);
     height: -webkit-fit-content;
     height: -moz-fit-content;
@@ -98,7 +98,7 @@
 
 .deleteIcon:hover {
   cursor: pointer;
-  fill: red;
+  fill: $Error;
 }
 
 .address {

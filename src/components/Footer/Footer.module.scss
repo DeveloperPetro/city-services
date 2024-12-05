@@ -12,7 +12,7 @@
   -ms-flex-align: center;
   align-items: center;
   padding: 16px 16px;
-  background-color: #131112;
+  background-color: $Primary900;
   overflow-x: hidden;
   justify-content: space-between;
   width: 100%;
@@ -46,7 +46,7 @@
 
 
   & a {
-    color: $footerTextColor;
+    color: $SecondaryColor;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -87,7 +87,7 @@
   flex-direction: column;
   gap: 8px;
 
-  color: $footerTextColor;
+  color: $SecondaryColor;
   font-size: clamp(16px, 2vw, 20px);
   font-style: normal;
   font-weight: 400;
@@ -148,7 +148,7 @@
 }
 
 .rights {
-  color: $footerTextColor;
+  color: $SecondaryColor;
   font-family: var(--font--lato);
   font-size: clamp(12px, 2vw, 16px);
   font-style: normal;
