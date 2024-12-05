@@ -119,6 +119,9 @@ const Header = () => {
 
   return (
     <header id="header" className={styles.container}>
+      <div className={styles.promotion}>
+        {!isLoading && <p>{t('Header.headerSale')}</p>}
+      </div>
       <div className={styles.navBarContainer}>
         <div className={`${styles.navBar} container`}>
           {!isMobile && (
