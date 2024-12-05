@@ -25,6 +25,7 @@ export async function generateMetadata({ params }) {
 
   const { title, description, keywords } = data[language] || data.ua;
 
+
   return {
     title,
     description,
@@ -34,6 +35,7 @@ export async function generateMetadata({ params }) {
     },
   };
 }
+
 
 const Apartments = () => {
   const jsonLd = {

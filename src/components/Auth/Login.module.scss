@@ -14,7 +14,7 @@
   width: 90%;
   font-size: clamp(16px, 4vw, 30px);
   font-weight: 700;
-  color: red;
+  color: $Error;
   text-align: center;
 
   @media screen and (min-width: $tablet) {
@@ -59,7 +59,7 @@
 .input {
   padding: 20px;
   background-color: transparent;
-  border: 2px solid #bbb;
+  border: 2px solid $Primary400;
   border-radius: 5px;
   font-size: 20px;
   font-weight: bold;
@@ -68,7 +68,7 @@
 .loginBtn {
   padding: 20px;
   background-color: $Primary800;
-  color: $Primary500;
+  color: $Primary600;
   font-size: 20px;
   border-radius: 5px;
   border: none;
@@ -92,5 +92,5 @@
 }
 
 .error {
-  color: red;
+  color: $Error;
 }

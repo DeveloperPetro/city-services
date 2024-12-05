@@ -90,7 +90,7 @@
 .filterSvg {
   width: 24px;
   height: 24px;
-  stroke: #373737;
+  stroke: $accentColor;
 }
 
 .filterButtonsContainer {
@@ -175,7 +175,7 @@
   word-wrap: break-word;
 
   border-radius: 24px;
-  border: 1px #373737 solid;
+  border: 1px solid $accentColor;
 
   background-color: $Primary50;
   margin-top: 18px;
@@ -184,8 +184,8 @@
 
   &:hover,
   &:focus {
-    background-color: #373737;
-    color: #fff;
+    background-color: $accentColor;
+    color: $lightFontColor;
   }
 
   @media screen and (min-width: $tablet) {
@@ -251,10 +251,11 @@
   background-color: $Primary100;
   border-radius: 5px;
   border: none;
+  cursor: pointer;
 
   &:hover,
   &:focus {
-    background-color: #9f9fa5;
+    background-color: $Primary400;
   }
 }
 
@@ -270,7 +271,7 @@
   color: $Primary900;
   background-color: $Primary100;
   border-radius: 24px;
-  border: 1px solid #545454;
+  border: 1px solid $Primary600;
 }
 
 .textBeds {

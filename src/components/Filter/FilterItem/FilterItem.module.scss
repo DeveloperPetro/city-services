@@ -7,7 +7,7 @@
   appearance: none;
   width: 28px;
   height: 10px;
-  background: #d1d1d6;
+  background: $Primary300;
   border-radius: 50px;
 
   cursor: pointer;
@@ -22,7 +22,7 @@
     left: -3px;
     width: 16px;
     height: 16px;
-    background: #fff;
+    background: $lightFontColor;
     border-radius: 50%;
     -webkit-box-shadow: 0px 2px 8px 0px #00000029;
     box-shadow: 0px 2px 8px 0px #00000029;
@@ -54,7 +54,7 @@
     content: "";
     width: 16px;
     height: 16px;
-    background: #fff;
+    background: $lightFontColor;
     border-radius: 50%;
     -webkit-box-shadow: 0px 2px 8px 0px #00000029;
     box-shadow: 0px 2px 8px 0px #00000029;

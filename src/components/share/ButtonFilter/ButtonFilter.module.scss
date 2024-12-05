@@ -28,11 +28,11 @@
   column-gap: 16px;
 
   &:hover>.filterSvg {
-    stroke: #cd5d12;
+    stroke: $dashboardBtnBgColor;
   }
 
   &:hover>.filter {
-    color: #cd5d12;
+    color: $dashboardBtnBgColor;
   }
 }
 

@@ -63,7 +63,7 @@
   text-align: center;
   margin: 0 auto;
 
-  color: $acentColor;
+  color: $accentColor;
   font-family: var(--font--lato);
   font-size: 20px;
   font-style: normal;
@@ -86,13 +86,13 @@
 
 .bread {
   & svg {
-    stroke: white;
+    stroke: $lightFontColor;
     fill: none;
     width: 24px;
     height: 24px;
   }
 
   & p {
-    color: white;
+    color: $lightFontColor;
   }
 }

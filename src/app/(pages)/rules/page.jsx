@@ -35,6 +35,7 @@ export async function generateMetadata({ params }) {
   };
 }
 
+
 const RulesPage = () => {
   const jsonLd = {
     "@context": "http://schema.org",

@@ -19,7 +19,7 @@ const Logo = ({ className }) => {
         alt="Логотип"
         fill={true}
         style={{ cursor: 'pointer' }}
-        sizes="(max-width: 768px) 88px, (max-width: 1200px) 212px"
+        sizes="(max-width: 1365px) 85px, 212px"
       />
     </Link>
   );
