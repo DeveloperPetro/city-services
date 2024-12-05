@@ -9,7 +9,7 @@ import ApartItem from '../ApartItem/ApartItem';
 import IsLoading from '../share/IsLoading/IsLoading';
 import { currentLanguages } from '@/data';
 import styles from './Hero.module.scss';
-
+import Loading from '@/app/loading';
 
 const Hero = () => {
   const { data, isLoading } = GetData();
@@ -50,7 +50,6 @@ const Hero = () => {
     // eslint-disable-next-line
   }, [data, loadedCount, showLoading]);
 
-
   return (
     <section className={`${styles.container} pageTopSection`}>
       <div className={`${styles.hero} container`}>
@@ -87,7 +86,7 @@ const Hero = () => {
       </div>
       <div className={`${styles.apartamentContainer} container`}>
         {isLoading ? (
-          <IsLoading />
+          <Loading />
         ) : (
           <ul className={styles.apartamentList} ref={loaderRef}>
             {data?.slice(0, loadedCount).map((item) => (
@@ -116,6 +115,5 @@ const Hero = () => {
     </section>
   );
 };
-
 
 export default Hero;
