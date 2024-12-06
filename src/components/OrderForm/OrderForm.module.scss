@@ -131,7 +131,7 @@
     outline: none;
     border: none;
     cursor: pointer;
-    border-bottom: 1px solid rgba(199, 199, 199, 1);
+    border-bottom: 1px solid $Primary900;
     padding-left: 32px;
 
     @media screen and (min-width: $tablet) {
@@ -323,10 +323,10 @@
     gap: 24px;
 
     border-radius: 24px;
-    border: 1px solid rgba(19, 17, 18, 1);
-    background-color: rgba(249, 246, 248, 1);
+    border: 1px solid $Primary900;
+    background-color: $Primary50;
 
-    color: rgba(19, 17, 18, 1);
+    color: $Primary900;
     font-family: inherit;
     font-size: 16px;
     font-style: normal;
@@ -344,8 +344,8 @@
 }
 
 .activeBtn {
-    background-color: rgba(51, 49, 50, 1);
-    color: rgba(249, 246, 248, 1);
+    background-color: $Primary800;
+    color: $Primary50;
     cursor: pointer;
 }
 
