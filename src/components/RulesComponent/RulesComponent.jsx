@@ -45,7 +45,7 @@ const RulesComponent = () => {
                     return (
                       <li key={item.id}>
                         <p>
-                          {((i18n.language === currentLanguages.EN) && item.ruleEn) || ((i18n.language === currentLanguages.RU) && item.ruleRu) || item.rule}
+                          {((i18n.language === currentLanguages.EN) && item.ruleEn) || ((i18n.language === currentLanguages.RU) && item.ruleRu) || item.ruleUa}
                         </p>
                       </li>
                     );
@@ -62,7 +62,7 @@ const RulesComponent = () => {
                     return (
                       <li key={item.id}>
                         <p>
-                          {((i18n.language === currentLanguages.EN) && item.ruleEn) || ((i18n.language === currentLanguages.RU) && item.ruleRu) || item.rule}
+                          {((i18n.language === currentLanguages.EN) && item.ruleEn) || ((i18n.language === currentLanguages.RU) && item.ruleRu) || item.ruleUa}
                         </p>
                       </li>
                     );
@@ -79,7 +79,7 @@ const RulesComponent = () => {
                     return (
                       <li key={item.id}>
                         <p>
-                          {((i18n.language === currentLanguages.EN) && item.ruleEn) || ((i18n.language === currentLanguages.RU) && item.ruleRu) || item.rule}
+                          {((i18n.language === currentLanguages.EN) && item.ruleEn) || ((i18n.language === currentLanguages.RU) && item.ruleRu) || item.ruleUa}
                         </p>
                       </li>
                     );

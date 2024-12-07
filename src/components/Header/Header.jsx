@@ -139,7 +139,7 @@ const Header = () => {
                   >
                     {(i18n.language === currentLanguages.EN && item.titleEn) ||
                       (i18n.language === currentLanguages.RU && item.titleRu) ||
-                      item.title}
+                      item.titleUa}
                   </Link>
                 ))}
             </div>

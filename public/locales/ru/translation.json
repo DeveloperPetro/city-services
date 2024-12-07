@@ -8,7 +8,7 @@
     "MainPage": {
         "SeoTitleH1": "Аренда квартиры. Киев квартиры. Снять квартиру. Киев.",
         "heroTitle": "Аренда квартир в Киеве",
-        "heroSubTitle": "посуточная аренда квартир в пригороде Киева",
+        "heroSubTitle": "посуточная и почасовая аренда квартир на Софиевской Борщаговке",
         "galleryTittle": "Апартаменты"
     },
     "ApartmentsPage": {
@@ -68,9 +68,9 @@
         "SeoTitleH3": "Аренда квартиры. Киев квартиры. Снять квартиру. Киев.",
         "name": "Ваше Имя",
         "phone": "Номер телефона",
-        "fieldDateOfEntry":"Дата заезда",
+        "fieldDateOfEntry": "Дата заезда",
         "fieldDepartureDate": "Дата выезда",
-        "fieldNumberObject":"Номер обьекта",
+        "fieldNumberObject": "Номер обьекта",
         "plcHolderDateOfEntry": "Указать дату",
         "plcHolderDepartureDate": "Указать дату",
         "plcHolderNumberOfObject": "Укажите номер объекта",

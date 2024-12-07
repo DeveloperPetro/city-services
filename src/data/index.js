@@ -1,4 +1,4 @@
-export { amenities } from "./amenities.data";
+export { amenitiesData } from "./amenities.data";
 export { bedsData } from "./beds.data"
 export { currentLanguages } from "./languages.data";
 export { navigationData } from "./navigation.data";

@@ -61,7 +61,11 @@
     display: -ms-flexbox;
     display: flex;
     flex-direction: column;
-    width: calc(50% - 25px);
+    width: calc(50% - 12px);
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: calc(50% - 24px);
   }
 }
 
@@ -90,6 +94,10 @@
   }
 }
 
+.objNumber {
+  color: $Error;
+}
+
 .property {
   font-weight: 600;
 }
@@ -109,21 +117,13 @@
   position: relative;
 }
 
-.address {
-  display: block;
-  width: 40vw;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.location,
-.absentBooking {
+.locationLink,
+.absentBookingLink {
   font-weight: 400;
 }
 
 .platformLink {
   display: block;
-  width: 40vw;
   overflow: hidden;
   font-weight: 400;
   white-space: nowrap;
@@ -167,4 +167,8 @@
 .deleteIcon:hover {
   cursor: pointer;
   fill: $Error;
+}
+
+.overHid {
+  overflow: hidden;
 }

@@ -11,11 +11,10 @@ import styles from "./UpdatingForm.module.scss";
 const UpdatingForm = ({ id, apart, mutate }) => {
   const {
     objNumber,
-    top,
     priority,
     titleImg,
     imgs,
-    address,
+    addressUa,
     addressEn,
     addressRu,
     flatNumber,
@@ -25,17 +24,16 @@ const UpdatingForm = ({ id, apart, mutate }) => {
     bookingUrl,
     amenities,
     bedsQuantity,
-    description,
+    descriptionUa,
     descriptionEn,
     descriptionRu,
   } = apart;
 
   const currentValues = {
-    top,
     priority,
     titleImg,
     imgs,
-    address,
+    addressUa,
     addressEn,
     addressRu,
     flatNumber,
@@ -45,17 +43,16 @@ const UpdatingForm = ({ id, apart, mutate }) => {
     bookingUrl,
     amenities,
     bedsQuantity,
-    description,
+    descriptionUa,
     descriptionEn,
     descriptionRu,
   };
 
   const initialValues = {
-    newTop: top,
     newPriority: priority,
     newTitleImg: titleImg,
     newImgs: imgs,
-    newAddress: address,
+    newAddressUa: addressUa,
     newAddressEn: addressEn,
     newAddressRu: addressRu,
     newFlatNumber: flatNumber,
@@ -65,18 +62,17 @@ const UpdatingForm = ({ id, apart, mutate }) => {
     newBookingUrl: bookingUrl,
     newAmenities: amenities,
     newBedsQuantity: bedsQuantity,
-    newDescription: description,
+    newDescriptionUa: descriptionUa,
     newDescriptionEn: descriptionEn,
     newDescriptionRu: descriptionRu,
   };
 
   const handleSubmit = async (values, actions) => {
     const {
-      newTop,
       newPriority,
       newTitleImg,
       newImgs,
-      newAddress,
+      newAddressUa,
       newAddressEn,
       newAddressRu,
       newFlatNumber,
@@ -86,17 +82,16 @@ const UpdatingForm = ({ id, apart, mutate }) => {
       newBookingUrl,
       newAmenities,
       newBedsQuantity,
-      newDescription,
+      newDescriptionUa,
       newDescriptionEn,
       newDescriptionRu,
     } = values;
 
     const updatedValues = {
-      top: newTop,
       priority: newPriority,
       titleImg: newTitleImg,
       imgs: newImgs,
-      address: newAddress,
+      addressUa: newAddressUa,
       addressEn: newAddressEn,
       addressRu: newAddressRu,
       flatNumber: newFlatNumber,
@@ -106,7 +101,7 @@ const UpdatingForm = ({ id, apart, mutate }) => {
       bookingUrl: newBookingUrl,
       amenities: newAmenities,
       bedsQuantity: newBedsQuantity,
-      description: newDescription,
+      descriptionUa: newDescriptionUa,
       descriptionEn: newDescriptionEn,
       descriptionRu: newDescriptionRu,
     };
@@ -149,16 +144,6 @@ const UpdatingForm = ({ id, apart, mutate }) => {
             <Form className={styles.new}>
               <h1>Редагування обʼєкту</h1>
               <p>Номер обʼєкту: {objNumber}</p>
-
-              <label htmlFor="newTop" className={styles.top}>
-                <Field
-                  type="checkbox"
-                  name="newTop"
-                  id="newTop"
-                  checked={values.newTop}
-                />
-                ТОП
-              </label>
 
               <label htmlFor="priority">Пріоритет:</label>
               <ErrorMessage
@@ -208,18 +193,18 @@ const UpdatingForm = ({ id, apart, mutate }) => {
                 Додати додаткові фото (тільки .WEBP)
               </CldUploadButton>
 
-              <label htmlFor="newAddress">Адреса українською:</label>
+              <label htmlFor="newAddressUa">Адреса українською:</label>
               <ErrorMessage
-                name="newAddress"
+                name="newAddressUa"
                 className={styles.error}
                 component="p"
               />
               <Field
                 type="text"
-                name="newAddress"
-                id="newAddress"
+                name="newAddressUa"
+                id="newAddressUa"
                 maxLength="100"
-                value={values.newAddress}
+                value={values.newAddressUa}
                 className={styles.input}
               />
 
@@ -490,19 +475,18 @@ const UpdatingForm = ({ id, apart, mutate }) => {
                 <label htmlFor="sixBeds">6</label>
               </fieldset>
 
-              <label htmlFor="newDescription">Опис українською:</label>
+              <label htmlFor="newDescriptionUa">Опис українською:</label>
               <ErrorMessage
-                name="newDescription"
+                name="newDescriptionUa"
                 className={styles.error}
                 component="p"
               />
               <Field
                 as="textarea"
                 type="text"
-                name="newDescription"
-                id="newDescription"
-                maxLength="500"
-                value={values.newDescription}
+                name="newDescriptionUa"
+                id="newDescriptionUa"
+                value={values.newDescriptionUa}
                 className={styles.textarea}
                 rows={5}
               />

@@ -25,20 +25,20 @@ const ApartIdItem = ({ params }) => {
     const allLangsOfDescsArray = [];
 
     // строки из БД, которые преобразуется в массивы
-    const descArrayFromData = data?.description.split(" | ");
+    const descUaArrayFromData = data?.descriptionUa.split(" | ");
     const descEnArrayFromData = data?.descriptionEn.split(" | ");
     const descRuArrayFromData = data?.descriptionRu.split(" | ");
 
     // наполнение массива украинскими данными из БД
-    descArrayFromData?.map((item) => {
+    descUaArrayFromData?.map((item) => {
         const id = v4();
         // присваивается переменной text значение item-a (описание на украинском языке)
-        const text = item;
+        const textUa = item;
 
         //создается объект для хранения всех языков одного блока описания (украинский вариант записывается, а для английского и русского создаются переменные)
         const allLanguagesOfDescription = {
             id,
-            text,
+            textUa,
             textEn: "",
             textRu: "",
         };
@@ -114,7 +114,7 @@ const ApartIdItem = ({ params }) => {
                                         (i18n.language ===
                                             currentLanguages.RU &&
                                             dataId.addressRu) ||
-                                        dataId.address
+                                        dataId.addressUa
                                     }
                                 </a>
                             </address>
@@ -155,7 +155,7 @@ const ApartIdItem = ({ params }) => {
                                                     (i18n.language ===
                                                         currentLanguages.RU &&
                                                         el.titleRu) ||
-                                                    el.title}
+                                                    el.titleUa}
                                             </h5>
                                         )}
 
@@ -176,7 +176,7 @@ const ApartIdItem = ({ params }) => {
                                                                     (i18n.language ===
                                                                         currentLanguages.RU &&
                                                                         el.rulesRu) ||
-                                                                    el.rules}
+                                                                    el.rulesUa}
                                                             </li>
                                                         );
                                                     }
@@ -197,7 +197,7 @@ const ApartIdItem = ({ params }) => {
                                                     (i18n.language ===
                                                         currentLanguages.RU &&
                                                         el.textRu) ||
-                                                    el.text}
+                                                    el.textUa}
                                             </p>
                                         )}
                                     </li>

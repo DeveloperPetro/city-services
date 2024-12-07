@@ -75,8 +75,7 @@ const Dashboard = () => {
             <div className={styles.apartments}>
               {sortedByUpdateData.map((apart) => (
                 <div key={apart._id} className={styles.apartment}>
-                  <h2>Обʼєкт №: {apart.objNumber}</h2>
-                  {apart.top ? <p>ТОП</p> : null}
+                  <h2 className={styles.objNumber}>Обʼєкт №: {apart.objNumber}</h2>
                   <p className={styles.property}>Пріоритет: {apart.priority}</p>
                   <p className={styles.property}>Основне фото:</p>
                   <CldImage
@@ -101,13 +100,13 @@ const Dashboard = () => {
                       </li>
                     ))}
                   </ul>
-                  <p className={styles.address}><span className={styles.property}>Адреса українською:</span> {apart.address}</p>
-                  <p className={styles.address}><span className={styles.property}>Адреса англійською:</span> {apart.addressEn}</p>
-                  <p className={styles.address}><span className={styles.property}>Адреса російською:</span> {apart.addressRu}</p>
+                  <p><span className={styles.property}>Адреса українською:</span> {apart.addressUa}</p>
+                  <p><span className={styles.property}>Адреса англійською:</span> {apart.addressEn}</p>
+                  <p><span className={styles.property}>Адреса російською:</span> {apart.addressRu}</p>
                   <p><span className={styles.property}>Номер квартири:</span> {apart.flatNumber}</p>
-                  <p className={styles.property}>Місцезнаходження: <a
+                  <p className={`${styles.property} ${styles.overHid}`}>Місцезнаходження: <a
                     href={apart.googleMapLocation}
-                    className={styles.location}
+                    className={styles.locationLink}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -123,7 +122,7 @@ const Dashboard = () => {
                     rel="noopener noreferrer"
                   >
                     {apart.bookingUrl}
-                  </a> : <span className={styles.absentBooking}>{"немає"}</span>}
+                  </a> : <span className={styles.absentBookingLink}>{"немає"}</span>}
                   </p>
                   <p className={styles.property}>Додатковий комфорт:</p>
                   <ul>
@@ -132,7 +131,7 @@ const Dashboard = () => {
                     ))}
                   </ul>
                   <p><span className={styles.property}>Кількість спальних місць:</span> {apart.bedsQuantity}</p>
-                  <p className={styles.description}><span className={styles.property}>Опис українською:</span> {apart.description}</p>
+                  <p className={styles.description}><span className={styles.property}>Опис українською:</span> {apart.descriptionUa}</p>
                   <p className={styles.description}><span className={styles.property}>Опис англійською:</span> {apart.descriptionEn}</p>
                   <p className={styles.description}><span className={styles.property}>Опис російською:</span> {apart.descriptionRu}</p>
                   <div className={styles.btnsWrapper}>

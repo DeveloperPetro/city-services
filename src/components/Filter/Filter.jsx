@@ -3,7 +3,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { SiteContext } from "@/context/SiteContext";
 import styles from "./Filter.module.scss";
-import { amenities } from "@/data";
+import { amenitiesData } from "@/data";
 import FilterItem from "./FilterItem/FilterItem";
 
 
@@ -23,8 +23,8 @@ const Filter = ({
     setIsLoad(false);
   }, []);
 
-  const amenitiesWithoutWiFi = amenities.filter(
-    (amenity) => amenity.title !== "Wi-Fi"
+  const amenitiesWithoutWiFi = amenitiesData.filter(
+    (amenity) => amenity.titleUa !== "Wi-Fi"
   );
 
   const handleIncrementFilter = () => {

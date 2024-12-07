@@ -18,11 +18,10 @@ import styles from "./DashboardForm.module.scss";
 const DashboardForm = () => {
   const initialValues = {
     objNumber: "",
-    top: false,
     priority: "",
     titleImg: "",
     imgs: [],
-    address: "",
+    addressUa: "",
     addressEn: "",
     addressRu: "",
     flatNumber: "",
@@ -32,7 +31,7 @@ const DashboardForm = () => {
     bookingUrl: "",
     amenities: ["Wi-Fi"],
     bedsQuantity: "",
-    description: "",
+    descriptionUa: "",
     descriptionEn: "",
     descriptionRu: "",
   };
@@ -101,11 +100,6 @@ const DashboardForm = () => {
               className={styles.input}
             />
 
-            <label htmlFor="Top" className={styles.top}>
-              <Field type="checkbox" name="top" id="Top" />
-              ТОП
-            </label>
-
             <label htmlFor="Priority">Пріоритет:</label>
             <ErrorMessage
               name="priority"
@@ -156,16 +150,16 @@ const DashboardForm = () => {
               Завантажити додаткові фото (тільки .WEBP)
             </CldUploadButton>
 
-            <label htmlFor="address">Адреса українською:</label>
+            <label htmlFor="addressUa">Адреса українською:</label>
             <ErrorMessage
-              name="address"
+              name="addressUa"
               className={styles.error}
               component="p"
             />
             <Field
               type="text"
-              name="address"
-              id="address"
+              name="addressUa"
+              id="addressUa"
               maxLength="100"
               placeholder="вул.Шевченка, буд.8"
               className={styles.input}
@@ -423,19 +417,18 @@ const DashboardForm = () => {
               <label htmlFor="sixBeds">6</label>
             </fieldset>
 
-            <label htmlFor="description">Опис українською:</label>
+            <label htmlFor="descriptionUa">Опис українською:</label>
             <ErrorMessage
-              name="description"
+              name="descriptionUa"
               className={styles.error}
               component="p"
             />
             <Field
               as="textarea"
               type="text"
-              name="description"
-              id="description"
-              maxLength="500"
-              placeholder="Між кожним блоком повинні бути пробіл вертикальна риска пробіл. Перший блок інформації. | Другий блок інформації. | Третій блок інформації. | Четвертий блок інформації."
+              name="descriptionUa"
+              id="descriptionUa"
+              placeholder="Між кожним блоком повинні бути - пробіл вертикальна риска пробіл. Перший блок інформації. | Другий блок інформації. | Третій блок інформації. | Четвертий блок інформації."
               className={styles.textarea}
               rows={5}
             />
@@ -451,7 +444,7 @@ const DashboardForm = () => {
               type="text"
               name="descriptionEn"
               id="descriptionEn"
-              placeholder="First information block. | Second information block. | Third information block. | Fourth information block."
+              placeholder="Between each block should be - space vertical line space. First information block. | Second information block. | Third information block. | Fourth information block."
               className={styles.textarea}
               rows={5}
             />
@@ -467,7 +460,7 @@ const DashboardForm = () => {
               type="text"
               name="descriptionRu"
               id="descriptionRu"
-              placeholder="Первый информационный блок. | Второй информационный блок. | Третий информационный блок. | Четвертый информационный блок."
+              placeholder="Между каждым блоком должны быть - пробел вертикальная черта пробел. Первый информационный блок. | Второй информационный блок. | Третий информационный блок. | Четвертый информационный блок."
               className={styles.textarea}
               rows={5}
             />
