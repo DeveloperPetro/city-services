@@ -30,21 +30,21 @@
 
   background-color: $SecondaryColor;
 
-  height: 38px;
+  height: 32px;
   padding: 0 8px;
 
   @media screen and (min-width: $mobile) {
     letter-spacing: 0.3px;
-    height: 32px;
+    height: 20px;
     padding: 0;
   }
 
   @media screen and (min-width: $tablet) {
     letter-spacing: 1.7px;
-    height: 30px;
+    height: 22px;
   }
   @media screen and (min-width: $desktop) {
-    height: 50px;
+    height: 30px;
   }
 }
 
