@@ -7,9 +7,6 @@ const apartmentSchema = new Schema({
         unique: true,
         required: true,
     },
-    top: {
-        type: Boolean,
-    },
     priority: {
         type: String,
         required: true,
@@ -22,7 +19,7 @@ const apartmentSchema = new Schema({
         type: Array,
         required: true,
     },
-    address: {
+    addressUa: {
         type: String,
         required: true,
     },
@@ -60,7 +57,7 @@ const apartmentSchema = new Schema({
     amenities: {
         type: Array,
     },
-    description: {
+    descriptionUa: {
         type: String,
         required: true,
     },

@@ -51,7 +51,7 @@ const Login = () => {
         менше 768 пікселів.
       </p>
       <div className={styles.contentWrapper}>
-        <h1>Вхід</h1>
+        <h1>Вхід до адмінки</h1>
         <Formik
           initialValues={initialValues}
           validationSchema={loginSchema}

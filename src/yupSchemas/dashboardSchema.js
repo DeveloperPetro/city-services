@@ -20,7 +20,6 @@ export const dashboardSchema = Yup.object({
                 return true;
             },
         }),
-    top: Yup.boolean(),
     priority: Yup.number()
         .moreThan(-1, "Тільки додатні числа")
         .typeError("Тільки числа")
@@ -28,7 +27,7 @@ export const dashboardSchema = Yup.object({
     titleImg: Yup.string()
         .required("Головне фото це обовʼязкове поле"),
     imgs: Yup.array().min(2, "Мінімум дві додаткові фотографії"),
-    address: Yup.string()
+    addressUa: Yup.string()
         .required("Адреса українською це обовʼязкове поле"),
     addressEn: Yup.string()
         .required("Адреса англійською це обовʼязкове поле"),
@@ -52,7 +51,7 @@ export const dashboardSchema = Yup.object({
     amenities: Yup.array().min(1, "Мінімум одне вибране поле"),
     bedsQuantity: Yup.string()
         .required("Кількість спальних місць це обовʼязкове поле"),
-    description: Yup.string()
+    descriptionUa: Yup.string()
         .required("Опис українською це обовʼязкове поле"),
     descriptionEn: Yup.string()
         .required("Опис англійською це обовʼязкове поле"),

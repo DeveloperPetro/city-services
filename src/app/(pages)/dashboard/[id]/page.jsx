@@ -51,8 +51,7 @@ const EditCard = ({ params }) => {
         ) : (
           <div className={styles.contentWrapper}>
             <div key={data._id} className={styles.apartment}>
-              <h2>Обʼєкт №: {data.objNumber}</h2>
-              {data.top ? <p>ТОП</p> : null}
+              <h2 className={styles.objNumber}>Обʼєкт №: {data.objNumber}</h2>
               <p className={styles.property}>Пріоритет: {data.priority}</p>
               <p className={styles.property}>Основне фото:</p>
               <CldImage
@@ -60,7 +59,7 @@ const EditCard = ({ params }) => {
                 height="150"
                 crop="fill"
                 src={data.titleImg}
-                alt={data.address}
+                alt="apartment photo"
               />
               <p className={styles.property}>Додаткові фото:</p>
               <ul className={styles.imgsWrapper}>
@@ -97,13 +96,13 @@ const EditCard = ({ params }) => {
                   </li>
                 ))}
               </ul>
-              <p className={styles.address}><span className={styles.property}>Адреса українською:</span> {data.address}</p>
-              <p className={styles.address}><span className={styles.property}>Адреса англійською:</span> {data.addressEn}</p>
-              <p className={styles.address}><span className={styles.property}>Адреса російською:</span> {data.addressRu}</p>
+              <p><span className={styles.property}>Адреса українською:</span> {data.addressUa}</p>
+              <p><span className={styles.property}>Адреса англійською:</span> {data.addressEn}</p>
+              <p><span className={styles.property}>Адреса російською:</span> {data.addressRu}</p>
               <p><span className={styles.property}>Номер квартири:</span> {data.flatNumber}</p>
-              <p className={styles.property}>Місцезнаходження: <a
+              <p className={`${styles.property} ${styles.overHid}`}>Місцезнаходження: <a
                 href={data.googleMapLocation}
-                className={styles.location}
+                className={styles.locationLink}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -116,7 +115,7 @@ const EditCard = ({ params }) => {
                 href={data.bookingUrl}
                 className={styles.platformLink}
               >{data.bookingUrl}
-              </a> : <span className={styles.absentBooking}>{"немає"}</span>}
+              </a> : <span className={styles.absentBookingLink}>{"немає"}</span>}
               </p>
               <p className={styles.property}>Додатковий комфорт:</p>
               <ul>
@@ -125,7 +124,7 @@ const EditCard = ({ params }) => {
                 ))}
               </ul>
               <p><span className={styles.property}>Кількість спальних місць:</span> {data.bedsQuantity}</p>
-              <p className={styles.description}><span className={styles.property}>Опис українською:</span> {data.description}</p>
+              <p className={styles.description}><span className={styles.property}>Опис українською:</span> {data.descriptionUa}</p>
               <p className={styles.description}><span className={styles.property}>Опис англійською:</span> {data.descriptionEn}</p>
               <p className={styles.description}><span className={styles.property}>Опис російською:</span> {data.descriptionRu}</p>
             </div>

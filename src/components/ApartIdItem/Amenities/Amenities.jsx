@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
-import { amenities, bedsData, currentLanguages } from '@/data';
+import { amenitiesData, bedsData, currentLanguages } from '@/data';
 import styles from './Amenities.module.scss';
 
 
@@ -12,8 +12,8 @@ const Amenities = ({ dataId, customClass }) => {
     bed = bedsData.find(item => item.quantity === dataId?.bedsQuantity);
   }
 
-  const matchingAmenities = amenities.filter((amenity) =>
-    dataId.amenities.includes(amenity.title)
+  const matchingAmenities = amenitiesData.filter((amenity) =>
+    dataId.amenities.includes(amenity.titleUa)
   );
 
 
@@ -29,13 +29,13 @@ const Amenities = ({ dataId, customClass }) => {
               <Image
                 src={amenity.img}
                 alt={
-                  ((i18n.language === currentLanguages.EN) && amenity.titleEn) || ((i18n.language === currentLanguages.RU) && amenity.titleRu) || amenity.title }
+                  ((i18n.language === currentLanguages.EN) && amenity.titleEn) || ((i18n.language === currentLanguages.RU) && amenity.titleRu) || amenity.titleUa}
                 fill={true}
                 className={styles.imgSvg}
                 sizes="24px"
               />
             </figure>
-              <figcaption>{((i18n.language === currentLanguages.EN) && amenity.titleEn) || ((i18n.language === currentLanguages.RU) && amenity.titleRu) || amenity.title}</figcaption>
+            <figcaption>{((i18n.language === currentLanguages.EN) && amenity.titleEn) || ((i18n.language === currentLanguages.RU) && amenity.titleRu) || amenity.titleUa}</figcaption>
           </li>
         ))}
       </ul>
@@ -47,13 +47,13 @@ const Amenities = ({ dataId, customClass }) => {
           <Image
             src={bed?.img}
             alt={
-              ((i18n.language === currentLanguages.EN) && bed?.titleEn) || ((i18n.language === currentLanguages.RU) && bed?.titleRu) || bed?.title }
+              ((i18n.language === currentLanguages.EN) && bed?.titleEn) || ((i18n.language === currentLanguages.RU) && bed?.titleRu) || bed?.titleUa}
             fill={true}
             className={styles.imgSvg}
             sizes="24px"
           />
         </figure>
-          <figcaption>{((i18n.language === currentLanguages.EN) && bed?.titleEn) || ((i18n.language === currentLanguages.RU) && bed?.titleRu) || bed?.title}</figcaption>
+        <figcaption>{((i18n.language === currentLanguages.EN) && bed?.titleEn) || ((i18n.language === currentLanguages.RU) && bed?.titleRu) || bed?.titleUa}</figcaption>
       </div>
     </article>
   );

@@ -49,7 +49,7 @@ const Register = () => {
         менше 768 пікселів.
       </p>
       <div className={styles.contentWrapper}>
-        <h1>Реєстрація</h1>
+        <h1>Реєстрація до адмінки</h1>
         <Formik
           initialValues={initialValues}
           validationSchema={registerSchema}

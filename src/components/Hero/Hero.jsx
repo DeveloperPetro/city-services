@@ -97,7 +97,7 @@ const Hero = () => {
                 address={
                   (i18n.language === currentLanguages.EN && item.addressEn) ||
                   (i18n.language === currentLanguages.RU && item.addressRu) ||
-                  item.address
+                  item.addressUa
                 }
                 price={item.price}
                 objNumber={item.objNumber}

@@ -53,11 +53,19 @@
     background-color: $Primary400;
     border-radius: 5px;
     border: 1px solid $Primary900;
-    width: calc(50% - 25px);
+    width: calc(50% - 12px);
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
   }
+
+  @media screen and (min-width: $desktop) {
+    width: calc(50% - 24px);
+  }
+}
+
+.objNumber {
+  color: $Error;
 }
 
 .property {
@@ -101,21 +109,13 @@
   fill: $Error;
 }
 
-.address {
-  display: block;
-  width: 40vw;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.location,
-.absentBooking {
+.locationLink,
+.absentBookingLink {
   font-weight: 400;
 }
 
 .platformLink {
   display: block;
-  width: 40vw;
   overflow: hidden;
   font-weight: 400;
   white-space: nowrap;
@@ -123,4 +123,8 @@
 
 .description {
   display: block;
+}
+
+.overHid {
+  overflow: hidden;
 }

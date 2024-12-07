@@ -3,13 +3,12 @@ import { regexUrl, regexGoogleLocation } from "@/utils/regularExpressions";
 
 
 export const updatingDashboardSchema = Yup.object({
-    newTop: Yup.boolean(),
     newPriority: Yup.number()
         .moreThan(-1, "Тільки додатні числа")
         .typeError("Тільки числа")
         .required("Пріоритет це обовʼязкове поле"),
     newImgs: Yup.array().min(2, "Мінімум дві додаткові фотографії"),
-    newAddress: Yup.string()
+    newAddressUa: Yup.string()
         .required("Адреса українською це обовʼязкове поле"),
     newAddressEn: Yup.string()
         .required("Адреса англійською це обовʼязкове поле"),
@@ -30,7 +29,7 @@ export const updatingDashboardSchema = Yup.object({
         .matches(regexUrl, "https://www.booking.com"),
     newAmenities: Yup.array()
         .min(1, "Мінімум одне вибране поле"),
-    newDescription: Yup.string()
+    newDescriptionUa: Yup.string()
         .required("Опис українською це обовʼязкове поле"),
     newDescriptionEn: Yup.string()
         .required("Опис англійською це обовʼязкове поле"),

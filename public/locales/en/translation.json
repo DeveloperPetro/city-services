@@ -8,7 +8,7 @@
   "MainPage": {
     "SeoTitleH1": "Rent a flat Sumy. Sumy flat. Rent a flat Sumy. Sumy.",
     "heroTitle": "Apartments for rent in Kyiv",
-    "heroSubTitle": "daily rent of apartments in the suburbs of Kyiv",
+    "heroSubTitle": "daily and hourly rental of apartments on Sofiivska Borshchagovka",
     "galleryTittle": "Apartments"
   },
   "ApartmentsPage": {
@@ -68,7 +68,7 @@
     "SeoTitleH3": "Rent a flat Sumy. Sumy flat. Rent a flat Sumy. Sumy.",
     "name": "Name",
     "phone": "Phone number",
-    "fieldDateOfEntry":"Date of entry",
+    "fieldDateOfEntry": "Date of entry",
     "fieldDepartureDate": "Departure date",
     "fieldNumberObject": "Object number",
     "plcHolderDateOfEntry": "Date of entry",

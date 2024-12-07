@@ -99,7 +99,7 @@ const Footer = ({ onClick }) => {
                                                     (i18n.language ===
                                                         currentLanguages.RU &&
                                                         item.titleRu) ||
-                                                    item.title}
+                                                    item.titleUa}
                                             </Link>
                                         </li>
                                     );
