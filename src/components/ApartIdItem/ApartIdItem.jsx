@@ -1,7 +1,7 @@
 "use client";
 import { useTranslation } from "react-i18next";
 import { useRouter } from "next/navigation";
-import { v4 } from "uuid";
+// import { v4 } from "uuid";
 import ModalR from "@/components/Modal/Modal";
 import OrderForm from "@/components/OrderForm/OrderForm";
 import BreadCrumbs from "../BreadCrumbs/BreadCrumbs";
@@ -13,6 +13,7 @@ import { GetDataById } from "@/fetch/clientFetch";
 import { currentLanguages, textInfoAppartId } from "@/data";
 import seoStyles from "@/app/seoStyles.module.css";
 import styles from "./ApartIdItem.module.scss";
+import { changeDescsFromStringToArray } from "@/utils/changeDescsFromStringToArray";
 
 
 const ApartIdItem = ({ params }) => {
@@ -21,35 +22,7 @@ const ApartIdItem = ({ params }) => {
 
     const dataId = data && !isLoading ? data : error;
 
-    // массив для добавления description квартиры в карточку
-    const allLangsOfDescsArray = [];
-
-    // строки из БД, которые преобразуется в массивы
-    const descUaArrayFromData = data?.descriptionUa.split(" | ");
-    const descEnArrayFromData = data?.descriptionEn.split(" | ");
-    const descRuArrayFromData = data?.descriptionRu.split(" | ");
-
-    // наполнение массива украинскими данными из БД
-    descUaArrayFromData?.map((item) => {
-        const id = v4();
-        // присваивается переменной text значение item-a (описание на украинском языке)
-        const textUa = item;
-
-        //создается объект для хранения всех языков одного блока описания (украинский вариант записывается, а для английского и русского создаются переменные)
-        const allLanguagesOfDescription = {
-            id,
-            textUa,
-            textEn: "",
-            textRu: "",
-        };
-        allLangsOfDescsArray.push(allLanguagesOfDescription);
-    });
-
-    // английский и русский варианты записываются
-    allLangsOfDescsArray.map((item, index) => {
-        item.textEn = descEnArrayFromData[index];
-        item.textRu = descRuArrayFromData[index];
-    });
+    const allLangsOfDescsArray = changeDescsFromStringToArray(data);
 
     // общий массив для рендера, созданный путем распыления массивов данных из локальной data и БД
     const allInformation = [...allLangsOfDescsArray, ...textInfoAppartId];

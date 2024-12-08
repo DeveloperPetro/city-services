@@ -79,7 +79,7 @@
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  gap: 5px;
+  gap: 8px;
   padding: 10px;
   background-color: $Primary400;
   border-radius: 5px;
@@ -129,8 +129,8 @@
   white-space: nowrap;
 }
 
-.description {
-  display: block;
+.descriptionItem:not(:last-child) {
+  margin-bottom: 8px;
 }
 
 .btnsWrapper {

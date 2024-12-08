@@ -19,6 +19,16 @@ const EditCard = ({ params }) => {
 
   const { data, mutate, isLoading } = GetDataById(id);
 
+  let changedData = {};
+
+  if (!isLoading) {
+    changedData = { ...data };
+
+    changedData.descriptionUa = data?.descriptionUa.split(" | ");
+    changedData.descriptionEn = data?.descriptionEn.split(" | ");
+    changedData.descriptionRu = data?.descriptionRu.split(" | ");
+  }
+
   const router = useRouter();
 
   if (session.status === "loading") {
@@ -50,20 +60,22 @@ const EditCard = ({ params }) => {
           <Loading />
         ) : (
           <div className={styles.contentWrapper}>
-            <div key={data._id} className={styles.apartment}>
-              <h2 className={styles.objNumber}>Обʼєкт №: {data.objNumber}</h2>
-              <p className={styles.property}>Пріоритет: {data.priority}</p>
+            <div key={changedData._id} className={styles.apartment}>
+              <h2 className={styles.objNumber}>Обʼєкт №: {changedData.objNumber}</h2>
+              <p className={styles.property}>Пріоритет: {changedData.priority}</p>
               <p className={styles.property}>Основне фото:</p>
               <CldImage
                 width="300"
                 height="150"
                 crop="fill"
-                src={data.titleImg}
+                src={changedData.titleImg}
                 alt="apartment photo"
+                priority={true}
+
               />
               <p className={styles.property}>Додаткові фото:</p>
               <ul className={styles.imgsWrapper}>
-                {data.imgs.map((item, index) => (
+                {changedData.imgs.map((item, index) => (
                   <li className={styles.imgsItem} key={index}>
                     <div className={styles.imgCont}>
                       <CldImage
@@ -79,8 +91,8 @@ const EditCard = ({ params }) => {
                       onClick={async () => {
                         if (confirm("Хочете видалити це фото?")) {
                           handleDeleteImgFromMongoDB(
-                            data,
-                            data._id,
+                            changedData,
+                            changedData._id,
                             item,
                             mutate
                           );
@@ -96,39 +108,48 @@ const EditCard = ({ params }) => {
                   </li>
                 ))}
               </ul>
-              <p><span className={styles.property}>Адреса українською:</span> {data.addressUa}</p>
-              <p><span className={styles.property}>Адреса англійською:</span> {data.addressEn}</p>
-              <p><span className={styles.property}>Адреса російською:</span> {data.addressRu}</p>
-              <p><span className={styles.property}>Номер квартири:</span> {data.flatNumber}</p>
+              <p><span className={styles.property}>Адреса українською:</span> {changedData.addressUa}</p>
+              <p><span className={styles.property}>Адреса англійською:</span> {changedData.addressEn}</p>
+              <p><span className={styles.property}>Адреса російською:</span> {changedData.addressRu}</p>
+              <p><span className={styles.property}>Номер квартири:</span> {changedData.flatNumber}</p>
               <p className={`${styles.property} ${styles.overHid}`}>Місцезнаходження: <a
-                href={data.googleMapLocation}
+                href={changedData.googleMapLocation}
                 className={styles.locationLink}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {data.googleMapLocation}
+                {changedData.googleMapLocation}
               </a>
               </p>
-              <p><span className={styles.property}>Ціна:</span> {data.price}</p>
-              <p><span className={styles.property}>Кількість кімнат:</span> {data.roomsQuantity}</p>
-              <p className={styles.property}>BookingUrl: {data.bookingUrl ? <a
-                href={data.bookingUrl}
+              <p><span className={styles.property}>Ціна:</span> {changedData.price}</p>
+              <p><span className={styles.property}>Кількість кімнат:</span> {changedData.roomsQuantity}</p>
+              <p className={styles.property}>BookingUrl: {changedData.bookingUrl ? <a
+                href={changedData.bookingUrl}
                 className={styles.platformLink}
-              >{data.bookingUrl}
+              >{changedData.bookingUrl}
               </a> : <span className={styles.absentBookingLink}>{"немає"}</span>}
               </p>
               <p className={styles.property}>Додатковий комфорт:</p>
               <ul>
-                {data.amenities.map((item, index) => (
+                {changedData.amenities.map((item, index) => (
                   <li key={index}>{item}</li>
                 ))}
               </ul>
-              <p><span className={styles.property}>Кількість спальних місць:</span> {data.bedsQuantity}</p>
-              <p className={styles.description}><span className={styles.property}>Опис українською:</span> {data.descriptionUa}</p>
-              <p className={styles.description}><span className={styles.property}>Опис англійською:</span> {data.descriptionEn}</p>
-              <p className={styles.description}><span className={styles.property}>Опис російською:</span> {data.descriptionRu}</p>
+              <p><span className={styles.property}>Кількість спальних місць:</span> {changedData.bedsQuantity}</p>
+              <p className={styles.property}>Опис українською:</p>
+              <ul>
+                {changedData.descriptionUa.map((item, index) => <li key={index} className={styles.descriptionItem}>{item}</li>)}
+              </ul>
+              <p className={styles.property}>Опис англійською:</p>
+              <ul>
+                {changedData.descriptionEn.map((item, index) => <li key={index} className={styles.descriptionItem}>{item}</li>)}
+              </ul>
+              <p className={styles.property}>Опис російською:</p>
+              <ul>
+                {changedData.descriptionRu.map((item, index) => <li key={index} className={styles.descriptionItem}>{item}</li>)}
+              </ul>
             </div>
-            <UpdatingForm id={id} apart={data} mutate={mutate} />
+            <UpdatingForm id={id} apart={changedData} mutate={mutate} />
           </div>
         )}
       </div>
