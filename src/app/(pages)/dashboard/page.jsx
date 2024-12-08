@@ -73,8 +73,12 @@ const Dashboard = () => {
         ) : (
           <div className={styles.contentWrapper}>
             <div className={styles.apartments}>
-              {sortedByUpdateData.map((apart) => (
-                <div key={apart._id} className={styles.apartment}>
+              {sortedByUpdateData.map((apart) => {
+                const descsUaArray = apart.descriptionUa.split(" | ");
+                const descsEnArray = apart.descriptionEn.split(" | ");
+                const descsRuArray = apart.descriptionRu.split(" | ");
+
+                return <div key={apart._id} className={styles.apartment}>
                   <h2 className={styles.objNumber}>Обʼєкт №: {apart.objNumber}</h2>
                   <p className={styles.property}>Пріоритет: {apart.priority}</p>
                   <p className={styles.property}>Основне фото:</p>
@@ -131,9 +135,18 @@ const Dashboard = () => {
                     ))}
                   </ul>
                   <p><span className={styles.property}>Кількість спальних місць:</span> {apart.bedsQuantity}</p>
-                  <p className={styles.description}><span className={styles.property}>Опис українською:</span> {apart.descriptionUa}</p>
-                  <p className={styles.description}><span className={styles.property}>Опис англійською:</span> {apart.descriptionEn}</p>
-                  <p className={styles.description}><span className={styles.property}>Опис російською:</span> {apart.descriptionRu}</p>
+                  <p className={styles.property}>Опис українською:</p>
+                  <ul>
+                    {descsUaArray.map((item, index) => <li key={index} className={styles.descriptionItem}>{item}</li>)}
+                  </ul>
+                  <p className={styles.property}>Опис англійською:</p>
+                  <ul>
+                    {descsEnArray.map((item, index) => <li key={index} className={styles.descriptionItem}>{item}</li>)}
+                  </ul>
+                  <p className={styles.property}>Опис російською:</p>
+                  <ul>
+                    {descsRuArray.map((item, index) => <li key={index} className={styles.descriptionItem}>{item}</li>)}
+                  </ul>
                   <div className={styles.btnsWrapper}>
                     <Link
                       className={styles.editLink}
@@ -161,7 +174,8 @@ const Dashboard = () => {
                     </svg>
                   </div>
                 </div>
-              ))}
+              }
+              )}
             </div>
             <DashboardForm />
           </div>

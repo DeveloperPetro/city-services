@@ -48,7 +48,7 @@
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    gap: 5px;
+    gap: 8px;
     padding: 10px;
     background-color: $Primary400;
     border-radius: 5px;
@@ -121,8 +121,8 @@
   white-space: nowrap;
 }
 
-.description {
-  display: block;
+.descriptionItem:not(:last-child) {
+  margin-bottom: 8px;
 }
 
 .overHid {
