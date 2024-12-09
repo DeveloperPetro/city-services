@@ -72,7 +72,7 @@ const Filter = ({
                 <FilterItem
                   key={item.id}
                   id={item.id}
-                  title={item.title}
+                  title={item.titleUa}
                   titleEn={item.titleEn}
                   titleRu={item.titleRu}
                   activeIndex={activeIndex}
