@@ -35,12 +35,12 @@
 
   @media screen and (min-width: $mobile) {
     letter-spacing: 0.3px;
-    padding: 0;
   }
 
   @media screen and (min-width: $tablet) {
     letter-spacing: 1.7px;
     height: 22px;
+    padding: 0;
   }
   @media screen and (min-width: $desktop) {
     height: 30px;
