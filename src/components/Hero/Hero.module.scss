@@ -28,11 +28,11 @@
   background-clip: text;
   text-shadow: 4px 4px 8px 0px rgba(246, 246, 244, 0.25);
   margin-bottom: 16px;
-  height: 30px;
+  height: 55px;
 
   @media screen and (min-width: $mobile) {
     font-size: 26px;
-    height: 33px;
+    height: 65px;
   }
 
   @media screen and (min-width: 580px) {
@@ -42,15 +42,15 @@
   @media screen and (min-width: $tablet) {
     font-size: 56px;
     margin-bottom: 20px;
-    height: 70px;
+    line-height: 1;
+    height: 112px;
   }
 
   @media screen and (min-width: $desktop) {
-    font-size: 108px;
-    line-height: 1;
+    font-size: 68px;
     margin-bottom: 4px;
     z-index: 3;
-    height: 108px;
+    height: 68px;
   }
 }
 
@@ -64,9 +64,6 @@
   @media screen and (min-width: $tablet) {
     flex-direction: row;
   }
-
-  @media screen and (min-width: $desktop) {
-  }
 }
 
 .subTitle {
@@ -76,19 +73,20 @@
   letter-spacing: 0.01em;
   color: $SecondaryColor;
   margin-bottom: 12px;
-  height: 45px;
+  height: 23px;
 
   @media screen and (min-width: $mobile) {
     font-size: 20px;
-    width: 80%;
-    height: 84px;
+    height: 28px;
   }
 
   @media screen and (min-width: 580px) {
     font-size: 24px;
+    height: 28px;
   }
 
   @media screen and (min-width: $tablet) {
+    width: 80%;
     font-size: 20px;
     margin-bottom: 16px;
   }
@@ -96,7 +94,7 @@
   @media screen and (min-width: $desktop) {
     font-size: 26px;
     margin-bottom: 20px;
-    height: 110px;
+    height: 37px;
   }
 }
 
@@ -126,12 +124,12 @@
 
   @media screen and (min-width: $tablet) {
     width: 49%;
-    height: 524px;
+    height: 464px;
   }
 
   @media screen and (min-width: $desktop) {
     width: 55%;
-    height: 580px;
+    height: 534px;
   }
 
   & img {
@@ -145,6 +143,7 @@
   }
 
   @media screen and (min-width: $desktop) {
+    padding-top: 16px;
     width: 40%;
   }
 }
@@ -160,7 +159,7 @@
   }
 
   @media screen and (min-width: $desktop) {
-    height: 273px;
+    height: 283px;
   }
 
   & img {
