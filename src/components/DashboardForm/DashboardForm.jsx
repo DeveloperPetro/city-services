@@ -24,6 +24,12 @@ const DashboardForm = () => {
     addressUa: "",
     addressEn: "",
     addressRu: "",
+    complexUa: "",
+    complexEn: "",
+    complexRu: "",
+    districtUa: "",
+    districtEn: "",
+    districtRu: "",
     flatNumber: "",
     googleMapLocation: "",
     price: "",
@@ -190,6 +196,92 @@ const DashboardForm = () => {
               name="addressRu"
               id="addressRu"
               placeholder="ул.Шевченко, д.8"
+              className={styles.input}
+            />
+
+            <label htmlFor="complexUa">Житловий комплекс українською:</label>
+            <ErrorMessage
+              name="complexUa"
+              className={styles.error}
+              component="p"
+            />
+            <Field
+              type="text"
+              name="complexUa"
+              id="complexUa"
+              maxLength="100"
+              placeholder="ЖК Європейка"
+              className={styles.input}
+            />
+
+            <label htmlFor="complexEn">Житловий комплекс англійською:</label>
+            <ErrorMessage
+              name="complexEn"
+              className={styles.error}
+              component="p"
+            />
+            <Field
+              type="text"
+              name="complexEn"
+              id="complexEn"
+              placeholder="RC European"
+              className={styles.input}
+            />
+
+            <label htmlFor="complexRu">Житловий комплекс російською:</label>
+            <ErrorMessage
+              name="complexRu"
+              className={styles.error}
+              component="p"
+            />
+            <Field
+              type="text"
+              name="complexRu"
+              id="complexRu"
+              placeholder="ЖК Европейка"
+              className={styles.input}
+            />
+
+            <label htmlFor="districtUa">Район українською:</label>
+            <ErrorMessage
+              name="districtUa"
+              className={styles.error}
+              component="p"
+            />
+            <Field
+              type="text"
+              name="districtUa"
+              id="districtUa"
+              maxLength="100"
+              placeholder="Софіївська Борщагівка, Київська область"
+              className={styles.input}
+            />
+
+            <label htmlFor="districtEn">Район англійською:</label>
+            <ErrorMessage
+              name="districtEn"
+              className={styles.error}
+              component="p"
+            />
+            <Field
+              type="text"
+              name="districtEn"
+              id="districtEn"
+              placeholder="Sofiivska Borshchagivka, Kyiv region"
+              className={styles.input}
+            />
+
+            <label htmlFor="addressRu">Район російською:</label>
+            <ErrorMessage
+              name="addressRu"
+              className={styles.error}
+              component="p"
+            />
+            <Field
+              type="text"
+              name="addressRu"
+              id="addressRu"
+              placeholder="Софиевская Борщаговка, Киевская область"
               className={styles.input}
             />
 

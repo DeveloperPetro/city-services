@@ -111,6 +111,12 @@ const EditCard = ({ params }) => {
               <p><span className={styles.property}>Адреса українською:</span> {changedData.addressUa}</p>
               <p><span className={styles.property}>Адреса англійською:</span> {changedData.addressEn}</p>
               <p><span className={styles.property}>Адреса російською:</span> {changedData.addressRu}</p>
+              {changedData.complexUa && <p><span className={styles.property}>Житловий комплекс українською:</span> {changedData.complexUa}</p>}
+              {changedData.complexEn && <p><span className={styles.property}>Житловий комплекс англійською:</span> {changedData.complexEn}</p>}
+              {changedData.complexRu && <p><span className={styles.property}>Житловий комплекс російською:</span> {changedData.complexRu}</p>}
+              <p><span className={styles.property}>Район українською:</span> {changedData.districtUa}</p>
+              <p><span className={styles.property}>Район англійською:</span> {changedData.districtEn}</p>
+              <p><span className={styles.property}>Район російською:</span> {changedData.districtRu}</p>
               <p><span className={styles.property}>Номер квартири:</span> {changedData.flatNumber}</p>
               <p className={`${styles.property} ${styles.overHid}`}>Місцезнаходження: <a
                 href={changedData.googleMapLocation}
@@ -149,7 +155,7 @@ const EditCard = ({ params }) => {
                 {changedData.descriptionRu.map((item, index) => <li key={index} className={styles.descriptionItem}>{item}</li>)}
               </ul>
             </div>
-            <UpdatingForm id={id} apart={changedData} mutate={mutate} />
+            <UpdatingForm id={id} apart={data} mutate={mutate} />
           </div>
         )}
       </div>

@@ -107,6 +107,12 @@ const Dashboard = () => {
                   <p><span className={styles.property}>Адреса українською:</span> {apart.addressUa}</p>
                   <p><span className={styles.property}>Адреса англійською:</span> {apart.addressEn}</p>
                   <p><span className={styles.property}>Адреса російською:</span> {apart.addressRu}</p>
+                  {apart.complexUa && <p><span className={styles.property}>Житловий комплекс українською:</span> {apart.complexUa}</p>}
+                  {apart.complexEn && <p><span className={styles.property}>Житловий комплекс англійською:</span> {apart.complexEn}</p>}
+                  {apart.complexRu && <p><span className={styles.property}>Житловий комплекс російською:</span> {apart.complexRu}</p>}
+                  <p><span className={styles.property}>Район українською:</span> {apart.districtUa}</p>
+                  <p><span className={styles.property}>Район англійською:</span> {apart.districtEn}</p>
+                  <p><span className={styles.property}>Район російською:</span> {apart.districtRu}</p>
                   <p><span className={styles.property}>Номер квартири:</span> {apart.flatNumber}</p>
                   <p className={`${styles.property} ${styles.overHid}`}>Місцезнаходження: <a
                     href={apart.googleMapLocation}

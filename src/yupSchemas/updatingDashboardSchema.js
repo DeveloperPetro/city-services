@@ -14,6 +14,15 @@ export const updatingDashboardSchema = Yup.object({
         .required("Адреса англійською це обовʼязкове поле"),
     newAddressRu: Yup.string()
         .required("Адреса російською це обовʼязкове поле"),
+    newComplexUa: Yup.string(),
+    newComplexEn: Yup.string(),
+    newComplexRu: Yup.string(),
+    newDistrictUa: Yup.string()
+        .required("Район українською це обовʼязкове поле"),
+    newDistrictEn: Yup.string()
+        .required("Район англійською це обовʼязкове поле"),
+    newDistrictRu: Yup.string()
+        .required("Район російською це обовʼязкове поле"),
     newFlatNumber: Yup.number()
         .moreThan(-1, "Тільки додатні числа")
         .typeError("Тільки числа")
