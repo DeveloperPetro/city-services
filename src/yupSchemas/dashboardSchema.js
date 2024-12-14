@@ -33,6 +33,15 @@ export const dashboardSchema = Yup.object({
         .required("Адреса англійською це обовʼязкове поле"),
     addressRu: Yup.string()
         .required("Адреса російською це обовʼязкове поле"),
+    complexUa: Yup.string(),
+    complexEn: Yup.string(),
+    complexRu: Yup.string(),
+    districtUa: Yup.string()
+        .required("Район українською це обовʼязкове поле"),
+    districtEn: Yup.string()
+        .required("Район англійською це обовʼязкове поле"),
+    districtRu: Yup.string()
+        .required("Район російською це обовʼязкове поле"),
     flatNumber: Yup.number()
         .moreThan(-1, "Тільки додатні числа")
         .typeError("Тільки числа")

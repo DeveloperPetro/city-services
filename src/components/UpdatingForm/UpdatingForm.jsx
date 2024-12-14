@@ -17,6 +17,12 @@ const UpdatingForm = ({ id, apart, mutate }) => {
     addressUa,
     addressEn,
     addressRu,
+    complexUa,
+    complexEn,
+    complexRu,
+    districtUa,
+    districtEn,
+    districtRu,
     flatNumber,
     googleMapLocation,
     price,
@@ -36,6 +42,12 @@ const UpdatingForm = ({ id, apart, mutate }) => {
     addressUa,
     addressEn,
     addressRu,
+    complexUa,
+    complexEn,
+    complexRu,
+    districtUa,
+    districtEn,
+    districtRu,
     flatNumber,
     googleMapLocation,
     price,
@@ -55,6 +67,12 @@ const UpdatingForm = ({ id, apart, mutate }) => {
     newAddressUa: addressUa,
     newAddressEn: addressEn,
     newAddressRu: addressRu,
+    newComplexUa: complexUa,
+    newComplexEn: complexEn,
+    newComplexRu: complexRu,
+    newDistrictUa: districtUa,
+    newDistrictEn: districtEn,
+    newDistrictRu: districtRu,
     newFlatNumber: flatNumber,
     newGoogleMapLocation: googleMapLocation,
     newPrice: price,
@@ -75,6 +93,12 @@ const UpdatingForm = ({ id, apart, mutate }) => {
       newAddressUa,
       newAddressEn,
       newAddressRu,
+      newComplexUa,
+      newComplexEn,
+      newComplexRu,
+      newDistrictUa,
+      newDistrictEn,
+      newDistrictRu,
       newFlatNumber,
       newGoogleMapLocation,
       newPrice,
@@ -94,6 +118,12 @@ const UpdatingForm = ({ id, apart, mutate }) => {
       addressUa: newAddressUa,
       addressEn: newAddressEn,
       addressRu: newAddressRu,
+      complexUa: newComplexUa,
+      complexEn: newComplexEn,
+      complexRu: newComplexRu,
+      districtUa: newDistrictUa,
+      districtEn: newDistrictEn,
+      districtRu: newDistrictRu,
       flatNumber: newFlatNumber,
       googleMapLocation: newGoogleMapLocation,
       price: newPrice,
@@ -233,6 +263,92 @@ const UpdatingForm = ({ id, apart, mutate }) => {
                 name="newAddressRu"
                 id="newAddressRu"
                 value={values.newAddressRu}
+                className={styles.input}
+              />
+
+              <label htmlFor="newComplexUa">Житловий комплекс українською:</label>
+              <ErrorMessage
+                name="newComplexUa"
+                className={styles.error}
+                component="p"
+              />
+              <Field
+                type="text"
+                name="newComplexUa"
+                id="newComplexUa"
+                maxLength="100"
+                value={values.newComplexUa}
+                className={styles.input}
+              />
+
+              <label htmlFor="newComplexEn">Житловий комплекс англійською:</label>
+              <ErrorMessage
+                name="newComplexEn"
+                className={styles.error}
+                component="p"
+              />
+              <Field
+                type="text"
+                name="newComplexEn"
+                id="newComplexEn"
+                value={values.newComplexEn}
+                className={styles.input}
+              />
+
+              <label htmlFor="newComplexRu">Житловий комплекс російською:</label>
+              <ErrorMessage
+                name="newComplexRu"
+                className={styles.error}
+                component="p"
+              />
+              <Field
+                type="text"
+                name="newComplexRu"
+                id="newComplexRu"
+                value={values.newComplexRu}
+                className={styles.input}
+              />
+
+              <label htmlFor="newDistrictUa">Район українською:</label>
+              <ErrorMessage
+                name="newDistrictUa"
+                className={styles.error}
+                component="p"
+              />
+              <Field
+                type="text"
+                name="newDistrictUa"
+                id="newDistrictUa"
+                maxLength="100"
+                value={values.newDistrictUa}
+                className={styles.input}
+              />
+
+              <label htmlFor="newDistrictEn">Район англійською:</label>
+              <ErrorMessage
+                name="newDistrictEn"
+                className={styles.error}
+                component="p"
+              />
+              <Field
+                type="text"
+                name="newDistrictEn"
+                id="newDistrictEn"
+                value={values.newDistrictEn}
+                className={styles.input}
+              />
+
+              <label htmlFor="newDistrictRu">Район російською:</label>
+              <ErrorMessage
+                name="newDistrictRu"
+                className={styles.error}
+                component="p"
+              />
+              <Field
+                type="text"
+                name="newDistrictRu"
+                id="newDistrictRu"
+                value={values.newDistrictRu}
                 className={styles.input}
               />
 

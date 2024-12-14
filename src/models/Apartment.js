@@ -31,6 +31,27 @@ const apartmentSchema = new Schema({
         type: String,
         required: true,
     },
+    complexUa: {
+        type: String,
+    },
+    complexEn: {
+        type: String,
+    },
+    complexRu: {
+        type: String,
+    },
+    districtUa: {
+        type: String,
+        required: true,
+    },
+    districtEn: {
+        type: String,
+        required: true,
+    },
+    districtRu: {
+        type: String,
+        required: true,
+    },
     flatNumber: {
         type: String,
         required: true,
