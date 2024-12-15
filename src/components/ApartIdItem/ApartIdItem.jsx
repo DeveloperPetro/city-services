@@ -66,7 +66,13 @@ const ApartIdItem = ({ params }) => {
                                 Detailed information about the amenities
                             </h4>
                             <p className={styles.quantityRoomsInfo}>
-                                {dataId.roomsQuantity}
+                                {(i18n.language ===
+                                    currentLanguages.EN &&
+                                    dataId.complexEn) ||
+                                    (i18n.language ===
+                                        currentLanguages.RU &&
+                                        dataId.complexRu) ||
+                                    dataId.complexUa} {dataId.roomsQuantity}
                                 {t("ApartmentsPage.TextOfDescAdress")}
                             </p>
                             <address className={styles.address}>

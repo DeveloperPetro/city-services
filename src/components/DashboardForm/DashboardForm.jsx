@@ -210,7 +210,7 @@ const DashboardForm = () => {
               name="complexUa"
               id="complexUa"
               maxLength="100"
-              placeholder="ЖК Європейка"
+              placeholder="ЖК Європейка /"
               className={styles.input}
             />
 
@@ -224,7 +224,7 @@ const DashboardForm = () => {
               type="text"
               name="complexEn"
               id="complexEn"
-              placeholder="RC European"
+              placeholder="RC European /"
               className={styles.input}
             />
 
@@ -238,7 +238,7 @@ const DashboardForm = () => {
               type="text"
               name="complexRu"
               id="complexRu"
-              placeholder="ЖК Европейка"
+              placeholder="ЖК Европейка /"
               className={styles.input}
             />
 
