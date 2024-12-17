@@ -271,16 +271,16 @@ const DashboardForm = () => {
               className={styles.input}
             />
 
-            <label htmlFor="addressRu">Район російською:</label>
+            <label htmlFor="districtRu">Район російською:</label>
             <ErrorMessage
-              name="addressRu"
+              name="districtRu"
               className={styles.error}
               component="p"
             />
             <Field
               type="text"
-              name="addressRu"
-              id="addressRu"
+              name="districtRu"
+              id="districtRu"
               placeholder="Софиевская Борщаговка, Киевская область"
               className={styles.input}
             />
