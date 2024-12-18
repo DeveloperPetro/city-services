@@ -43,7 +43,7 @@ const ApartItem = ({
             <p className={styles.bedsQuantity}>{bedsQuantity}</p>
             <figure className={styles.bedImg}>
               <Image
-                src="/webp/Bed.webp"
+                src="/webp/Person.webp"
                 fill
                 sizes="24px"
                 alt="кількість спальних міст"

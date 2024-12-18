@@ -22,7 +22,7 @@
         "OneAndThreeRoom": "Однокомнатные та трехкомнатные",
         "TwoAndThreeRoom": "Двухкомнатные та трехкомнатные",
         "NotFound": "Квартиры не найдены",
-        "TextOfDescAdress": "-комнатные апартаменты",
+        "TextOfDescAdress": "-ком. кв.",
         "TextOfDescOptions": "Что будет в апартаментах"
     },
     "ApartIdItem": {
