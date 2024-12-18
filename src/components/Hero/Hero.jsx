@@ -17,6 +17,15 @@ const Hero = () => {
   const [showLoading, setShowLoading] = useState(false);
   const { t, i18n } = useTranslation();
 
+  let sortedData = [];
+
+  if (!isLoading) {
+    sortedData = [...data];
+    sortedData.sort((a, b) => {
+      return Number(a.priority) - Number(b.priority);
+    });
+  }
+
   const loaderRef = useRef();
 
   const handleScroll = () => {
@@ -89,7 +98,7 @@ const Hero = () => {
           <Loading />
         ) : (
           <ul className={styles.apartamentList} ref={loaderRef}>
-            {data?.slice(0, loadedCount).map((item) => (
+            {sortedData?.slice(0, loadedCount).map((item) => (
               <ApartItem
                 key={item._id}
                 titleImg={item.titleImg}
