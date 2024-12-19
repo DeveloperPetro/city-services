@@ -23,7 +23,8 @@
     "TwoAndThreeRoom": "Two-room and three-room",
     "NotFound": "apartments not found",
     "TextOfDescAdress": "-bedroom",
-    "TextOfDescOptions": "What will be in the apartment"
+    "TextOfDescOptions": "What will be in the apartment",
+    "PricePeriod": "day"
   },
   "ApartIdItem": {
     "SeoTitleH1": "Rent a flat Sumy. Sumy flat. Rent a flat Sumy. Sumy.",
