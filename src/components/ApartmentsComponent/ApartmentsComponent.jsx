@@ -13,7 +13,6 @@ import { currentLanguages } from "@/data";
 import seoStyles from "@/app/seoStyles.module.css";
 import styles from "./Apartments.module.scss";
 
-
 const ApartmentsComponent = () => {
   const router = useRouter();
   const { data, isLoading } = GetData();
@@ -24,6 +23,8 @@ const ApartmentsComponent = () => {
   const [numberBedsArr, setNumberBedsArr] = useState([]);
   const { t, i18n } = useTranslation();
   const containerRef = useRef();
+
+  // console.log(data);
 
   let sortedData = [];
 
@@ -129,7 +130,6 @@ const ApartmentsComponent = () => {
     // eslint-disable-next-line
   }, [filteredAmenitiesData, loadedCount]);
 
-
   return (
     <section className={`pageTopSection ${styles.container}`}>
       <h1 className={seoStyles.titleHidden}>
@@ -180,6 +180,20 @@ const ApartmentsComponent = () => {
                     roomsQuantity={item.roomsQuantity}
                     id={item._id}
                     bedsQuantity={item.bedsQuantity}
+                    complex={
+                      (i18n.language === currentLanguages.EN &&
+                        item.complexEn) ||
+                      (i18n.language === currentLanguages.RU &&
+                        item.complexRu) ||
+                      item.complexUa
+                    }
+                    district={
+                      (i18n.language === currentLanguages.EN &&
+                        item.districtEn) ||
+                      (i18n.language === currentLanguages.RU &&
+                        item.districtRu) ||
+                      item.districtUa
+                    }
                   />
                 ))}
           </ul>
@@ -200,6 +214,5 @@ const ApartmentsComponent = () => {
     </section>
   );
 };
-
 
 export default ApartmentsComponent;

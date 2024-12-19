@@ -1,15 +1,15 @@
-'use client';
-import React, { useRef } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import CallBtnRound from '../CallBtnRound/CallBtnRound';
-import { GetData } from '@/fetch/clientFetch';
-import ApartItem from '../ApartItem/ApartItem';
-import IsLoading from '../share/IsLoading/IsLoading';
-import { currentLanguages } from '@/data';
-import styles from './Hero.module.scss';
-import Loading from '@/app/loading';
+"use client";
+import React, { useRef } from "react";
+import { useTranslation } from "react-i18next";
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import CallBtnRound from "../CallBtnRound/CallBtnRound";
+import { GetData } from "@/fetch/clientFetch";
+import ApartItem from "../ApartItem/ApartItem";
+import IsLoading from "../share/IsLoading/IsLoading";
+import { currentLanguages } from "@/data";
+import styles from "./Hero.module.scss";
+import Loading from "@/app/loading";
 
 const Hero = () => {
   const { data, isLoading } = GetData();
@@ -51,10 +51,10 @@ const Hero = () => {
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
     // eslint-disable-next-line
   }, [data, loadedCount, showLoading]);
@@ -63,7 +63,7 @@ const Hero = () => {
     <section className={`${styles.container} pageTopSection`}>
       <div className={`${styles.hero} container`}>
         <h1 className={styles.title}>
-          {!isLoading && t('MainPage.heroTitle')}
+          {!isLoading && t("MainPage.heroTitle")}
         </h1>
         <div className={styles.heroContainer}>
           <figure className={styles.imgFirst}>
@@ -77,10 +77,10 @@ const Hero = () => {
           </figure>
           <div className={styles.heroContent}>
             <h2 className={styles.subTitle}>
-              {!isLoading && t('MainPage.heroSubTitle')}
+              {!isLoading && t("MainPage.heroSubTitle")}
             </h2>
             <div className={styles.callContiner}>
-              {!isLoading && <CallBtnRound text={t('Buttons.CalltBtn')} />}
+              {!isLoading && <CallBtnRound text={t("Buttons.CalltBtn")} />}
             </div>
             <figure className={styles.imgSecond}>
               <Image
@@ -113,6 +113,16 @@ const Hero = () => {
                 roomsQuantity={item.roomsQuantity}
                 id={item._id}
                 bedsQuantity={item.bedsQuantity}
+                complex={
+                  (i18n.language === currentLanguages.EN && item.complexEn) ||
+                  (i18n.language === currentLanguages.RU && item.complexRu) ||
+                  item.complexUa
+                }
+                district={
+                  (i18n.language === currentLanguages.EN && item.districtEn) ||
+                  (i18n.language === currentLanguages.RU && item.districtRu) ||
+                  item.districtUa
+                }
               />
             ))}
           </ul>

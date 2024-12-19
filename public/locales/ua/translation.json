@@ -23,7 +23,8 @@
     "TwoAndThreeRoom": "Двокімнатні та трикімнатні",
     "NotFound": "Квартири не знайдено",
     "TextOfDescAdress": "-кім. кв.",
-    "TextOfDescOptions": "Що буде в апартаментах"
+    "TextOfDescOptions": "Що буде в апартаментах",
+    "PricePeriod": "доба"
   },
   "ApartIdItem": {
     "SeoTitleH1": "Оренда квартири Київ. Київ квартири. Зняти квартиру Київ. Киев.",
