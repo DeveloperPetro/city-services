@@ -40,7 +40,7 @@ const Dashboard = () => {
   };
 
   const sortedPriorities = data?.map((item) => item.priority).sort((a, b) => { return a - b }).join(", ");
-
+  // const sortedPriorities = data?.map(item => `${item.priority}(#${item.objNumber})`).sort((a, b) => parseInt(a.slice(0, a.indexOf('(#'))) - parseInt(b.slice(0, b.indexOf('(#')))).join(", ");
 
   if (session.status === "loading") {
     return <Loading />;
