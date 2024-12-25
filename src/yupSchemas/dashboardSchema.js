@@ -42,9 +42,7 @@ export const dashboardSchema = Yup.object({
         .required("Район англійською це обовʼязкове поле"),
     districtRu: Yup.string()
         .required("Район російською це обовʼязкове поле"),
-    flatNumber: Yup.number()
-        .moreThan(-1, "Тільки додатні числа")
-        .typeError("Тільки числа")
+    flatNumber: Yup.string()
         .required("Номер квартири це обовʼязкове поле"),
     googleMapLocation: Yup.string()
         .required("Google-локація це обовʼязкове поле")
