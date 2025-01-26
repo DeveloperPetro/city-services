@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 import { currentLanguages } from "@/data";
 import styles from "./FilterRoomItem.module.scss";
 
-
 const FilterRoomItem = ({
   id,
   title,
@@ -41,15 +40,14 @@ const FilterRoomItem = ({
     ? styles.filterInputCheckbox__Checked
     : styles.filterInputCheckbox;
 
-
   return (
     <li className={styles.filterRoom}>
       {!isLoading && (
         <>
-          <p className={styles.filterRoomText}>
+          <label for={id} className={styles.filterRoomText}>
             {title}
             {t("Buttons.FilterQuantRooms")}
-          </p>
+          </label>
 
           <input
             id={id}
@@ -70,6 +68,5 @@ const FilterRoomItem = ({
     </li>
   );
 };
-
 
 export default FilterRoomItem;
