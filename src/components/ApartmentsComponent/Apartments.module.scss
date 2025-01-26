@@ -5,9 +5,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  // -webkit-box-align: center;
+  // -ms-flex-align: center;
+  // align-items: center;
   background-color: $Primary900;
 }
 
@@ -63,7 +63,7 @@
   text-align: center;
   margin: 0 auto;
 
-  color: $accentColor;
+  color: $lightFontColor;
   font-family: var(--font--lato);
   font-size: 20px;
   font-style: normal;
