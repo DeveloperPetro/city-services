@@ -1,13 +1,12 @@
 import React from 'react';
-import logo from '/public/logoBlackSmall.png';
-// import desktopLogo from '/public/logoBlackBig.png';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useWindowResize } from '@/hooks/useWindowResize';
+
 import styles from './Logo.module.scss';
 
-
 const Logo = ({ className }) => {
-
+  const { isDesktop } = useWindowResize();
 
   return (
     <Link
@@ -16,7 +15,7 @@ const Logo = ({ className }) => {
       className={styles.container + ' ' + `${className}`}
     >
       <Image
-        src={logo}
+        src={!isDesktop ? '/logoBlackSmall.webp' : '/logoBlackBig.webp'}
         alt="Логотип"
         fill={true}
         style={{ cursor: 'pointer' }}
@@ -25,6 +24,5 @@ const Logo = ({ className }) => {
     </Link>
   );
 };
-
 
 export default Logo;
