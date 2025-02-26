@@ -32,10 +32,9 @@ const ApartIdItem = ({ params }) => {
 
     return (
         <section className='pageTopSection'>
-            <div className={`container ${styles.container}`}>
+            <div className={`container ${styles.container}`}>               
                 <h1 className={seoStyles.titleHidden}>
-                    Оренда квартири Київ. Київ квартири. Зняти квартиру Київ.
-                    Киев.
+                   {t('ApartmentsPage.SeoTitleH1')}
                 </h1>
 
                 {!isLoading && (
@@ -124,7 +123,7 @@ const ApartIdItem = ({ params }) => {
                             allInformation.map((el, index) => {
                                 return (
                                     <li key={index}>
-                                        {el.title && (
+                                        {el.titleUa && (
                                             <h5
                                                 className={styles.textInfoTitle}
                                             >
@@ -138,7 +137,7 @@ const ApartIdItem = ({ params }) => {
                                             </h5>
                                         )}
 
-                                        {el.title === "Правила:" ? (
+                                        {el.titleUa === "Правила:" ? (
                                             <ul className={styles.rulesList}>
                                                 {el.rulesList.map(
                                                     (el, index) => {
