@@ -12,7 +12,7 @@ import { GetData } from "@/fetch/clientFetch";
 import { currentLanguages } from "@/data";
 import seoStyles from "@/app/seoStyles.module.css";
 import styles from "./Apartments.module.scss";
-import Apartments from "@/app/(pages)/apartments/page";
+// import Apartments from "@/app/(pages)/apartments/page";
 
 const ApartmentsComponent = () => {
   const router = useRouter();
