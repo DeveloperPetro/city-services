@@ -12,6 +12,7 @@ import { GetData } from "@/fetch/clientFetch";
 import { currentLanguages } from "@/data";
 import seoStyles from "@/app/seoStyles.module.css";
 import styles from "./Apartments.module.scss";
+import Apartments from "@/app/(pages)/apartments/page";
 
 const ApartmentsComponent = () => {
   const router = useRouter();
@@ -133,7 +134,7 @@ const ApartmentsComponent = () => {
   return (
     <section className={`pageTopSection ${styles.container}`}>
       <h1 className={seoStyles.titleHidden}>
-        Оренда квартири Київ. Київ квартири. Квартири подобово.
+        {!isLoading && t('ApartmentsComponent.SeoTitleH1')}
       </h1>
       <div className="container">
         <div className={styles.filterContainer}>

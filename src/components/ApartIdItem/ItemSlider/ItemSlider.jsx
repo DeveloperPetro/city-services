@@ -5,7 +5,7 @@ import styles from "./ItemSlider.module.scss";
 import { v4 } from "uuid";
 import { CldImage } from "next-cloudinary";
 import seoStyles from "@/app/seoStyles.module.css";
-
+import { useTranslation } from "react-i18next";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -29,6 +29,8 @@ import "./ItemSliderBottom.css";
 const ItemSlider = ({ dataId, customClass }) => {
   const [item, setItem] = useState([]);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  
+  const{t}=useTranslation()
 
   const images = dataId?.imgs;
 
@@ -66,7 +68,7 @@ const ItemSlider = ({ dataId, customClass }) => {
   return (
     <article className={`${styles.swiperContainer} ${customClass}`}>
       <h4 className={seoStyles.titleHidden}>
-        Detailed images of the apartment
+        {t('ApartIdItem.SeoTitleItemSliderH4')}
       </h4>
 
       <Swiper

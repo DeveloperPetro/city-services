@@ -9,9 +9,11 @@ import styles from "./RulesComponent.module.scss";
 
 
 const RulesComponent = () => {
+  
   const router = useRouter();
-  const { t } = useTranslation();
-  const { i18n } = useTranslation();
+  
+  const { t, i18n } = useTranslation();
+  
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -23,7 +25,7 @@ const RulesComponent = () => {
     <section className="pageTopSection">
       <div className="container">
         <h1 className={seoStyles.titleHidden}>
-          Оренда квартири Київ. Квартири подобово. Київ квартири.
+          {!isLoading && t('RulesPage.SeoTitleH1')}
         </h1>
 
         {!isLoading && <BreadCrumbs
