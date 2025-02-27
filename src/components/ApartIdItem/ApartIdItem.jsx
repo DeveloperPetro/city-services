@@ -34,7 +34,7 @@ const ApartIdItem = ({ params }) => {
         <section className='pageTopSection'>
             <div className={`container ${styles.container}`}>               
                 <h1 className={seoStyles.titleHidden}>
-                   {t('ApartmentsPage.SeoTitleH1')}
+                    {!isLoading && t('ApartIdItem.SeoTitleH1')}
                 </h1>
 
                 {!isLoading && (
@@ -54,7 +54,7 @@ const ApartIdItem = ({ params }) => {
                 ) : (
                     <article className={styles.apartContent}>
                         <h3 className={seoStyles.titleHidden}>
-                            Detailed information about the apartments
+                            {t('ApartIdItem.SeoTitleH3')}
                         </h3>
                         <ItemSlider
                             dataId={dataId}
@@ -62,7 +62,7 @@ const ApartIdItem = ({ params }) => {
                         />
                         <article className={styles.content}>
                             <h4 className={seoStyles.titleHidden}>
-                                Detailed information about the amenities
+                            {t('ApartIdItem.SeoTitleH4')}
                             </h4>
                             <p className={styles.quantityRoomsInfo}>
                                 {(i18n.language ===

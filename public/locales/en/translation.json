@@ -14,6 +14,8 @@
   "ApartmentsPage": {
     "SeoTitleH1": "Rent a flat Kiev. Kiev flat. Rent a flat Kiev. Kiev.",
     "SeoTitleH2": "Navigation",
+    "SeoTitleH3":"Detailed information about the apartments",
+    "SeoTitleH4":"Detailed information about the amenities",
     "Title": "What will be in the apartment?",
     "OneRoom": "One-room",
     "TwoRoom": "Two-room",
@@ -33,6 +35,9 @@
     "SeoTitleH4": "Detailed information about the amenities",
     "SeoTitleItemSliderH4": "Detailed images of the apartment",
     "TextWelcome": "Welcome to DailyRent."
+  },
+  "ApartmentsComponent":{
+    "SeoTitleH1":"Rent an apartment in Kyiv. Kyiv apartments for rent. Apartments for rent in Kyiv."
   },
   "RulesPage": {
     "SeoTitleH1": "Rent a flat Kiev. Kiev flat. Rent a flat Kiev. Kiev.",

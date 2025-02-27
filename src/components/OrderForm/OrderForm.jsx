@@ -93,8 +93,7 @@ const OrderForm = ({ id = "" }) => {
                         </button>
                         <LogoForm />
                         <h3 className={seoStyles.titleHidden}>
-                            Оренда квартири Київ. Київ квартири. Аренда квартиры
-                            Киев.
+                            {t('Form.SeoTitleH3')}
                         </h3>
                         {isSubmitting ? (
                             <SuccessContent closeModal={closeModal} />
