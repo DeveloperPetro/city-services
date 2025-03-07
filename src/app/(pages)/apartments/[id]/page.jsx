@@ -12,17 +12,17 @@ export async function generateMetadata({ params, searchParams }, parent) {
   const data = {
     ua: {
       title: "Квартири подобово Daily Rent Kyiv - оренда квартири Київ.",
-      description: `Зняти квартиру в місті Київ за адресою ${product?.address}`,
+      description: `Зняти квартиру в місті Київ за адресою ${product?.addressUa}`,
       keywords: ["Квартири подобово", "оренда квартири", "Київ", "Daily Rent", "Зняти квартиру"],
     },
     en: {
       title: "Apartments for rent Daily Rent Kyiv - rent an apartment in Kyiv.",
-      description: `Rent an apartment in Kyiv at ${product?.address}`,
+      description: `Rent an apartment in Kyiv at ${product?.addressEn}`,
       keywords: ["Apartments for rent", "Kyiv", "Daily Rent", "apartment for a day", "rent"],
     },
     ru: {
       title: "Квартиры посуточно Daily Rent Kyiv - аренда квартиры Киев - аренда квартиры Киев.",
-      description: `Снять квартиру в городе Киев по адресу ${product?.address}`,
+      description: `Снять квартиру в городе Киев по адресу ${product?.addressRu}`,
       keywords: ["Аренда квартир", "Киев", "посуточно", "Daily Rent", "Квартиры"],
     },
   };
