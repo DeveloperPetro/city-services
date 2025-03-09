@@ -13,15 +13,15 @@ export const RulesInApartment = [
   },
   {
     id: 3,
-    ruleEn: 'Check-in takes place from 13.00. Check-out takes place at 12.00.',
-    ruleUa: 'Заселення відбувається з 13.00. Виселення відбувається о 12.00.',
-    ruleRu: 'Заселение происходит с 13.00. Выселение происходит в 12.00.',
+    ruleEn: 'Check-in takes place from 14.00. Check-out takes place at 11.00.',
+    ruleUa: 'Заселення відбувається з 14.00. Виселення відбувається об 11.00.',
+    ruleRu: 'Заселение происходит с 14.00. Выселение происходит в 11.00.',
   },
   {
     id: 4,
-    ruleEn: 'Check-in time is 12.00, regardless of the time of arrival.',
-    ruleUa: 'Розрахунковий час – 12.00, незалежно від часу заселення.',
-    ruleRu: 'Расчетное время – 12.00, независимо от времени заселения.',
+    ruleEn: 'Check-in time is 11.00, regardless of the time of arrival.',
+    ruleUa: 'Розрахунковий час – 11.00, незалежно від часу заселення.',
+    ruleRu: 'Расчетное время – 11.00, независимо от времени заселения.',
   },
   {
     id: 5,
