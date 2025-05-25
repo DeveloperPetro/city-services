@@ -4,6 +4,7 @@ import Header from '@/components/Header/Header';
 import { SiteProvider } from '@/context/SiteContext';
 import dynamic from 'next/dynamic';
 import CallBtnFloating from '@/components/CallBtnFloating/CallBtnFloating';
+import { GoogleTagManager } from '@next/third-parties/google'
 
 const lato = Lato({
   weight: ['100', '300', '400', '700', '900'],
@@ -98,6 +99,7 @@ export const metadata = {
 
 
 export default function RootLayout({ children }) {
+  const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
@@ -125,7 +127,16 @@ export default function RootLayout({ children }) {
   };
   return (
     <html lang="uk-UA">
+      <GoogleTagManager gtmId={`${GTM_ID}`} />
       <body className={`${lato.variable} ${cormorantInfant.variable}`}>
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
+        </noscript>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
